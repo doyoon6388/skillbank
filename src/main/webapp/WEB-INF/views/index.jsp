@@ -7,6 +7,6 @@ pageEncoding="utf-8" %>
     <title>Title</title>
 </head>
 <body>
-<hr>
+<jsp:include page="${page}"></jsp:include>
 </body>
 </html>
