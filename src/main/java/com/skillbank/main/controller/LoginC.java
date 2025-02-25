@@ -23,8 +23,8 @@ public class LoginC {
     }
 
     @PostMapping("/login")
-    public String login(HttpSession session, Model model, String username, String password) {
-        UserTestVO user = mainService.loginValid(username, password);
+    public String login(HttpSession session, Model model, UserTestVO userTestVO) {
+        UserTestVO user = mainService.loginValid(userTestVO);
         if (user != null) {
             // 로그인 성공: 세션에 사용자 정보 저장
             session.setAttribute("user", user);
