@@ -1,5 +1,5 @@
 window.onload = () => {
- insertProduct();
+/*alert('안녕')*/
 
 }
 

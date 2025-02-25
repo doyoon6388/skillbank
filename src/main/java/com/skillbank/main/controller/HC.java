@@ -21,6 +21,12 @@ public class HC {
         model.addAttribute("page", "main/main.jsp");
         return "index";
     }
+    @GetMapping("/seller-main")
+    public String sellerMain(Model model, HttpSession session) {
+        model.addAttribute("loginCheck", "login/loginSeller.jsp");
+        model.addAttribute("page", "main/main.jsp");
+        return "index";
+    }
 
 
 }
