@@ -11,6 +11,9 @@ public class ChatService {
     private String content;
     private MessageType type;
 
+    public void setTimestamp(String string) {
+    }
+
     public enum MessageType {
         CHAT, JOIN, LEAVE
     }
