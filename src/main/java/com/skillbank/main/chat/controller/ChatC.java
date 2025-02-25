@@ -14,8 +14,7 @@ public class ChatC {
     private MainService mainService;
    @GetMapping("/chat")
     public String chat() {
-
-        return "chat";
+       return "chat";
     }
 
     @MessageMapping("/chat.sendMessage")

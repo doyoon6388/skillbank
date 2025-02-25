@@ -1,21 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>실시간 채팅</title>
+    <title>채팅</title>
     <script src="https://cdn.jsdelivr.net/npm/sockjs-client/dist/sockjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/stompjs/lib/stomp.min.js"></script>
+
 </head>
+
 <body>
-<h2>채팅방</h2>
+<h2>실시간 채팅</h2>
 <div id="chat">
     <ul id="messageArea"></ul>
     <input type="text" id="message" placeholder="메시지를 입력하세요" />
     <button onclick="sendMessage()">보내기</button>
 </div>
 
-<script>
+<%--<script>
     var stompClient = null;
     var username = prompt("이름을 입력하세요:");
 
@@ -23,6 +26,9 @@
         var socket = new SockJS('/ws');
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
+            console.log("Connected: " + frame);
+
+            // 서버에서 메시지를 받아 처리
             stompClient.subscribe('/topic/public', function (message) {
                 showMessage(JSON.parse(message.body));
             });
@@ -48,6 +54,7 @@
     }
 
     connect();
-</script>
+</script>--%>
+<script type="javascript" src="/resources/static/js/chat.js"></script>
 </body>
 </html>
