@@ -28,6 +28,7 @@ public class LoginC {
         if (user != null) {
             // 로그인 성공: 세션에 사용자 정보 저장
             session.setAttribute("user", user);
+            session.setMaxInactiveInterval(1000);
             return "redirect:/";
         } else {
             // 로그인 실패: 에러 메시지와 함께 로그인 페이지 재출력
