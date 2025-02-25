@@ -12,8 +12,8 @@ public class MainService {
     @Autowired
     UserMapper userMapper;
 
-    public UserTestVO loginValid(String username, String password){
-        return userMapper.loginValid(username,password);
+    public UserTestVO loginValid(UserTestVO userTestVO){
+        return userMapper.loginValid(userTestVO);
     }
 
 
