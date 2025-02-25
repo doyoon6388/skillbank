@@ -7,8 +7,6 @@ pageEncoding="utf-8" %>
     <title>Title</title>
 </head>
 <body>
-<hr>
-ㅎㅇㅎㅇ
-ㅎㅇㅎㅇ
+커뮤니티 입니다
 </body>
 </html>
