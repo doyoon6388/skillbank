@@ -12,6 +12,7 @@ pageEncoding="utf-8" %>
     <div>견적요청</div>
     <div>고수찾기</div>
     <div onclick="location.href='/community'">커뮤니티</div>
+    <div onclick="location.href='/chat'">채팅</div>
 </div>
 <div>
     <jsp:include page="${loginCheck}"></jsp:include>

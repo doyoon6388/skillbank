@@ -1,4 +1,4 @@
-package com.skillbank.chat.service;
+package com.skillbank.main.chat.service;
 
 
 import lombok.Data;

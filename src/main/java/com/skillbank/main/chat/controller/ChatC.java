@@ -1,18 +1,20 @@
-package com.skillbank.chat.controller;
+package com.skillbank.main.chat.controller;
 
-import com.skillbank.chat.service.ChatService;
+import com.skillbank.main.chat.service.ChatService;
 import com.skillbank.main.service.MainService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ChatC {
     private MainService mainService;
-    public String chat(Model model, HttpSession session) {
-        model.addAttribute("page", "community/community.jsp");
-        model.addAttribute("loginCheck", mainService.loginCheck(session));
+   @GetMapping("/chat")
+    public String chat() {
+
         return "chat";
     }
 
