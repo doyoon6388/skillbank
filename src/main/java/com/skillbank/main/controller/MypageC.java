@@ -1,6 +1,7 @@
 package com.skillbank.main.controller;
 
 import com.skillbank.main.service.MainService;
+import com.skillbank.main.vo.UserTestVO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,21 +9,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class CommunityC {
+public class MypageC {
 
     @Autowired
     private MainService mainService;
 
-    @GetMapping("/community")
-    public String community(Model model, HttpSession session) {
-        Object mode = session.getAttribute("mode");
-            model.addAttribute("page", "community/community.jsp");
-        if (mode != null && mode.toString().equals("on")){
-            model.addAttribute("loginCheck", "login/loginPro.jsp");
-            return "indexPro";
-        }else{
+    @GetMapping("/mypage")
+    public String mypage(Model model, HttpSession session) {
+        if (session != null && session.getAttribute("user") != null) {
             model.addAttribute("loginCheck", mainService.loginCheck(session));
+            model.addAttribute("page", "mypage/mypage.jsp");
+            return "index";
+        } else {
+            model.addAttribute("loginCheck", "login/loginNO.jsp");
+            model.addAttribute("page", "login/loginPage.jsp");
             return "index";
         }
+
+
     }
 }

@@ -2,13 +2,12 @@
 pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
-<hr>
-<h1>ㅎㅇㅎㅇ</h1>
-ㅎㅇㅎㅇ
-</body>
+  </head>
+  <body>
+    <hr />
+    ㅎㅇㅎㅇ
+  </body>
 </html>
