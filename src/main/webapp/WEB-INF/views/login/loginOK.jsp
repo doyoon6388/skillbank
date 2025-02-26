@@ -5,14 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/resources/css/loginOK.css">
     <script src="/resources/js/mypage/mypage.js"></script>
 </head>
 <body>
-<div style="display: flex;">
-    <div>
-        <button onclick="changeToPro()">고수전환버튼</button>
-    </div>
-    <div>${sessionScope.user.username}님 반갑습니다</div>
+<div class="toggle-container">
+    <label class="toggle-switch">
+        <input type="checkbox" id="toggle-btn" onclick="toggleMode()">
+        <span class="slider"></span>
+    </label>
+    <div id="user-text">${sessionScope.user.username}님 반갑습니다</div>
     <div onclick="location.href='/chat'">채팅</div>
     <div onclick="location.href='/mypage'">마이페이지</div>
     <div onclick="location.href='/logout'">로그아웃</div>

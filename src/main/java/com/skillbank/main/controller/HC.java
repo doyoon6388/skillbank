@@ -18,11 +18,11 @@ public class HC {
 
     @GetMapping("/")
     public String index(Model model, HttpSession session) {
-
-        model.addAttribute("loginCheck", mainService.loginCheck(session)) ;
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
         model.addAttribute("page", "main/main.jsp");
         return "index";
     }
+
     @GetMapping("/usermode")
     public String userMode(HttpSession session) {
         session.setAttribute("mode", "off");
