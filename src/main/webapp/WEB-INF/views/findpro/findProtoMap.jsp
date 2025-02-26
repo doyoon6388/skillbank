@@ -16,7 +16,7 @@
         <div onclick="location.href='/findProRedirect'" class="header-list">リストで探す</div>
     </div>
     <div> 近くのプロを確実＆スピーディーに見つけよう！🙋‍♀️</div>
-    
+
 
     <form action="findProtoMap.jsp" method="get">
         <div class="filter-wrapper">
