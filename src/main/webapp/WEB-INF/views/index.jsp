@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<script src="/resources/js/main/index.js"></script>
+
 <body>
 <div style="display: flex; justify-content: space-between">
     <div style="display: flex; width: 500px; justify-content: space-evenly">
