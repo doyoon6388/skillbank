@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 pageEncoding="utf-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +14,8 @@ pageEncoding="utf-8" %>
     <div>로고자리</div>
     <div>견적요청</div>
     <div>고수찾기</div>
-    <c:if test="${user.hasPro == 1}">
-
-    </c:if>
     <div onclick="location.href='/community'">커뮤니티</div>
-    <div>여기는 고객 인덱스입니다</div>
+    <div>여기는 셀러 인덱스입니다</div>
 </div>
 <div>
     <jsp:include page="${loginCheck}"></jsp:include>
