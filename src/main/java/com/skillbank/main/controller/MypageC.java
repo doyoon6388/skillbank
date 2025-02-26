@@ -16,12 +16,12 @@ public class MypageC {
 
     @GetMapping("/mypage")
     public String mypage(Model model, HttpSession session) {
-        if (session != null && session.getAttribute("user") != null){
-            model.addAttribute("loginCheck",mainService.loginCheck(session));
+        if (session != null && session.getAttribute("user") != null) {
+            model.addAttribute("loginCheck", mainService.loginCheck(session));
             model.addAttribute("page", "mypage/mypage.jsp");
             return "index";
         } else {
-            model.addAttribute("loginCheck","login/loginNO.jsp");
+            model.addAttribute("loginCheck", "login/loginNO.jsp");
             model.addAttribute("page", "login/loginPage.jsp");
             return "index";
         }
