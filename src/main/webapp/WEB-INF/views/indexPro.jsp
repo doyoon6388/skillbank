@@ -15,6 +15,15 @@ pageEncoding="utf-8" %>
 <script src="/resources/js/main/index.js"></script>
 
 <body>
+<<<<<<< HEAD
+<div style="display: flex; justify-content: space-between">
+<div style="display: flex; width: 500px; justify-content: space-evenly">
+    <div>로고자리</div>
+    <div>견적요청</div>
+    <div onclick="location.href='/findPro'">고수찾기</div>
+    <div onclick="location.href='/community'">커뮤니티</div>
+    <div>여기는 셀러 인덱스입니다</div>
+=======
 <div class="header">
     <div class="header-items">
         <div onclick="location.href='/main'">🏠 logo</div>
@@ -25,6 +34,7 @@ pageEncoding="utf-8" %>
     <div>
         <jsp:include page="${loginCheck}"></jsp:include>
     </div>
+>>>>>>> e1fd087a488ef6bf60a27349af80fe2557f8b7d8
 </div>
 <div class="container">
     <jsp:include page="${page}"></jsp:include>

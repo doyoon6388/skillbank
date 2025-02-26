@@ -1,0 +1,71 @@
+/* ✅ 전체 컨테이너 스타일 */
+#search-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ✅ 최상단: 제목과 우측 "목록으로 찾기" */
+.findpro-header {
+    display: flex;
+    justify-content: space-between;  /* ✅ 제목 왼쪽, 목록 버튼 오른쪽 */
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-list {
+    font-size: 16px;
+    color: blue;
+    cursor: pointer;
+}
+
+/* ✅ 필터 & 검색 영역 */
+.filter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 50px;
+}
+
+/* ✅ 왼쪽 필터링 */
+.filter-left {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ✅ 수평선 */
+.separator {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+/* ✅ 중앙 지도 영역 */
+.findpro-map {
+    width: 100%;
+    height: 400px;
+    background-color: #eaeaea;  /* ✅ 지도 대신 회색 박스 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+}
