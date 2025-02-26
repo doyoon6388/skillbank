@@ -7,6 +7,6 @@ pageEncoding="utf-8" %>
     <title>Title</title>
 </head>
 <body>
-<hr>
+
 </body>
 </html>

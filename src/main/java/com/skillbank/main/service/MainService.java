@@ -12,10 +12,9 @@ public class MainService {
     @Autowired
     UserMapper userMapper;
 
-    public UserTestVO loginValid(UserTestVO userTestVO){
+    public UserTestVO loginValid(UserTestVO userTestVO) {
         return userMapper.loginValid(userTestVO);
     }
-
 
     public String loginCheck(HttpSession session) {
         if (session != null && session.getAttribute("user") != null) {
