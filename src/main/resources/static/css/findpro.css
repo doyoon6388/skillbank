@@ -1,0 +1,85 @@
+/* ✅ 전체 컨테이너 스타일 */
+#search-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ✅ 필터와 검색창을 포함한 wrapper */
+.filter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 50px;
+}
+
+/* ✅ 왼쪽 필터링 */
+.filter-left {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ✅ 오른쪽 검색 및 필터 */
+.filter-right {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+/* ✅ 고수 리스트를 포함한 박스 */
+#service-provider-list {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    padding: 15px;
+    border-top: 1px solid #ddd; /* ✅ 필터 & 검색과 구분선 추가 */
+}
+
+/* ✅ 개별 업체 카드 */
+.service-provider {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    width: 30%;
+    min-width: 250px;
+    text-align: left;
+}
+
+/* ✅ 반응형 스타일 */
+@media (max-width: 768px) {
+    .filter-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .filter-left, .filter-right {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    #service-provider-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -10,7 +10,7 @@ pageEncoding="utf-8" %>
 <div style="display: flex; justify-content: space-between">
 <div style="display: flex; width: 500px; justify-content: space-evenly">
     <div>견적요청</div>
-    <div>고수찾기</div>
+    <div onclick="location.href='/findPro'">고수찾기</div>
     <div onclick="location.href='/community'">커뮤니티</div>
 </div>
 <div>
