@@ -6,14 +6,19 @@ body {
     background-color: #F2F6FC;
 }
 
+.header-wrapper {
+    width: 100%;
+    background-color: #2D9CDB;
+}
+
 .header {
-    width: 1280px;
-    margin: 0px auto;
+    max-width: 1280px;
+    height: 40px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: #2D9CDB;
     color: white;
 }
 
