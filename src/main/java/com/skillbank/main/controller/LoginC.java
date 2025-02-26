@@ -17,7 +17,7 @@ public class LoginC {
 
     @GetMapping("/login")
     public String login(Model model, HttpSession session) {
-        model.addAttribute("loginCheck", mainService.loginCheck(session)) ;
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
         model.addAttribute("page", "login/loginPage.jsp");
         return "index";
     }
@@ -28,15 +28,17 @@ public class LoginC {
         if (user != null) {
             // 로그인 성공: 세션에 사용자 정보 저장
             session.setAttribute("user", user);
+            session.setMaxInactiveInterval(1000);
             return "redirect:/";
         } else {
             // 로그인 실패: 에러 메시지와 함께 로그인 페이지 재출력
             model.addAttribute("error", "로그인 정보가 올바르지 않습니다.");
-            model.addAttribute("loginCheck", mainService.loginCheck(session)) ;
+            model.addAttribute("loginCheck", mainService.loginCheck(session));
             model.addAttribute("page", "login/loginPage.jsp");
             return "index";
         }
     }
+
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("user");
