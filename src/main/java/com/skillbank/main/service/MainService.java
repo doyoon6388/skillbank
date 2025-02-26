@@ -19,7 +19,7 @@ public class MainService {
     public String loginCheck(HttpSession session) {
         if (session != null && session.getAttribute("user") != null) {
             return "login/loginOK.jsp";
-        } else {
+        } else{
             return "login/loginNO.jsp";
         }
     }
