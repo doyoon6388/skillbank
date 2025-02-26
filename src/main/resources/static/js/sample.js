@@ -35,3 +35,7 @@ const obj = {
 
 
 }
+fetch("/aa.jsp").then(response => response.text()).then(data => {
+       console.log(data)
+       document.querySelector("#content").innerHTML = data;
+})
