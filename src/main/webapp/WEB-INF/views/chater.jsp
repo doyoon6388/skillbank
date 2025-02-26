@@ -46,7 +46,7 @@
         console.log("현재 사용자: " + username);
 
         // WebSocket 연결
-        const websocket = new WebSocket("ws://localhost:8080/ws/chat");
+        const websocket = new WebSocket("ws://localhost:80/ws/chat");
 
         websocket.onmessage = onMessage;
         websocket.onopen = () => onOpen(username);

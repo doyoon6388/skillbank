@@ -13,7 +13,7 @@ pageEncoding="utf-8" %>
 <div style="display: flex; width: 500px; justify-content: space-evenly">
     <div>로고자리</div>
     <div>견적요청</div>
-    <div>고수찾기</div>
+    <div onclick="location.href='/findPro'">고수찾기</div>
     <div onclick="location.href='/community'">커뮤니티</div>
     <div>여기는 셀러 인덱스입니다</div>
 </div>
