@@ -1,0 +1,36 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Hiragino Kaku Gothic ProN, Hiragino Sans, Yu Gothic Medium, Yu Gothic, sans-serif;    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color: #F2F6FC;
+}
+
+.header {
+    width: 1280px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #2D9CDB;
+    color: white;
+}
+
+.header-items {
+    display: flex;
+    gap: 20px;
+}
+
+.header-items div {
+    cursor: pointer;
+}
+
+.container {
+    width: 1280px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
