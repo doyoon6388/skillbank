@@ -2,8 +2,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>채팅</title>
     <script src="https://cdn.jsdelivr.net/npm/sockjs-client/dist/sockjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/stompjs/lib/stomp.min.js"></script>
@@ -20,46 +18,34 @@
 </div>
 
 <script>
-    let stompClient = null;
+    // WebSocket 연결
+    const socket = new SockJS('/ws');
+    const stompClient = Stomp.over(socket);
 
-    function connect() {
-        let socket = new SockJS('/ws');  // WebSocket 연결
-        stompClient = Stomp.over(socket);
-        stompClient.connect({}, function (frame) {
-            console.log('Connected: ' + frame);
-
-            // 서버에서 메시지를 받을 때 실행
-            stompClient.subscribe('/topic/public', function (message) {
-                showMessage(JSON.parse(message.body));
-            });
+    stompClient.connect({}, function () {
+        console.log("WebSocket 연결 성공");
+        stompClient.subscribe('/topic/messages', function (message) {
+            showMessage(JSON.parse(message.body));
         });
-    }
+    });
 
-    // 메시지를 서버로 전송
+    // 메시지 전송 함수
     function sendMessage() {
-        let messageContent = document.getElementById("message").value;
-        if (messageContent && stompClient) {
-            let chatMessage = {
-                sender: "사용자",  // 실제 프로젝트에서는 로그인된 사용자 이름을 사용
-                content: messageContent,
-                timestamp: new Date().toLocaleTimeString()
-            };
-            stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
-            document.getElementById("message").value = "";
-        }
+        const message = {
+            sender: "고객1",  // 로그인 기능 추가되면 실제 사용자 정보로 변경
+            content: document.getElementById("message").value,
+            timestamp: new Date().toISOString()
+        };
+        stompClient.send("/app/chat", {}, JSON.stringify(message));
+        document.getElementById("message").value = ""; // 입력창 초기화
     }
 
-    // 메시지를 화면에 표시
+    // 채팅 메시지를 화면에 표시하는 함수
     function showMessage(message) {
-        let messageArea = document.getElementById("messageArea");
-        let messageElement = document.createElement("li");
-        messageElement.textContent = `[${message.timestamp}] ${message.sender}: ${message.content}`;
-        messageArea.appendChild(messageElement);
+        const chatBox = document.getElementById("chatBox");
+        chatBox.innerHTML += `<p><strong>${message.sender}:</strong> ${message.content}</p>`;
+        chatBox.scrollTop = chatBox.scrollHeight; // 스크롤 자동 이동
     }
-
-    connect();
-
 </script>
 </body>
-
 </html>
