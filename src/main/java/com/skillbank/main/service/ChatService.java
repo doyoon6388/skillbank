@@ -1,9 +1,7 @@
-package com.skillbank.main.chat.service;
+package com.skillbank.main.service;
 
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Data
 public class ChatService {
