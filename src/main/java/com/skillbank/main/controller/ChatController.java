@@ -19,12 +19,17 @@ public class ChatController {
     @GetMapping("/chat") // 사용자가 "/chat" 경로로 접근하면
     public String chatPage(HttpSession session, Model model) {
         Object mode = session.getAttribute("mode");
-        model.addAttribute("page", "chat.jsp");
         if (mode != null && mode.toString().equals("on")){
             model.addAttribute("loginCheck", "login/loginPro.jsp");
+        model.addAttribute("page", "chater.jsp");
             return "indexPro";
-        }else{
-            model.addAttribute("loginCheck", mainService.loginCheck(session));
+        }else if (mode == null && session.getAttribute("user") != null){
+        model.addAttribute("page", "chater.jsp");
+            model.addAttribute("loginCheck", "login/loginOK.jsp");
+            return "index";
+        }else {
+            model.addAttribute("loginCheck", "login/loginNO.jsp");
+            model.addAttribute("page", "login/loginPage.jsp");
             return "index";
         }
     }

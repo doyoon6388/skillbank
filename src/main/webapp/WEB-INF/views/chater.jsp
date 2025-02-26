@@ -39,16 +39,13 @@
         </div>
     </div>
 </div>
-
+<input id="userName" type="text" hidden value="${user.username}">
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // localStorage 또는 sessionStorage에서 사용자명 가져오기
-        const username = sessionStorage.getItem("username") || "guest";
-
+        const username = document.getElementById("userName").value || "guest";
         console.log("현재 사용자: " + username);
 
-        // WebSocket 연결
-        const websocket = new WebSocket("ws://localhost:80/ws/chat");
+        const websocket = new WebSocket("ws://192.168.2.115/ws/chat");
 
         websocket.onmessage = onMessage;
         websocket.onopen = () => onOpen(username);
@@ -58,8 +55,17 @@
             send(username);
         });
 
+        document.getElementById("msg").addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                send(username);
+            }
+        });
+
         function send(username) {
             let msg = document.getElementById("msg");
+            if (msg.value.trim() === "") return; // 빈 메시지 전송 방지
+
             console.log(username + ":" + msg.value);
             websocket.send(username + ":" + msg.value);
             msg.value = '';
@@ -90,6 +96,7 @@
             document.getElementById("msgArea").innerHTML += str;
         }
     });
+
 </script>
 
 </body>
