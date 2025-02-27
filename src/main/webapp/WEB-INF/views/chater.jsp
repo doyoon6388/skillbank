@@ -3,7 +3,6 @@
 <%@ page session="true" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>채팅방</title>
@@ -45,7 +44,7 @@
         const username = document.getElementById("userName").value || "guest";
         console.log("현재 사용자: " + username);
 
-        const websocket = new WebSocket("ws://192.168.2.115/ws/chat");
+        const websocket = new WebSocket("ws://192.168.85.26/ws/chat");
 
         websocket.onmessage = onMessage;
         websocket.onopen = () => onOpen(username);

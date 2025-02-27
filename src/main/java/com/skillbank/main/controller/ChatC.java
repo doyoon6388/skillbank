@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ChatController {
+public class ChatC {
 
     @Autowired
     private MainService mainService;
@@ -19,15 +19,15 @@ public class ChatController {
     @GetMapping("/chat") // 사용자가 "/chat" 경로로 접근하면
     public String chatPage(HttpSession session, Model model) {
         Object mode = session.getAttribute("mode");
-        if (mode != null && mode.toString().equals("on")){
+        if (mode != null && mode.toString().equals("on")) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
-        model.addAttribute("page", "chater.jsp");
+            model.addAttribute("page", "chater.jsp");
             return "indexPro";
-        }else if (mode == null && session.getAttribute("user") != null){
-        model.addAttribute("page", "chater.jsp");
+        } else if (mode == null && session.getAttribute("user") != null) {
+            model.addAttribute("page", "chater.jsp");
             model.addAttribute("loginCheck", "login/loginOK.jsp");
             return "index";
-        }else {
+        } else {
             model.addAttribute("loginCheck", "login/loginNO.jsp");
             model.addAttribute("page", "login/loginPage.jsp");
             return "index";
