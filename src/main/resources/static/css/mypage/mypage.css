@@ -1,0 +1,87 @@
+/* 제목 스타일 (h1 자체를 쓰거나, .mypage-title처럼 클래스를 따로 줄 수도 있음) */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+.mypage-wrapper{
+    width: 60%;
+    display: block;
+    justify-content: center;
+}
+/* 프로필 섹션 래퍼 */
+.mypage-profile-wrapper {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+/* 프로필 이미지 */
+.mypage-profile-img img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover; /* 이미지가 찌그러지지 않도록 */
+    margin-right: 16px;
+}
+
+/* 프로필 이름, 이메일 */
+.mypage-profile-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px; /* 각 줄 사이 여백 */
+}
+
+/* 이름 */
+.mypage-profile-name > div:nth-child(1) {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 이메일 */
+.mypage-profile-name > div:nth-child(2) {
+    font-size: 14px;
+    color: #777;
+}
+
+/* 마이페이지 아이템 전체 래퍼 */
+.mypage-item-wrapper {
+/*    !* 반복되는 아이템들을 그리드 형태로 정렬 (화면 크기에 맞춰 반응형 가능) *!
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
+    gap: 16px; /* 카드들 사이 간격 */
+}
+
+/* 각 아이템(카드) */
+.mypage-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 16px;
+    transition: box-shadow 0.2s ease;
+}
+
+/* 호버 시 살짝 강조 효과 */
+.mypage-item:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 아이템 제목 (ex: '고수 찾기', '커뮤니티' 등) */
+.mypage-item-tag {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* 아이템 상세 (ex: '찜한 고수', '커뮤니티 작성글 / 댓글' 등) */
+.mypage-item-list {
+    font-size: 14px;
+    color: #555;
+}
