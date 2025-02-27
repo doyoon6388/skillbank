@@ -51,6 +51,7 @@
     align-items: flex-end;
     gap: 10px;
     width: 100%;
+    margin-top: 130px
 }
 
 /* ✅ 고수 리스트 */
@@ -59,7 +60,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 180px;
-    justify-content: flex-end; /* ✅ 고수 리스트도 우측 정렬 */
+    justify-content: space-around;
     padding: 15px;
     border-top: 1px solid #ddd;
 }
@@ -97,3 +98,59 @@
         align-items: center;
     }
 }
+
+
+
+#subCategoryContainer {
+    position: relative;
+    min-height: 150px;  /* ✅ 최소 높이 지정하여 깔끔한 UI 유지 */
+}
+
+/* ✅ 공통 스타일 (처음에는 숨김) */
+.sub-category {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* ✅ 선택된 카테고리만 표시 */
+.sub-category.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#service-MainCategory, #express-SubCategory, #clean-SubCategory {
+    width: 200px;
+    height: 20px;
+}
+
+.findpro-search-tab {
+   display: flex;
+   gap:10px;
+}
+
+
+button {
+    background-color: #007acc; /* 버튼 배경 */
+    color: white; /* 글씨 흰색 */
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px; /* 둥근 모서리 */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #005f99; /* 마우스 오버 시 */
+}
+
+button:active {
+    background-color: #004f80; /* 클릭 시 */
+}
+
+

@@ -13,12 +13,12 @@
 <div id="search-container">
     <div class="findpro-header">
         <div class="header-title">近くのプロを探す</div>
-        <div onclick="location.href='/findProRedirect'" class="header-list">リストで探す</div>
+        <div onclick="location.href='/findpro'" class="header-list"> ← リストで探す</div>
     </div>
     <div> 近くのプロを確実＆スピーディーに見つけよう！🙋‍♀️</div>
 
 
-    <form action="findProtoMap.jsp" method="get">
+    <form action="/findprotomap" method="get">
         <div class="filter-wrapper">
             <!-- ✅ 왼쪽: 서비스 및 지역 필터링 -->
             <div class="filter-left">

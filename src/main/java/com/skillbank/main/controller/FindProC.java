@@ -14,7 +14,7 @@ public class FindProC {
     @Autowired
     private MainService mainService;
 
-    @GetMapping("/findPro")
+    @GetMapping("/findpro")
     public String findPro(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "findpro/findPro.jsp");
@@ -26,7 +26,23 @@ public class FindProC {
             return "index";
         }
     }
-    @GetMapping("/findProtoMap")
+
+    @GetMapping("/findpro-result")
+    public String findProResult(Model model, HttpSession session) {
+        Object mode = session.getAttribute("mode");
+        model.addAttribute("page", "findpro/findPro.jsp");
+        if (mode != null && mode.toString().equals("on")){
+            model.addAttribute("loginCheck", "login/loginPro.jsp");
+            return "indexPro";
+        }else{
+            model.addAttribute("loginCheck", mainService.loginCheck(session));
+            return "index";
+        }
+    }
+
+
+
+    @GetMapping("/findprotomap")
     public String findProtoMap(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "findpro/findProtoMap.jsp");
@@ -39,7 +55,7 @@ public class FindProC {
             return "index";
         }}
 
-    @GetMapping("/findProRedirect")
+    @GetMapping("/findproredirect")
             public String findProRedirect(Model model, HttpSession session) {
             Object mode = session.getAttribute("mode");
             model.addAttribute("page", "findpro/findPro.jsp");
