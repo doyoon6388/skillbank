@@ -21,10 +21,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <div class="header-wrapper">
       <div class="header">
         <div class="header-items">
-          <div onclick="location.href='/main'">🏠 logo</div>
-          <div onclick="location.href='/request'">📋 見積もり依頼</div>
-          <div onclick="location.href='/findpro'">🔍 プロを探す</div>
-          <div onclick="location.href='/community'">💬 コミュニティ</div>
+            <div onclick="location.href='/main'">🏠 logo</div>
+            <div onclick="location.href='/request'">📋 見積もり依頼</div>
+            <div onclick="location.href='/findpro'">🔍 プロを探す</div>
+            <div onclick="location.href='/community'">💬 コミュニティ</div>
         </div>
         <div>
           <jsp:include page="${loginCheck}"></jsp:include>
