@@ -23,7 +23,7 @@ public class ChatController {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
         model.addAttribute("page", "chater.jsp");
             return "indexPro";
-        }else if (mode == null && session.getAttribute("user") != null){
+        }else if (mode != null && mode.toString().equals("off")){
         model.addAttribute("page", "chater.jsp");
             model.addAttribute("loginCheck", "login/loginOK.jsp");
             return "index";
