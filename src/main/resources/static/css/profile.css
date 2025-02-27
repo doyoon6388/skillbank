@@ -6,7 +6,32 @@ body {
     background-color: #F2F6FC;
 }
 
+.chat-btn {
+    position: fixed;
+    right: max(calc((100vw - 1280px) / 2 + 20px), 20px); /* 너비 1280px 기준으로 조정 */
+    bottom: 10vh;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* 원 모양 */
+    background-color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    /*border: 2px solid black; !* 검정색 테두리 *!*/
+    object-fit: cover;
+    filter: invert(1); /* 기본적으로 반전 */
+    transform: scaleX(-1); /* 좌우 반전 */
+}
+
+.chat-btn:hover {
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);
+    transform: scaleX(-1) scale(1.1); /* 좌우 반전 상태 유지, 크기만 커짐 */
+    filter: invert(1) brightness(1.2); /* 밝기만 증가 */
+}
+
 .toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -48,9 +73,13 @@ body {
 
 /* 체크되었을 때 (ON 상태) */
 .toggle-switch input:checked + .slider {
-    background-color: #2D9CDB;
+
 }
 
 .toggle-switch input:checked + .slider::before {
     left: 25px;
+}
+
+.profile-wrap {
+    display: flex;
 }
