@@ -13,6 +13,7 @@ drop table user_test_db cascade constraints purge;
 insert into user_test_db values (user_test_db_seq.nextval, '11','22','asd@asd.com',default);
 insert into user_test_db values (user_test_db_seq.nextval, '22','33','as1s1d@asd.com',default);
 insert into user_test_db values (user_test_db_seq.nextval, '33','44','as1s1d@asd.com',1);
+insert into user_test_db values (user_test_db_seq.nextval, '도롱','563213','doyoon@asd.com',1);
 
 select *
 from user_test_db;
