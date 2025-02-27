@@ -18,10 +18,10 @@ public class FindProC {
     public String findPro(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "findpro/findPro.jsp");
-        if (mode != null && mode.toString().equals("on")){
+        if (mode != null && mode.toString().equals("on")) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
             return "indexPro";
-        }else{
+        } else {
             model.addAttribute("loginCheck", mainService.loginCheck(session));
             return "index";
         }
@@ -46,28 +46,29 @@ public class FindProC {
     public String findProtoMap(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "findpro/findProtoMap.jsp");
-        if(mode!= null && mode.toString().equals("on")){
+        if (mode != null && mode.toString().equals("on")) {
             // mode가 널이 아니고, mode 세션이 on이면
             model.addAttribute("loginCheck", "login/loginPro.jsp");
             return "indexPro";
         } else {
             model.addAttribute("loginCheck", mainService.loginCheck(session));
             return "index";
-        }}
+        }
+    }
 
     @GetMapping("/findproredirect")
-            public String findProRedirect(Model model, HttpSession session) {
-            Object mode = session.getAttribute("mode");
-            model.addAttribute("page", "findpro/findPro.jsp");
-            if(mode!= null && mode.toString().equals("on")){
-                model.addAttribute("loginCheck", "login/loginPro.jsp");
-                return "indexPro";
+    public String findProRedirect(Model model, HttpSession session) {
+        Object mode = session.getAttribute("mode");
+        model.addAttribute("page", "findpro/findPro.jsp");
+        if (mode != null && mode.toString().equals("on")) {
+            model.addAttribute("loginCheck", "login/loginPro.jsp");
+            return "indexPro";
+        } else {
+            model.addAttribute("loginCheck", mainService.loginCheck(session));
+            return "index";
         }
-            else {
-                model.addAttribute("loginCheck", mainService.loginCheck(session));
-                return "index";
-            }
 
 
-}}
+    }
+}
 
