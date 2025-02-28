@@ -21,11 +21,11 @@ public class ChatC {
         Object mode = session.getAttribute("mode");
         System.out.println(mode);
         System.out.println(session.getAttribute("user"));
-        if (mode.toString().equals("on")){
+        if (mode.toString().equals("on")) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
             model.addAttribute("page", "chater.jsp");
             return "indexPro";
-        }else if (mode.toString().equals("off")){
+        } else if (mode.toString().equals("off")) {
             model.addAttribute("loginCheck", "login/loginOK.jsp");
             model.addAttribute("page", "chater.jsp");
             return "index";

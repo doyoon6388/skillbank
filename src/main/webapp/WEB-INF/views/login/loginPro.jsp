@@ -10,16 +10,18 @@
 </head>
 <body>
 <div class="profile-container">
-    <div class="toggle-container">
-        <label class="toggle-switch">
-            <input type="checkbox" id="toggle-btn" onclick="toggleMode()"/>
-            <span class="slider"></span>
-        </label>
-    </div>
     <div class="profile-wrap">
-        <div id="user-text">${sessionScope.user.username} 프로님 반갑습니다.</div>
-        <div onclick="location.href='/mypage'">마이페이지</div>
-        <div onclick="location.href='/logout'">로그아웃</div>
+        <div class="profile&toggle">
+            <div class="toggle-container">
+                <label class="toggle-switch">
+                    <input type="checkbox" ${checked} id="toggle-btn" onclick="toggleMode()"/>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div id="user-text">${sessionScope.user.username} 프로님</div>
+        </div>
+        <img class="mypage-btn" src="/resources/icons/profile/mypage.png" alt="마이페이지" onclick="location.href='/mypage'">
+        <img class="logout-btn" src="/resources/icons/profile/logout.png" alt="로그아웃" onclick="logout()">
     </div>
     <img class="chat-btn" src="/resources/icons/profile/chat.png" alt="채팅" onclick="location.href='/chat'">
 </div>
