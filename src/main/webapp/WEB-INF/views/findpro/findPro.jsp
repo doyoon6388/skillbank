@@ -1,10 +1,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/resources/css/findpro.css">
+    <link rel="stylesheet" href="/resources/css/findpro/findpro.css">
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="/resources/js/findpro/findpro.js"></script>
@@ -53,8 +54,6 @@
                     </div>
                     </div>
 
-
-                <!-- ✅ 오른쪽: 필터, 검색창, 지도 버튼, 고수 리스트를 함께 정렬 -->
             <div class="filter-right">
                 <div class="filter-options">
                     <label for="service-filtering">서비스 필터링:</label>
@@ -76,29 +75,28 @@
             </div>
 
                 </div>
-
-
-
-
-                <!-- ✅ 수평선 추가 -->
                 <hr class="separator">
+        <c:forEach items="${services}" var="s">
+        <div id="service-provider-list">
+            <div class="service-provider"
+                 data-category="${s.service_category}"
+                 data-subcategory="${s.service_subcategory}">
+                <div class="service-provider-info">
+                    <div class="name">${s.service_title}</div>
+                    <div class="details">★ 4.7 (22) · 26回の依頼 · 경력 30년</div>
+                    <div class="description">${s.service_content}</div>
+                </div>
+            </div>
+            <div>
+                <img src="/testimg/${s.image != null ? s.image : 'default.jpg'}" alt="default image display!">
+            </div>
+        </div>
+        </c:forEach>
 
-                <!-- ✅ 고수 리스트 (오른쪽 정렬) -->
-                <div id="service-provider-list">
-                    <div class="service-provider">
-                        <div class="service-provider-info">
-                            <div class="name">한울 이사</div>
-                            <div class="details">★ 4.7 (22) · 26回の依頼
-                               · 경력 30년</div>
-                            <div class="description">이사 전문 브랜드 한울 이사</div>
-                        </div>
-                        </div>
-                        <div> <img src="images/moving1.jpg" alt="한울 이사"> </div>
-                </div>
-                </div>
-            </div> <!-- ✅ filter-right 끝 -->
-        </div> <!-- ✅ filter-wrapper 끝 -->
+</div>
+            </div>
+        </div>
     </form>
-</div> <!-- ✅ search-container 끝 -->
+</div>
 </body>
 </html>

@@ -342,3 +342,27 @@ INSERT INTO seller_service_image (service_no, image)
 VALUES (3, 'xyz.jpg');
 
 
+select * from seller_service_info;
+select * from seller_service_image;
+
+
+ALTER TABLE seller_service_info
+ADD service_subcategory VARCHAR2(50);
+
+UPDATE seller_service_info
+SET service_category = '引っ越し', service_subcategory = '家庭の引っ越し'
+WHERE service_category = '美容';
+
+
+UPDATE seller_service_info
+SET service_category = '引っ越し', service_subcategory = 'ワンルームの引っ越し'
+WHERE service_category = '健康';
+
+
+UPDATE seller_service_info
+SET service_category = '引っ越し', service_subcategory = 'オフィスの引っ越し'
+WHERE service_category = '料理';
+
+insert into seller_service_info values ('4','3','引っ越し','testest','testetsets','sdfsfsd','軽トラック・運送');
+
+insert into seller_service_info values ('5','2','クリーニング','testest클리닝','test클리닝etsets','sdfsf클리닝sd','入居・家のクリーニング');

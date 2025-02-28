@@ -125,7 +125,7 @@
 
 #service-MainCategory, #express-SubCategory, #clean-SubCategory {
     width: 200px;
-    height: 20px;
+    height: 40px;
 }
 
 .findpro-search-tab {
@@ -154,3 +154,42 @@ button:active {
 }
 
 
+
+/* select 요소 스타일 */
+select {
+    border-radius: 8px;  /* 모서리를 둥글게 */
+    height: 40px;        /* 높이 증가 */
+    padding: 5px 10px;   /* 내부 여백 추가 */
+    font-size: 16px;     /* 글씨 크기 조정 */
+    border: 1px solid #ccc; /* 테두리 색상 */
+    background-color: white; /* 배경색 */
+    cursor: pointer; /* 마우스 오버 시 포인터 변경 */
+}
+
+/* select 요소에 마우스를 올렸을 때 스타일 */
+select:hover {
+    border-color: #888; /* 테두리 색 변경 */
+}
+
+/* select 요소가 활성화되었을 때 */
+select:focus {
+    border-color: #555; /* 포커스 시 테두리 색상 변경 */
+    outline: none; /* 기본 포커스 효과 제거 */
+}
+
+/* 버튼도 둥글게 만들고 싶다면 추가 */
+button {
+    border-radius: 8px;
+    height: 52px;
+    padding: 5px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.sub-category {
+    display: none;
+}
+.sub-category.active {
+    display: block;
+}
