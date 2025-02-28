@@ -62,7 +62,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <%@ page session="true" %>
 
 
         // WebSocket 연결
-        const websocket = new WebSocket("ws://192.168.2.115/ws/chat");
+        const websocket = new WebSocket("ws://localhost:80/ws/chat");
 
         websocket.onmessage = onMessage;
         websocket.onopen = () => onOpen(username);
