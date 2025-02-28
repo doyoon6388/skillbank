@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/resources/css/findprotomap.css">
+    <link rel="stylesheet" href="/resources/css/findpro/findprotomap.css">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
