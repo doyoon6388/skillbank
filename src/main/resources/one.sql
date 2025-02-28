@@ -342,3 +342,30 @@ INSERT INTO seller_service_image (service_no, image)
 VALUES (3, 'xyz.jpg');
 
 
+
+
+-----------------------------------------------------
+-- request 테이블
+
+create table request(
+    request_no number primary key ,
+    request_type number(3) not null ,
+
+    request1 varchar2(200 char),
+    request2 varchar2(200 char),
+    request3 varchar2(200 char),
+    request4 varchar2(200 char),
+    request5 varchar2(200 char),
+    request6 varchar2(200 char),
+    request7 varchar2(200 char),
+    request8 varchar2(200 char),
+    request9 varchar2(200 char),
+    request10 varchar2(200 char),
+    request11 varchar2(200 char),
+    request12 varchar2(200 char),
+    request13 varchar2(200 char),
+    request14 varchar2(200 char)
+
+);
+
+create sequence request_seq;
