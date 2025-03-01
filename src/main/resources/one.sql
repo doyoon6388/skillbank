@@ -48,9 +48,11 @@ COMMIT;
 delete
 from community_image;
 DROP TABLE community_image CASCADE CONSTRAINTS;
+
 ------------------------------
 -- 1. 사용자 관련 테이블
 ------------------------------
+
 CREATE TABLE user_account
 (
     user_pk          NUMBER PRIMARY KEY,            -- 유저 고유번호
@@ -66,6 +68,7 @@ CREATE TABLE user_account
 ------------------------------
 -- 2. 리뷰 관련 테이블
 ------------------------------
+
 -- 리뷰 정보를 담는 테이블
 CREATE TABLE review_info
 (
@@ -94,6 +97,7 @@ CREATE TABLE review_image
 ------------------------------
 -- 3. 예약 관련 테이블
 ------------------------------
+
 -- 예약 정보를 담는 테이블
 CREATE TABLE reservation_info
 (
@@ -123,6 +127,7 @@ CREATE TABLE reservation_image
 ------------------------------
 -- 4. 커뮤니티 관련 테이블
 ------------------------------
+
 -- 커뮤니티 정보를 카테고리와 게시글 정보를 한 테이블에 저장 (복합키 사용)
 CREATE TABLE community_info
 (
@@ -150,6 +155,7 @@ CREATE TABLE community_image
 ------------------------------
 -- 5. 셀러 관련 테이블
 ------------------------------
+
 -- 셀러 계정 정보
 CREATE TABLE seller_account
 (
@@ -193,6 +199,7 @@ CREATE TABLE seller_service_image
 ------------------------------
 -- 0. 테스트용 테이블 (user_test_db)
 ------------------------------
+
 -- 기존 테스트용 테이블에, 이메일이 asd@asd.com이면 패스워드는 "asd"로 설정
 INSERT INTO user_test_db
 VALUES (user_test_db_seq.NEXTVAL, '11', 'asd', 'asd@asd.com');
@@ -200,6 +207,7 @@ VALUES (user_test_db_seq.NEXTVAL, '11', 'asd', 'asd@asd.com');
 ------------------------------
 -- 1. 사용자 관련 테이블 (user_account)
 ------------------------------
+
 -- 이메일의 '@' 앞부분을 패스워드로 사용
 INSERT INTO user_account
 VALUES (1, 'taro@example.jp', 'taro', '男', TO_DATE('1980-01-01', 'YYYY-MM-DD'), '090-1111-2222', 'profile1.jpg',
@@ -215,9 +223,11 @@ VALUES (3, 'jiro@example.jp', 'jiro', '男', TO_DATE('1985-03-15', 'YYYY-MM-DD')
 
 select *
 from user_account;
+
 ------------------------------
 -- 5. 셀러 관련 테이블 (seller_account)
 ------------------------------
+
 -- 셀러 이메일에서 '@' 앞부분을 패스워드로 사용
 INSERT INTO seller_account
 VALUES (1, 'seller1@example.jp', 'seller1', 'seller1', '男', TO_DATE('1975-06-20', 'YYYY-MM-DD'), '080-1111-2222',
@@ -234,6 +244,7 @@ VALUES (3, 'seller3@example.jp', 'seller3', 'seller3', '男', TO_DATE('1978-12-3
 ------------------------------
 -- 5. 셀러 서비스 테이블 (seller_service_info)
 ------------------------------
+
 INSERT INTO seller_service_info
 VALUES (1, 1, '美容', 'ヘアカットサービス', 'プロフェッショナルなカットを提供します。', '予約は電話で受け付けます。');
 
@@ -248,6 +259,7 @@ VALUES (3, 3, '料理', '寿司教室', '本格的な寿司の作り方を学べ
 ------------------------------
 -- 2. 리뷰 관련 테이블 (review_info)
 ------------------------------
+
 INSERT INTO review_info
 VALUES (1, 1, 'たろう', SYSDATE, '素晴らしいカット', 'とても満足しています。', 4.5);
 
@@ -258,9 +270,9 @@ INSERT INTO review_info
 VALUES (3, 3, 'じろう', SYSDATE, '楽しい教室', '学びが多く、とても良かったです。', 4.0);
 
 ------------------------------
-------------------------------
 -- 3. 예약 관련 테이블 (reservation_info)
 ------------------------------
+
 INSERT INTO reservation_info
 VALUES (1, 1, 'たろう', 'たろう予約', 1, SYSDATE);
 
@@ -271,9 +283,9 @@ INSERT INTO reservation_info
 VALUES (3, 3, 'じろう', 'じろう予約', 3, SYSDATE);
 
 ------------------------------
-------------------------------
 -- 4. 커뮤니티 관련 테이블 (community_info)
 ------------------------------
+
 INSERT INTO community_info
 VALUES (1, 'ニュース', 1, 'たろう', '最新ニュース', '今日は良い天気です。', SYSDATE);
 
@@ -284,7 +296,7 @@ INSERT INTO community_info
 VALUES (3, '旅行', 1, 'じろう', '旅行記', '美しい景色を楽しみました。', SYSDATE);
 
 -----------------------------
------------------------------------------------------------
+
 -- 1. 리뷰 이미지 테이블
 ALTER TABLE review_image MODIFY (image VARCHAR2(200));
 

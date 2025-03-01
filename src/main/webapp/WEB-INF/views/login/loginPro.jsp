@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
-    <link rel="stylesheet" href="/resources/css/profile.css">
+    <link rel="stylesheet" href="/resources/css/profile.css"/>
     <script src="/resources/js/profile/profile.js"></script>
 </head>
 <body>
