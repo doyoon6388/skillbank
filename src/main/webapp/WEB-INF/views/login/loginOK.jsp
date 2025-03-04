@@ -23,7 +23,7 @@ pageEncoding="utf-8" %>
               <span class="slider"></span>
             </label>
           </div>
-          <div id="user-text">${sessionScope.user.username} 고객님</div>
+          <div id="user-text">${sessionScope.user.user_name} 고객님</div>
         </div>
         <img
           class="mypage-btn"
@@ -35,15 +35,9 @@ pageEncoding="utf-8" %>
           class="logout-btn"
           src="/resources/icons/profile/logout.png"
           alt="로그아웃"
-          onclick="logout()"
-        />
+          onclick="logout()"/>
       </div>
-      <img
-        class="chat-btn"
-        src="/resources/icons/profile/chat.png"
-        alt="채팅"
-        onclick="location.href='/chat'"
-      />
+      <img class="chat-btn" src="/resources/icons/profile/chat.png" alt="채팅" onclick="location.href='/chat'"/>
     </div>
     <script>
       const username = "${sessionScope.user.user_name}";
