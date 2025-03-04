@@ -1,7 +1,7 @@
 package com.skillbank.main.controller;
 
 import com.skillbank.main.service.MainService;
-import com.skillbank.main.vo.UserTestVO;
+import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,8 +23,8 @@ public class LoginC {
     }
 
     @PostMapping("/login")
-    public String login(HttpSession session, Model model, UserTestVO userTestVO) {
-        UserTestVO user = mainService.loginValid(userTestVO);
+    public String login(HttpSession session, Model model, UserAccountVO userAccountVO) {
+        UserAccountVO user = mainService.loginValid(userAccountVO);
         if (user != null) {
             // 로그인 성공: 세션에 사용자 정보 저장
             session.setAttribute("user", user);
