@@ -1,7 +1,7 @@
 CREATE TABLE user_test_db
 (
     id       number(5) PRIMARY KEY,
-    username VARCHAR2(50) NOT NULL,
+    username VARCHAR2(50)  NOT NULL,
     password VARCHAR2(255) NOT NULL,
     email    VARCHAR2(100) not null,
     hasPro   number(1) default 0
@@ -30,7 +30,7 @@ from user_test_db;
 CREATE TABLE user_test_db
 (
     id       NUMBER(5) PRIMARY KEY,
-    username VARCHAR2(50) NOT NULL,
+    username VARCHAR2(50)  NOT NULL,
     password VARCHAR2(255) NOT NULL,
     email    VARCHAR2(100)
 );
@@ -78,7 +78,7 @@ CREATE TABLE review_info
     review_date     DATE DEFAULT SYSDATE, -- 리뷰 작성일자 (기본값 현재날짜)
     review_title    VARCHAR2(200),        -- 리뷰 제목
     review_content  CLOB,                 -- 리뷰 내용 (긴 텍스트)
-    review_star     NUMBER(2,1),          -- 별점 (예: 4.5)
+    review_star     NUMBER(2, 1),         -- 별점 (예: 4.5)
     CONSTRAINT fk_review_info_service FOREIGN KEY (service_no)
         REFERENCES seller_service_info (service_no)
 );
@@ -161,7 +161,7 @@ CREATE TABLE seller_account
 (
     seller_pk              NUMBER PRIMARY KEY,            -- 셀러 고유번호
     seller_email           VARCHAR2(100) NOT NULL UNIQUE, -- 이메일 (유니크)
-    seller_id              VARCHAR2(50) NOT NULL UNIQUE,  -- 로그인 아이디 (유니크)
+    seller_id              VARCHAR2(50)  NOT NULL UNIQUE, -- 로그인 아이디 (유니크)
     seller_pw              VARCHAR2(100) NOT NULL,        -- 비밀번호
     seller_gender          VARCHAR2(10),                  -- 성별
     seller_birth           DATE,                          -- 생일
@@ -170,7 +170,7 @@ CREATE TABLE seller_account
     seller_nickname        VARCHAR2(50),                  -- 닉네임
     seller_company_address VARCHAR2(200),                 -- 업체 주소
     seller_company_phone   VARCHAR2(20),                  -- 업체 전화번호
-    seller_cash            NUMBER(12,2) DEFAULT 0         -- 보유 캐시
+    seller_cash            NUMBER(12, 2) DEFAULT 0        -- 보유 캐시
 );
 
 -- 셀러가 제공하는 서비스 정보
@@ -298,16 +298,20 @@ VALUES (3, '旅行', 1, 'じろう', '旅行記', '美しい景色を楽しみ�
 -----------------------------
 
 -- 1. 리뷰 이미지 테이블
-ALTER TABLE review_image MODIFY (image VARCHAR2(200));
+ALTER TABLE review_image
+    MODIFY (image VARCHAR2(200));
 
 -- 2. 예약 이미지 테이블
-ALTER TABLE reservation_image MODIFY (image VARCHAR2(200));
+ALTER TABLE reservation_image
+    MODIFY (image VARCHAR2(200));
 
 -- 3. 커뮤니티 이미지 테이블
-ALTER TABLE community_image MODIFY (image VARCHAR2(200));
+ALTER TABLE community_image
+    MODIFY (image VARCHAR2(200));
 
 -- 4. 셀러 서비스 이미지 테이블
-ALTER TABLE seller_service_image MODIFY (image VARCHAR2(200));
+ALTER TABLE seller_service_image
+    MODIFY (image VARCHAR2(200));
 
 
 -- 1. review_image 테이블 (리뷰 이미지)
