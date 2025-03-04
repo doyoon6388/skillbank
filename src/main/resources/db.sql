@@ -21,3 +21,6 @@ insert into user_account values (user_account_seq.nextval, '11', '22', '홍승�
 
 select *
 from user_account;
+
+
+update user_account set user_profile_img = 'default.png' where user_email = '11';

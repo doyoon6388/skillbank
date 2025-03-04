@@ -11,7 +11,7 @@
 <div><h1>마이페이지</h1></div>
 <div class="mypage-wrapper">
 <div class="mypage-profile-wrapper">
-    <div class="mypage-profile-img"><img src="" alt=""></div>
+    <div class="mypage-profile-img"><img src="resources/icons/profile/${sessionScope.user.user_profile_img}" alt=""></div>
     <div class="mypage-profile-name">
     <div>${sessionScope.user.user_name}님</div>
     <div>${sessionScope.user.user_email}</div>
