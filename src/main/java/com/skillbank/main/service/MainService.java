@@ -1,11 +1,10 @@
 package com.skillbank.main.service;
 
 import com.skillbank.main.mapper.UserMapper;
-import com.skillbank.main.vo.UserTestVO;
+import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 @Service
 public class MainService {
@@ -13,8 +12,8 @@ public class MainService {
     @Autowired
     UserMapper userMapper;
 
-    public UserTestVO loginValid(UserTestVO userTestVO) {
-        return userMapper.loginValid(userTestVO);
+    public UserAccountVO loginValid(UserAccountVO userAccountVO) {
+        return userMapper.loginValid(userAccountVO);
     }
 
     public String loginCheck(HttpSession session) {
