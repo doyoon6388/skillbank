@@ -11,10 +11,10 @@
 <body>
 
 <div class="community-header-wrapper">
-<div class="community-logo">コミュニティ</div>
+<div class="community-logo"><span class="community-logo-span">コミュニティ</span></div>
     <div class="community-button-container">
-    <div>スバ民の部屋　ー＞</div>
-    <div>専門家の部屋　ー＞</div>
+    <div>スバ民の部屋→ </div>
+    <div>専門家の部屋→ </div>
     <div><button>書き込み</button></div>
     </div>
 </div>
@@ -22,8 +22,9 @@
 <div class="community-tab">
     <div>全体</div>
     <div>専門家に聞く</div>
-    <div>共同</div>
-    <div>アピール</div>
+    <div>一緒に</div>
+    <div>レビュー</div>
+    <div>プロのアピール</div>
 </div>
 <div class="community-content"><jsp:include page="${communityPage}"></jsp:include></div>
 </div>

@@ -1,5 +1,5 @@
 .community-header-wrapper {
-    background-color: red;
+    border: 7px solid red;
     position: sticky;
     top: 0;
     display: flex;
@@ -8,26 +8,48 @@
     height: 150px;
     z-index: 2;
 }
+.community-logo-span{
+    font-size: 40px;
+    font-weight: bold;
+}
 
 .community-button-container {
     display: flex;
 }
 
 .community-tab {
-    background-color: greenyellow;
+    border: 7px solid greenyellow;
     position: sticky;
     top: 70px;
     height: 177px;
+    width: 200px;
     z-index: 2;
 }
 
 .community-body-wrapper {
     display: flex;
-    gap: 50px;
+    gap: 30px;
 }
 
 .community-content {
-    background-color: #004f80;
+    border: 7px solid darkblue;
     height: 1000px;
     width: 100%;
+}
+
+/*-----------------------------------------------*/
+
+/*Main.jsp*/
+.community-button2-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.community-button2-container div {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
 }

@@ -21,3 +21,11 @@ insert into user_account values (user_account_seq.nextval, '11', '22', '홍승�
 
 select *
 from user_account;
+
+
+create table community_ask_pro {
+    community_ap_pk number(10) primary key,
+
+
+
+    }
