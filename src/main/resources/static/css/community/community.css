@@ -1,0 +1,33 @@
+.community-header-wrapper {
+    background-color: red;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    height: 150px;
+    z-index: 2;
+}
+
+.community-button-container {
+    display: flex;
+}
+
+.community-tab {
+    background-color: greenyellow;
+    position: sticky;
+    top: 70px;
+    height: 177px;
+    z-index: 2;
+}
+
+.community-body-wrapper {
+    display: flex;
+    gap: 50px;
+}
+
+.community-content {
+    background-color: #004f80;
+    height: 1000px;
+    width: 100%;
+}
