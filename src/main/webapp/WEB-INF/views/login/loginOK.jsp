@@ -23,7 +23,7 @@ pageEncoding="utf-8" %>
               <span class="slider"></span>
             </label>
           </div>
-          <div id="user-text">${sessionScope.user.username} 고객님</div>
+          <div id="user-text">${sessionScope.user.user_name} 고객님</div>
         </div>
         <img
           class="mypage-btn"
