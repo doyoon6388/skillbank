@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+
 @Controller
 public class CommunityC {
 
@@ -16,14 +18,17 @@ public class CommunityC {
     @GetMapping("/community")
     public String community(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
-        if (mode != null && mode.toString().equals("on")) {
             model.addAttribute("page", "community/community.jsp");
+            model.addAttribute("communityPage", "communityMain.jsp");
+        if (mode != null && mode.toString().equals("on")) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
             return "indexPro";
         } else {
-            model.addAttribute("page", "community/community.jsp");
             model.addAttribute("loginCheck", mainService.loginCheck(session));
             return "index";
         }
     }
+
+
+
 }
