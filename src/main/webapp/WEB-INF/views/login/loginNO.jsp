@@ -12,7 +12,7 @@
         <button onclick="location.href='/login'">로그인</button>
     </div>
     <div>
-        <button>회원가입</button>
+        <button onclick="location.href='/signin'">회원가입</button>
     </div>
 </div>
 </body>
