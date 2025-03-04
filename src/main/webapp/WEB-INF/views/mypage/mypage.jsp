@@ -16,6 +16,7 @@
     <div>${sessionScope.user.user_name}님</div>
     <div>${sessionScope.user.user_email}</div>
     </div>
+    <div class="mypage-profile-img-change-btn"><button>프로필 변경</button></div>
 </div>
 <div class="mypage-item-wrapper">
     <div class="mypage-item">
