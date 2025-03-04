@@ -9,9 +9,9 @@
 <h2>로그인</h2>
 <form action="/login" method="post">
     <label>Username: </label>
-    <input type="text" name="username" required/><br/>
+    <input type="text" name="user_email" required/><br/>
     <label>Password: </label>
-    <input type="password" name="password" required/><br/>
+    <input type="password" name="user_pw" required/><br/>
     <input type="submit" value="로그인"/>
 </form>
 <c:if test="${not empty error}">

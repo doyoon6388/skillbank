@@ -17,14 +17,14 @@
         </label>
     </div>
     <div class="profile-wrap">
-        <div id="user-text">${sessionScope.user.username}님 반갑습니다</div>
+        <div id="user-text">${sessionScope.user.user_name}님 반갑습니다</div>
         <div onclick="location.href='/mypage'">마이페이지</div>
         <div onclick="location.href='/logout'">로그아웃</div>
     </div>
     <img class="chat-btn" src="/resources/icons/profile/chat.png" alt="채팅" onclick="location.href='/chat'">
 </div>
 <script>
-    const username = "${sessionScope.user.username}";
+    const username = "${sessionScope.user.user_name}";
 </script>
 </body>
 </html>
