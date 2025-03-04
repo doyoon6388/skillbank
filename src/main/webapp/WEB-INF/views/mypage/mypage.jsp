@@ -13,8 +13,8 @@
 <div class="mypage-profile-wrapper">
     <div class="mypage-profile-img"><img src="" alt=""></div>
     <div class="mypage-profile-name">
-    <div>${sessionScope.user.username}님</div>
-    <div>${sessionScope.user.email}</div>
+    <div>${sessionScope.user.user_name}님</div>
+    <div>${sessionScope.user.user_email}</div>
     </div>
 </div>
 <div class="mypage-item-wrapper">
