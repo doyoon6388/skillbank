@@ -22,8 +22,12 @@
 
         window.onload = function () {
             loadStep(1); // 첫 번째 단계 자동 로드
-        };
 
+
+
+
+        };
+        let dateval;
         function loadStep(a) {
             if (a == 1) {
                 document.querySelector("#content-1").innerHTML = `<h2>이사 종류를 선택해주세요.</h2>
@@ -92,15 +96,19 @@
                     `<h2>이사 규모</h2>` + bb;
                 document.querySelector("#content-4").innerHTML = `<h2>이사 예정일을 선택해주세요.</h2>
 
-        <input type="date" name="request4">
+        <input type="date" name="date-input">
     <button onclick="loadStep(5)">다음</button> `
+
+                document.querySelector('input[name="date-input"]').addEventListener("change", (e)=>{
+
+                    dateval = e.target.value;
+                });
 
             }
             if (a == 5) {
-                let selectMove = document.querySelector("input[name='request4']").value;
 
                 document.querySelector("#content-4").innerHTML =
-                    `<h2>선택한 날짜</h2>` + selectMove;
+                    `<h2>선택한 날짜</h2>` + dateval;
                 document.querySelector("#content-5").innerHTML = `<h2>이사를 원하는 시간대를 선택 해주세요.</h2>
     <div class="container">
     <input type="radio" name="request5" value="오전 9시이전">오전 9시 이전 <br>
@@ -205,7 +213,7 @@
 <form action="/my-request" method="post">
     <input name="r_user_id" value="${sessionScope.user.id}" hidden="hidden" >
     <input name="request_type" value="1" hidden="hidden" >
-
+    
     <input type="hidden" id="request1" name="request1">
     <input type="hidden" id="request2" name="request2">
     <input type="hidden" id="request3" name="request3">
