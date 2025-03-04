@@ -37,7 +37,9 @@
             if (a == 2) {
                 let selectMove = document.querySelector("input[name='request1']:checked");
                 let bb = selectMove.value;
-
+                if (selectMove) {
+                    document.getElementById("request1").value = bb;
+                }
                 document.querySelector("#content-1").innerHTML =
                     `<h2>이사 종류</h2>` + bb;
                 document.querySelector("#content-2").innerHTML = `<h2>고수님과 함께 짐을 옮길 수 있나요?</h2>
@@ -52,6 +54,9 @@
             if (a == 3) {
                 let selectMove = document.querySelector("input[name='request2']:checked");
                 let bb = selectMove.value;
+                if (selectMove) {
+                    document.getElementById("request2").value = bb;
+                }
                 document.querySelector("#content-2").innerHTML =
                     `<h2>같이 짐 운반여부</h2>` + bb;
                 document.querySelector("#content-3").innerHTML = `<h2>이사 규모를 선택해주세요.</h2>
@@ -80,12 +85,15 @@
             if (a == 4) {
                 let selectMove = document.querySelector("input[name='request3']:checked");
                 let bb = selectMove.value;
+                if (selectMove) {
+                    document.getElementById("request3").value = bb;
+                }
                 document.querySelector("#content-3").innerHTML =
                     `<h2>이사 규모</h2>` + bb;
                 document.querySelector("#content-4").innerHTML = `<h2>이사 예정일을 선택해주세요.</h2>
 
         <input type="date" name="request4">
-    <button onclick="loadStep(5)">다음</button>`
+    <button onclick="loadStep(5)">다음</button> `
 
             }
             if (a == 5) {
@@ -100,12 +108,14 @@
     <input type="radio" name="request5" value="오후 12시~3시">오후 12시~3시 <br>
     <input type="radio" name="request5" value="오후 3시~6시">오후 3시~6시 <br>
     <input type="radio" name="request5" value="오후 9시 이후">오후 3시~6시 <br>
-    <button onclick="loadStep(6)">다음</button></div>`
-
+    <button onclick="loadStep(6)">다음</button></div>`;
             }
             if (a == 6) {
                 let selectMove = document.querySelector("input[name='request5']:checked");
                 let bb = selectMove.value;
+                if (selectMove) {
+                    document.getElementById("request5").value = bb; // 숨겨진 input에 값 저장
+                }
                 document.querySelector("#content-5").innerHTML =
                     `<h2>선택한 시간</h2>` + bb;
                 document.querySelector("#content-6").innerHTML = `<h2>옮길 대형 가전을 선택해주세요.</h2>
@@ -139,11 +149,14 @@
             if (a == 7) {
                 let selectMoves = document.querySelectorAll("input[name='request6']:checked");
                 let bb = Array.from(selectMoves).map(el => el.value);
+                if (selectMoves) {
+                    document.getElementById("request6").value = bb; // 숨겨진 input에 값 저장
+                }
                 document.querySelector("#content-6").innerHTML =
                     `<h2>대형가전</h2>` + bb;
                 document.querySelector("#content-7").innerHTML = `<h2>옮길 소형 가전을 선택해주세요.</h2>
 <div class="container">
-<input type="checkbox" name="selectSmall" value="없음">없음 <br>
+<input type="checkbox" name="request7" value="없음">없음 <br>
     <input type="checkbox" name="request7" value="전자레인지">전자레인지 <br>
     <input type="checkbox" name="request7" value="가스레인지/인덕션">가스레인지/인덕션 <br>
     <input type="checkbox" name="request7" value="공기청정기">공기청정기 <br>
@@ -153,7 +166,7 @@
             <textarea id="etcInput" placeholder="직접 입력"></textarea>
 
         </div>
-    <button onclick="loadStep(8)">다음</button> </div>`
+    <button type="button" onclick="loadStep(8)">다음</button> </div>`
 
 
                 console.log(document.getElementById("etcCheck"));
@@ -170,6 +183,9 @@
             if (a == 8) {
                 let selectMoves = document.querySelectorAll("input[name='request7']:checked");
                 let bb = Array.from(selectMoves).map(el => el.value);
+                if (selectMoves) {
+                    document.getElementById("request7").value = bb; // 숨겨진 input에 값 저장
+                }
                 document.querySelector("#content-7").innerHTML =
                     `<h2>소형가전</h2>` + bb;
                 document.querySelector("#content-8").innerHTML =
@@ -189,6 +205,14 @@
 <form action="/my-request" method="post">
     <input name="r_user_id" value="${sessionScope.user.id}" hidden="hidden" >
     <input name="request_type" value="1" hidden="hidden" >
+
+    <input type="hidden" id="request1" name="request1">
+    <input type="hidden" id="request2" name="request2">
+    <input type="hidden" id="request3" name="request3">
+    <input type="hidden" id="request4" name="request4">
+    <input type="hidden" id="request5" name="request5">
+    <input type="hidden" id="request6" name="request6">
+    <input type="hidden" id="request7" name="request7">
 <div id="content-1">
 </div>
 <div id="content-2">
@@ -204,9 +228,9 @@
 <div id="content-7">
 </div>
 <div id="content-8">
-
-
 </div>
+
+
 </form>
 
 </body>

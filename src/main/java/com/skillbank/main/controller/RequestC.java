@@ -1,6 +1,8 @@
 package com.skillbank.main.controller;
 
 import com.skillbank.main.service.MainService;
+import com.skillbank.main.service.RequestService;
+import com.skillbank.main.vo.ReqeustVO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,9 @@ public class RequestC {
 
     @Autowired
     private MainService mainService;
+    @Autowired
+    private RequestService requestService;
+
 
     @GetMapping("/request")
     public String request(Model model, HttpSession session) {
@@ -37,9 +42,11 @@ public class RequestC {
 
 
 @PostMapping("/my-request")
-    public String myRequest(Model model, HttpSession session) {
+    public String myRequest(Model model, HttpSession session, ReqeustVO reqeustVO) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
+    requestService.requestReg(reqeustVO);
         model.addAttribute("page", "request/myRequest.jsp");
+
         return "index";
     }
 }

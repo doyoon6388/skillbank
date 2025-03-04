@@ -368,6 +368,9 @@ CREATE TABLE request (
                          CONSTRAINT fk_request_user FOREIGN KEY (r_user_id) REFERENCES user_test_db(id)
 );
 
-create sequence request_seq;
+
+create sequence request_no_seq;
+
+select * from request;
 
 
