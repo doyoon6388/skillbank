@@ -26,7 +26,7 @@
     <img class="chat-btn" src="/resources/icons/profile/chat.png" alt="채팅" onclick="location.href='/chat'">
 </div>
 <script>
-    const username = "${sessionScope.user.username}";
+    const username = "${sessionScope.user.user_name}";
 </script>
 </body>
 </html>
