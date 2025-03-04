@@ -16,6 +16,7 @@ public class HC {
 
     @GetMapping("/")
     public String index(Model model, HttpSession session) {
+        session.setAttribute("checked", "");
         model.addAttribute("loginCheck", mainService.loginCheck(session));
         model.addAttribute("page", "main/main.jsp");
         return "index";

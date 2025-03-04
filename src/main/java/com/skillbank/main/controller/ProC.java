@@ -15,11 +15,11 @@ public class ProC {
     @GetMapping("/main")
     public String proMain(Model model, HttpSession session) {
         session.setAttribute("mode", "on");
-        System.out.println("프로모드");
+        session.setAttribute("checked", "checked");
         model.addAttribute("loginCheck", "login/loginPro.jsp");
         model.addAttribute("page", "main/main.jsp");
+        System.out.println("프로모드");
         return "indexPro";
     }
-
 
 }
