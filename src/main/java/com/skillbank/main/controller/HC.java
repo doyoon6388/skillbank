@@ -18,7 +18,11 @@ public class HC {
     public String index(Model model, HttpSession session) {
         session.setAttribute("checked", "");
         model.addAttribute("loginCheck", mainService.loginCheck(session));
-        model.addAttribute("page", "main/main.jsp");
+
+        if (!model.containsAttribute("page")) {
+            model.addAttribute("page", "main/main.jsp");
+        }
+
         return "index";
     }
 
