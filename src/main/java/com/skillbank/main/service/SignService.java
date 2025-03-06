@@ -13,18 +13,39 @@ public class SignService {
 
     public boolean registerUser(UserAccountVO user) {
         try {
-            // 이메일 중복 체크 (중복 시 회원가입 실패 처리)
-            if (userMapper.getUserByEmail(user.getUser_email()) != null) {
-                System.out.println("이메일 중복으로 회원가입 실패: " + user.getUser_email());
+            System.out.println("회원가입 요청: " + user);
+
+            // 필수 입력값 검증
+            if (user.getUser_email() == null || user.getUser_email().isEmpty() ||
+                    user.getUser_pw() == null || user.getUser_pw().isEmpty() ||
+                    user.getUser_name() == null || user.getUser_name().isEmpty() ||
+                    user.getUser_gender() == null || user.getUser_gender().isEmpty() ||
+                    user.getUser_address() == null || user.getUser_address().isEmpty() ||
+                    user.getUser_birth() == null ||
+                    user.getUser_phone() == null || user.getUser_phone().isEmpty() ||
+                    user.getUser_profile_img() == null || user.getUser_profile_img().isEmpty() ||
+                    user.getUser_nickname() == null || user.getUser_nickname().isEmpty()) {
+
+                System.out.println("회원가입 실패: 필수 입력값 누락됨");
                 return false;
             }
 
-            // 비밀번호 암호화 추가 가능 (추후 구현 고려)
-            // user.setUser_pw(passwordEncoder.encode(user.getUser_pw()));
+            // 이메일 중복 체크
+            if (userMapper.getUserByEmail(user.getUser_email()) != null) {
+                System.out.println("회원가입 실패: 이메일 중복 - " + user.getUser_email());
+                return false;
+            }
 
-            userMapper.insertUser(user);
-            return true;
+            // user_hasPro 기본값 설정
+            user.setUser_hasPro(0);
+
+            // DB에 회원 정보 삽입
+            int result = userMapper.insertUser(user);
+            System.out.println("회원가입 DB 처리 결과: " + result);
+
+            return result > 0;
         } catch (Exception e) {
+            System.out.println("회원가입 중 예외 발생!");
             e.printStackTrace();
             return false;
         }

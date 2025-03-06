@@ -16,9 +16,7 @@ public interface UserMapper {
     @Select("SELECT * FROM user_account WHERE user_email = #{user_email}")
     UserAccountVO getUserByEmail(String user_email);
 
-    @Insert("INSERT INTO user_account (user_pk, user_email, user_pw, user_name, user_gender, user_address, user_phone, user_hasPro) " +
-            "VALUES (user_account_seq.nextval, #{user_email}, #{user_pw}, #{user_name}, #{user_gender}, #{user_address}, #{user_phone}, #{user_hasPro})")
-
-        // 회원가입을 위한 INSERT 추가 (회원 정보 저장)
-        int insertUser(UserAccountVO user);
+    @Insert("INSERT INTO user_account (user_pk, user_email, user_pw, user_name, user_gender, user_address, user_birth, user_phone, user_profile_img, user_nickname, user_hasPro) " +
+            "VALUES (user_account_seq.nextval, #{user_email}, #{user_pw}, #{user_name}, #{user_gender}, #{user_address}, #{user_birth}, #{user_phone}, #{user_profile_img}, #{user_nickname}, 0)")
+    int insertUser(UserAccountVO user);
 }
