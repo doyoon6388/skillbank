@@ -22,3 +22,6 @@ values (user_account_seq.nextval, '11', '22', '홍승완', '남', '상도동', s
 
 select *
 from user_account;
+
+
+update user_account set user_profile_img = 'default.png' where user_email = '11';
