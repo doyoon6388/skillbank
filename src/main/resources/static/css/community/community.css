@@ -5,8 +5,9 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 100px;
-    height: 150px;
+    height: 50px;
     z-index: 2;
+    background-color: white;
 }
 .community-logo-span{
     font-size: 40px;
@@ -17,6 +18,9 @@
     display: flex;
 }
 
+/*-----------------------------------------------*/
+
+/*選択表示*/
 .community-tab {
     border: 7px solid greenyellow;
     position: sticky;
@@ -31,6 +35,9 @@
     gap: 30px;
 }
 
+/*-----------------------------------------------*/
+
+/*内容物*/
 .community-content {
     border: 7px solid darkblue;
     height: 1000px;
@@ -52,4 +59,50 @@
     flex: 1;
     text-align: center;
     padding: 20px;
+}
+
+/*-----------------------------------------------*/
+
+/*選択したとき色をつける*/
+.selectable-client {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.selectable-pro {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: lightblue;
+    color: white;
+}
+
+/*-----------------------------------------------*/
+
+/*書きこみボタン*/
+.community-client-write {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    background-color: powderblue;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+
+}
+
+.community-pro-write {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    background-color: darkseagreen;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
 }
