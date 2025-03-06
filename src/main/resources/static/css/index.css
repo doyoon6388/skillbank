@@ -31,7 +31,7 @@ body {
     cursor: pointer;
 }
 
-.container {
+#index-container {
     width: 1280px;
     margin: 20px auto;
     padding: 20px;
