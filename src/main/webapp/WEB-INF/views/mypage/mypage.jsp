@@ -11,26 +11,18 @@
 <body>
 <div><h1>마이페이지</h1></div>
 <div class="mypage-wrapper">
-    <div class="mypage-profile-wrapper">
-        <div class="mypage-profile-img"><img src="" alt=""></div>
-        <div class="mypage-profile-name">
-            <div>${sessionScope.user.user_name}님</div>
-            <div>${sessionScope.user.user_email}</div>
-        </div>
+<div class="mypage-profile-wrapper">
+    <div class="mypage-profile-img"><img src="resources/icons/profile/${sessionScope.user.user_profile_img}" alt=""></div>
+    <div class="mypage-profile-name">
+    <div>${sessionScope.user.user_name}님</div>
+    <div>${sessionScope.user.user_email}</div>
     </div>
-    <div class="mypage-item-wrapper">
-        <div class="mypage-item">
-            <div class="mypage-item-tag">고수 찾기</div>
-            <div class="mypage-item-list">찜한 고수</div>
-        </div>
-        <div class="mypage-item">
-            <div class="mypage-item-tag">커뮤니티</div>
-            <div class="mypage-item-list">커뮤니티 작성글 / 댓글</div>
-        </div>
-        <div class="mypage-item">
-            <div class="mypage-item-tag">설정</div>
-            <div class="mypage-item-list">계정 설정</div>
-        </div>
+    <div class="mypage-profile-img-change-btn"><button>프로필 변경</button></div>
+</div>
+<div class="mypage-item-wrapper">
+    <div class="mypage-item">
+        <div class="mypage-item-tag">고수 찾기</div>
+        <div class="mypage-item-list">찜한 고수</div>
     </div>
 </div>
 </body>
