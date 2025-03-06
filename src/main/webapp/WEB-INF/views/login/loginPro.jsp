@@ -20,10 +20,11 @@
             </div>
             <div id="user-text">${sessionScope.user.user_name} 프로님</div>
         </div>
-        <img class="mypage-btn" src="/resources/icons/profile/mypage.png" alt="마이페이지" onclick="location.href='/mypage'">
-        <img class="logout-btn" src="/resources/icons/profile/logout.png" alt="로그아웃" onclick="logout()">
+        <img class="mypage-btn" src="/resources/icons/profile/mypage.png" alt="마이페이지"
+             onclick="location.href='/mypage'"/>
+        <img class="logout-btn" src="/resources/icons/profile/logout.png" alt="로그아웃" onclick="logout()"/>
     </div>
-    <img class="chat-btn" src="/resources/icons/profile/chat.png" alt="채팅" onclick="location.href='/chat'">
+    <img class="chat-btn" src="/resources/icons/profile/chat.png" alt="채팅" onclick="location.href='/chat'"/>
 </div>
 <script>
     const username = "${sessionScope.user.user_name}";

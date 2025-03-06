@@ -1,0 +1,39 @@
+#sign-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#sign-container h2 {
+    text-align: center;
+}
+
+#sign-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#sign-container input,
+#sign-container select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#sign-container button {
+    padding: 10px;
+    background-color: #2D9CDB;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#sign-container button:hover {
+    background-color: #1C7CB7;
+}
