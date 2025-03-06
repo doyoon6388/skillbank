@@ -7,6 +7,15 @@ pageEncoding="utf-8" %>
     <title>Title</title>
 </head>
 <body>
-asdadasdasdasd
+
+<div class="community-button2-container">
+    <div>
+        <h2>告知</h2>
+    </div>
+    <div>
+        <h2>イベント</h2>
+    </div>
+</div>
+
 </body>
 </html>
