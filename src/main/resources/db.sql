@@ -21,3 +21,32 @@ insert into user_account values (user_account_seq.nextval, '11', '22', '홍승�
 
 select *
 from user_account;
+
+CREATE TABLE request (
+                         request_no NUMBER PRIMARY KEY,
+                         r_user_id NUMBER(5) NOT NULL,
+                         request_type NUMBER(3) NOT NULL,  -- 1: 이사, 2: 청소, 3: 폐기물 처리
+                         request1 VARCHAR2(200 CHAR),
+                         request2 VARCHAR2(200 CHAR),
+                         request3 VARCHAR2(200 CHAR),
+                         request4 VARCHAR2(200 CHAR),
+                         request5 VARCHAR2(200 CHAR),
+                         request6 VARCHAR2(200 CHAR),
+                         request7 VARCHAR2(200 CHAR),
+                         request8 VARCHAR2(200 CHAR),
+                         request9 VARCHAR2(200 CHAR),
+                         request10 VARCHAR2(200 CHAR),
+                         request11 VARCHAR2(200 CHAR),
+                         request12 VARCHAR2(200 CHAR),
+                         request13 VARCHAR2(200 CHAR),
+                         request14 VARCHAR2(200 CHAR),
+                         CONSTRAINT fk_request_user FOREIGN KEY (r_user_id) REFERENCES user_account(user_pk)
+);
+
+create sequence request_no_seq;
+
+select * from request;
+
+delete request where request_no=5;
+
+

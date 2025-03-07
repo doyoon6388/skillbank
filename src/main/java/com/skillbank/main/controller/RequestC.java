@@ -41,12 +41,22 @@ public class RequestC {
     }
 
 
-@PostMapping("/my-request")
-    public String myRequest(Model model, HttpSession session, ReqeustVO reqeustVO) {
-        model.addAttribute("loginCheck", "login/loginOK.jsp");
-    requestService.requestReg(reqeustVO);
-        model.addAttribute("page", "request/myRequest.jsp");
 
+
+    @GetMapping("/my-request")
+    public String myRequest2(Model model, HttpSession session, int id) {
+        model.addAttribute("loginCheck", "login/loginOK.jsp");
+      model.addAttribute("request", requestService.requestList(id));
+        model.addAttribute("page", "request/myRequest.jsp");
         return "index";
+    }
+
+    @PostMapping("/my-request")
+    public String myRequest(Model model, HttpSession session, ReqeustVO reqeustVO) {
+        requestService.requestReg(reqeustVO);
+        return "redirect:/my-request";
+
+
+
     }
 }

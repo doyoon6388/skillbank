@@ -25,6 +25,9 @@ pageEncoding="utf-8" %>
           </div>
           <div id="user-text">${sessionScope.user.user_name} 고객님</div>
         </div>
+<div>
+  <button onclick="location.href='my-request?id=${sessionScope.user.user_pk}'">받은견적</button>
+</div>
         <img
           class="mypage-btn"
           src="/resources/icons/profile/mypage.png"
