@@ -51,7 +51,7 @@ public class MypageC {
         String newFileName = mypageService.updateProfileImg(user_pk, user_profile_img);
         user.setUser_profile_img(newFileName);
         session.setAttribute("user", user);
-        return "redirect:/";
+        return "redirect:/mypage";
             }
         }
 

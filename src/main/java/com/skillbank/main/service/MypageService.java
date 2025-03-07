@@ -2,6 +2,7 @@ package com.skillbank.main.service;
 
 import com.skillbank.main.mapper.MypageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,6 +12,9 @@ import java.util.UUID;
 
 @Service
 public class MypageService {
+
+    @Value("${upload}")
+    private String upload;
 
     @Autowired
     private MypageMapper mypageMapper;
@@ -23,7 +27,6 @@ public class MypageService {
         String fileExtension = oriName.substring(oriName.lastIndexOf("."), oriName.length());
         System.out.println(fileExtension);
 
-        String uploadFolder = "C:\\hsw10\\skillbank\\src\\main\\resources\\static\\icons\\profile";
 
         UUID uuid = UUID.randomUUID();
         System.out.println(uuid);
@@ -31,11 +34,10 @@ public class MypageService {
         System.out.println(uuids[0]);
         String fileName = uuids[0] + fileExtension;
 
-        File saveFile = new File(uploadFolder + File.separator + fileName);
-
+        File saveFile = new File(upload + "/" + fileName);
+        System.out.println(saveFile);
         try {
             user_profile_img.transferTo(saveFile);
-
             mypageMapper.updateClientProfile(fileName, user_pk);
 
         } catch (IOException e) {
