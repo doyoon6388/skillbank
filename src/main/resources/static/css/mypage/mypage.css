@@ -85,3 +85,54 @@ h1 {
     font-size: 14px;
     color: #555;
 }
+
+
+
+/* 모달 전체 영역 스타일 */
+.mypage-profile-change-modal {
+    display: none;              /* 기본은 숨김 */
+    position: fixed;            /* 화면에 고정 */
+    z-index: 10;                 /* 다른 요소보다 위에 표시 */
+    left: 0;
+    top: 0;
+    width: 100%;                /* 전체 너비 */
+    height: 100%;               /* 전체 높이 */
+    overflow: auto;             /* 필요시 스크롤 */
+    background-color: rgba(0,0,0,0.5); /* 반투명 배경 */
+}
+
+/* 모달 내부 컨텐츠 스타일 */
+.mypage-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;           /* 상단에서 15% 떨어진 곳에 중앙 정렬 */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;               /* 모달 너비 조정 */
+    text-align: center;
+    position: relative;
+}
+
+/* 닫기 버튼 스타일 */
+.mypage-profile-change-modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.mypage-profile-change-modal-close:hover,
+.mypage-profile-change-modal-close:focus {
+    color: black;
+}
+
+.profile-image-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.profile-image-container img {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    padding: 5px;
+}
