@@ -1,57 +1,58 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-         pageEncoding="utf-8" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>会員登録</title>
     <link rel="stylesheet" href="/resources/css/sign/sign.css">
-    <script>
-        window.onload = function () {
-            var errorMessage = "<%= request.getAttribute("error") %>";
-            if (errorMessage !== "null" && errorMessage !== "") {
-                alert(errorMessage);
-            }
-        };
-    </script>
+    <script src="/resources/js/sign/sign.js"></script>
+
+    <% session.removeAttribute("message"); %>
+    <% session.removeAttribute("error"); %>
 </head>
 <body>
 <div id="sign-container">
+
     <h2>会員登録</h2>
-    <form action="/register" method="post">
+
+    <input type="hidden" id="message-data" value="<%= request.getAttribute("message") %>">
+    <input type="hidden" id="error-data" value="<%= request.getAttribute("error") %>">
+
+    <form id="sign-form" action="/register" method="post" onsubmit="return validateForm();">
+
         <label for="user_email">メールアドレス:</label>
-        <input type="email" id="user_email" name="user_email" required>
+        <div class="input-wrapper">
+            <input type="email" id="user_email" name="user_email" required>
+            <span class="tooltip-icon" data-tooltip="有効なメールアドレスを入力してください。">❓</span>
+        </div>
 
         <label for="user_pw">パスワード:</label>
-        <input type="password" id="user_pw" name="user_pw" required>
+        <div class="input-wrapper">
+            <input type="password" id="user_pw" name="user_pw" required>
+            <span class="tooltip-icon" data-tooltip="英字と数字を含む5文字以上のパスワードを入力してください。">❓</span>
+        </div>
+
+        <label for="user_pw_confirm">パスワード再確認:</label>
+        <div class="input-wrapper">
+            <input type="password" id="user_pw_confirm" name="user_pw_confirm" required>
+            <span class="tooltip-icon" data-tooltip="パスワードが一致しているか確認してください。">❓</span>
+        </div>
 
         <label for="user_name">名前:</label>
-        <input type="text" id="user_name" name="user_name" required>
-
-        <label for="user_gender">性別:</label>
-        <select id="user_gender" name="user_gender" required>
-            <option value="">選択してください</option>
-            <option value="男性">男性</option>
-            <option value="女性">女性</option>
-        </select>
-
-        <label for="user_address">住所:</label>
-        <input type="text" id="user_address" name="user_address" required>
-
-        <label for="user_birth">生年月日:</label>
-        <input type="date" id="user_birth" name="user_birth" required>
-
-        <label for="user_phone">電話番号:</label>
-        <input type="text" id="user_phone" name="user_phone" required>
-
-        <label for="user_profile_img">プロフィール画像:</label>
-        <input type="text" id="user_profile_img" name="user_profile_img" required>
+        <div class="input-wrapper">
+            <input type="text" id="user_name" name="user_name" required>
+            <span class="tooltip-icon" data-tooltip="名前には数字や記号を含めないでください。">❓</span>
+        </div>
 
         <label for="user_nickname">ニックネーム:</label>
-        <input type="text" id="user_nickname" name="user_nickname" required>
+        <div class="input-wrapper">
+            <input type="text" id="user_nickname" name="user_nickname" required>
+            <span class="tooltip-icon" data-tooltip="ニックネームには特殊文字を含めないでください。">❓</span>
+        </div>
 
         <button type="submit">登録</button>
     </form>
+
     <a href="/login/line">
         <img src="/resources/images/line_login.png" alt="LINEでログイン">
     </a>

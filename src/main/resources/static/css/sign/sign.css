@@ -1,39 +1,132 @@
+/* sign.css - 회원가입 페이지 스타일 */
+
+/* sign 전용 스타일: index.css와 겹치는 문제 방지 */
 #sign-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 20px auto;
+    width: 400px;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 50px auto;
 }
 
 #sign-container h2 {
-    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
 }
 
 #sign-container form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
-#sign-container input,
-#sign-container select {
-    padding: 8px;
-    border: 1px solid #ccc;
+#sign-container label {
+    text-align: left;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#sign-container input {
+    box-sizing: border-box;  /* ✅ 테두리 포함한 크기 유지 */
+    width: 400px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;  /* 기본 테두리 */
     border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out; /* ✅ 부드러운 전환 효과 */
+}
+
+/* 🔹 포커스 (처음 클릭 시 파란색) */
+#sign-container input:focus {
+    border: 1px solid #2D9CDB;  /* 파란색 */
+    outline: none;  /* 기본 아웃라인 제거 */
+}
+
+/* ✅ 입력값이 옳을 때 (초록색) */
+#sign-container input.valid {
+    border: 1px solid #28a745;  /* 초록색 */
+}
+
+/* ❌ 입력값이 틀렸을 때 (붉은색) */
+#sign-container input.invalid {
+    border: 1px solid #dc3545;  /* 붉은색 */
 }
 
 #sign-container button {
+    margin-top: 20px;
     padding: 10px;
     background-color: #2D9CDB;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 #sign-container button:hover {
-    background-color: #1C7CB7;
+    background-color: #1C7CC3;
+}
+
+/* LINE 로그인 버튼 기본 스타일 */
+#sign-container a img {
+    margin-top: 35px;
+    width: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* ✅ 부드러운 전환 효과 */
+}
+
+/* 🎯 호버 시 (마우스를 올렸을 때) */
+#sign-container a img:hover {
+    transform: scale(1.1);  /* ✅ 10% 확대 */
+    opacity: 0.8;  /* ✅ 약간 투명하게 */
+}
+
+/* input과 툴팁을 감싸는 컨테이너 */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* 물음표 아이콘 스타일 */
+.tooltip-icon {
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #2D9CDB; /* 파란색 */
+    border: 1px solid #2D9CDB;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+}
+
+/* 툴팁 메시지 스타일 */
+.tooltip-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    display: none;
+}
+
+/* 마우스를 올리면 툴팁 표시 */
+.tooltip-icon:hover::after {
+    display: block;
 }
