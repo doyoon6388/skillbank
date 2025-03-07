@@ -20,6 +20,18 @@
     filter: invert(1) brightness(1.2); /* 밝기만 증가 */
 }
 
+.request-btn {
+    position: fixed;
+    right: max(calc((100vw - 1280px) / 2 + 20px), 20px); /* 너비 1280px 기준으로 조정 */
+    bottom: 20vh;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* 원 모양 */
+    background-color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
 .toggle-container {
     position: absolute;
     right: 30px;
