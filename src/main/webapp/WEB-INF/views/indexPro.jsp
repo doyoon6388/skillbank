@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>SkillBank</title>
 </head>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
             <div onclick="location.href='/main'">🏠 logo</div>
             <div onclick="location.href='/request'">📋 見積もり依頼</div>
             <div onclick="location.href='/findpro'">🔍 プロを探す</div>
-            <div onclick="location.href='/community'">💬 コミュニティ</div>
+            <div onclick="location.href='/community/main'">💬 コミュニティ</div>
         </div>
         <div>
             <jsp:include page="${loginCheck}"></jsp:include>
