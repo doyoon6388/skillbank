@@ -23,4 +23,14 @@ public class RequestService {
     }
 
 
+    public ReqeustVO getDetail(int pk) {
+        return requestMapper.getDetail(pk);
+
+    }
+
+    public void requestDelete(int pk) {
+   if(requestMapper.requestDelete(pk) == 1) {
+       System.out.println("등록성공");
+   }
+    }
 }

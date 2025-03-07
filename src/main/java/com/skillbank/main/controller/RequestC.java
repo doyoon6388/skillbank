@@ -3,12 +3,12 @@ package com.skillbank.main.controller;
 import com.skillbank.main.service.MainService;
 import com.skillbank.main.service.RequestService;
 import com.skillbank.main.vo.ReqeustVO;
+import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class RequestC {
@@ -33,15 +33,14 @@ public class RequestC {
         }
     }
 
+
+
     @GetMapping("/move")
     public String move(Model model, HttpSession session) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("page", "request/move.jsp");
         return "index";
     }
-
-
-
 
     @GetMapping("/my-request")
     public String myRequest2(Model model, HttpSession session, int id) {
@@ -53,10 +52,23 @@ public class RequestC {
 
     @PostMapping("/my-request")
     public String myRequest(Model model, HttpSession session, ReqeustVO reqeustVO) {
+
         requestService.requestReg(reqeustVO);
-        return "redirect:/my-request";
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        return "redirect:/my-request?id=" + user.getUser_pk();
 
+    }
 
+    @ResponseBody
+    @GetMapping("/my-request-detail")
+    public ReqeustVO myRequestDetail(@RequestParam int pk) {
+       return requestService.getDetail(pk);
+    }
 
+    @GetMapping("/request-delete")
+    public String requestDelete(int pk, HttpSession session) {
+            requestService.requestDelete(pk);
+            UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+                return "redirect:/my-request?id=" + user.getUser_pk();
     }
 }

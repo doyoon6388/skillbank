@@ -1,6 +1,7 @@
 package com.skillbank.main.mapper;
 
 import com.skillbank.main.vo.ReqeustVO;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -14,4 +15,10 @@ public interface RequestMapper {
 
     @Select("select * from request where r_user_id=#{r_user_id}")
     List<ReqeustVO> requestList(int id);
+
+    @Select("select * from request where request_no = #{pk}")
+    ReqeustVO getDetail(int pk);
+
+    @Delete("delete request where request_no = #{pk}")
+    int requestDelete(int pk);
 }

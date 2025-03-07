@@ -445,7 +445,7 @@
 
 </head>
 <body>
-<form action="/my-request?id=${sessionScope.user.user_pk}" method="post">
+<form action="/my-request" method="post">
     <input name="r_user_id" value="${sessionScope.user.user_pk}" hidden="hidden">
     <input name="request_type" value="1" hidden="hidden">
 
@@ -497,9 +497,9 @@
 </div>
 
 
-
-
 </form>
+
+
 
 </body>
 </html>
