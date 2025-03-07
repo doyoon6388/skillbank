@@ -19,7 +19,7 @@ public class MypageService {
         String fileExtension = oriName.substring(oriName.lastIndexOf("."), oriName.length());
         System.out.println(fileExtension);
 
-        
+
 
     }
 }
