@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="resources/css/mypage/mypage.css">
-
 </head>
 <body>
 <div><h1>마이페이지</h1></div>
