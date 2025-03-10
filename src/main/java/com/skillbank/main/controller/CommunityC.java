@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -26,8 +28,8 @@ public class CommunityC {
     @GetMapping("main")
     public String community(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
-            model.addAttribute("page", "community/communityClient.jsp");
-            model.addAttribute("communityPage", "clientMain.jsp");
+        model.addAttribute("page", "community/communityClient.jsp");
+        model.addAttribute("communityPage", "clientMain.jsp");
         if (mode != null && mode.toString().equals("on")) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
             return "indexPro";
@@ -52,9 +54,26 @@ public class CommunityC {
     }
 
     @GetMapping("together")
-    public String together(Model model, HttpSession session) {
+    public String together(Model model, HttpSession session,
+                           @RequestParam(name = "page", defaultValue = "1") int page) {
+        String category = "together";
+        int totalCount = communityService.getPostCount(category);
+        int pageSize = 2;
+        int totalPage = (int) Math.ceil((double) totalCount / pageSize);
+        if (totalPage < 1) {
+            totalPage = 1;
+        }
+        if (page < 1) {
+            page = 1;
+        }
+        if (page > totalPage) {
+            page = totalPage;
+        }
 
-        model.addAttribute("communityPost", communityService.getAllTogePost());
+        List<CommunityPostVO> postList = communityService.getPostsByPage(category, page);
+        model.addAttribute("communityPost", postList);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPage", totalPage);
 
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "community/communityClient.jsp");
@@ -67,10 +86,33 @@ public class CommunityC {
             return "index";
         }
     }
-    @GetMapping("askpro")
-    public String askpro(Model model, HttpSession session) {
 
-        model.addAttribute("communityPost", communityService.getAllAskproPost());
+    @GetMapping("askpro")
+    public String askpro(Model model, HttpSession session,
+                         @RequestParam(name = "page", defaultValue = "1") int page) {
+        String category = "askpro";
+
+        int totalCount = communityService.getPostCount(category);
+
+        int pageSize = 2;
+
+        int totalPage = (int) Math.ceil((double) totalCount / pageSize);
+        if (totalPage < 1) {
+            totalPage = 1;
+        }
+
+        if (page < 1) {
+            page = 1;
+        }
+        if (page > totalPage) {
+            page = totalPage;
+        }
+
+        List<CommunityPostVO> postVOList = communityService.getPostsByPage(category, page);
+        model.addAttribute("communityPost", postVOList);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPage", totalPage);
+
 
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "community/communityClient.jsp");
@@ -83,24 +125,38 @@ public class CommunityC {
             return "index";
         }
     }
+
     @GetMapping("write")
     public String writePost(Model model, HttpSession session) {
-        if (session.getAttribute("user") == null){
+        Object user = session.getAttribute("user");
+        Object mode = session.getAttribute("mode");
+        if (user == null) {
             model.addAttribute("loginCheck", "login/loginNO.jsp");
             model.addAttribute("page", "login/loginPage.jsp");
             return "index";
+        } else if (user != null && mode != null && mode.toString().equals("on")) {
+            model.addAttribute("loginCheck", "login/loginPro.jsp");
+            model.addAttribute("page", "community/communityProWrite.jsp");
+            return "indexPro";
         } else {
             model.addAttribute("loginCheck", "login/loginOK.jsp");
             model.addAttribute("page", "community/communityClientWrite.jsp");
             return "index";
         }
     }
+
     @PostMapping("write")
-    public String writePost(Model model, HttpSession session, CommunityPostVO communityPostVO) {
-      communityService.createPost(communityPostVO);
-    return "redirect:/community/" + communityPostVO.getCommu_post_category();
+    public String writePost(Model model, HttpSession session, CommunityPostVO communityPostVO, MultipartFile file) {
+        String content = communityPostVO.getCommu_content();
+        System.out.println(communityPostVO);
+        if (content != null) {
+            content = content.trim();
+            content = content.replaceAll("\\r?\\n", " ");
+            communityPostVO.setCommu_content(content);
+        }
+
+        communityService.createPost(communityPostVO, file);
+        return "redirect:/community/" + communityPostVO.getCommu_post_category();
     }
-
-
 
 }

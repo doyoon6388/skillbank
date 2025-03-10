@@ -21,8 +21,8 @@
 <div class="community-body-wrapper">
     <div class="community-tab">
         <div>全体</div>
-        <div>プロの知恵</div>
-        <div>イベント/告知</div>
+        <div onclick="location.href='/community/pro/wisdom'">プロの知恵</div>
+        <div onclick="location.href='/community/pro/event'">イベント/告知</div>
         <div>プロのためのガイド</div>
     </div>
     <div class="community-content"><jsp:include page="${communityPage}"></jsp:include></div>
