@@ -132,13 +132,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // ✅ 이메일, 닉네임 중복 체크 후 제출 막기 (올바른 데이터 검증)
-        if (emailInput.getAttribute("data-valid") !== "true") {
+        if (emailInput.getAttribute("data-valid") === "true") {
             alert("이미 사용 중인 이메일입니다.");
             event.preventDefault();
             return false;
         }
 
-        if (nicknameInput.getAttribute("data-valid") !== "true") {
+        if (nicknameInput.getAttribute("data-valid") === "true") {
             alert("이미 사용 중인 닉네임입니다.");
             event.preventDefault();
             return false;
