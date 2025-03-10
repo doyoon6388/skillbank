@@ -52,6 +52,7 @@ public class RequestC {
 
     @PostMapping("/my-request")
     public String myRequest(Model model, HttpSession session, ReqeustVO reqeustVO) {
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
 
         requestService.requestReg(reqeustVO);
         UserAccountVO user = (UserAccountVO) session.getAttribute("user");

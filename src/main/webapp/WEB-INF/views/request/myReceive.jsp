@@ -18,7 +18,8 @@
     <c:forEach items="${proRequest}" var="p">
         <div class="container1">
 <div>
-<span>${p.user_profile_img}</span>
+    <div ><img src="/file/${p.user_profile_img}" alt=""></div>
+
            <h1>${p.request_type}</h1>
                 <span>${p.user_nickname} </span>
 </div>
