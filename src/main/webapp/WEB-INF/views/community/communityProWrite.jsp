@@ -15,11 +15,11 @@
             <select name="commu_post_category" id="">
                 <option value="" disabled selected>選んでください</option>
                 <option value="together">一緒に</option>
-                <option value="askpro">プロに聞く</option>
+                <option value="askpro">プロのアピール</option>
             </select>
             <button type="submit" class="client-post-btn">投稿</button>
         </div>
-        <input type="file" name="file">
+        <input type="file" name="commu_image">
 
         <label for="title">タイトル</label>
         <input type="text" id="title" name="commu_title" placeholder="タイトルを入力">
