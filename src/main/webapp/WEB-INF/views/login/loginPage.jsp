@@ -1,21 +1,32 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>로그인</title>
+    <link rel="stylesheet" href="/resources/css/login/loginPage.css">
 </head>
 <body>
-<h2>로그인</h2>
-<form action="/login" method="post">
-    <label>Username: </label>
-    <input type="text" name="user_email" required/><br/>
-    <label>Password: </label>
-    <input type="password" name="user_pw" required/><br/>
-    <input type="submit" value="로그인"/>
-</form>
-<c:if test="${not empty error}">
-    <div style="color:red;">${error}</div>
-</c:if>
+<div id="login-container">
+    <h2>ログイン</h2>
+    <form action="/login" method="post">
+        <label for="user_email">メールアドレス:</label>
+        <input type="text" id="user_email" name="user_email" required/>
+
+        <label for="user_pw">パスワード:</label>
+        <input type="password" id="user_pw" name="user_pw" required/>
+
+        <!-- 로그인 실패 시 에러 메시지 -->
+        <c:if test="${not empty error}">
+            <div class="error-message">${error}</div>
+        </c:if>
+
+        <input type="submit" value="ログイン"/>
+    </form>
+
+    <!-- 회원가입 페이지로 이동 버튼 -->
+    <button id="register-btn" onclick="location.href='/signin'">介入登録</button>
+</div>
 </body>
 </html>

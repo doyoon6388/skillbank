@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="resources/css/mypage/mypage.css">
-
 </head>
 <body>
 <div><h1>마이페이지</h1></div>
@@ -17,13 +16,12 @@
     <div>${sessionScope.user.user_name}님</div>
     <div>${sessionScope.user.user_email}</div>
     </div>
-</div>
-<div class="mypage-item-wrapper">
-    <div class="mypage-item">
-        <div class="mypage-item-tag">고수 찾기</div>
-        <div class="mypage-item-list">찜한 고수</div>
+    <div class="mypage-item-wrapper">
+        <div class="mypage-item">
+            <div class="mypage-item-tag">고수 찾기</div>
+            <div class="mypage-item-list">찜한 고수</div>
+        </div>
     </div>
-</div>
 
     <!-- 모달 구조 -->
     <div class="mypage-profile-change-modal">
@@ -41,13 +39,14 @@
                     <!-- 변경하기 버튼: 파일 선택 창 호출 -->
                     <button type="button" id="changeButton">변경하기</button>
                     <!-- 제출하기 버튼: 파일 선택 후 나타남 -->
-                    <button type="submit" id="submitButton" name="user_pk" style="display:none;" value="${sessionScope.user.user_pk}">제출하기</button>
+                    <button type="submit" id="submitButton" name="user_pk" style="display:none;"
+                            value="${sessionScope.user.user_pk}">제출하기
+                    </button>
                 </div>
             </form>
         </div>
-    </div> <%-- 모달 끝 --%>
-
-
+    </div>
+    <%-- 모달 끝 --%>
     <script src="/resources/js/mypage/mypage.js"></script>
 </body>
 </html>
