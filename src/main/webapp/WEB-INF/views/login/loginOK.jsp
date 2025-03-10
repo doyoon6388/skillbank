@@ -23,6 +23,7 @@
         <div>
             <button class="request-btn" onclick="location.href='my-request?id=${sessionScope.user.user_pk}'">받은견적</button>
         </div>
+
         <img class="mypage-btn" src="/resources/icons/profile/mypage.png" alt="마이페이지"
              onclick="location.href='/mypage'"/>
         <img class="logout-btn" src="/resources/icons/profile/logout.png" alt="로그아웃" onclick="logout()"/>
