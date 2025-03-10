@@ -76,6 +76,8 @@ public class RequestC {
     public String myReceive(Model model, HttpSession session) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("page", "request/myReceive.jsp");
-        return "index";
+       model.addAttribute("proRequest", requestService.proRequestList());
+
+        return "indexPro";
     }
 }

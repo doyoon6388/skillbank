@@ -1,7 +1,9 @@
 package com.skillbank.main.service;
 
 import com.skillbank.main.mapper.RequestMapper;
+import com.skillbank.main.vo.ProRequestVO;
 import com.skillbank.main.vo.ReqeustVO;
+import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,5 +34,10 @@ public class RequestService {
    if(requestMapper.requestDelete(pk) == 1) {
        System.out.println("등록성공");
    }
+    }
+
+    public List<ProRequestVO> proRequestList() {
+
+        return requestMapper.proRequest();
     }
 }

@@ -326,6 +326,15 @@ CREATE TABLE request (
                          CONSTRAINT fk_request_user FOREIGN KEY (r_user_id) REFERENCES user_account(user_pk)
 );
 
+
+create table pro_request(
+    pro_no number primary key ,
+    pro_price number(9) not null ,
+    pro_coment varchar2(3000),
+    pro_file varchar2(400),
+
+);
+
 drop table request;
 
 
