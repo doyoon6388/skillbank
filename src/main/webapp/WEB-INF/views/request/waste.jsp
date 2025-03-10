@@ -31,7 +31,7 @@
         function loadStep(a) {
             if (a == 1) {
                 document.querySelector("#content-1").innerHTML = `<h2>이사 종류를 선택해주세요.</h2>
-           <div class="items">
+           <div class="wasteContainer">
             <input type="radio" name="request1" value="일반이사"/>일반이사<br>
             <input type ="radio" name = "request1" value = "반포장이사"/> 반포장이사 <br/>
                 <input type = "radio" name="request1" value="포장이사"/> 포장이사 <br/>
@@ -447,7 +447,7 @@
 <body>
 <form action="/my-request" method="post">
     <input name="r_user_id" value="${sessionScope.user.user_pk}" hidden="hidden">
-    <input name="request_type" value="원룸/소형 이사" hidden="hidden">
+    <input name="request_type" value="1" hidden="hidden">
 
     <input type="hidden" id="request1" name="request1">
     <input type="hidden" id="request2" name="request2">
