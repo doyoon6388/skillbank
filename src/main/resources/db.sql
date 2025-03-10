@@ -18,7 +18,7 @@ drop table user_account cascade constraints purge;
 create sequence user_account_seq;
 
 insert into user_account
-values (user_account_seq.nextval, '11', '22', '홍승완', '남', '상도동', sysdate, '01023232323', null, null, 0);
+values (user_account_seq.nextval, '44', '55', '김도윤', '남', '인천', sysdate, '01023232323', null, null, 0);
 
 select *
 from user_account;
