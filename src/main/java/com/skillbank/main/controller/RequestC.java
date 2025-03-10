@@ -71,4 +71,11 @@ public class RequestC {
             UserAccountVO user = (UserAccountVO) session.getAttribute("user");
                 return "redirect:/my-request?id=" + user.getUser_pk();
     }
+
+    @GetMapping("/my-receive")
+    public String myReceive(Model model, HttpSession session) {
+        model.addAttribute("loginCheck", "login/loginOK.jsp");
+        model.addAttribute("page", "request/myReceive.jsp");
+        return "index";
+    }
 }

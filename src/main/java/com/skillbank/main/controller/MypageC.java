@@ -21,7 +21,7 @@ public class MypageC {
     @Autowired
     private MypageService mypageService;
 
-    @GetMapping("/")
+    @GetMapping
     public String mypage(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
         if (session.getAttribute("user") == null){
@@ -40,7 +40,7 @@ public class MypageC {
         }
     }
 
-    @PostMapping("/")
+    @PostMapping
     public String profileImgUpdate(int user_pk, MultipartFile newImg, HttpSession session) {
         mypageService.updateProfileImg(user_pk, newImg);
         return "redirect:/mypage";

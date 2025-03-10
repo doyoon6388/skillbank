@@ -6,21 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>견적 요청</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("for-btn").addEventListener("click", function () {
-                document.getElementById("for-div").style.display = "block";
-                document.getElementById("for-div2").style.display = "none";
-            });
 
-            document.getElementById("for-btn2").addEventListener("click", function () {
-                document.getElementById("for-div").style.display = "none";
-                document.getElementById("for-div2").style.display = "block";
-            });
-        });
-
-
-    </script>
     <link rel="stylesheet" href="resources/css/request/myRequest.css">
 </head>
 <body>
