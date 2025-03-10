@@ -45,3 +45,4 @@ create sequence community_post_seq;
 insert into community_post values (community_post_seq.nextval,'askpro',4,'hellllllo',sysdate,'asdasdddd',null);
 
 select * from community_post;
+
