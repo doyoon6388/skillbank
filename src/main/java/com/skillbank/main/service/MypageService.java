@@ -2,24 +2,49 @@ package com.skillbank.main.service;
 
 import com.skillbank.main.mapper.MypageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
 @Service
 public class MypageService {
+
+    @Value("${upload}")
+    private String upload;
 
     @Autowired
     private MypageMapper mypageMapper;
 
 
-    public void updateProfileImg(int userPk, MultipartFile newImg) {
+    public String updateProfileImg(int user_pk, MultipartFile user_profile_img) {
 
-        String oriName = newImg.getOriginalFilename();
+        String oriName = user_profile_img.getOriginalFilename();
 
         String fileExtension = oriName.substring(oriName.lastIndexOf("."), oriName.length());
         System.out.println(fileExtension);
 
 
+        UUID uuid = UUID.randomUUID();
+        System.out.println(uuid);
+        String[] uuids = uuid.toString().split("-");
+        System.out.println(uuids[0]);
+        String fileName = uuids[0] + fileExtension;
+
+        File saveFile = new File(upload + "/" + fileName);
+        System.out.println(saveFile);
+        try {
+            user_profile_img.transferTo(saveFile);
+            mypageMapper.updateClientProfile(fileName, user_pk);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return fileName;
 
     }
 }
