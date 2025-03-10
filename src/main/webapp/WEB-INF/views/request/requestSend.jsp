@@ -5,43 +5,61 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>견적 요청</title>
+    <title>견적보내기</title>
 
-    <link rel="stylesheet" href="resources/css/request/myRequest.css">
+    <link rel="stylesheet" href="resources/css/request/requestSend.css">
 </head>
 <body>
-<%--
-<input name="r_user_id" value="${sessionScope.user.user_pk}" hidden="hidden">
---%>
+<form action="/request-send" method="post">
+<div class="requestSendWrapper">
+<div class="requestContainer">
+<h1>견적보내기</h1>
+<div class="price-type">
+<h1>금액 설정</h1>
+    <div> <input type="radio" name="priceS">총 비용
+    <input type="radio" name="priceS">시간 당</div>
 
-<div class="receiveWrapper">
-    <c:forEach items="${proRequest}" var="p">
-<form action="/request-send">
-<div class="receiveContainer">
-<div class="receiveItem">
-    <div ><img src="/file/${p.user_profile_img}" alt=""></div>
-
-           <h1 id="receiveTitle">${p.request_type}</h1>
-                <span id="">${p.user_nickname} </span>
 </div>
-        <div class="receiveItem2">
-            <span>${p.request10}</span>
-            <span>${p.request4}</span>
 
-            </div>
+<div class="price">
+<h1> 금액 </h1>
 
-<div class="receiveBtn">
-<a>다시 보지 않기</a>
-<a>자세히보기</a>
-        </div>
-        </div>
+    <input type="text" oninput="chkNum(event)" name="price"/>
+
+</div>
+<div>
+    <h1>견적 설명</h1>
+<div class="requestSend-txt">
+    <textarea name="rquestTxt">
+
+    </textarea>
+</div>
+
+<div>
+    <h1>파일첨부</h1>
+    <input type="file" name="file-upload">
+    <br>
+    <!-- 변경하기 버튼: 파일 선택 창 호출 -->
+    <button type="button" >견적 제출하기</button>
+</div>
+</div>
+</div>
+</div>
 </form>
-    </c:forEach>
-</div>
+<script>
+    let prevValue = ""; // 숫자만 저장할 변수
 
-
-
-
+    function chkNum(e) {
+        const value = e.target.value;
+        const lastChar = value[value.length - 1]; // 마지막 입력된 문자
+        console.log(prevValue)
+        if (isNaN(lastChar) || lastChar==" ") {
+            e.target.value = prevValue; // 숫자가 아니면 이전 값 유지
+        } else {
+            prevValue = e.target.value; // 숫자면 정상적인 값으로 저장
+        }
+    }
+</script>
 
 
 </body>

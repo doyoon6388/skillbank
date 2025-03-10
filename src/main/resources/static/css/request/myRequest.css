@@ -210,6 +210,10 @@ button {
 }
 
 /* 버튼 스타일 */
+
+
+
+
 .receiveBtn button {
     background: #7B5CFA;
     color: white;
@@ -223,4 +227,85 @@ button {
 
 .receiveBtn button:hover {
     background: #6245e0;
+}
+
+
+
+.receiveWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+
+}
+
+
+.receiveContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    margin: 10px auto;
+    border: 1px solid #ddd;
+}
+
+.receiveItem {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+.receiveItem img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.receiveItem h1 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+    flex: 1;
+}
+
+.receiveItem span {
+    font-size: 14px;
+    color: #666;
+}
+
+.receiveItem2 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+    color: #444;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.receiveBtn {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.receiveBtn button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.receiveBtn button:hover {
+    background-color: #0056b3;
 }

@@ -14,22 +14,28 @@
 <input name="r_user_id" value="${sessionScope.user.user_pk}" hidden="hidden">
 --%>
 
-
+<div class="receiveWrapper">
     <c:forEach items="${proRequest}" var="p">
-        <div class="container1">
-<div>
-    <div ><img src="/file/${p.user_profile_img}" alt=""></div>
 
-           <h1>${p.request_type}</h1>
-                <span>${p.user_nickname} </span>
+<div onclick="location.href='/request-send'" class="receiveContainer">
+<div class="receiveItem">
+    <div><img src="/file/${p.user_profile_img}" alt=""></div>
+
+           <h1 id="receiveTitle">${p.request_type}</h1>
+                <span id="">${p.user_nickname} </span>
 </div>
-        <div class="receive2">
+        <div class="receiveItem2">
             <span>${p.request10}</span>
             <span>${p.request4}</span>
 
             </div>
 
+<div class="receiveBtn">
+<a>다시 보지 않기</a>
+<a >자세히보기</a>
         </div>
+        </div>
+
     </c:forEach>
 </div>
 
