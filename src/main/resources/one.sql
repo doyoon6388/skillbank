@@ -307,7 +307,8 @@ VALUES (3, 'xyz.jpg');
 CREATE TABLE request (
                          request_no NUMBER PRIMARY KEY,
                          r_user_id NUMBER(5) NOT NULL,
-                         request_type NUMBER(3) NOT NULL,  -- 1: 이사, 2: 청소, 3: 폐기물 처리
+                         request_type VARCHAR2(30) NOT NULL,  -- 1: 이사, 2: 청소, 3: 폐기물 처리
+                         r_date DATE,
                          request1 VARCHAR2(200 CHAR),
                          request2 VARCHAR2(200 CHAR),
                          request3 VARCHAR2(200 CHAR),
@@ -322,8 +323,19 @@ CREATE TABLE request (
                          request12 VARCHAR2(200 CHAR),
                          request13 VARCHAR2(200 CHAR),
                          request14 VARCHAR2(200 CHAR),
-                         CONSTRAINT fk_request_user FOREIGN KEY (r_user_id) REFERENCES user_test_db(id)
+                         CONSTRAINT fk_request_user FOREIGN KEY (r_user_id) REFERENCES user_account(user_pk)
 );
+
+
+create table pro_request(
+    pro_no number primary key ,
+    pro_price number(9) not null ,
+    pro_coment varchar2(3000),
+    pro_file varchar2(400),
+
+);
+
+drop table request;
 
 
 create sequence request_no_seq;
