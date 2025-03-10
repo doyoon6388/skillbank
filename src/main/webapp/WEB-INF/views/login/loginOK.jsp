@@ -12,18 +12,16 @@
 <div class="profile-container">
     <div class="profile-wrap">
         <div class="profile&toggle">
-          <div class="toggle-container">
-            <label class="toggle-switch">
-              <input
-                type="checkbox"
-                ${checked}
-                id="toggle-btn"
-                onclick="toggleMode()"
-              />
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div id="user-text">${sessionScope.user.user_name} 고객님</div>
+            <div class="toggle-container">
+                <label class="toggle-switch">
+                    <input type="checkbox"${checked} id="toggle-btn" onclick="toggleMode()"/>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div id="user-text">${sessionScope.user.user_name} 고객님</div>
+        </div>
+        <div>
+            <button class="request-btn" onclick="location.href='my-request?id=${sessionScope.user.user_pk}'">받은견적</button>
         </div>
         <img class="mypage-btn" src="/resources/icons/profile/mypage.png" alt="마이페이지"
              onclick="location.href='/mypage'"/>

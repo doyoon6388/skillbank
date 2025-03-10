@@ -1,0 +1,108 @@
+
+/* 전체 레이아웃 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+/* 제목 스타일 */
+h1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* 버튼 컨테이너 */
+.btn-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* 기본 버튼 스타일 */
+button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+/* 활성 버튼 */
+#for-btn {
+    color: black;
+    border-bottom: 3px solid black;
+}
+
+#for-btn2 {
+    color: gray;
+}
+
+/* 탭 스타일 */
+#for-div, #for-div2 {
+    display: none;
+    padding: 20px;
+    border-radius: 8px;
+    background: #fff;
+}
+
+#for-div {
+    display: block;
+}
+
+/* 요청 목록 스타일 */
+.container1 {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+/* 위치 정보 스타일 */
+.container1 span {
+    display: block;
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 5px;
+}
+
+/* 요청명 스타일 */
+.container1 h1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* 버튼 그룹 */
+.btn1 {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn1 a {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+.btn1 a:nth-child(2) {
+    color: blue;
+}
+
+/* 오른쪽 정렬을 위한 스타일 */
+.btn2 {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽으로 정렬 */
+    margin-top: 10px;
+}
+
+/* 내 요청 보기 a태그 스타일 */
+.btn2 a {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
