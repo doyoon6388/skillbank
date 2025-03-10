@@ -51,3 +51,13 @@ insert into community_post values (community_post_seq.nextval,'askpro',4,'hellll
 
 select * from community_post;
 
+create table pro_account
+(
+    pro_pk NUMBER PRIMARY KEY,
+    pro_category VARCHAR(100 CHAR) DEFAULT NULL,
+    CONSTRAINT fk_pro_account_user FOREIGN KEY (pro_pk) REFERENCES user_account(user_pk)
+);
+
+select * from pro_account;
+
+select * from pro_account where pro_pk = 3;

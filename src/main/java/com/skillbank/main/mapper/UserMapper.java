@@ -1,9 +1,11 @@
 package com.skillbank.main.mapper;
 
+import com.skillbank.main.vo.ProAccountVO;
 import com.skillbank.main.vo.UserAccountVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface UserMapper {
@@ -25,4 +27,13 @@ public interface UserMapper {
             "VALUES (user_account_seq.nextval, #{user_email}, #{user_pw}, #{user_name}, #{user_nickname}, #{user_hasPro}, " +
             "NULL, NULL, NULL, NULL, NULL)")
     void insertUser(UserAccountVO user);
+
+    @Select("select count(*) from pro_account where pro_pk = #{user_pk}")
+    int proCheck(UserAccountVO userAccountVO);
+
+    @Insert("insert into pro_account values(#{pr_pk}, #{pro_category})")
+    void makeProAccount(ProAccountVO proAccountVO);
+
+    @Update("update user_account set user_haspro = 1 where user_pk = #{pro_pk}")
+    void makeHasProOne(ProAccountVO proAccountVO);
 }

@@ -1,6 +1,7 @@
 package com.skillbank.main.service;
 
 import com.skillbank.main.mapper.UserMapper;
+import com.skillbank.main.vo.ProAccountVO;
 import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,15 @@ public class MainService {
         }
     }
 
+    public int proCheck(UserAccountVO userAccountVO) {
+        return userMapper.proCheck(userAccountVO);
+    }
+
+    public void makeProAccount(ProAccountVO proAccountVO) {
+        userMapper.makeProAccount(proAccountVO);
+    }
+
+    public void makeHasProOne(ProAccountVO proAccountVO) {
+        userMapper.makeHasProOne(proAccountVO);
+    }
 }
