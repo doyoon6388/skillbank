@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>견적 요청</title>
+
+    <link rel="stylesheet" href="resources/css/request/myRequest.css">
+</head>
+<body>
+<%--
+<input name="r_user_id" value="${sessionScope.user.user_pk}" hidden="hidden">
+--%>
+
+<div class="receiveWrapper">
+    <c:forEach items="${proRequest}" var="p">
+<form action="/request-send">
+<div class="receiveContainer">
+<div class="receiveItem">
+    <div ><img src="/file/${p.user_profile_img}" alt=""></div>
+
+           <h1 id="receiveTitle">${p.request_type}</h1>
+                <span id="">${p.user_nickname} </span>
+</div>
+        <div class="receiveItem2">
+            <span>${p.request10}</span>
+            <span>${p.request4}</span>
+
+            </div>
+
+<div class="receiveBtn">
+<a>다시 보지 않기</a>
+<a>자세히보기</a>
+        </div>
+        </div>
+</form>
+    </c:forEach>
+</div>
+
+
+
+
+
+
+</body>
+</html>
