@@ -8,6 +8,7 @@ import java.util.Date;
 public class ReqeustVO {
     private int request_no;
     private int r_user_id;
+    private String user_nickname;
     private String request_type;
     private Date r_date;
     private String request1;

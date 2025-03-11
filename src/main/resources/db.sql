@@ -51,3 +51,23 @@ insert into community_post values (community_post_seq.nextval,'askpro',4,'hellll
 
 select * from community_post;
 
+select r.*, u.user_nickname from request r, user_account u where r.R_USER_ID = u.USER_PK and r_user_id=4;
+select * from user_account;
+-- 채팅방번호, 유저id, 고수id,
+CREATE TABLE chat_room(
+    chat_room_no number primary key,
+    chat_user_id number not null,
+    chat_user_name varchar2(50 char) not null,
+    chat_pro_id number not null,
+    chat_pro_name varchar2(50 char) not null,
+    chat_req_no number,
+    chat_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    constraint fk_chat_user  foreign key (chat_user_id) references user_account(user_pk) on delete cascade,
+    constraint fk_chat_pro foreign key (chat_pro_id) references user_account(user_pk) on delete cascade,
+    constraint fk_chat_req_no foreign key (chat_req_no) references request(request_no) on delete cascade
+);
+select * from chat_room;
+select * from chat_room where chat_user_id=998 and chat_pro_id=999;
+
+select * from request;
+create sequence chat_room_seq;
