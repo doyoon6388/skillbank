@@ -31,7 +31,7 @@ public class MypageC {
             return "index";
         }
         if (mode != null && mode.toString().equals("on")) {
-            model.addAttribute("page", "mypage/mypage.jsp");
+            model.addAttribute("page", "mypage/mypagePro.jsp");
             model.addAttribute("loginCheck", "login/loginPro.jsp");
             return "indexPro";
         } else {
