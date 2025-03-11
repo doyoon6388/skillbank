@@ -29,4 +29,11 @@ public class ProC {
         return "indexPro";
     }
 
+    @GetMapping("/cash")
+    public String cash(Model model, HttpSession session) {
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
+        model.addAttribute("page", "cash/cash.jsp");
+        return "indexPro";
+    }
+
 }
