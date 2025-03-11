@@ -21,7 +21,8 @@ public class ProC {
 
         UserAccountVO userSession = (UserAccountVO) session.getAttribute("user");
         int pk = userSession.getUser_pk();
-        session.setAttribute("proSession",mainService.makeProSession(pk));
+        session.setAttribute("proSession", mainService.makeProSession(pk));
+        System.out.println(mainService.makeProSession(pk));
 
         session.setAttribute("mode", "on");
         session.setAttribute("checked", "checked");
