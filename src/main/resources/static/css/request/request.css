@@ -1,72 +1,47 @@
-#request-container container {
-    font-family: Arial, sans-serif;
-    background: white;
+/* 전체 컨테이너 스타일 */
+#request-container {
+    width: 500px;
+    margin: 50px auto;
     padding: 20px;
+    background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 320px;
-    justify-content: center;
-    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-#request-container h3 {
-    margin-bottom: 5px;
+/* 제목 스타일 */
+#request-container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-#request-container p {
-    font-size: 12px;
-    color: gray;
-    margin-bottom: 15px;
-}
-
-.option {
-    display: flex;
-    align-items: center;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    background: #fff;
-    transition: 0.3s;
-}
-
-.option:hover {
-    background: #f1f1f1;
-}
-
-.option input {
-    margin-right: 10px;
-}
-
-#etcInputContainer {
-    display: none;
-    margin-top: 10px;
-}
-
-#request-container textarea {
-    width: 100%;
-    height: 40px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 14px;
-    resize: none;
-}
-
-#request-container button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background-color: #ccc;
+/* 각 요청 항목 스타일 */
+#request-container div {
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #2D9CDB;
     color: white;
-    font-size: 16px;
-    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
 }
 
-#request-container button:active {
-    background-color: #bbb;
+/* 마우스를 올렸을 때 스타일 */
+#request-container div:hover {
+    background-color: #1C7CC3;
+    transform: scale(1.05);
 }
 
+/* 비활성화된 버튼 스타일 */
+#request-container div.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 숨겨진 input 스타일 (안보이도록 처리) */
+#mode {
+    display: none;
+}
