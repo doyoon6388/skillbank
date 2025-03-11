@@ -23,11 +23,11 @@ public class ChatC {
         System.out.println(session.getAttribute("user"));
         if (mode.toString().equals("on")) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
-            model.addAttribute("page", "chater.jsp");
+            model.addAttribute("page", "chat/chater.jsp");
             return "indexPro";
         } else if (mode.toString().equals("off")) {
             model.addAttribute("loginCheck", "login/loginOK.jsp");
-            model.addAttribute("page", "chater.jsp");
+            model.addAttribute("page", "chat/chater.jsp");
             return "index";
         } else {
             model.addAttribute("loginCheck", "login/loginNO.jsp");

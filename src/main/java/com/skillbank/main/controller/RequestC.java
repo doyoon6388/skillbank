@@ -52,6 +52,7 @@ public class RequestC {
 
     @PostMapping("/my-request")
     public String myRequest(Model model, HttpSession session, ReqeustVO reqeustVO) {
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
 
         requestService.requestReg(reqeustVO);
         UserAccountVO user = (UserAccountVO) session.getAttribute("user");
@@ -78,6 +79,20 @@ public class RequestC {
         model.addAttribute("page", "request/myReceive.jsp");
        model.addAttribute("proRequest", requestService.proRequestList());
 
+        return "indexPro";
+    }
+
+    @GetMapping("/request-send")
+    public String requestSend(Model model, HttpSession session) {
+        model.addAttribute("loginCheck", "login/loginOK.jsp");
+        model.addAttribute("page", "request/requestSend.jsp");
+        return "indexPro";
+    }
+
+    @PostMapping("/request-send")
+    public String requestSend(Model model, HttpSession session, ReqeustVO reqeustVO) {
+        model.addAttribute("loginCheck", "login/loginOK.jsp");
+        model.addAttribute("page", "request/requestSend.jsp");
         return "indexPro";
     }
 }

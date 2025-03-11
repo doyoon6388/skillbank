@@ -13,7 +13,7 @@
     <div class="mypage-profile-wrapper">
         <div class="mypage-profile-img" id="mypage-profile-img-change-btn">
             <img id="profileImage"
-                 src="/file/${sessionScope.user.user_profile_img}"
+                 src=""
                  alt="프로필 이미지">
         </div>
         <div class="mypage-profile-name">
@@ -23,8 +23,8 @@
     </div>
     <div class="mypage-item-wrapper">
         <div class="mypage-item">
-            <div class="mypage-item-tag">고수 찾기</div>
-            <div class="mypage-item-list">찜한 고수</div>
+            <div class="mypage-item-tag">SkillBank Cash</div>
+            <div class="mypage-item-list">보유 금액 : session <button>충전하기</button></div>
         </div>
     </div>
 

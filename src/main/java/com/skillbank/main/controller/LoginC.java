@@ -1,13 +1,13 @@
 package com.skillbank.main.controller;
 
 import com.skillbank.main.service.MainService;
+import com.skillbank.main.vo.ProAccountVO;
 import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class LoginC {
@@ -44,6 +44,32 @@ public class LoginC {
         session.removeAttribute("user");
         session.removeAttribute("mode");
         return "redirect:/";
+    }
+
+    @ResponseBody
+    @PostMapping("/haspro")
+    public int haspro(@RequestBody UserAccountVO userAccountVO) {
+
+        System.out.println(mainService.proCheck(userAccountVO));
+        return mainService.proCheck(userAccountVO);
+    }
+
+    @GetMapping("/account/pro")
+    public String accountPro(Model model) {
+        model.addAttribute("page", "sign/proAccount.jsp");
+        model.addAttribute("loginCheck", "login/loginOK.jsp");
+        return "index";
+    }
+
+    @PostMapping("/account/pro")
+    public String accountPro(HttpSession session, Model model, ProAccountVO proAccountVO) {
+        mainService.makeProAccount(proAccountVO);
+        mainService.makeHasProOne(proAccountVO);
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        user.setUser_hasPro(1);
+        session.setAttribute("user", user);
+        session.setAttribute("mode", "on");
+        return "redirect:/pro/main";
     }
 
 }

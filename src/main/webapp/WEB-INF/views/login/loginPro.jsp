@@ -21,7 +21,7 @@
             <div id="user-text">${sessionScope.user.user_name} 프로님</div>
         </div>
         <div>
-            <button class="receive-btn" onclick="location.href='/my-receive'">받은요청</button>
+            <button class="cash-btn" onclick="location.href='/pro/cash'">캐시</button>
         </div>
         <img class="mypage-btn" src="/resources/icons/profile/mypage.png" alt="마이페이지"
              onclick="location.href='/mypage'"/>

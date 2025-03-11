@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/resources/css/community/community.css"></link>
 </head>
 <body>
-
 <div class="container">
     <form action="/community/write" method="post" enctype="multipart/form-data">
         <div class="select-and-post-btn">
@@ -28,9 +27,7 @@
 
         <input type="hidden" name="commu_user_id" value="${sessionScope.user.user_pk}">
 
-
     </form>
 </div>
-
 </body>
 </html>
