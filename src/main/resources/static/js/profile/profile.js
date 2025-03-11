@@ -62,3 +62,26 @@ function logout() {
     localStorage.removeItem("mode");
     location.href = "/logout";
 }
+
+function checkPro(user_pk){
+  fetch('/haspro', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ user_pk: user_pk })
+  })
+      .then(response => response.json())
+      .then(data => {
+          console.log(data);
+        // 서버로부터 받은 응답 처리
+        if (data === 0){
+          if (confirm('프로 계정이 없습니다. 가입하시겠습니까?')){
+            location.href='proAccount.jsp';
+          }
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+}
