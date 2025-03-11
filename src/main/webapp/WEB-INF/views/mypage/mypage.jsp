@@ -11,8 +11,11 @@
 <div><h1>마이페이지</h1></div>
 <div class="mypage-wrapper">
     <div class="mypage-profile-wrapper">
-        <div class="mypage-profile-img" id="mypage-profile-img-change-btn"><img
-                src="/file/${sessionScope.user.user_profile_img}" alt=""></div>
+        <div class="mypage-profile-img" id="mypage-profile-img-change-btn">
+            <img id="profileImage"
+                 src="${sessionScope.user.user_profile_img != null && !sessionScope.user.user_profile_img.isEmpty() ? '/file/' + sessionScope.user.user_profile_img : '/resources/icons/profile/default.png'}"
+                 alt="프로필 이미지">
+        </div>
         <div class="mypage-profile-name">
             <div>${sessionScope.user.user_name}님</div>
             <div>${sessionScope.user.user_email}</div>
@@ -37,7 +40,8 @@
                     <img id="profilePreview" src="/file/${sessionScope.user.user_profile_img}"
                          alt="프로필 이미지 미리보기" style="width:100px; height:100px;">
                     <!-- 파일 선택 input (숨김 처리) -->
-                    <input type="file" id="fileInput" name="user_profile_img" style="display:none;" onchange="previewImage(event)">
+                    <input type="file" id="fileInput" name="user_profile_img" style="display:none;"
+                           onchange="previewImage(event)">
                     <br>
                     <!-- 변경하기 버튼: 파일 선택 창 호출 -->
                     <button type="button" id="changeButton">변경하기</button>

@@ -27,6 +27,7 @@ h1 {
     border-radius: 50%;
     object-fit: cover; /* 이미지가 찌그러지지 않도록 */
     margin-right: 16px;
+    cursor: pointer;
 }
 
 /* 프로필 이름, 이메일 */
