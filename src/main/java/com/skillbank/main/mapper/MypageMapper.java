@@ -22,7 +22,6 @@ public interface MypageMapper {
             "</script>"
     })
     boolean updateUserInfo(@Param("user_pk") int user_pk, @Param("field") String field, @Param("value") Object value);
-    void updateUserProfile(String user_profile_img, int user_pk);
 
     @Update("update pro_account set pro_profile_img = #{pro_profile_img} where pro_pk = #{pro_pk}")
     void updateProProfile(String pro_profile_img, int pro_pk);

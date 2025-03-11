@@ -29,7 +29,7 @@ public class MypageService {
         File saveFile = new File(upload + "/" + fileName);
         try {
             user_profile_img.transferTo(saveFile);
-            mypageMapper.updateUserProfile(fileName, user_pk);
+            mypageMapper.updateClientProfile(fileName, user_pk);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
