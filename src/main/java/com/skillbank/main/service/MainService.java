@@ -41,4 +41,8 @@ public class MainService {
     public void makeHasProOne(ProAccountVO proAccountVO) {
         userMapper.makeHasProOne(proAccountVO);
     }
+
+    public ProAccountVO makeProSession(int pk) {
+        return userMapper.makeProSession(pk);
+    }
 }

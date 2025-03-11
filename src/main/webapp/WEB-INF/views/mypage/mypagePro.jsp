@@ -17,14 +17,14 @@
                  alt="프로필 이미지">
         </div>
         <div class="mypage-profile-name">
-            <div>${sessionScope.user.user_name}님</div>
-            <div>${sessionScope.user.user_email}</div>
+            <div>${sessionScope.user.user_name} 고수님</div>
+            <div>asdasd</div>
         </div>
     </div>
     <div class="mypage-item-wrapper">
         <div class="mypage-item">
             <div class="mypage-item-tag">SkillBank Cash</div>
-            <div class="mypage-item-list">보유 금액 : session <button>충전하기</button></div>
+            <div class="mypage-item-list">보유 금액 : ${sessionScope.proSession.pro_cash} C <button>충전하기</button></div>
         </div>
     </div>
 
@@ -37,7 +37,7 @@
             <form action="/mypage" method="post" enctype="multipart/form-data">
                 <div class="profile-image-container">
                     <!-- 기존 프로필 이미지 미리보기 -->
-                    <img id="profilePreview" src="/file/${sessionScope.user.user_profile_img}"
+                    <img id="profilePreview" src="/file/${sessionScope.proSession.pro_profile_img}"
                          alt="프로필 이미지 미리보기" style="width:100px; height:100px;">
                     <!-- 파일 선택 input (숨김 처리) -->
                     <input type="file" id="fileInput" name="user_profile_img" style="display:none;"
