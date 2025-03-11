@@ -13,7 +13,7 @@
     <div class="mypage-profile-wrapper">
         <div class="mypage-profile-img" id="mypage-profile-img-change-btn">
             <img id="profileImage"
-                 src="${sessionScope.user.user_profile_img != null && !sessionScope.user.user_profile_img.isEmpty() ? '/file/' + sessionScope.user.user_profile_img : '/resources/icons/profile/default.png'}"
+                 src="/file/${sessionScope.user.user_profile_img}"
                  alt="프로필 이미지">
         </div>
         <div class="mypage-profile-name">

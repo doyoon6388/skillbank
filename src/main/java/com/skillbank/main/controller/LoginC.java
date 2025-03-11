@@ -66,8 +66,10 @@ public class LoginC {
         mainService.makeProAccount(proAccountVO);
         mainService.makeHasProOne(proAccountVO);
         UserAccountVO user = (UserAccountVO) session.getAttribute("user");
-        // user.account asdasdasd
-        return "redirect:/";
+        user.setUser_hasPro(1);
+        session.setAttribute("user", user);
+        session.setAttribute("mode", "on");
+        return "redirect:/pro/main";
     }
 
 }

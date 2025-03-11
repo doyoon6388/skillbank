@@ -13,7 +13,7 @@ pageEncoding="utf-8" %>
     <div><input type="radio" name="pro_category" value="move">이사</div>
     <div><input type="radio" name="pro_category" value="clean">청소</div>
     <div><input type="radio" name="pro_category" value="west">폐기물</div>
-        <button>제출</button>
+        <button name="pro_pk" value="${sessionScope.user.user_pk}">제출</button>
     </form>
 </div>
 </body>
