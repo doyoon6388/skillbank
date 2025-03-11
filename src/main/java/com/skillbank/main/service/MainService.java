@@ -18,7 +18,12 @@ public class MainService {
 
     public String loginCheck(HttpSession session) {
         if (session != null && session.getAttribute("user") != null) {
-            return "login/loginOK.jsp";
+            UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+            if (user.getUser_hasPro() == 1) {
+                return "login/loginPro.jsp"; // 프로 모드 로그인 페이지
+            } else {
+                return "login/loginOK.jsp"; // 일반 로그인 페이지
+            }
         } else {
             return "login/loginNO.jsp";
         }
