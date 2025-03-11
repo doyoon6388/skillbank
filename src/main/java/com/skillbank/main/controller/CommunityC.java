@@ -148,15 +148,44 @@ public class CommunityC {
     @PostMapping("write")
     public String writePost(Model model, HttpSession session, CommunityPostVO communityPostVO, MultipartFile file) {
         String content = communityPostVO.getCommu_content();
-        System.out.println(communityPostVO);
+//        System.out.println(communityPostVO);
         if (content != null) {
             content = content.trim();
-            content = content.replaceAll("\\r?\\n", " ");
+//            content = content.replaceAll("\\r?\\n+", "\n");
+//            content = content.replaceAll("^\\s+", ""); // 文字列の先頭にある全空白文字を消す
             communityPostVO.setCommu_content(content);
+//            System.out.println(content);
         }
 
         communityService.createPost(communityPostVO, file);
         return "redirect:/community/" + communityPostVO.getCommu_post_category();
     }
+
+    @GetMapping("detail")
+    public String communityDetailPost(@RequestParam("postId") int postId, Model model, HttpSession session) {
+        CommunityPostVO postVO = communityService.getPostById(postId);
+        if (postVO.getCommu_content() != null) {
+            String replaced = postVO.getCommu_content().replaceAll("\\r?\\n", "<br>");
+            postVO.setCommu_content(replaced);
+            System.out.println(postVO.getCommu_content());
+        }
+        model.addAttribute("communityPost", postVO);
+        model.addAttribute("page", "community/communityDetail.jsp");
+
+        Object mode = session.getAttribute("mode");
+        if (mode != null && "on".equals(mode.toString())) {
+            model.addAttribute("loginCheck", "login/loginPro.jsp");
+            return "indexPro";
+        } else {
+            model.addAttribute("loginCheck", mainService.loginCheck(session));
+            return "index";
+        }
+
+    }
+
+//    @PostMapping("delete")
+//    public String communityDeletePost(@RequestParam("postId") int postId, Model model, HttpSession session) {
+//        CommunityPostVO postVO = communityService.getPostById(postId);
+//    }
 
 }

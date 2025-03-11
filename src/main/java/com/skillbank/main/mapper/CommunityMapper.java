@@ -28,5 +28,6 @@ public interface CommunityMapper {
     @Select("select * from ( select rownum as rn, a.* from ( select * from community_post where commu_post_category = #{category} order by commu_date desc ) a where rownum <= #{end} ) where rn >= #{start}")
     List<CommunityPostVO> getPostsByPage(@Param("category") String category, @Param("start") int start, @Param("end") int end);
 
-
+    @Select("select * from community_post where commu_post_id = #{postId}")
+    CommunityPostVO getPostById(int postId);
 }

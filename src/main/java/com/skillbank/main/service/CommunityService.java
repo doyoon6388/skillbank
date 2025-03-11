@@ -75,4 +75,7 @@ public class CommunityService {
     }
 
 
+    public CommunityPostVO getPostById(int postId) {
+        return communityMapper.getPostById(postId);
+    }
 }

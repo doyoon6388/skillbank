@@ -29,6 +29,7 @@
     height: 177px;
     width: 200px;
     z-index: 2;
+    cursor: pointer;
 }
 
 .community-body-wrapper {
@@ -185,8 +186,10 @@ textarea {
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 15px;
+    cursor: pointer;
 }
-.client-post-wrapper{
+
+.client-post-wrapper {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -219,14 +222,13 @@ textarea {
 .client-post-content {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;  /* 行数制限: 2行 */
+    -webkit-line-clamp: 2; /* 行数制限: 2行 */
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: normal;    /* 改行は自動折り返しに任せる */
-    line-height: 1.6;       /* 行の高さ */
+    white-space: normal; /* 改行は自動折り返しに任せる */
+    line-height: 1.6; /* 行の高さ */
     /* 幅やフォントサイズによって、どこで折り返すか変わります */
 }
-
 
 
 /*-----------------------------------------------*/
@@ -273,11 +275,11 @@ textarea {
 .pro-post-content {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;  /* 行数制限: 2行 */
+    -webkit-line-clamp: 2; /* 行数制限: 2行 */
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: normal;    /* 改行は自動折り返しに任せる */
-    line-height: 1.6;       /* 行の高さ */
+    white-space: normal; /* 改行は自動折り返しに任せる */
+    line-height: 1.6; /* 行の高さ */
     /* 幅やフォントサイズによって、どこで折り返すか変わります */
 }
 
@@ -296,4 +298,52 @@ textarea {
     border: 1px solid honeydew;
     text-decoration: none;
     color: gray;
+}
+
+/*-----------------------------------------------*/
+
+/*詳細部分*/
+.post-detail {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.post-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.post-content {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.post-wrapper {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.post-wrapper img {
+    max-width: 100%;
+    height: auto;
+}
+
+.post-actions {
+    text-align: right;
+}
+
+.post-actions button {
+    padding: 8px 12px;
+    margin-left: 10px;
 }
