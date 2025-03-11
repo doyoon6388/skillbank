@@ -31,9 +31,12 @@ public interface UserMapper {
     @Select("select count(*) from pro_account where pro_pk = #{user_pk}")
     int proCheck(UserAccountVO userAccountVO);
 
-    @Insert("insert into pro_account values(#{pro_pk}, #{pro_category})")
+    @Insert("insert into pro_account values(#{pro_pk}, #{pro_category}, 'default.png', 0)")
     void makeProAccount(ProAccountVO proAccountVO);
 
     @Update("update user_account set user_haspro = 1 where user_pk = #{pro_pk}")
     void makeHasProOne(ProAccountVO proAccountVO);
+
+    @Select("select * from pro_account where pro_pk = #{pk}")
+    ProAccountVO makeProSession(int pk);
 }
