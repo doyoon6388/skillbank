@@ -30,7 +30,7 @@
         <div>プロのアピール</div>
     </div>
     <div class="community-content">
-        <jsp:include page="${communityPage}"></jsp:include>
+        <jsp:include page="${communityPage}" />
     </div>
 </div>
 </body>

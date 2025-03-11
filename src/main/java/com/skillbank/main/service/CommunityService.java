@@ -75,4 +75,11 @@ public class CommunityService {
     }
 
 
+    public CommunityPostVO getPostById(int postId) {
+        return communityMapper.getPostById(postId);
+    }
+
+    public void commuDeletePost(int postId) {
+        communityMapper.commuDeletePost(postId);
+    }
 }
