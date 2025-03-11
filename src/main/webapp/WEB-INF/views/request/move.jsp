@@ -15,29 +15,25 @@
             border: 1px solid #ddd;
         }
     </style>
-
-
     <script>
-
-
         window.onload = function () {
             loadStep(1); // 첫 번째 단계 자동 로드
 
 
-
-
         };
         let dateval;
+
         function loadStep(a) {
             if (a == 1) {
                 document.querySelector("#content-1").innerHTML = `<h2>이사 종류를 선택해주세요.</h2>
-           <div class="items">
+            <div class="items">
             <input type="radio" name="request1" value="일반이사"/>일반이사<br>
             <input type ="radio" name = "request1" value = "반포장이사"/> 반포장이사 <br/>
                 <input type = "radio" name="request1" value="포장이사"/> 포장이사 <br/>
                <button onClick = "loadStep(2)">다음</button>
-</div>`
+            </div>`
             }
+
             if (a == 2) {
                 let selectMove = document.querySelector("input[name='request1']:checked");
                 let bb = selectMove.value;
@@ -52,7 +48,6 @@
          <input type="radio" name="request2" value="불가능"> 아니요.<br>
          <button onclick="loadStep(3)">다음</button>
 </div>`
-
 
             }
             if (a == 3) {
@@ -421,7 +416,7 @@
                         etcInputContainer.style.display = "none";
                     }
                 });
-                            }
+            }
             if (a == 15) {
                 let selectMoves = document.querySelectorAll("input[name='request14']:checked");
                 let bb = Array.from(selectMoves).map(el => el.value);
@@ -432,13 +427,13 @@
                     `<h2>선택사항</h2>` + bb;
                 document.querySelector("#content-15").innerHTML =
 
-                        `<h1>지금 무료 견적 받아보세요.</h1>
-                            <div>
-                                <button>견적 요청하기</button>
-                            </div>
-                            `
-}
-                            }
+                    `<h1>지금 무료 견적 받아보세요.</h1>
+                         <div>
+                              <button>견적 요청하기</button>
+                         </div>
+                    `
+            }
+        }
 
     </script>
 
@@ -465,41 +460,37 @@
     <input type="hidden" id="request14" name="request14">
 
 
-<div id="content-1">
-</div>
-<div id="content-2">
-</div>
-<div id="content-3">
-</div>
-<div id="content-4">
-</div>
-<div id="content-5">
-</div>
-<div id="content-6">
-</div>
-<div id="content-7">
-</div>
-<div id="content-8">
-</div>
-<div id="content-9">
-</div>
+    <div id="content-1">
+    </div>
+    <div id="content-2">
+    </div>
+    <div id="content-3">
+    </div>
+    <div id="content-4">
+    </div>
+    <div id="content-5">
+    </div>
+    <div id="content-6">
+    </div>
+    <div id="content-7">
+    </div>
+    <div id="content-8">
+    </div>
+    <div id="content-9">
+    </div>
     <div id="content-10">
-</div>
+    </div>
     <div id="content-11">
-</div>
+    </div>
     <div id="content-12">
-</div>
+    </div>
     <div id="content-13">
-</div>
+    </div>
     <div id="content-14">
-</div>
+    </div>
     <div id="content-15">
-</div>
-
+    </div>
 
 </form>
-
-
-
 </body>
 </html>

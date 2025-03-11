@@ -4,7 +4,6 @@ import com.skillbank.main.service.MainService;
 import com.skillbank.main.service.MypageService;
 import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,9 +25,9 @@ public class MypageC {
     @GetMapping
     public String mypage(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
-        if (session.getAttribute("user") == null){
-            model.addAttribute("loginCheck","login/loginNO.jsp");
-            model.addAttribute("page","login/loginPage.jsp");
+        if (session.getAttribute("user") == null) {
+            model.addAttribute("loginCheck", "login/loginNO.jsp");
+            model.addAttribute("page", "login/loginPage.jsp");
             return "index";
         }
         if (mode != null && mode.toString().equals("on")) {
@@ -45,14 +44,19 @@ public class MypageC {
     @PostMapping
     public String profileImgUpdate(int user_pk, MultipartFile user_profile_img, HttpSession session) {
         UserAccountVO user = (UserAccountVO) session.getAttribute("user");
-        if (user == null){
+        if (user == null) {
             return "redirect:/login";
         } else {
-        String newFileName = mypageService.updateProfileImg(user_pk, user_profile_img);
-        user.setUser_profile_img(newFileName);
-        session.setAttribute("user", user);
-        return "redirect:/mypage";
+            String newFileName;
+            if (user_profile_img != null && !user_profile_img.isEmpty()) {
+                newFileName = mypageService.updateProfileImg(user_pk, user_profile_img);
+            } else {
+                newFileName = "resources/icons/profile/default.png"; // 기본 이미지 설정
             }
+            user.setUser_profile_img(newFileName);
+            session.setAttribute("user", user);
+            return "redirect:/mypage";
         }
+    }
 
 }   // MypageC 끝
