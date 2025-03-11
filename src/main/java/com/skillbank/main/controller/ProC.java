@@ -19,7 +19,7 @@ public class ProC {
     public String proMain(Model model, HttpSession session) {
         session.setAttribute("mode", "on");
         session.setAttribute("checked", "checked");
-        model.addAttribute("loginCheck", "login/loginPro.jsp");
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
 
         if (!model.containsAttribute("page")) {
             model.addAttribute("page", "main/main.jsp");
