@@ -65,7 +65,7 @@
                     <span class="step">상담진행</span>
                         <%--<span class="step">${r.status}</span>--%>
                 </div>
-                    <%--  <div class="receiveMessage">${r.message}</div>--%>
+                    <%--<div class="receiveMessage">${r.message}</div>--%>
                 <div class="receiveBtn">
                     <button>자세히 보기</button>
                 </div>
@@ -139,13 +139,9 @@
                 }).catch(function (error) {
                     console.error('에러 발생:', error);
                 });
-
-
             }) // click event 끝
         })
-
     } // onload 끝
-
 
     // 모달 열기
     function openModal() {
