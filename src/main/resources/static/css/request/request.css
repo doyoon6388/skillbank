@@ -1,21 +1,19 @@
-.container {
+#request-container container {
     font-family: Arial, sans-serif;
     background: white;
     padding: 20px;
     border-radius: 10px;
-
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     width: 320px;
-
     justify-content: center;
     align-items: center;
 }
 
-h3 {
+#request-container h3 {
     margin-bottom: 5px;
 }
 
-p {
+#request-container p {
     font-size: 12px;
     color: gray;
     margin-bottom: 15px;
@@ -46,7 +44,7 @@ p {
     margin-top: 10px;
 }
 
-textarea {
+#request-container textarea {
     width: 100%;
     height: 40px;
     border: 1px solid #ccc;
@@ -56,7 +54,7 @@ textarea {
     resize: none;
 }
 
-button {
+#request-container button {
     width: 100%;
     padding: 12px;
     border: none;
@@ -68,7 +66,7 @@ button {
     margin-top: 10px;
 }
 
-button:active {
+#request-container button:active {
     background-color: #bbb;
 }
 
