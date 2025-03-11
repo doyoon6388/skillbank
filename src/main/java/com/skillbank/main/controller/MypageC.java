@@ -2,6 +2,7 @@ package com.skillbank.main.controller;
 
 import com.skillbank.main.service.MainService;
 import com.skillbank.main.service.MypageService;
+import com.skillbank.main.vo.ProAccountVO;
 import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,7 @@ public class MypageC {
         } else {
             String newFileName;
             if (user_profile_img != null && !user_profile_img.isEmpty()) {
-                newFileName = mypageService.updateProfileImg(user_pk, user_profile_img);
+                newFileName = mypageService.profileImgUpdate(user_pk, user_profile_img);
             } else {
                 newFileName = "resources/icons/profile/default.png"; // 기본 이미지 설정
             }
@@ -58,5 +59,24 @@ public class MypageC {
             return "redirect:/mypage";
         }
     }
+
+    @PostMapping("/pro")
+    public String profileImgUpdatePro(int pro_pk, MultipartFile pro_profile_img, HttpSession session) {
+        ProAccountVO pro = (ProAccountVO) session.getAttribute("proSession");
+        if (pro == null) {
+            return "redirect:/login";
+        } else {
+            String newFileName;
+            if (pro_profile_img != null && !pro_profile_img.isEmpty()) {
+                newFileName = mypageService.updateProfileImg(pro_pk, pro_profile_img);
+            } else {
+                newFileName = "resources/icons/profile/default.png";
+            }
+            pro.setPro_profile_img(newFileName);
+            session.setAttribute("proSession", pro);
+            return "redirect:/mypage";
+        }
+    }
+
 
 }   // MypageC 끝

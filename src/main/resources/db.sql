@@ -65,6 +65,14 @@ create table pro_account
     CONSTRAINT fk_pro_account_user FOREIGN KEY (pro_pk) REFERENCES user_account(user_pk)
 );
 
+ALTER TABLE pro_account
+    ADD (
+        pro_profile_img VARCHAR2(100 CHAR),
+        pro_cash NUMBER(11) DEFAULT 0
+        );
+
+
 select * from pro_account;
 
-select * from pro_account where pro_pk = 3;
+/*
+update pro_account set pro_*/
