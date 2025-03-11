@@ -54,7 +54,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <%@ page session="true" %>
         </div>
       </div>
     </div>
-    <input id="userName" type="text" hidden value="${user.username}" />
+    <input id="userName" type="text" hidden value="${user.user_nickname}" />
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const username = document.getElementById("userName").value || "guest";
