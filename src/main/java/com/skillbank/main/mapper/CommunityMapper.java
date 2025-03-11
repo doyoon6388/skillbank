@@ -1,10 +1,7 @@
 package com.skillbank.main.mapper;
 
 import com.skillbank.main.vo.CommunityPostVO;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -30,4 +27,7 @@ public interface CommunityMapper {
 
     @Select("select * from community_post where commu_post_id = #{postId}")
     CommunityPostVO getPostById(int postId);
+
+    @Delete("delete from community_post where commu_post_id = #{postId}")
+    void commuDeletePost(int postId);
 }

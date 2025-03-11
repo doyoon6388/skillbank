@@ -3,7 +3,9 @@ package com.skillbank.main.controller;
 import com.skillbank.main.service.CommunityService;
 import com.skillbank.main.service.MainService;
 import com.skillbank.main.vo.CommunityPostVO;
+import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -183,9 +185,45 @@ public class CommunityC {
 
     }
 
-//    @PostMapping("delete")
-//    public String communityDeletePost(@RequestParam("postId") int postId, Model model, HttpSession session) {
-//        CommunityPostVO postVO = communityService.getPostById(postId);
+    @PostMapping("delete")
+    public String communityDeletePost(@RequestParam("postId") int postId, Model model, HttpSession session) {
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        CommunityPostVO postVO = communityService.getPostById(postId);
+
+        if (user.getUser_pk() != postVO.getCommu_user_id()) {
+
+            model.addAttribute("communityPost", postVO);
+            return "redirect:/community/" + postVO.getCommu_post_category();
+        }
+
+        communityService.commuDeletePost(postId);
+        return "redirect:/community/" + postVO.getCommu_post_category();
+    }
+
+
+//    @PostMapping("update")
+//    public String communityUpdatePost(CommunityPostVO communityPostVO, @RequestParam("file") MultipartFile file, HttpSession session) {
+//        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+//        if (user == null) {
+//            return "redirect:/login";
+//        }
+//
+//
 //    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
