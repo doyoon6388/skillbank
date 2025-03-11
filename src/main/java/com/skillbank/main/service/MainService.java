@@ -19,8 +19,8 @@ public class MainService {
 
     public String loginCheck(HttpSession session) {
         if (session != null && session.getAttribute("user") != null) {
-            UserAccountVO user = (UserAccountVO) session.getAttribute("user");
-            if (user.getUser_hasPro() == 1) {
+            Object proSession = (Object) session.getAttribute("mode");
+            if (proSession != null && proSession.toString().equals("on")) {
                 return "login/loginPro.jsp"; // 프로 모드 로그인 페이지
             } else {
                 return "login/loginOK.jsp"; // 일반 로그인 페이지
