@@ -20,8 +20,8 @@ public class MypageService {
     @Autowired
     private MypageMapper mypageMapper;
 
-    // ✅ 프로필 이미지 변경
-    public String updateProfileImg(int user_pk, MultipartFile user_profile_img) {
+    public String profileImgUpdate(int user_pk, MultipartFile user_profile_img) {
+
         String oriName = user_profile_img.getOriginalFilename();
         String fileExtension = oriName.substring(oriName.lastIndexOf("."));
         String fileName = UUID.randomUUID().toString().split("-")[0] + fileExtension;
@@ -29,7 +29,38 @@ public class MypageService {
         File saveFile = new File(upload + "/" + fileName);
         try {
             user_profile_img.transferTo(saveFile);
-            mypageMapper.updateClientProfile(fileName, user_pk);
+            mypageMapper.updateUserProfile(fileName, user_pk);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return fileName;
+
+    }
+
+
+
+    public String updateProfileImg(int pro_pk, MultipartFile pro_profile_img) {
+
+        String oriName = pro_profile_img.getOriginalFilename();
+
+        String fileExtension = oriName.substring(oriName.lastIndexOf("."), oriName.length());
+        System.out.println(fileExtension);
+
+
+        UUID uuid = UUID.randomUUID();
+        System.out.println(uuid);
+        String[] uuids = uuid.toString().split("-");
+        System.out.println(uuids[0]);
+        String fileName = uuids[0] + fileExtension;
+
+        File saveFile = new File(upload + "/" + fileName);
+        System.out.println(saveFile);
+        try {
+            pro_profile_img.transferTo(saveFile);
+            mypageMapper.updateProProfile(fileName, pro_pk);
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

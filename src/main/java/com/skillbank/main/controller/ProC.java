@@ -1,6 +1,7 @@
 package com.skillbank.main.controller;
 
 import com.skillbank.main.service.MainService;
+import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +18,16 @@ public class ProC {
 
     @GetMapping("/main")
     public String proMain(Model model, HttpSession session) {
+
+        UserAccountVO userSession = (UserAccountVO) session.getAttribute("user");
+        int pk = userSession.getUser_pk();
+        session.setAttribute("proSession", mainService.makeProSession(pk));
+        System.out.println(mainService.makeProSession(pk));
+
         session.setAttribute("mode", "on");
         session.setAttribute("checked", "checked");
         model.addAttribute("loginCheck", mainService.loginCheck(session));
+
 
         if (!model.containsAttribute("page")) {
             model.addAttribute("page", "main/main.jsp");
