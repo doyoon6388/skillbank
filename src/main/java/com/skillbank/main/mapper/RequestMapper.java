@@ -2,6 +2,7 @@ package com.skillbank.main.mapper;
 
 import com.skillbank.main.vo.ProRequestVO;
 import com.skillbank.main.vo.ReqeustVO;
+import com.skillbank.main.vo.RequestSendVO;
 import com.skillbank.main.vo.UserAccountVO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -26,4 +27,6 @@ public interface RequestMapper {
 
     @Select("select r.request_type, u.user_profile_img, u.user_nickname, r.request4, r.request10 from request r join user_account u on r.r_user_id = u.user_pk")
     List<ProRequestVO> proRequest();
+
+    int requestSend(RequestSendVO requestSendVO);
 }
