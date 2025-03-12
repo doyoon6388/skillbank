@@ -191,16 +191,9 @@ public class CommunityC {
         if (user == null) {
             return "redirect:/login";
         }
-        CommunityPostVO postVO = communityService.getPostById(postId);
 
-        if (user.getUser_pk() != postVO.getCommu_user_id()) {
-
-            model.addAttribute("communityPost", postVO);
-            return "redirect:/community/" + postVO.getCommu_post_category();
-        }
-
-        communityService.commuDeletePost(postId);
-        return "redirect:/community/" + postVO.getCommu_post_category();
+        communityService.communityDeletePost(postId);
+        return "redirect:/community/detail?postId=" + postId;
     }
 
 
@@ -212,9 +205,21 @@ public class CommunityC {
 //        }
 //
 //
+//
+//
+//
 //    }
 
-
+//    @PostMapping("like")
+//    public String communityLikePost(@RequestParam("postId") int postId, Model model, HttpSession session) {
+//        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+//        if (user == null) {
+//            return "redirect:/login";
+//        }
+//
+//        communityService.communityLikePost(postId);
+//        return "redirect:/community/detail?postId=" + postId;
+//    }
 
 
 
