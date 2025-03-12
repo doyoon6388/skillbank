@@ -23,6 +23,10 @@ public class CommunityService {
     @Autowired
     private CommunityMapper communityMapper;
 
+    public String getUploadPath() {
+        return upload;
+    }
+
 
     public List<CommunityPostVO> getAllTogePost() {
         return communityMapper.getAllTogePost();
@@ -79,12 +83,13 @@ public class CommunityService {
         return communityMapper.getPostById(postId);
     }
 
-    public void commuDeletePost(int postId) {
-        communityMapper.commuDeletePost(postId);
+    public void communityDeletePost(int postId) {
+        communityMapper.communityDeletePost(postId);
     }
 
-    public void communityLikePost(int postId) {
-    }
+//    public void communityLikePost(int postId) {
+//        communityMapper.communityLikePost(postId);
+//    }
 
 //    public void updatePost(CommunityPostVO communityPostVO) {
 //    }

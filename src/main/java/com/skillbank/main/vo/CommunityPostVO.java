@@ -18,7 +18,7 @@ public class CommunityPostVO {
     private String commu_content;   // 게시글 내용
     private String commu_image;
 
-    private int commu_writer;
+    private int commu_writer; // clientなら1、proなら0
     private int commu_like;
 
 }

@@ -77,6 +77,18 @@ create table pro_account
     CONSTRAINT fk_pro_account_user FOREIGN KEY (pro_pk) REFERENCES user_account(user_pk)
 );
 
+CREATE TABLE community_post_like (
+                           post_id NUMBER,
+                           user_id NUMBER,
+                           like_date DATE DEFAULT sysdate,
+                           CONSTRAINT pk_post_like PRIMARY KEY (post_id, user_id),
+                           CONSTRAINT fk_post_like_post FOREIGN KEY (post_id) REFERENCES community_post(commu_post_id),
+                           CONSTRAINT fk_post_like_user FOREIGN KEY (user_id) REFERENCES user_account(user_pk)
+);
+
+select *
+from community_post_like;
+
 ALTER TABLE pro_account
     ADD (
         pro_profile_img VARCHAR2(100 CHAR),

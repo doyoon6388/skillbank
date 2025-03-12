@@ -48,13 +48,21 @@
                 </c:if>
             </div>
             <div class="post-content" id="post-content" style="min-height:300px; white-space: pre-wrap;">${communityPost.commu_content}</div>
-            <%-- 戻る/削除/修正　--%>
-            <div class="community-btn-container" id="community-btn-container">
-                <form class="community-like-form" id="community-like-form" action="/community/like" method="post" style="display: inline">
-                    <input type="hidden" name="postId" value="${communityPost.commu_post_id}" />
-                    <button type="submit" class="community-like-btn" id="like-btn">いいね(<span id="like-count">${communityPost.commu_like}</span>)</button>
-                </form>
+<%--            いいね--%>
 
+            <form class="like-form" id="like-form" action="/community/like" method="post" style="display:inline;">
+                <input type="hidden" name="postId" value="${communityPost.commu_post_id}" />
+                <button type="submit" class="community-like-btn" id="like-btn">
+                    👍 (<span id="like-count">${communityPost.commu_like}</span>)
+                </button>
+            </form>
+
+<%--            <div class="community-btn-container" id="community-btn-container">--%>
+<%--                <form class="community-like-form" id="community-like-form" action="/community/like" method="post" style="display: inline">--%>
+<%--                    <input type="hidden" name="postId" value="${communityPost.commu_post_id}" />--%>
+<%--                    <button type="submit" class="community-like-btn" id="like-btn">いいね(<span id="like-count">${communityPost.commu_like}</span>)</button>--%>
+<%--                </form>--%>
+                    <%-- 戻る/削除/修正　--%>
                 <button class="community-history-back" id="history-back" type="button" onclick="history.back()">戻る</button>
                 <c:if test="${sessionScope.user != null and sessionScope.user.user_pk == communityPost.commu_user_id}">
                     <form class="delete-form" id="delete-form" action="/community/delete" method="post" style="display:inline;">
