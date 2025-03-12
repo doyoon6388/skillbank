@@ -13,6 +13,6 @@
 <div class="payment-message">
     가상 결제가 성공적으로 완료되었습니다.
 </div>
-<a href="/">홈으로 이동</a>
+<button onclick="location.href='/main'">홈으로 이동</button>
 </body>
 </html>

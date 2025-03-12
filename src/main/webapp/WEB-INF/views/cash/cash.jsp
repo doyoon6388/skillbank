@@ -17,10 +17,10 @@
             <input type="radio" name="pro_cash" value="1200" checked> 1,200 C : 990 円
         </div>
         <div class="cash-item">
-            <input type="radio" name="pro_cash" value="2540"> 3,300 C : 2,540 円
+            <input type="radio" name="pro_cash" value="3300"> 3,300 C : 2,540 円
         </div>
         <div class="cash-item">
-            <input type="radio" name="pro_cash" value="5000"> 8,500 C : 5,000 円
+            <input type="radio" name="pro_cash" value="8500"> 8,500 C : 5,000 円
         </div>
         <button class="cash-button" value="${sessionScope.proSession.pro_pk}">결제</button>
     </div>

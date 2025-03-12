@@ -32,9 +32,9 @@ public class PaymentC {
     private static final String KAKAO_SECRET_KEY = "DEV58FF3EEF76FE45023042AEBB3E2710E8FCEC1";
 
     @PostMapping("/pro/cash")
-    public String simulatePayment(int pro_cash, HttpSession session, Model model /*int pro_pk*/) {
+    public String simulatePayment(int pro_cash, HttpSession session, Model model) {
         try {
-            // 세션에서 ProAccountVO 객체를 가져옴 (Lombok @Data 사용)
+            // 세션에서 ProAccountVO 객체를 가져옴
             ProAccountVO proSession = (ProAccountVO) session.getAttribute("proSession");
             if (proSession == null) {
                 model.addAttribute("error", "세션 정보가 없습니다.");
@@ -76,18 +76,10 @@ public class PaymentC {
                 String redirectUrl = jsonObject.getString("next_redirect_pc_url");
                 System.out.println("Redirect URL (테스트용): " + redirectUrl);
 
-/*                paymentService.addCash(pro_pk);*/
-
-
                 // 가상 충전 로직: 선택한 금액만큼 현재 보유 금액 업데이트
                 proSession.setPro_cash(proSession.getPro_cash() + pro_cash);
-
                 // 여기서 바로 redirectUrl로 리다이렉트하면, 카카오페이 UI가 표시됩니다.
                 return "redirect:" + redirectUrl;
-                // 테스트 환경에서는 실제 결제창 대신 성공 페이지로 리다이렉트
-/*                model.addAttribute("page", "cash/paymentSuccess.jsp");
-                model.addAttribute("loginCheck", mainService.loginCheck(session));
-                return "indexPro";*/
             } else {
                 model.addAttribute("error", "결제 준비 중 오류가 발생했습니다.");
                 model.addAttribute("page", "cash/paymentError.jsp");
@@ -105,6 +97,10 @@ public class PaymentC {
 
     @GetMapping("/paymentSuccess")
     public String PaymentSuccess(HttpSession session, Model model) {
+
+        ProAccountVO proSession = (ProAccountVO) session.getAttribute("proSession");
+        paymentService.updateProCash(proSession);
+
         model.addAttribute("page", "cash/paymentSuccess.jsp");
         model.addAttribute("loginCheck", mainService.loginCheck(session));
         return "indexPro";
