@@ -10,37 +10,49 @@
     <link rel="stylesheet" href="resources/css/request/requestSend.css">
 </head>
 <body>
+
+
 <form action="/request-send" method="post">
 <div class="requestSendWrapper">
+    <div class="responseContainer">
+        <div>
+            <div><img src="/file/${proRequest.user_profile_img}" alt=""></div>
+            <div><span>${proRequest.user_nickname}</span></div>
+            <div><span>${proRequest.request_type}</span></div>
+            <div><span>${proRequest.request10}</span></div>
+        </div>
+    </div>
 <div class="requestContainer">
 <h1>견적보내기</h1>
+<input name="r_request_no" value="${proRequest.request_no}" hidden="hidden">
+<input name="r_user_id" value="${sessionScope.user.user_pk}" hidden="hidden">
 <div class="price-type">
 <h1>금액 설정</h1>
-    <div> <input type="radio" name="priceS">총 비용
-    <input type="radio" name="priceS">시간 당</div>
+    <div> <input type="radio" name="r_price_type" value="총비용">총 비용
+    <input type="radio" name="r_price_type" value="시간당">시간 당</div>
 
 </div>
 
 <div class="price">
 <h1> 금액 </h1>
 
-    <input type="text" oninput="chkNum(event)" name="price"/>
+    <input type="text" oninput="chkNum(event)" name="r_price"/>
 
 </div>
 <div>
     <h1>견적 설명</h1>
 <div class="requestSend-txt">
-    <textarea name="rquestTxt">
+    <textarea name="r_comment">
 
     </textarea>
 </div>
 
 <div>
     <h1>파일첨부</h1>
-    <input type="file" name="file-upload">
+    <input type="file" name="r_file">
     <br>
     <!-- 변경하기 버튼: 파일 선택 창 호출 -->
-    <button type="button" >견적 제출하기</button>
+    <button>견적 제출하기</button>
 </div>
 </div>
 </div>
