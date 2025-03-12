@@ -212,9 +212,21 @@ public class CommunityC {
 //        }
 //
 //
+//
+//
+//
 //    }
 
+    @PostMapping("like")
+    public String communityLikePost(@RequestParam("postId") int postId, Model model, HttpSession session) {
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
 
+        communityService.communityLikePost(postId);
+        return "redirect:/community/detail?postId=" + postId;
+    }
 
 
 

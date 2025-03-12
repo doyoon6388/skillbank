@@ -61,6 +61,15 @@ values (community_post_seq.nextval, 'askpro', 4, 'hellllllo', sysdate, 'asdasddd
 select *
 from community_post;
 
+
+alter table community_post
+add (
+    commu_writer        number(1) default 0,
+    commu_like          number default 0 not null
+    );
+
+
+
 create table pro_account
 (
     pro_pk NUMBER PRIMARY KEY,
