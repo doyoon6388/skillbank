@@ -3,6 +3,7 @@ package com.skillbank.main.controller;
 import com.skillbank.main.service.MainService;
 import com.skillbank.main.service.RequestService;
 import com.skillbank.main.vo.ReqeustVO;
+import com.skillbank.main.vo.RequestSendVO;
 import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,16 +85,23 @@ public class RequestC {
     }
 
     @GetMapping("/request-send")
-    public String requestSend(Model model, HttpSession session) {
+    public String requestSend(Model model, HttpSession session, int no) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("page", "request/requestSend.jsp");
+        model.addAttribute("proRequest", requestService.proRequestDetail(no));
+
         return "indexPro";
     }
 
     @PostMapping("/request-send")
-    public String requestSend(Model model, HttpSession session, ReqeustVO reqeustVO) {
+    public String requestSend(Model model, HttpSession session, RequestSendVO reqeustVO) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("page", "request/requestSend.jsp");
-        return "indexPro";
+
+
+        requestService.requestSend(reqeustVO);
+        return "redirect:/my-receive";
     }
+
+
 }

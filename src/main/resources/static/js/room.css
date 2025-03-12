@@ -1,0 +1,26 @@
+/* 채팅 메시지 */
+.message {
+    margin: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    max-width: 60%;
+}
+
+.message.sent {
+    background-color: #DCF8C6;  /* 나의 메시지 배경색 */
+    margin-left: auto;
+    text-align: right; /* 오른쪽 정렬 */
+}
+
+.message.received {
+    background-color: #E5E5EA;  /* 상대방의 메시지 배경색 */
+    margin-right: auto;
+    text-align: left; /* 왼쪽 정렬 */
+}
+
+/* 메시지 박스에 스타일 추가 */
+#chatContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
