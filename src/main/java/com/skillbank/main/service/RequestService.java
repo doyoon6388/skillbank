@@ -31,6 +31,9 @@ public class RequestService {
 
     }
 
+    public ProRequestVO proRequestDetail(int no) {
+        return requestMapper.proRequestDetail(no);
+    }
     public void requestDelete(int pk) {
    if(requestMapper.requestDelete(pk) == 1) {
        System.out.println("삭제");

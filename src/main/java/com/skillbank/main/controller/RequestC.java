@@ -84,9 +84,11 @@ public class RequestC {
     }
 
     @GetMapping("/request-send")
-    public String requestSend(Model model, HttpSession session) {
+    public String requestSend(Model model, HttpSession session, int no) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("page", "request/requestSend.jsp");
+        model.addAttribute("proRequest", requestService.proRequestDetail(no));
+
         return "indexPro";
     }
 
@@ -94,8 +96,10 @@ public class RequestC {
     public String requestSend(Model model, HttpSession session, RequestSendVO reqeustVO) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("page", "request/requestSend.jsp");
+
+
         requestService.requestSend(reqeustVO);
-        return "indexPro";
+        return "redirect:/my-receive";
     }
 
 
