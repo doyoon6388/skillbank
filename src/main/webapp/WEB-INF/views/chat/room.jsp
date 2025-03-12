@@ -10,22 +10,35 @@
 <p>나 : ${sessionScope.user.user_nickname}</p>
 <p>상대방 : ${sessionScope.user.user_pk == chatRoom.chat_user_id ? chatRoom.chat_pro_name : chatRoom.chat_user_name}</p>
 <p>나 : <input id="from" value="${sessionScope.user.user_nickname}" readonly></p>
-<p>상대방 : <input id="to" value="${sessionScope.user.user_pk == chatRoom.chat_user_id ? chatRoom.chat_pro_name : chatRoom.chat_user_name}" readonly>
+<p>상대방 : <input id="to"
+                value="${sessionScope.user.user_pk == chatRoom.chat_user_id ? chatRoom.chat_pro_name : chatRoom.chat_user_name}"
+                readonly>
 </p>
 <div>
     <h3>채팅 견적서</h3>
     <div id="reqForm"></div>
 </div>
 <div id="chatContainer">
-    <!-- 보낸 메시지 -->
-    <div class="message sent">
-        <p>나: 안녕하세요!</p>
-    </div>
+    <!-- 기존 메시지 -->
+<%--    ${chatLog}--%>
+    <c:forEach items="${chatLog}" var="chat">
+        <c:choose>
+            <c:when test="${sessionScope.user.user_nickname eq chat.sender}">
+                <div class="message sent">
+                    <p>${chat.message}</p>
+                </div>
 
-    <!-- 받은 메시지 -->
-    <div class="message received">
-        <p>상대방: 안녕하세요! 반갑습니다.</p>
-    </div>
+            </c:when>
+            <c:otherwise>
+                <div class="message received">
+                    <p>${chat.message}</p>
+                </div>
+
+            </c:otherwise>
+        </c:choose>
+
+        <!-- 받은 메시지 -->
+    </c:forEach>
 </div>
 
 

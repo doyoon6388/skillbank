@@ -1,7 +1,7 @@
 package com.skillbank.main.controller;
 
 import com.skillbank.main.service.MainService;
-import com.skillbank.main.vo.ChatMessage;
+import com.skillbank.main.test.ChatMessage;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
