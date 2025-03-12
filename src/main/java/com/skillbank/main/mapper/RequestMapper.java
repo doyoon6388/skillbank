@@ -28,5 +28,6 @@ public interface RequestMapper {
     @Select("select r.request_type, u.user_profile_img, u.user_nickname, r.request4, r.request10 from request r join user_account u on r.r_user_id = u.user_pk")
     List<ProRequestVO> proRequest();
 
+    @I
     int requestSend(RequestSendVO requestSendVO);
 }
