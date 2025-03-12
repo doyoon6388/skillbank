@@ -12,10 +12,13 @@
 <body>
 
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> chat
 <form action="/request-send" method="post">
 <div class="requestSendWrapper">
     <div class="responseContainer">
