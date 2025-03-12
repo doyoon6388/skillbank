@@ -1,6 +1,7 @@
 package com.skillbank.main.service;
 
 import com.skillbank.main.mapper.MypageMapper;
+import com.skillbank.main.vo.UserAccountVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -19,10 +20,30 @@ public class MypageService {
     @Autowired
     private MypageMapper mypageMapper;
 
-
-    public String updateProfileImg(int user_pk, MultipartFile user_profile_img) {
+    public String profileImgUpdate(int user_pk, MultipartFile user_profile_img) {
 
         String oriName = user_profile_img.getOriginalFilename();
+        String fileExtension = oriName.substring(oriName.lastIndexOf("."));
+        String fileName = UUID.randomUUID().toString().split("-")[0] + fileExtension;
+
+        File saveFile = new File(upload + "/" + fileName);
+        try {
+            user_profile_img.transferTo(saveFile);
+            mypageMapper.updateClientProfile(fileName, user_pk);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return fileName;
+
+    }
+
+
+
+    public String updateProfileImg(int pro_pk, MultipartFile pro_profile_img) {
+
+        String oriName = pro_profile_img.getOriginalFilename();
 
         String fileExtension = oriName.substring(oriName.lastIndexOf("."), oriName.length());
         System.out.println(fileExtension);
@@ -37,14 +58,17 @@ public class MypageService {
         File saveFile = new File(upload + "/" + fileName);
         System.out.println(saveFile);
         try {
-            user_profile_img.transferTo(saveFile);
-            mypageMapper.updateClientProfile(fileName, user_pk);
+            pro_profile_img.transferTo(saveFile);
+            mypageMapper.updateProProfile(fileName, pro_pk);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
         return fileName;
+    }
 
+    // ✅ 회원 정보 수정 기능 추가
+    public boolean updateUserInfo(int user_pk, String field, Object value) {
+        return mypageMapper.updateUserInfo(user_pk, field, value);
     }
 }

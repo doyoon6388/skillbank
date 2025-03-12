@@ -19,7 +19,7 @@
 
 <div class="client-post-list">
     <c:forEach var="i" items="${communityPost}">
-        <div class="client-post-card">
+        <div class="client-post-card" onclick="location.href='/community/detail?postId=${i.commu_post_id}'">
             <div class="client-post-header">
                 <div class="client-post-author">
                     投稿者 ${i.commu_user_id}

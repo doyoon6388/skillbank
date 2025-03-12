@@ -3,7 +3,9 @@ package com.skillbank.main.controller;
 import com.skillbank.main.service.CommunityService;
 import com.skillbank.main.service.MainService;
 import com.skillbank.main.vo.CommunityPostVO;
+import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -148,15 +150,80 @@ public class CommunityC {
     @PostMapping("write")
     public String writePost(Model model, HttpSession session, CommunityPostVO communityPostVO, MultipartFile file) {
         String content = communityPostVO.getCommu_content();
-        System.out.println(communityPostVO);
+//        System.out.println(communityPostVO);
         if (content != null) {
             content = content.trim();
-            content = content.replaceAll("\\r?\\n", " ");
+//            content = content.replaceAll("\\r?\\n+", "\n");
+//            content = content.replaceAll("^\\s+", ""); // 文字列の先頭にある全空白文字を消す
             communityPostVO.setCommu_content(content);
+//            System.out.println(content);
         }
 
         communityService.createPost(communityPostVO, file);
         return "redirect:/community/" + communityPostVO.getCommu_post_category();
     }
+
+    @GetMapping("detail")
+    public String communityDetailPost(@RequestParam("postId") int postId, Model model, HttpSession session) {
+        CommunityPostVO postVO = communityService.getPostById(postId);
+        if (postVO.getCommu_content() != null) {
+            String replaced = postVO.getCommu_content().replaceAll("\\r?\\n", "<br>");
+            postVO.setCommu_content(replaced);
+            System.out.println(postVO.getCommu_content());
+        }
+        model.addAttribute("communityPost", postVO);
+        model.addAttribute("page", "community/communityDetail.jsp");
+
+        Object mode = session.getAttribute("mode");
+        if (mode != null && "on".equals(mode.toString())) {
+            model.addAttribute("loginCheck", "login/loginPro.jsp");
+            return "indexPro";
+        } else {
+            model.addAttribute("loginCheck", mainService.loginCheck(session));
+            return "index";
+        }
+
+    }
+
+    @PostMapping("delete")
+    public String communityDeletePost(@RequestParam("postId") int postId, Model model, HttpSession session) {
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        CommunityPostVO postVO = communityService.getPostById(postId);
+
+        if (user.getUser_pk() != postVO.getCommu_user_id()) {
+
+            model.addAttribute("communityPost", postVO);
+            return "redirect:/community/" + postVO.getCommu_post_category();
+        }
+
+        communityService.commuDeletePost(postId);
+        return "redirect:/community/" + postVO.getCommu_post_category();
+    }
+
+
+//    @PostMapping("update")
+//    public String communityUpdatePost(CommunityPostVO communityPostVO, @RequestParam("file") MultipartFile file, HttpSession session) {
+//        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+//        if (user == null) {
+//            return "redirect:/login";
+//        }
+//
+//
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
