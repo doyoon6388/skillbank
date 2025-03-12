@@ -19,22 +19,19 @@ public class RequestC {
     @Autowired
     private RequestService requestService;
 
-
     @GetMapping("/request")
     public String request(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
-            model.addAttribute("page", "request/request.jsp");
+        model.addAttribute("page", "request/request.jsp");
         if (mode != null && mode.toString().equals("on")) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
-            model.addAttribute("ifYouPro","1");
+            model.addAttribute("ifYouPro", "1");
             return "indexPro";
         } else {
             model.addAttribute("loginCheck", mainService.loginCheck(session));
             return "index";
         }
     }
-
-
 
     @GetMapping("/move")
     public String move(Model model, HttpSession session) {
@@ -46,39 +43,43 @@ public class RequestC {
     @GetMapping("/my-request")
     public String myRequest2(Model model, HttpSession session, int id) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
-      model.addAttribute("request", requestService.requestList(id));
+        model.addAttribute("request", requestService.requestList(id));
         model.addAttribute("page", "request/myRequest.jsp");
         return "index";
     }
 
     @PostMapping("/my-request")
-    public String myRequest(Model model, HttpSession session, ReqeustVO reqeustVO) {
+    public String myRequest(Model model, HttpSession session, @ModelAttribute ReqeustVO reqeustVO) {
         model.addAttribute("loginCheck", mainService.loginCheck(session));
 
-        requestService.requestReg(reqeustVO);
+        // 🛠 r_user_id가 null이면 세션에서 가져와서 설정
         UserAccountVO user = (UserAccountVO) session.getAttribute("user");
-        return "redirect:/my-request?id=" + user.getUser_pk();
+        if (reqeustVO.getR_user_id() == null && user != null) {
+            reqeustVO.setR_user_id(user.getUser_pk());
+        }
 
+        requestService.requestReg(reqeustVO);
+        return "redirect:/my-request?id=" + reqeustVO.getR_user_id();
     }
 
     @ResponseBody
     @GetMapping("/my-request-detail")
     public ReqeustVO myRequestDetail(@RequestParam int pk) {
-       return requestService.getDetail(pk);
+        return requestService.getDetail(pk);
     }
 
     @GetMapping("/request-delete")
     public String requestDelete(int pk, HttpSession session) {
-            requestService.requestDelete(pk);
-            UserAccountVO user = (UserAccountVO) session.getAttribute("user");
-                return "redirect:/my-request?id=" + user.getUser_pk();
+        requestService.requestDelete(pk);
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        return "redirect:/my-request?id=" + user.getUser_pk();
     }
 
     @GetMapping("/my-receive")
     public String myReceive(Model model, HttpSession session) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("page", "request/myReceive.jsp");
-       model.addAttribute("proRequest", requestService.proRequestList());
+        model.addAttribute("proRequest", requestService.proRequestList());
 
         return "indexPro";
     }

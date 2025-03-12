@@ -19,16 +19,25 @@ public class RequestService {
     public List<ReqeustVO> requestList(int id) {
         return requestMapper.requestList(id);
     }
-    public void requestReg(ReqeustVO reqeustVO) {
-    if(requestMapper.requestReg(reqeustVO) == 1){
-        System.out.println("등록성공");
-    }
-    }
 
+    public void requestReg(ReqeustVO reqeustVO) {
+
+        if (reqeustVO.getRequest7() == null) reqeustVO.setRequest7("");
+        if (reqeustVO.getRequest8() == null) reqeustVO.setRequest8("");
+        if (reqeustVO.getRequest9() == null) reqeustVO.setRequest9("");
+        if (reqeustVO.getRequest10() == null) reqeustVO.setRequest10("");
+        if (reqeustVO.getRequest11() == null) reqeustVO.setRequest11("");
+        if (reqeustVO.getRequest12() == null) reqeustVO.setRequest12("");
+        if (reqeustVO.getRequest13() == null) reqeustVO.setRequest13("");
+        if (reqeustVO.getRequest14() == null) reqeustVO.setRequest14("");
+
+        if (requestMapper.requestReg(reqeustVO) == 1) {
+            System.out.println("등록성공");
+        }
+    }
 
     public ReqeustVO getDetail(int pk) {
         return requestMapper.getDetail(pk);
-
     }
 
     public ProRequestVO proRequestDetail(int no) {
@@ -41,7 +50,6 @@ public class RequestService {
     }
 
     public List<ProRequestVO> proRequestList() {
-
         return requestMapper.proRequest();
     }
 

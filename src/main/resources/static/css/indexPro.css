@@ -11,7 +11,7 @@ body {
 }
 
 .header {
-    max-width: 1280px;
+    max-width: 970px;
     height: 40px;
     margin: 0 auto;
     display: flex;
@@ -24,17 +24,25 @@ body {
 .header-items {
     display: flex;
     gap: 20px;
+    align-items: center;
 }
 
 .header-items div {
     cursor: pointer;
 }
 
-.container {
-    width: 1280px;
+#indexPro-container {
+    width: 970px;
     margin: 20px auto;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    width: 50px;
+    border-radius: 10px;
+    align-items: center;
 }

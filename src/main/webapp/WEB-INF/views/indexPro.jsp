@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" %>
+<%@ taglib prefix="c"
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +20,7 @@
 <div class="header-wrapper">
     <div class="header">
         <div class="header-items">
-            <div onclick="location.href='/main'">🏠 logo</div>
+            <div onclick="location.href='/main'"><img src="/resources/icons/index/sbLogo.png" class="logo"></div>
             <div onclick="location.href='/request'">📋 見積もり依頼</div>
             <div onclick="location.href='/findpro'">🔍 プロを探す</div>
             <div onclick="location.href='/community/pro/main'">💬 コミュニティ</div>
@@ -28,8 +30,10 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <jsp:include page="${page}"></jsp:include>
+<div id="indexPro-container">
+    <c:if test="${not empty page}">
+        <jsp:include page="${page}"></jsp:include>
+    </c:if>
 </div>
 </body>
 </html>

@@ -8,17 +8,18 @@
     <link rel="stylesheet" href="/resources/css/request/request.css">
     <meta charset="UTF-8">
     <title>Title</title>
-
 </head>
 <body>
-<input type="text" id="mode" value="${ifYouPro}" hidden>
-<h1> 견적요청</h1>
-<br><br><br>
+<div id="request-container">
 
-<div onclick="location.href='/move'"> 이사 </div>
-<div>청소 </div>
-<div>폐기물 청소 </div>
+    <input type="text" id="mode" value="${ifYouPro}" hidden>
+    <h1> 견적요청</h1>
 
+    <div onclick="location.href='/move'"> 이사</div>
+    <div>청소</div>
+    <div>폐기물 청소</div>
+
+</div>
 
 <script>
     window.onload = () => {
@@ -28,7 +29,6 @@
             }
         }
     }
-
 </script>
 </body>
 </html>

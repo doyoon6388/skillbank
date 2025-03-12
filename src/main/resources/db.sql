@@ -1,16 +1,16 @@
 CREATE TABLE user_account
 (
-    user_pk          NUMBER PRIMARY KEY,                 -- 유저 고유번호
-    user_email       VARCHAR2(100 char) NOT NULL UNIQUE, -- 이메일 (유니크)
-    user_pw          VARCHAR2(100 char) NOT NULL,        -- 비밀번호
-    user_name        varchar2(100 char) not null,        -- 이름
-    user_gender      VARCHAR2(2 char) not null,          -- 성별 (선택 사항)
-    user_address     varchar2(1000 char) not null,       -- 주소
-    user_birth       DATE,                               -- 생일 (선택 사항)
-    user_phone       VARCHAR2(20 char) not null,         -- 전화번호 (선택 사항)
-    user_profile_img VARCHAR2(1000 char),                -- 프로필사진 경로 또는 URL (선택 사항)
-    user_nickname    VARCHAR2(50 char),                  -- 닉네임 (선택 사항)
-    user_hasPro      number(1)                           -- 프로 계정 유무
+    user_pk          NUMBER PRIMARY KEY,                  -- 유저 고유번호
+    user_email       VARCHAR2(100 char)  NOT NULL UNIQUE, -- 이메일 (유니크)
+    user_pw          VARCHAR2(100 char)  NOT NULL,        -- 비밀번호
+    user_name        varchar2(100 char)  not null,        -- 이름
+    user_gender      VARCHAR2(2 char)    not null,        -- 성별 (선택 사항)
+    user_address     varchar2(1000 char) not null,        -- 주소
+    user_birth       DATE,                                -- 생일 (선택 사항)
+    user_phone       VARCHAR2(20 char)   not null,        -- 전화번호 (선택 사항)
+    user_profile_img VARCHAR2(1000 char),                 -- 프로필사진 경로 또는 URL (선택 사항)
+    user_nickname    VARCHAR2(50 char),                   -- 닉네임 (선택 사항)
+    user_hasPro      number(1)                            -- 프로 계정 유무
 );
 
 drop table user_account cascade constraints purge;
@@ -18,56 +18,64 @@ drop table user_account cascade constraints purge;
 create sequence user_account_seq;
 
 insert into user_account
-values (user_account_seq.nextval, '11', '22', '홍승완', '남', '상도동', sysdate, '01023232323', null, null, 0);
+values (user_account_seq.nextval, '22', '33', '이지우', '남', '금천', null, '01023232323', 'default.png', '쥬', 1);
+
+DELETE FROM user_account WHERE user_pk = 91;
+DELETE FROM request WHERE r_user_id = 65;
 
 select *
 from user_account;
 
-ALTER TABLE user_account MODIFY user_gender NULL;
-ALTER TABLE user_account MODIFY user_address NULL;
-ALTER TABLE user_account MODIFY user_birth NULL;
-ALTER TABLE user_account MODIFY user_phone NULL;
-ALTER TABLE user_account MODIFY user_profile_img NULL;
+ALTER TABLE user_account
+    MODIFY user_gender NULL;
+ALTER TABLE user_account
+    MODIFY user_address NULL;
+ALTER TABLE user_account
+    MODIFY user_birth NULL;
+ALTER TABLE user_account
+    MODIFY user_phone NULL;
+ALTER TABLE user_account
+    MODIFY user_profile_img NULL;
 
 CREATE TABLE community_post
 (
-    commu_post_id      NUMBER PRIMARY KEY,     -- 게시글 (고유번호 PK)
+    commu_post_id       NUMBER PRIMARY KEY,          -- 게시글 (고유번호 PK)
     commu_post_category varchar2(100 char) not null,
-    commu_user_id      NUMBER,                 -- 작성자 (user_account 테이블의 user_pk를 참조)
-    commu_title        VARCHAR2(255) NOT NULL, -- 제목
-    commu_date           DATE DEFAULT sysdate,   -- 작성일자 (sysdate 사용)
-    commu_content         CLOB,                   -- 내용
+    commu_user_id       NUMBER,                      -- 작성자 (user_account 테이블의 user_pk를 참조)
+    commu_title         VARCHAR2(255)      NOT NULL, -- 제목
+    commu_date          DATE DEFAULT sysdate,        -- 작성일자 (sysdate 사용)
+    commu_content       CLOB,                        -- 내용
     commu_image         varchar2(500 char),
-    CONSTRAINT fk_user_account
-        FOREIGN KEY (commu_user_id) REFERENCES user_account (user_pk)
+    CONSTRAINT fk_user_account FOREIGN KEY (commu_user_id) REFERENCES user_account (user_pk)
 );
 
 drop table community_post cascade constraints purge;
+drop sequence community_post_seq;
 
 create sequence community_post_seq;
 
 
-insert into community_post values (community_post_seq.nextval,'askpro',4,'hellllllo',sysdate,'asdasdddd',null);
+insert into community_post
+values (community_post_seq.nextval, 'askpro', 4, 'hellllllo', sysdate, 'asdasdddd', null);
 
-select * from community_post;
+select *
+from community_post;
 
-select r.*, u.user_nickname from request r, user_account u where r.R_USER_ID = u.USER_PK and r_user_id=4;
-select * from user_account;
--- 채팅방번호, 유저id, 고수id,
-CREATE TABLE chat_room(
-    chat_room_no number primary key,
-    chat_user_id number not null,
-    chat_user_name varchar2(50 char) not null,
-    chat_pro_id number not null,
-    chat_pro_name varchar2(50 char) not null,
-    chat_req_no number,
-    chat_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    constraint fk_chat_user  foreign key (chat_user_id) references user_account(user_pk) on delete cascade,
-    constraint fk_chat_pro foreign key (chat_pro_id) references user_account(user_pk) on delete cascade,
-    constraint fk_chat_req_no foreign key (chat_req_no) references request(request_no) on delete cascade
+create table pro_account
+(
+    pro_pk NUMBER PRIMARY KEY,
+    pro_category VARCHAR(100 CHAR) DEFAULT NULL,
+    CONSTRAINT fk_pro_account_user FOREIGN KEY (pro_pk) REFERENCES user_account(user_pk)
 );
-select * from chat_room;
-select * from chat_room where chat_user_id=998 and chat_pro_id=999;
 
-select * from request;
-create sequence chat_room_seq;
+ALTER TABLE pro_account
+    ADD (
+        pro_profile_img VARCHAR2(100 CHAR),
+        pro_cash NUMBER(11) DEFAULT 0
+        );
+
+
+select * from pro_account;
+
+/*
+update pro_account set pro_*/
