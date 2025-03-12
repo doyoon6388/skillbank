@@ -2,18 +2,37 @@
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fc;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* 전체를 가운데 정렬 */
+    align-items: center;     /* 세로 가운데 정렬 */
     height: 100vh;
     margin: 0;
+    padding: 20px;
+    position: relative;      /* 절대 위치 설정을 위한 기준 */
 }
 
+/* 왼쪽 프로필 정보 */
+.responseContainer {
+    position: absolute;
+    left: 20px; /* 화면 왼쪽으로 이동 */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 250px;
+    padding: 20px;
+
+}
+
+/* 가운데 견적 입력 폼 */
 .requestContainer {
     background-color: #fff;
     width: 500px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1 {
