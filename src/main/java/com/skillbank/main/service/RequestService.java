@@ -1,10 +1,7 @@
 package com.skillbank.main.service;
 
 import com.skillbank.main.mapper.RequestMapper;
-import com.skillbank.main.vo.ProRequestVO;
-import com.skillbank.main.vo.ReqeustVO;
-import com.skillbank.main.vo.RequestSendVO;
-import com.skillbank.main.vo.UserAccountVO;
+import com.skillbank.main.vo.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,8 +46,8 @@ public class RequestService {
    }
     }
 
-    public List<ProRequestVO> proRequestList() {
-        return requestMapper.proRequest();
+    public List<ProRequestVO> proRequestList(String pro_category) {
+        return requestMapper.proRequest(pro_category);
     }
 
     public void requestSend(RequestSendVO reqeustVO) {
