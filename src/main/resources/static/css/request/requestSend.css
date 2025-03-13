@@ -11,7 +11,7 @@
 }
 
 /* 왼쪽 프로필 정보 */
-.responseContainer {
+.responsContainer {
     position: absolute;
     left: 20px; /* 화면 왼쪽으로 이동 */
     top: 50%;
@@ -21,7 +21,6 @@
     align-items: flex-start;
     width: 250px;
     padding: 20px;
-
 }
 
 /* 가운데 견적 입력 폼 */
@@ -34,6 +33,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 
 h1 {
     font-size: 18px;
