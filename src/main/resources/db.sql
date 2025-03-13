@@ -98,5 +98,6 @@ ALTER TABLE pro_account
 
 select * from pro_account;
 
+insert into pro_account values (92,'move','default.png',0);
 /*
 update pro_account set pro_*/
