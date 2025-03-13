@@ -36,7 +36,8 @@ function makeChatroom(requestNo, user, userName, pro, proName, cloneReqHTML) {
                 alert("존재하는 채팅을 불러옵니다.");
             }
             sessionStorage.setItem("cloneReqHTML", cloneReqHTML);
-            window.location.href = `/test/chat/room/${data.roomNo}`;
+            window.location.href = `/test/chat/room
+            /${data.roomNo}`;
         })
         .catch(error => {
             console.error("Error:", error);

@@ -54,5 +54,7 @@ public class RequestService {
         if (requestMapper.requestSend(reqeustVO) == 1) {
             System.out.println("등록");
         }
+
+
     }
 }
