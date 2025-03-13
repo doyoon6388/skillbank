@@ -33,7 +33,6 @@
                 <div class="message received">
                     <p>${chat.message}</p>
                 </div>
-
             </c:otherwise>
         </c:choose>
 

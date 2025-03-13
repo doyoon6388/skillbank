@@ -48,7 +48,7 @@ dependencies {
 	implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 	// mongo 추가
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-	implementation 'org.mongodb:mongodb-driver-sync:5.3.0'
+	implementation 'org.mongodb:mongodb-driver-sync:5.2.1'
 }
 
 
