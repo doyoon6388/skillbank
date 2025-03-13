@@ -88,7 +88,7 @@ public class RequestC {
     }
 
     @GetMapping("/request-send")
-    public String requestSend(Model model, HttpSession session, int no) {
+    public String requestSend(Model model, HttpSession session, int no, String userId) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("page", "request/requestSend.jsp");
         model.addAttribute("proRequest", requestService.proRequestDetail(no));

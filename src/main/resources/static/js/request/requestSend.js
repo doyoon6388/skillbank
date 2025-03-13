@@ -1,19 +1,21 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 
-document.querySelectorAll(".req button").forEach((req) => {
-    req.addEventListener("click", () => {
-        const requestNo = req.dataset.requestNo;  // 견적서 ID 가져오기
-        const user = req.dataset.user;  // 견적서 ID 가져오기
-        const userName = req.dataset.userNickname;
-        const pro = req.dataset.pro;  // 견적서 ID 가져오기
-        const proName = req.dataset.proName;
-        const cloneReqHTML = req.parentElement.cloneNode(true).outerHTML;
-        makeChatroom(requestNo, user, userName, pro, proName, cloneReqHTML);
-    });
-});
+    let request =  document.getElementById('sendR');
+
+        request.addEventListener('click',()=>{
+            const requestNo = request.dataset.requestNo;  // 견적서 ID 가져오기
+            const user = request.dataset.user;  // 견적서 ID 가져오기
+            const userName = request.dataset.userNickname;
+            const pro = request.dataset.pro;  // 견적서 ID 가져오기
+            const proName = request.dataset.proName;
+            const cloneReqHTML = request.parentElement.cloneNode(true).outerHTML;
+            console.log(request.dataset)
+            makeChatroom(requestNo, user, userName, pro, proName, cloneReqHTML);
+        })
 }); // 레디 함수 끝
-function makeChatroom(requestNo, user, userName, pro, proName, cloneReqHTML) {
+
+function makeChatroom(requestNo, user, userName, pro, proName, cloneReqHTML){
     fetch("/test/chat/open", {
         method: "POST",
         headers: {
@@ -46,9 +48,4 @@ function makeChatroom(requestNo, user, userName, pro, proName, cloneReqHTML) {
             alert("오류가 발생했습니다.");
         });
 }
-
-document.querySelector("#chat-list").addEventListener("click", (e) => {
-    location.href = `/test/chat/list`;
-
-});
 
