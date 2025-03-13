@@ -326,7 +326,7 @@ CREATE TABLE request (
                          CONSTRAINT fk_request_user FOREIGN KEY (r_user_id) REFERENCES user_account(user_pk)
 );
 create sequence request_no_seq;
-
+insert into request values (request_no_seq.nextval, 4, '청소', sysdate,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
 select * from request;
 ---------------- 견적서 테이블
 create table response(
