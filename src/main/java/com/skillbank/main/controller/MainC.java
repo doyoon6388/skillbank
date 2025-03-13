@@ -16,13 +16,11 @@ public class MainC {
     @GetMapping("/main")
     public String main(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
-        if (mode != null && mode.toString().equals("on")) {
-            model.addAttribute("page", "main/main.jsp");
-            model.addAttribute("loginCheck", "login/loginPro.jsp");
-            return "indexPro";
-        } else {
             model.addAttribute("page", "main/main.jsp");
             model.addAttribute("loginCheck", mainService.loginCheck(session));
+        if (mode != null && mode.toString().equals("on")) {
+            return "indexPro";
+        } else {
             return "index";
         }
     }

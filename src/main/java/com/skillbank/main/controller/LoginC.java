@@ -43,6 +43,7 @@ public class LoginC {
     public String logout(HttpSession session) {
         session.removeAttribute("user");
         session.removeAttribute("mode");
+        session.removeAttribute("checked");
         return "redirect:/";
     }
 
