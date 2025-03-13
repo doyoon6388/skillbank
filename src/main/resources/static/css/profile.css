@@ -44,13 +44,23 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
 
+#profileImage1 {
+    position: relative;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid;
+    cursor: pointer;
+    object-fit: cover;
+}
+
 .toggle-container {
     position: absolute;
     right: 30px;
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 20px;
 }
 
 /* 토글 버튼 스타일 */
@@ -71,6 +81,7 @@
     background-color: #ccc;
     border-radius: 25px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .slider::before {
@@ -113,13 +124,6 @@
 }
 
 .logout-btn {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    padding: 0 10px;
-}
-
-.mypage-btn {
     width: 30px;
     height: 30px;
     cursor: pointer;

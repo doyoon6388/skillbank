@@ -18,13 +18,19 @@ drop table user_account cascade constraints purge;
 create sequence user_account_seq;
 
 insert into user_account
-values (user_account_seq.nextval, '22', '33', '이지우', '남', '금천', null, '01023232323', 'default.png', '쥬', 1);
-
-DELETE FROM user_account WHERE user_pk = 91;
-DELETE FROM request WHERE r_user_id = 65;
+values (user_account_seq.nextval, '00', '99', '이지우', '남', '금천', null, '01023232323', 'default.png', '쥬', 1);
 
 select *
 from user_account;
+
+DELETE
+FROM user_account
+WHERE user_pk = 92;
+
+DELETE
+FROM request
+WHERE r_user_id = 65;
+
 
 ALTER TABLE user_account
     MODIFY user_gender NULL;
@@ -63,27 +69,28 @@ from community_post;
 
 
 alter table community_post
-add (
-    commu_writer        number(1) default 0,
-    commu_like          number default 0 not null
-    );
+    add (
+        commu_writer number(1) default 0,
+        commu_like number default 0 not null
+        );
 
 
 
 create table pro_account
 (
-    pro_pk NUMBER PRIMARY KEY,
+    pro_pk       NUMBER PRIMARY KEY,
     pro_category VARCHAR(100 CHAR) DEFAULT NULL,
-    CONSTRAINT fk_pro_account_user FOREIGN KEY (pro_pk) REFERENCES user_account(user_pk)
+    CONSTRAINT fk_pro_account_user FOREIGN KEY (pro_pk) REFERENCES user_account (user_pk)
 );
 
-CREATE TABLE community_post_like (
-                           post_id NUMBER,
-                           user_id NUMBER,
-                           like_date DATE DEFAULT sysdate,
-                           CONSTRAINT pk_post_like PRIMARY KEY (post_id, user_id),
-                           CONSTRAINT fk_post_like_post FOREIGN KEY (post_id) REFERENCES community_post(commu_post_id),
-                           CONSTRAINT fk_post_like_user FOREIGN KEY (user_id) REFERENCES user_account(user_pk)
+CREATE TABLE community_post_like
+(
+    post_id   NUMBER,
+    user_id   NUMBER,
+    like_date DATE DEFAULT sysdate,
+    CONSTRAINT pk_post_like PRIMARY KEY (post_id, user_id),
+    CONSTRAINT fk_post_like_post FOREIGN KEY (post_id) REFERENCES community_post (commu_post_id),
+    CONSTRAINT fk_post_like_user FOREIGN KEY (user_id) REFERENCES user_account (user_pk)
 );
 
 select *
@@ -96,8 +103,10 @@ ALTER TABLE pro_account
         );
 
 
-select * from pro_account;
+select *
+from pro_account;
 
-insert into pro_account values (92,'move','default.png',0);
+insert into pro_account
+values (92, 'move', 'default.png', 0);
 /*
 update pro_account set pro_*/
