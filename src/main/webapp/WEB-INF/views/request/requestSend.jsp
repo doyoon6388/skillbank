@@ -53,7 +53,7 @@
     <input type="file" name="r_file">
     <br>
     <!-- 변경하기 버튼: 파일 선택 창 호출 -->
-    <button>견적 제출하기</button>
+    <button id="">견적 제출하기</button>
 </div>
 </div>
 </div>
@@ -73,7 +73,7 @@
         }
     }
 </script>
-
+<script src="/resources/js/testChat.js"></script>
 
 </body>
 </html>
