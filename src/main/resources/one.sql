@@ -325,21 +325,28 @@ CREATE TABLE request (
                          request14 VARCHAR2(200 CHAR),
                          CONSTRAINT fk_request_user FOREIGN KEY (r_user_id) REFERENCES user_account(user_pk)
 );
-
-
-create table pro_request(
-    pro_no number primary key ,
-    pro_price number(9) not null ,
-    pro_coment varchar2(3000),
-    pro_file varchar2(400),
-
-);
-
-drop table request;
-
-
 create sequence request_no_seq;
 
 select * from request;
+---------------- 견적서 테이블
+create table response(
+    r_no number primary key ,
+    r_price_type varchar2(30 char) not null ,
+    r_price number(9) not null ,
+    r_comment varchar2(3000 char),
+    r_file varchar2(400 char),
+    r_request_no number(4) not null ,
+    r_user_id number(4),
+        constraint fk_response_request foreign key (r_request_no) references request(request_no),
+            CONSTRAINT fk_response_user FOREIGN KEY (r_user_id) REFERENCES user_account(user_pk)
+
+);
+create sequence r_no_seq;
+
+select * from response;
+
+
+
+
 
 
