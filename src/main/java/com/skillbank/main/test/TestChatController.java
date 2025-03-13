@@ -49,12 +49,14 @@ public class TestChatController {
     }
 
     @GetMapping("/room/{no}")
-    public String enterRoom(@PathVariable int no, Model model) {
+    public String enterRoom(@PathVariable int no, Model model, HttpSession session) {
         // 채팅방 정보 로드 및 채팅방 진입
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
         model.addAttribute("chatRoom", testService.getChatRoomById(no));
         log.info(testService.getChatMessagesByRoomId(no));
         model.addAttribute("chatLog", testService.getChatMessagesByRoomId(no));
-        return "chat/room";
+        model.addAttribute("page", "chat/room.jsp");
+        return "indexPro";
     }
 
 

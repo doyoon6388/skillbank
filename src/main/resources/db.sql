@@ -102,3 +102,5 @@ select * from request;
 update pro_account set pro_*/
 
 update pro_account set pro_category = '청소' where pro_pk = 4;
+
+select * from chat_room;
