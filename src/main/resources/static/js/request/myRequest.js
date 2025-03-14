@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function (){
 
                 let ok = confirm('정말 삭제하시겠습니까?');
             if (ok){
-                location.href=`/request-delete?pk=${requestNo}` ;
+                location.href=`/request-delete?pk=${requestNo}`;
             }
 
             });
