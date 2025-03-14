@@ -58,9 +58,11 @@ function changeToUser() {
 }
 
 function logout() {
-    alert("로그아웃하시겠습니까?");
-    localStorage.removeItem("mode");
-    location.href = "/logout";
+    let confirmLogout = confirm("ログアウトしますか?");
+    if (confirmLogout) {
+        localStorage.removeItem("mode");
+        location.href = "/logout";
+    }
 }
 
 function checkPro(user_pk){

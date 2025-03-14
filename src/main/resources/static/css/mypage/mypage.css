@@ -1,126 +1,175 @@
-/* 제목 스타일 (h1 자체를 쓰거나, .mypage-title처럼 클래스를 따로 줄 수도 있음) */
+/* ✅ 전체 페이지 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ✅ 제목 스타일 */
 h1 {
     font-size: 24px;
     font-weight: bold;
     margin: 20px 0;
 }
-.mypage-wrapper{
+
+/* ✅ 마이페이지 래퍼 */
+.mypage-wrapper {
     width: 60%;
-    display: block;
-    justify-content: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
 }
-/* 프로필 섹션 래퍼 */
+
+/* ✅ 프로필 섹션 */
 .mypage-profile-wrapper {
     display: flex;
     align-items: center;
-    background: #fff;
     padding: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 16px;
+    border-bottom: 1px solid #ddd;
 }
 
-/* 프로필 이미지 */
+/* ✅ 프로필 이미지 */
 .mypage-profile-img img {
-    display: flex;
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    object-fit: cover; /* 이미지가 찌그러지지 않도록 */
-    margin-right: 16px;
+    object-fit: cover;
+    margin-right: 25px;
     cursor: pointer;
-    align-items: center;
-    justify-content: center;
 }
 
-/* 프로필 이름, 이메일 */
+/* ✅ 기본 프로필 이미지 (이미지가 없을 경우 적용) */
+#profilePreview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ddd;
+    object-fit: cover;
+}
+
+/* ✅ 프로필 이름, 이메일 */
 .mypage-profile-name {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 4px; /* 각 줄 사이 여백 */
 }
 
-/* 이름 */
+/* ✅ 이름 */
 .mypage-profile-name > div:nth-child(1) {
     font-size: 18px;
     font-weight: bold;
-    color: #333;
 }
 
-/* 이메일 */
+/* ✅ 이메일 */
 .mypage-profile-name > div:nth-child(2) {
     font-size: 14px;
     color: #777;
 }
 
-/* 마이페이지 아이템 전체 래퍼 */
-.mypage-item-wrapper {
-/*    !* 반복되는 아이템들을 그리드 형태로 정렬 (화면 크기에 맞춰 반응형 가능) *!
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
-    gap: 16px; /* 카드들 사이 간격 */
+/* ✅ 유저 정보 수정 섹션 */
+.mypage-info-wrapper {
+    padding-bottom: 20px;
 }
 
-/* 각 아이템(카드) */
-.mypage-item {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 16px;
-    transition: box-shadow 0.2s ease;
+/* ✅ 각 정보 항목 */
+.mypage-info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
 }
 
-/* 호버 시 살짝 강조 효과 */
-.mypage-item:hover {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+.mypage-info-item:hover {
+    background-color: #f1f1f1;
 }
 
-/* 아이템 제목 (ex: '고수 찾기', '커뮤니티' 등) */
-.mypage-item-tag {
-    font-size: 16px;
+/* ✅ 정보 태그 */
+.mypage-info-tag {
+    font-size: 18px;
     font-weight: bold;
-    margin-bottom: 8px;
-    color: #333;
 }
 
-/* 아이템 상세 (ex: '찜한 고수', '커뮤니티 작성글 / 댓글' 등) */
-.mypage-item-list {
-    font-size: 14px;
+/* ✅ 정보 값 */
+.mypage-info-value {
+    font-size: 16px;
     color: #555;
 }
 
-/* ✅ 모달 배경 (기본 숨김) */
-.mypage-profile-change-modal {
-    display: none; /* 기본은 숨김 */
+/* ✅ 모달 배경 (회색 오버레이) */
+.mypage-modal-overlay {
+    display: none; /* 기본 숨김 */
     position: fixed;
-    z-index: 1000;
+    z-index: 999; /* 모달보다 아래에 위치 */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 회색 배경 */
+    backdrop-filter: blur(5px); /* 흐림 효과 */
 }
 
-/* ✅ 모달 컨텐츠 중앙 정렬 */
-.mypage-modal-content {
-    background-color: #fff;
-    width: 300px;
-    max-width: 90%;
+/* ✅ 모달 컨테이너 */
+.mypage-profile-change-modal,
+.mypage-info-modal,
+.mypage-gender-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
-    text-align: center;
-    position: relative;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ 모달 내부 요소 중앙 정렬 */
+.mypage-modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#modalInputField {
+    text-align: center;
+}
+
+/* ✅ 모달 애니메이션 */
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+/* ✅ 모달 활성화 */
+.modal-active {
+    display: flex !important;
     animation: slideIn 0.3s ease-in-out;
 }
 
-/* ✅ 닫기 버튼 스타일 */
-.mypage-profile-change-modal-close {
+/* ✅ 공통 모달 닫기 버튼 */
+.mypage-profile-change-modal-close,
+.mypage-info-modal-close,
+.mypage-gender-modal-close {
     position: absolute;
     right: 15px;
     top: 10px;
@@ -128,89 +177,56 @@ h1 {
     font-weight: bold;
     color: #666;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-.mypage-profile-change-modal-close:hover {
+.mypage-profile-change-modal-close:hover,
+.mypage-info-modal-close:hover,
+.mypage-gender-modal-close:hover {
     color: black;
 }
 
-#profilePreview img {
-    width: 100px;
-    height: 100px;
-}
-
-/* ✅ 프로필 이미지 스타일 */
-.profile-image-container img {
+/* ✅ 성별 선택 버튼 */
+.gender-option {
     width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #ddd;
-    object-fit: cover;
-    transition: opacity 0.3s ease-in-out;
-    margin: 20px auto;
-}
-
-/* ✅ 버튼 스타일 */
-.profile-image-container button {
-    display: block;
-    width: 100px;
-    margin: 20px auto;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
+    margin: 5px;
+    background-color: #2D9CDB;
+    color: white;
     border: none;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-/* 🔵 변경하기 버튼 */
-#changeButton {
-    background-color: #2D9CDB;
-    color: white;
-}
-
-#changeButton:hover {
+.gender-option.selected {
     background-color: #217AB7;
 }
 
-/* 🟢 제출하기 버튼 (기본 숨김) */
-#submitButton {
-    display: none;
-    background-color: #27AE60;
+#changeButton {
+    background-color: dodgerblue;
+    width: 100px;
     color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
 }
 
-#submitButton:hover {
+/* ✅ 저장 버튼 */
+#saveInfoButton, #saveGenderButton, #submitButton {
+    background-color: #27AE60;
+    width: 100px;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+#saveInfoButton:hover, #saveGenderButton:hover {
     background-color: #1E8449;
-}
-
-/* ✅ 모달 애니메이션 */
-@keyframes slideIn {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.mypage-info-modal {
-    display: none; /* 기본적으로 숨김 */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 배경 반투명 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.mypage-modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    text-align: center;
-    position: relative;
 }
