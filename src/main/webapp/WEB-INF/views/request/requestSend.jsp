@@ -11,7 +11,8 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
   </head>
   <body>
     <div class="requestSendWrapper">
-      <div class="responseContainer">
+
+<div class="responseContainer">
         <div>
           <div><img src="/file/${proRequest.user_profile_img}" alt="" /></div>
           <div><span>${proRequest.user_nickname}</span></div>
@@ -61,6 +62,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
               data-user-nickname="${sessionScope.user.user_nickname}"
               data-pro="${sessionScope.proSession.pro_pk}"
               data-pro-name="${sessionScope.user.user_nickname}"
+              onclick=""
             >
               견적 제출하기
             </button>

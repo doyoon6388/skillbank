@@ -49,6 +49,14 @@ public class RequestC {
         return "index";
     }
 
+    @GetMapping("/my-request2")
+    public String myRequest3(Model model, HttpSession session, int no) {
+        model.addAttribute("loginCheck", "login/loginOK.jsp");
+        model.addAttribute("request", requestService.requestList2(no));
+        model.addAttribute("page", "request/myRequest2.jsp");
+        return "index";
+    }
+
     @PostMapping("/my-request")
     public String myRequest(Model model, HttpSession session, @ModelAttribute ReqeustVO reqeustVO) {
         model.addAttribute("loginCheck", mainService.loginCheck(session));

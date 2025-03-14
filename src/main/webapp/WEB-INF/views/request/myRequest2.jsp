@@ -25,54 +25,27 @@
 <%--
 <input name="r_user_id" value="${sessionScope.user.user_pk}" hidden="hidden">
 --%>
-<div class="btn-container">
-    <button id="for-btn">견적 받는중</button>
-    <button id="for-btn2">받은 견적</button>
-</div>
 
 <div id="for-div">
-    <c:forEach items="${request}" var="r">
+
         <div class="container1">
-            <span>${r.request10}</span>
-            <h1>${r.request_type}</h1>
+            <div class="myRquestDate"><span>요청일</span><div>${request.request4}</div></div>
+            <span>${request.request10}</span>
+            <h1>${request.request_type}</h1>
             <div class="btn1">
-                <a href="/request-delete?pk=${r.request_no}">견적 그만 받기</a>
                 <a href="#">요청사항 추가</a>
             </div>
             <div class="btn2">
-                <button class="myRequestOpenModalBtn" value="${r.request_no}">내 요청 보기</button>
+                <button class="myRequestOpenModalBtn" value="${request.request_no}">내 요청 보기</button>
             </div>
         </div>
-    </c:forEach>
+
 </div>
 
 
-<div id="for-div2" style="display: none">
-    <div class="receiveRequestWrapper">
-        <c:forEach items="${request}" var="r">
-            <div class="receiveRequestContainer">
-                <div class="receiveHeader">
-                    <h1 class="receiveTitle">${r.request_type}</h1>
-                    <span class="receiveDate">
-                    <fmt:formatDate value="${r.r_date}" pattern="yy.MM.dd"/>
-                </span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 30%;"></div>
-                </div>
-                <div class="status">
-                    <span class="step">견적요청</span>
-                    <span class="step">상담진행</span>
-                        <%--<span class="step">${r.status}</span>--%>
-                </div>
-                    <%--<div class="receiveMessage">${r.message}</div>--%>
-                <div class="receiveBtn">
-                    <button onclick="location.href='my-request2?no=${r.request_no}'">자세히 보기</button>
-                </div>
-            </div>
-        </c:forEach>
-    </div>
-</div>
+
+
+
 <div id="modal-overlay" onclick="closeModal()"></div>
 <div id="modal">
     <div class="modalContainer">

@@ -17,6 +17,10 @@ public class RequestService {
         return requestMapper.requestList(id);
     }
 
+    public ProRequestVO requestList2(int no) {
+        return requestMapper.proRequestDetail(no);
+    }
+
     public void requestReg(ReqeustVO reqeustVO) {
 
         if (reqeustVO.getRequest7() == null) reqeustVO.setRequest7("");
