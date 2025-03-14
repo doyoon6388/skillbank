@@ -96,6 +96,25 @@ CREATE TABLE community_post_like
 select *
 from community_post_like;
 
+create table community_comment (
+    comment_id      number primary key,
+    comment_post_id number,
+    user_id         number,
+    comment_content clob,
+    comment_date    date default sysdate,
+    constraint  fk_comment_post foreign key (comment_post_id) references community_post(commu_post_id),
+    constraint fk_comment_user foreign key (user_id) references user_account(user_pk)
+);
+
+create sequence community_comment_seq;
+
+select * from community_comment ORDER BY comment_date DESC;
+
+Alter table community_comment
+    add (
+        user_nickname varchar2(50 char) default 'asd'
+        );
+
 ALTER TABLE pro_account
     ADD (
         pro_profile_img VARCHAR2(100 CHAR),

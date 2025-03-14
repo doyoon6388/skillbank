@@ -1,6 +1,7 @@
 package com.skillbank.main.service;
 
 import com.skillbank.main.mapper.CommunityMapper;
+import com.skillbank.main.vo.CommunityCommentVO;
 import com.skillbank.main.vo.CommunityPostVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -87,9 +88,22 @@ public class CommunityService {
         communityMapper.communityDeletePost(postId);
     }
 
-//    public void communityLikePost(int postId) {
-//        communityMapper.communityLikePost(postId);
+//    public int addComment(CommunityCommentVO comment) {
+//        return communityMapper.insertComment(comment);
 //    }
+
+    public int addComment(CommunityCommentVO comment) {
+        int result = communityMapper.insertComment(comment);
+        System.out.println("コメント登録結果: " + result);
+        System.out.println("登録されたコメント内容: " + comment.getComment_content());
+        return result;
+    }
+
+
+    public List<CommunityCommentVO> getCommentsByPost(int postId) {
+        return communityMapper.getCommentsByPost(postId);
+    }
+
 
 //    public void updatePost(CommunityPostVO communityPostVO) {
 //    }
