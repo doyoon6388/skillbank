@@ -30,11 +30,24 @@ public class MypageC {
     @GetMapping
     public String mypage(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
-        if (session.getAttribute("user") == null) {
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+
+        if (user == null) {
             model.addAttribute("loginCheck", "login/loginNO.jsp");
             model.addAttribute("page", "login/loginPage.jsp");
             return "index";
         }
+
+        // ✅ 생년월일을 yyyy-MM-dd 형식으로 변환
+        String formattedBirth = "";
+        if (user.getUser_birth() != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            formattedBirth = sdf.format(user.getUser_birth());
+        }
+
+        model.addAttribute("formattedBirth", formattedBirth);
+        model.addAttribute("user", user);
+
         if (mode != null && mode.toString().equals("on")) {
             model.addAttribute("page", "mypage/mypagePro.jsp");
             model.addAttribute("loginCheck", "login/loginPro.jsp");
@@ -128,6 +141,4 @@ public class MypageC {
             return "redirect:/mypage";
         }
     }
-
-
 }   // MypageC 끝

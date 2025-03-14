@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="resources/css/mypage/mypage.css">
 </head>
 <body>
-<div><h1>마이페이지</h1></div>
 <div class="mypage-wrapper">
+    <div><h1>マイページ</h1></div>
     <div class="mypage-profile-wrapper">
         <div class="mypage-profile-img" id="mypage-profile-img-change-btn">
             <img id="profileImage"

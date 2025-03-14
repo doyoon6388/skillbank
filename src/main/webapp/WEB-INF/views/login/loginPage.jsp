@@ -26,7 +26,7 @@
     </form>
 
     <!-- 회원가입 페이지로 이동 버튼 -->
-    <button id="register-btn" onclick="location.href='/signin'">介入登録</button>
+    <button id="register-btn" onclick="location.href='/signin'">会員登録</button>
 </div>
 </body>
 </html>
