@@ -32,18 +32,8 @@ public interface CommunityMapper {
     void communityDeletePost(int postId);
 
 //    いいね
-//    @Select("select count(*) from community_post_like where post_id = #{postId} and commu_user_id = #{userId}")
-//    int countLikePost(@Param("postId") int postId, @Param("userId") int userId);
-//
-//    @Insert("INSERT INTO community_post_like (post_id, user_id) VALUES (#{postId}, #{userId})")
-//    void insertPostLike(@Param("postId") int postId, @Param("userId") int userId);
-//    @Delete("DELETE FROM community_post_like WHERE post_id = #{postId} AND user_id = #{userId}")
-//    void deletePostLike(@Param("postId") int postId, @Param("userId") int userId);
-//
-//    @Update("UPDATE community_post SET commu_like = commu_like + 1 WHERE commu_post_id = #{postId}")
-//    void incrementPostLike(@Param("postId") int postId);
-//
-//    @Update("UPDATE community_post SET commu_like = commu_like - 1 WHERE commu_post_id = #{postId}")
-//    void decrementPostLike(@Param("postId") int postId);
+
+
+
 
 }

@@ -87,9 +87,6 @@ public class CommunityService {
         communityMapper.communityDeletePost(postId);
     }
 
-//    public void communityLikePost(int postId) {
-//        communityMapper.communityLikePost(postId);
-//    }
 
 //    public void updatePost(CommunityPostVO communityPostVO) {
 //    }
