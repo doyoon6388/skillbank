@@ -10,9 +10,9 @@ pageEncoding="utf-8" %>
 <div>
     <form action="/account/pro" method="post">
     <div>카테고리 : </div>
-    <div><input type="radio" name="pro_category" value="move">이사</div>
-    <div><input type="radio" name="pro_category" value="clean">청소</div>
-    <div><input type="radio" name="pro_category" value="west">폐기물</div>
+    <div><input type="radio" name="pro_category" value="원룸/소형 이사">이사</div>
+    <div><input type="radio" name="pro_category" value="청소">청소</div>
+    <div><input type="radio" name="pro_category" value="폐기물">폐기물</div>
         <button name="pro_pk" value="${sessionScope.user.user_pk}">제출</button>
     </form>
 </div>

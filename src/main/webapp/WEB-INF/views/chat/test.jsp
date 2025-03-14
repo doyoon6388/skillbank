@@ -20,11 +20,11 @@
     <div style="border: 2px solid; width: 300px" class="req" >
         <div>request_no ] ${r.request_no}</div>
         <div>r_user_id  ] ${r.r_user_id}</div>
-        <div>r_user_nickname  ] ${r.user_nickname}</div>
+        <div>r_user_nickname  ] ${sessionScope.user.user_nickname}</div>
         <div>request_type  ] ${r.request_type}</div>
         <div>request1  ] ${r.request1}</div>
         <div>request5  ] ${r.request5}</div>
-        <button data-request-no="${r.request_no}" data-user="${r.r_user_id}" data-user-nickname="${r.user_nickname}" data-pro="${sessionScope.user.user_pk}" data-pro-name="${sessionScope.user.user_nickname}">open chat(결제과정 생략)</button>
+        <button data-request-no="${r.request_no}" data-user="${r.r_user_id}" data-user-nickname="${sessionScope.user.user_nickname}" data-pro="${sessionScope.user.user_pk}" data-pro-name="${sessionScope.user.user_nickname}">open chat(결제과정 생략)</button>
     </div>
   </c:forEach>
   </body>

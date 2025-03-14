@@ -25,12 +25,12 @@ public interface RequestMapper {
     @Delete("delete request where request_no = #{pk}")
     int requestDelete(int pk);
 
-    @Select("select r.request_no , r.request_type, u.user_profile_img, u.user_nickname, r.request1, r.request2,r.request3 ,r.request4, r.request5, r.request6, r.request7, r.request8, r.request9, r.request10, r.request11, r.request12, r.request13, r.request14 from request r join user_account u on r.r_user_id = u.user_pk")
-    List<ProRequestVO> proRequest();
+    @Select("select r.*, u.user_profile_img, u.user_nickname from request r join user_account u on r.r_user_id = u.user_pk where r.request_type = #{pro_category}")
+    List<ProRequestVO> proRequest(String pro_category);
 
     @Insert("insert into response values (r_no_seq.nextval, #{r_price_type},#{r_price} ,#{r_comment}, #{r_file}, #{r_request_no}, #{r_user_id})")
     int requestSend(RequestSendVO requestSendVO);
 
-    @Select("select r.request_no , r.request_type, u.user_profile_img, u.user_nickname, r.request1, r.request2,r.request3 ,r.request4, r.request5, r.request6, r.request7, r.request8, r.request9, r.request10, r.request11, r.request12, r.request13, r.request14 from request r join user_account u on r.r_user_id = u.user_pk where r.request_no = #{request_no}")
+    @Select("select  r.*, u.user_profile_img, u.user_nickname from request r join user_account u on r.r_user_id = u.user_pk where r.request_no = #{request_no}")
     ProRequestVO proRequestDetail(int no);
 }

@@ -108,5 +108,11 @@ from pro_account;
 
 insert into pro_account
 values (92, 'move', 'default.png', 0);
+select * from pro_account;
+select * from request;
 /*
 update pro_account set pro_*/
+
+update pro_account set pro_category = '청소' where pro_pk = 4;
+
+select * from chat_room;
