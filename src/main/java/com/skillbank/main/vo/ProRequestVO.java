@@ -2,10 +2,14 @@ package com.skillbank.main.vo;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class ProRequestVO {
     private String request_no;
+    private int r_user_id;
     private String request_type;
+    private Date r_date;
     private String user_profile_img;
     private String user_nickname;
     private String request1;
@@ -22,5 +26,4 @@ public class ProRequestVO {
     private String request12;
     private String request13;
     private String request14;
-
 }
