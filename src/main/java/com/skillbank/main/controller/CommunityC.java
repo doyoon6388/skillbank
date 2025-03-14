@@ -2,6 +2,7 @@ package com.skillbank.main.controller;
 
 import com.skillbank.main.service.CommunityService;
 import com.skillbank.main.service.MainService;
+import com.skillbank.main.vo.CommunityCommentVO;
 import com.skillbank.main.vo.CommunityPostVO;
 import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
@@ -171,6 +172,11 @@ public class CommunityC {
             System.out.println(postVO.getCommu_content());
         }
         model.addAttribute("communityPost", postVO);
+
+//        コメント⁉
+        List<CommunityCommentVO> commentList = communityService.getCommentsByPost(postId);
+        model.addAttribute("commentList", commentList);
+
         model.addAttribute("page", "community/communityDetail.jsp");
 
         Object mode = session.getAttribute("mode");
@@ -209,13 +215,18 @@ public class CommunityC {
 //
 //    }
 
+    @ResponseBody
+    @PostMapping("comment")
+    public List<CommunityCommentVO> addComment(@RequestBody CommunityCommentVO communityCommentVO, HttpSession session) {
 
+        // comment_date は DB 側で sysdate により自動設定
 
+        // コメント登録処理（Service 側で Mapper を呼び出す）
+        communityService.addComment(communityCommentVO);
 
-
-
-
-
+        // コメント登録後、同じ投稿の詳細ページにリダイレクトする
+        return communityService.getCommentsByPost(communityCommentVO.getComment_post_id());
+    }
 
 
 }

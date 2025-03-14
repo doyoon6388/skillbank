@@ -508,3 +508,75 @@
 
 /*-----------------------------------------------*/
 /*いいね*/
+
+/*-----------------------------------------------*/
+/*コメント用*/
+.community-comment-section {
+    margin-top: 30px;
+    padding: 20px;
+    border-top: 1px solid lightgray;
+}
+
+.community-comment-form {
+    margin-bottom: 20px;
+}
+
+.community-comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.community-comment-btn {
+    background-color: cornsilk;
+    color: lightgray;
+    border: none;
+}
+.community-comment-form button.community-comment-btn {
+    background-color: powderblue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 14px;
+    cursor: pointer;
+
+}
+
+
+/* コメント一覧 */
+.community-comment-list {
+    margin-top: 20px;
+}
+
+.community-comment {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.community-comment:last-child {
+    border-bottom: none;
+}
+
+/* コメント内の各要素 */
+.community-comment-author {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.community-comment-content {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.community-comment-date {
+    font-size: 12px;
+    color: gray;
+}
+
+
