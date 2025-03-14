@@ -2,12 +2,12 @@ body {
     font-style: normal;
     margin: 0;
     padding: 0;
-    background-color: #F2F6FC;
+    background-color: white;
 }
 
 .header-wrapper {
     width: 100%;
-    background-color: #a15cff;
+    border-bottom: .0625rem solid #EFF1F5;
 }
 
 .header {
@@ -23,11 +23,14 @@ body {
 
 .header-items {
     display: flex;
+    justify-content: space-between;
+    width: 400px;
     gap: 20px;
     align-items: center;
 }
 
 .header-items div {
+    color: black;
     cursor: pointer;
 }
 
@@ -42,7 +45,7 @@ body {
 
 .logo {
     display: flex;
-    width: 50px;
+    width: 70px;
     border-radius: 10px;
     align-items: center;
 }

@@ -9,6 +9,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/resources/css/community/community.css"></link>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
 
@@ -49,19 +51,6 @@
             </div>
             <div class="post-content" id="post-content" style="min-height:300px; white-space: pre-wrap;">${communityPost.commu_content}</div>
 <%--            いいね--%>
-
-            <form class="like-form" id="like-form" action="/community/like" method="post" style="display:inline;">
-                <input type="hidden" name="postId" value="${communityPost.commu_post_id}" />
-                <button type="submit" class="community-like-btn" id="like-btn">
-                    👍 (<span id="like-count">${communityPost.commu_like}</span>)
-                </button>
-            </form>
-
-<%--            <div class="community-btn-container" id="community-btn-container">--%>
-<%--                <form class="community-like-form" id="community-like-form" action="/community/like" method="post" style="display: inline">--%>
-<%--                    <input type="hidden" name="postId" value="${communityPost.commu_post_id}" />--%>
-<%--                    <button type="submit" class="community-like-btn" id="like-btn">いいね(<span id="like-count">${communityPost.commu_like}</span>)</button>--%>
-<%--                </form>--%>
                     <%-- 戻る/削除/修正　--%>
                 <button class="community-history-back" id="history-back" type="button" onclick="history.back()">戻る</button>
                 <c:if test="${sessionScope.user != null and sessionScope.user.user_pk == communityPost.commu_user_id}">
@@ -78,7 +67,26 @@
             </div>
         </c:otherwise>
     </c:choose>
-</div>
+<div class="community-comment-section">
+        <input type="hidden" name="comment_post_id" value="${communityPost.commu_post_id}" id="comment-page-post-id"/>
+        <input type="hidden" name="user_nickname" value="${sessionScope.user.user_nickname}" id="comment-page-user-nickname"/>
+        <input type="hidden" name="user_id" value="${sessionScope.user.user_pk}" id="comment-page-user-id"/>
+        <textarea name="comment_content" placeholder="コメントを入力してください。" id="comment-page-comment-content"></textarea>
+        <button id="community-comment-btn">送信</button>
 
+    <div class="community-comment-list">
+        <c:forEach var="c" items="${commentList}">
+            <div class="community-comment">
+                <p class="community-comment-author">${c.user_nickname}</p>
+                <p class="community-comment-content">${c.comment_content}</p>
+                <p class="community-comment-date">
+                    <fmt:formatDate value="${c.comment_date}" pattern="yyyy/MM/dd HH:mm"/>
+                </p>
+            </div>
+        </c:forEach>
+    </div>
+</div>
+</div>
+<script src="/resources/js/community/community.js"></script>
 </body>
 </html>

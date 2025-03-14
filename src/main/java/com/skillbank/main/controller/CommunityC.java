@@ -2,6 +2,7 @@ package com.skillbank.main.controller;
 
 import com.skillbank.main.service.CommunityService;
 import com.skillbank.main.service.MainService;
+import com.skillbank.main.vo.CommunityCommentVO;
 import com.skillbank.main.vo.CommunityPostVO;
 import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
@@ -9,13 +10,12 @@ import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RequestMapping("/community")
 @Controller
@@ -172,6 +172,11 @@ public class CommunityC {
             System.out.println(postVO.getCommu_content());
         }
         model.addAttribute("communityPost", postVO);
+
+//        コメント⁉
+        List<CommunityCommentVO> commentList = communityService.getCommentsByPost(postId);
+        model.addAttribute("commentList", commentList);
+
         model.addAttribute("page", "community/communityDetail.jsp");
 
         Object mode = session.getAttribute("mode");
@@ -210,25 +215,18 @@ public class CommunityC {
 //
 //    }
 
-//    @PostMapping("like")
-//    public String communityLikePost(@RequestParam("postId") int postId, Model model, HttpSession session) {
-//        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
-//        if (user == null) {
-//            return "redirect:/login";
-//        }
-//
-//        communityService.communityLikePost(postId);
-//        return "redirect:/community/detail?postId=" + postId;
-//    }
+    @ResponseBody
+    @PostMapping("comment")
+    public List<CommunityCommentVO> addComment(@RequestBody CommunityCommentVO communityCommentVO, HttpSession session) {
 
+        // comment_date は DB 側で sysdate により自動設定
 
+        // コメント登録処理（Service 側で Mapper を呼び出す）
+        communityService.addComment(communityCommentVO);
 
-
-
-
-
-
-
+        // コメント登録後、同じ投稿の詳細ページにリダイレクトする
+        return communityService.getCommentsByPost(communityCommentVO.getComment_post_id());
+    }
 
 
 }

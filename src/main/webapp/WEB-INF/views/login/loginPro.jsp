@@ -18,13 +18,12 @@
                     <span class="slider"></span>
                 </label>
             </div>
-            <div id="user-text">${sessionScope.user.user_name} 프로님</div>
+            <div hidden="hidden" id="user-text">${sessionScope.user.user_name} 프로님</div>
         </div>
-<div><a href="/my-receive">받은요청</a></div>
         <div>
-            <button class="cash-btn" onclick="location.href='/pro/cash'">캐시</button>
+            <button class="cash-btn" onclick="location.href='/my-receive'">받은요청</button>
         </div>
-        <img class="mypage-btn" src="/resources/icons/profile/mypage.png" alt="마이페이지"
+        <img id="profileImage1" src="/file/${sessionScope.user.user_profile_img}" alt="プロフィール画像"
              onclick="location.href='/mypage'"/>
         <img class="logout-btn" src="/resources/icons/profile/logout.png" alt="로그아웃" onclick="logout()"/>
     </div>
