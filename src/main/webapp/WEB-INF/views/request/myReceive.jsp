@@ -17,7 +17,7 @@
 <div class="receiveWrapper">
     <c:forEach items="${proRequest}" var="p">
 
-<div onclick="location.href='/request-send?no=${p.request_no}'" class="receiveContainer">
+<div onclick="location.href='/request-send?no=${p.request_no}&userId=${p.r_user_id}'" class="receiveContainer">
 <div class="receiveItem">
     <div><img src="/file/${p.user_profile_img}" alt=""></div>
 

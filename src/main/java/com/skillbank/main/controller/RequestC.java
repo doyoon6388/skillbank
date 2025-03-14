@@ -2,6 +2,7 @@ package com.skillbank.main.controller;
 
 import com.skillbank.main.service.MainService;
 import com.skillbank.main.service.RequestService;
+import com.skillbank.main.vo.ProAccountVO;
 import com.skillbank.main.vo.ReqeustVO;
 import com.skillbank.main.vo.RequestSendVO;
 import com.skillbank.main.vo.UserAccountVO;
@@ -77,15 +78,17 @@ public class RequestC {
 
     @GetMapping("/my-receive")
     public String myReceive(Model model, HttpSession session) {
-        model.addAttribute("loginCheck", "login/loginOK.jsp");
+        ProAccountVO prosession = (ProAccountVO) session.getAttribute("proSession");
+        String pro_category = prosession.getPro_category();
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
         model.addAttribute("page", "request/myReceive.jsp");
-        model.addAttribute("proRequest", requestService.proRequestList());
+        model.addAttribute("proRequest", requestService.proRequestList(pro_category));
 
         return "indexPro";
     }
 
     @GetMapping("/request-send")
-    public String requestSend(Model model, HttpSession session, int no) {
+    public String requestSend(Model model, HttpSession session, int no, String userId) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("page", "request/requestSend.jsp");
         model.addAttribute("proRequest", requestService.proRequestDetail(no));

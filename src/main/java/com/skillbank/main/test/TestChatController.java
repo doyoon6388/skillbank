@@ -20,7 +20,7 @@ import java.util.Map;
 @RequestMapping("/test/chat")
 @Controller
 @Log4j2
-public class TestChat {
+public class TestChatController {
 
     @Autowired
     private TestService testService;
@@ -49,10 +49,14 @@ public class TestChat {
     }
 
     @GetMapping("/room/{no}")
-    public String enterRoom(@PathVariable int no, Model model) {
+    public String enterRoom(@PathVariable int no, Model model, HttpSession session) {
         // 채팅방 정보 로드 및 채팅방 진입
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
         model.addAttribute("chatRoom", testService.getChatRoomById(no));
-        return "chat/room";
+        log.info(testService.getChatMessagesByRoomId(no));
+        model.addAttribute("chatLog", testService.getChatMessagesByRoomId(no));
+        model.addAttribute("page", "chat/room.jsp");
+        return "indexPro";
     }
 
 

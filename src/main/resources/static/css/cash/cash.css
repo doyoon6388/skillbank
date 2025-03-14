@@ -1,0 +1,51 @@
+/* 현재 보유 금액 스타일 */
+.cash-balance {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #e9ecef;
+}
+/* 폼 스타일 */
+.cash-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+}
+.cash-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.cash-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+.cash-item input[type="radio"] {
+    margin-right: 10px;
+}
+.cash-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.cash-button:hover {
+    background-color: #218838;
+}
