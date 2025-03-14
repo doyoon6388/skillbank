@@ -42,10 +42,11 @@ public class RequestC {
     }
 
     @GetMapping("/my-request")
-    public String myRequest2(Model model, HttpSession session, int id) {
+    public String myRequest2(Model model, HttpSession session, int id, ReqeustVO reqeustVO) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("request", requestService.requestList(id));
         model.addAttribute("page", "request/myRequest.jsp");
+
         return "index";
     }
 
