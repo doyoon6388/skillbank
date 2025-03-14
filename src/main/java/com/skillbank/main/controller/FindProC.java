@@ -18,11 +18,10 @@ public class FindProC {
     public String findPro(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "findpro/findPro.jsp");
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
         if (mode != null && mode.toString().equals("on")) {
-            model.addAttribute("loginCheck", "login/loginPro.jsp");
             return "indexPro";
         } else {
-            model.addAttribute("loginCheck", mainService.loginCheck(session));
             return "index";
         }
     }
@@ -31,15 +30,14 @@ public class FindProC {
     public String findProResult(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "findpro/findPro.jsp");
-        if (mode != null && mode.toString().equals("on")){
+        if (mode != null && mode.toString().equals("on")) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
             return "indexPro";
-        }else{
+        } else {
             model.addAttribute("loginCheck", mainService.loginCheck(session));
             return "index";
         }
     }
-
 
 
     @GetMapping("/findprotomap")
