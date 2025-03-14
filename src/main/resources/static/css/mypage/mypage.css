@@ -82,7 +82,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 30px;
     border-bottom: 1px solid #ddd;
     cursor: pointer;
     transition: background 0.2s ease-in-out;
@@ -142,6 +142,10 @@ h1 {
     justify-content: center;
     text-align: center;
     margin: 0 auto;
+}
+
+#modalInputField {
+    text-align: center;
 }
 
 /* ✅ 모달 애니메이션 */

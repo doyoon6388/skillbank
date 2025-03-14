@@ -74,7 +74,7 @@ window.onload = () => {
                 modalTitle.innerText = this.querySelector('.mypage-info-tag').innerText;
 
                 if (field === "user_birth") {
-                    modalInput.innerHTML = `<input type="text" id="modalInputField" style="padding: 10px;">`;
+                    modalInput.innerHTML = `<input type="text" id="modalInputField" style="padding: 10px; text-align: center;">`;
                     setTimeout(() => {
                         flatpickr("#modalInputField", {
                             dateFormat: "Y-m-d",
@@ -86,7 +86,7 @@ window.onload = () => {
                     openModal(document.querySelector('.mypage-gender-modal'));
                     return;
                 } else {
-                    modalInput.innerHTML = `<input type="text" id="modalInputField" value="${currentValue}" style="padding: 10px;">`;
+                    modalInput.innerHTML = `<input type="text" id="modalInputField" value="${currentValue}" style="padding: 10px; text-align: center;">`;
                 }
 
                 openModal(infoModal);
