@@ -135,7 +135,6 @@
             <div>\${data.request14}</div>
 
             <button class="close-btn" onclick="closeModal()">닫기</button>`;
-
                 }).catch(function (error) {
                     console.error('에러 발생:', error);
                 });
