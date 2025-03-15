@@ -80,8 +80,8 @@ public class RequestC {
 
     @GetMapping("/request-delete")
     public String requestDelete(int pk, HttpSession session) {
-        requestService.requestDelete(pk);
         UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        requestService.requestDelete(pk);
         return "redirect:/my-request?id=" + user.getUser_pk();
     }
 
@@ -92,6 +92,7 @@ public class RequestC {
         model.addAttribute("loginCheck", mainService.loginCheck(session));
         model.addAttribute("page", "request/myReceive.jsp");
         model.addAttribute("proRequest", requestService.proRequestList(pro_category));
+
         return "indexPro";
     }
 
@@ -100,6 +101,7 @@ public class RequestC {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("page", "request/requestSend.jsp");
         model.addAttribute("proRequest", requestService.proRequestDetail(no));
+
         return "indexPro";
     }
 
@@ -107,6 +109,8 @@ public class RequestC {
     public String requestSend(Model model, HttpSession session, RequestSendVO reqeustVO) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("page", "request/requestSend.jsp");
+
+
         requestService.requestSend(reqeustVO);
         return "redirect:/my-receive";
     }
