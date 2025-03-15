@@ -120,7 +120,24 @@ ALTER TABLE pro_account
         pro_profile_img VARCHAR2(100 CHAR),
         pro_cash NUMBER(11) DEFAULT 0
         );
-
+ALTER TABLE pro_account
+    ADD (
+        pro_favorite number(6) default 0,
+        pro_review NUMBER(6) DEFAULT 0
+        );
+ALTER TABLE pro_account
+    ADD (
+        pro_name varchar2(30 char) default 'hello'
+        );
+ALTER TABLE pro_account
+    ADD (
+        pro_address varchar2(1000 char) default null,
+        pro_description varchar2(1000 char) default null
+        );
+ALTER TABLE pro_account
+    ADD (
+        pro_phone varchar2(20 char) default null
+        );
 
 select *
 from pro_account;
