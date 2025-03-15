@@ -38,10 +38,7 @@ public interface CommunityMapper {
 
     @Update("update community_post set commu_title = #{commu_title}, commu_content = #{commu_content}, commu_image = #{commu_image} where commu_post_id = #{commu_post_id}")
     int communityUpdatePost(CommunityPostVO communityPostVO);
-
-
-
-
+    
     //    コメント用
     @Insert("insert into community_comment values (community_comment_seq.nextval, #{comment_post_id}, #{user_id}, #{comment_content}, sysdate, #{user_nickname})")
     int insertComment(CommunityCommentVO comment);
