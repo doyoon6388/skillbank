@@ -16,7 +16,7 @@
     <h1> 견적요청</h1>
 
     <div onclick="location.href='/move'"> 이사</div>
-    <div>청소</div>
+    <div onclick="location.href='/clean'">청소</div>
     <div>폐기물 청소</div>
 
 </div>
