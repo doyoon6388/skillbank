@@ -1,5 +1,6 @@
 package com.skillbank.main.controller;
 
+import com.skillbank.main.mapper.CommunityMapper;
 import com.skillbank.main.service.CommunityService;
 import com.skillbank.main.service.MainService;
 import com.skillbank.main.vo.CommunityCommentVO;
@@ -26,6 +27,8 @@ public class CommunityC {
 
     @Autowired
     private CommunityService communityService;
+    @Autowired
+    private CommunityMapper communityMapper;
 
     @GetMapping("main")
     public String community(Model model, HttpSession session) {
@@ -150,45 +153,53 @@ public class CommunityC {
     @PostMapping("write")
     public String writePost(Model model, HttpSession session, CommunityPostVO communityPostVO, MultipartFile file) {
         String content = communityPostVO.getCommu_content();
-//        System.out.println(communityPostVO);
+
         if (content != null) {
             content = content.trim();
-//            content = content.replaceAll("\\r?\\n+", "\n");
-//            content = content.replaceAll("^\\s+", ""); // 文字列の先頭にある全空白文字を消す
             communityPostVO.setCommu_content(content);
-//            System.out.println(content);
         }
 
         communityService.createPost(communityPostVO, file);
         return "redirect:/community/" + communityPostVO.getCommu_post_category();
     }
 
-    @GetMapping("detail")
-    public String communityDetailPost(@RequestParam("postId") int postId, Model model, HttpSession session) {
-        CommunityPostVO postVO = communityService.getPostById(postId);
-        if (postVO.getCommu_content() != null) {
-            String replaced = postVO.getCommu_content().replaceAll("\\r?\\n", "<br>");
-            postVO.setCommu_content(replaced);
-            System.out.println(postVO.getCommu_content());
-        }
-        model.addAttribute("communityPost", postVO);
 
-//        コメント⁉
+    @GetMapping("detail")
+    public String communityDetailPost(@RequestParam("postId") int postId,
+                                      @RequestParam(name="mode", required=false) String mode,
+                                      Model model, HttpSession session) {
+        CommunityPostVO postVO = communityService.getPostById(postId);
+        if (postVO == null) {
+
+            return "redirect:/community/" + postVO.getCommu_post_category();
+        }
+
+        if (postVO.getCommu_content() != null) {
+            String originalContent = postVO.getCommu_content();
+            if ("edit".equals(mode)) {
+                // 編集モード: <br> を \n に戻す
+                postVO.setCommu_content(originalContent.replaceAll("<br>", "\n"));
+            } else {
+                // 通常モード: \n を <br> に変換
+                postVO.setCommu_content(originalContent.replaceAll("\\r?\\n", "<br>"));
+            }
+        }
+
+        model.addAttribute("communityPost", postVO);
         List<CommunityCommentVO> commentList = communityService.getCommentsByPost(postId);
         model.addAttribute("commentList", commentList);
-
         model.addAttribute("page", "community/communityDetail.jsp");
 
-        Object mode = session.getAttribute("mode");
-        if (mode != null && "on".equals(mode.toString())) {
+        Object modeSession = session.getAttribute("mode");
+        if (modeSession != null && "on".equals(modeSession.toString())) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
             return "indexPro";
         } else {
             model.addAttribute("loginCheck", mainService.loginCheck(session));
             return "index";
         }
-
     }
+
 
     @PostMapping("delete")
     public String communityDeletePost(@RequestParam("postId") int postId, Model model, HttpSession session) {
@@ -197,36 +208,49 @@ public class CommunityC {
             return "redirect:/login";
         }
 
-        communityService.communityDeletePost(postId);
-        return "redirect:/community/detail?postId=" + postId;
+        CommunityPostVO postVO = communityService.getPostById(postId);
+        if (postVO == null) {
+
+            return "redirect:/community/main";
+        }
+
+        String category = postVO.getCommu_post_category();
+
+        communityService.deletePostWithComments(postId);
+
+        return "redirect:/community/" + category;
     }
 
 
-//    @PostMapping("update")
-//    public String communityUpdatePost(CommunityPostVO communityPostVO, @RequestParam("file") MultipartFile file, HttpSession session) {
-//        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
-//        if (user == null) {
-//            return "redirect:/login";
-//        }
-//
-//
-//
-//
-//
-//    }
+    @PostMapping("update")
+    public String communityUpdatePost(CommunityPostVO communityPostVO, @RequestParam(value = "file", required = false) MultipartFile file, HttpSession session) {
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+
+        CommunityPostVO existing = communityService.getPostById(communityPostVO.getCommu_post_id());
+        if (existing == null || user.getUser_pk() != existing.getCommu_user_id()) {
+            return "redirect:/community/detail?postId=" + communityPostVO.getCommu_post_id();
+        }
+
+        communityService.communityUpdatePost(communityPostVO, file);
+        return "redirect:/community/detail?postId=" + communityPostVO.getCommu_post_id();
+
+    }
 
     @ResponseBody
     @PostMapping("comment")
     public List<CommunityCommentVO> addComment(@RequestBody CommunityCommentVO communityCommentVO, HttpSession session) {
 
-        // comment_date は DB 側で sysdate により自動設定
-
-        // コメント登録処理（Service 側で Mapper を呼び出す）
         communityService.addComment(communityCommentVO);
 
-        // コメント登録後、同じ投稿の詳細ページにリダイレクトする
         return communityService.getCommentsByPost(communityCommentVO.getComment_post_id());
     }
+
+
+
+
 
 
 }

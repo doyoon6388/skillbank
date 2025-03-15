@@ -511,72 +511,86 @@
 
 /*-----------------------------------------------*/
 /*コメント用*/
+/* コメントセクション全体 */
 .community-comment-section {
     margin-top: 30px;
-    padding: 20px;
-    border-top: 1px solid lightgray;
+    padding: 20px 0;
+    /* 背景色を付けたい場合は下記をコメントアウト解除:
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    */
 }
 
-.community-comment-form {
-    margin-bottom: 20px;
-}
-
-.community-comment-form textarea {
+/* コメント入力欄 */
+#comment-page-comment-content {
+    display: block;
     width: 100%;
+    min-height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     padding: 10px;
+    margin-bottom: 10px;
     font-size: 14px;
-    resize: vertical;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
-.community-comment-btn {
-    background-color: cornsilk;
-    color: lightgray;
-    border: none;
+#comment-page-comment-content:focus {
+    border-color: #007BFF; /* フォーカス時の枠線色 */
 }
-.community-comment-form button.community-comment-btn {
-    background-color: powderblue;
-    color: white;
+
+/* 送信ボタン */
+#community-comment-btn {
+    background-color: #007BFF;
+    color: #fff;
     border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
+    padding: 8px 16px;
+    margin-bottom: 10px;
     font-size: 14px;
+    border-radius: 4px;
     cursor: pointer;
-
+    transition: background-color 0.3s ease;
 }
 
+#community-comment-btn:hover {
+    background-color: #0056b3;
+}
 
 /* コメント一覧 */
 .community-comment-list {
     margin-top: 20px;
 }
 
+/* コメント一つひとつ */
 .community-comment {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc; /* シンプルな破線の仕切り */
 }
 
+/* 最後のコメントには仕切り線を付けない */
 .community-comment:last-child {
     border-bottom: none;
 }
 
-/* コメント内の各要素 */
+/* 投稿者のニックネーム */
 .community-comment-author {
     font-weight: bold;
     font-size: 14px;
     margin-bottom: 5px;
-    color: black;
+    color: #333;
 }
 
+/* コメント内容 */
 .community-comment-content {
     font-size: 14px;
     margin-bottom: 5px;
-    color: black;
+    color: #555;
+    line-height: 1.4;
 }
 
+/* 日付 */
 .community-comment-date {
     font-size: 12px;
-    color: gray;
+    color: #999;
+    text-align: right;
 }
-
-
