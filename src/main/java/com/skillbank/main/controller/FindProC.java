@@ -47,6 +47,10 @@ public class FindProC {
 
     @GetMapping("detail/{pro_pk}")
     public String FindproDetail(@PathVariable("pro_pk") int pro_pk, Model model, HttpSession session) {
+
+        boolean isLoggedIn = (session.getAttribute("user") != null);
+        model.addAttribute("isLoggedIn", isLoggedIn);
+
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "findpro/findProDetail.jsp");
         model.addAttribute("proDetail", findProService.getDetail(pro_pk));

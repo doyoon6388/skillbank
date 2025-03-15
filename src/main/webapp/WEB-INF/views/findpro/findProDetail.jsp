@@ -38,5 +38,8 @@ pageEncoding="utf-8" %>
 <input type="hidden" id="current-user-pk" value="${sessionScope.user.user_pk}">
 
 <script src="/resources/js/findpro/findProDetail.js"></script>
+<script>
+    let isLoggedIn = ${isLoggedIn};
+</script>
 </body>
 </html>
