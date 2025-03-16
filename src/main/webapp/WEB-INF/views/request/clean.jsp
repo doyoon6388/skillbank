@@ -178,7 +178,15 @@
     <input type="hidden" id="request3" name="request3">
     <input type="hidden" id="request4" name="request4">
     <input type="hidden" id="request5" name="request5">
-
+    <input type="hidden" id="request6" name="request6">
+    <input type="hidden" id="request7" name="request7">
+    <input type="hidden" id="request8" name="request8">
+    <input type="hidden" id="request9" name="request9">
+    <input type="hidden" id="request10" name="request10">
+    <input type="hidden" id="request11" name="request11">
+    <input type="hidden" id="request12" name="request12">
+    <input type="hidden" id="request13" name="request13">
+    <input type="hidden" id="request14" name="request14">
 
     <div id="content-1">
     </div>

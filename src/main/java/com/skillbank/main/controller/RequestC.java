@@ -78,6 +78,9 @@ public class RequestC {
         return "redirect:/my-request?id=" + reqeustVO.getR_user_id();
     }
 
+
+
+
     @ResponseBody
     @GetMapping("/my-request-detail")
     public ReqeustVO myRequestDetail(@RequestParam int pk) {
