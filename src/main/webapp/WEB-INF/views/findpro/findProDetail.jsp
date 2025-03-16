@@ -7,6 +7,7 @@ pageEncoding="utf-8" %>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/resources/css/findpro/findProDetail.css">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI9oa4kZP2eh0RnVd3cylq3sUvY3Bipcc&callback=initMap"></script>
 </head>
 <body>
 <div class="findpro-item">
@@ -17,9 +18,9 @@ pageEncoding="utf-8" %>
         <p>${proDetail.pro_name}</p>
         <p>${proDetail.pro_category}</p>
         <p>${proDetail.pro_description}</p>
-        <p>${proDetail.pro_address}</p>
         <p>찜 수: <span id="favorite-count">${proDetail.pro_favorite}</span></p>
         <p>리뷰 수: ${proDetail.pro_review}</p>
+        <p id="proAddress">${proDetail.pro_address}</p>
     </div>
     <!-- 찜하기 버튼: 클릭 시 toggleFavorite() 함수 실행 -->
     <button class="findpro-favorite-btn" onclick="toggleFavorite()">
@@ -33,6 +34,10 @@ pageEncoding="utf-8" %>
         </c:choose>
     </button>
 </div>
+
+<!-- 지도 영역 -->
+<div id="findpro-map" style="width: 80%; height: 350px;"></div>
+
 <!-- 프로 상세 PK와 현재 유저 PK를 보관하는 숨겨진 필드 (예시) -->
 <input type="hidden" id="proDetail-pro-pk" value="${proDetail.pro_pk}">
 <input type="hidden" id="current-user-pk" value="${sessionScope.user.user_pk}">

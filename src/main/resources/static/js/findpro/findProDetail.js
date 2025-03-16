@@ -1,3 +1,8 @@
+document.addEventListener("DOMContentLoaded", function() {
+    initMap();
+});
+
+
 function toggleFavorite() {
     if (!isLoggedIn) {
         // 로그인 되어 있지 않으면 로그인 페이지로 이동
@@ -29,4 +34,33 @@ function toggleFavorite() {
             favoriteCount.textContent = data.favoriteCount;
         })
         .catch(err => console.error("찜하기 처리 에러:", err));
+}
+
+// Google Maps API의 콜백으로 호출됨
+function initMap() {
+    // proAddress는 JSP에서 숨겨진 p 태그로 전달됨
+    let address = document.getElementById('proAddress').textContent;
+
+    let geocoder = new google.maps.Geocoder();
+
+    // 주소를 위도/경도로 변환
+    geocoder.geocode({ 'address': address }, function(results, status) {
+        if (status === 'OK') {
+            let mapOptions = {
+                zoom: 15,
+                center: results[0].geometry.location
+            };
+            // 지도 생성: id="map"인 div에 지도 표시
+            let map = new google.maps.Map(document.getElementById('findpro-map'), mapOptions);
+
+            // 주소 위치에 마커 표시
+            let marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location
+            });
+        } else {
+            console.error('Geocode 실패: ' + status);
+            alert('주소를 지도에 표시할 수 없습니다. (Error: ' + status + ')');
+        }
+    });
 }
