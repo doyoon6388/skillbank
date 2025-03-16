@@ -59,11 +59,9 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
               id="sendR"
               data-request-no="${proRequest.request_no}"
               data-user="${proRequest.r_user_id}"
-              data-user-nickname="${sessionScope.user.user_nickname}"
+              data-user-nickname="${proRequest.user_nickname}"
               data-pro="${sessionScope.proSession.pro_pk}"
-              data-pro-name="${sessionScope.user.user_nickname}"
-              onclick=""
-            >
+              data-pro-name="${sessionScope.user.user_nickname}">
               견적 제출하기
             </button>
           </div>

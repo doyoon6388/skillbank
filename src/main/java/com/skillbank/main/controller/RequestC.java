@@ -23,15 +23,14 @@ public class RequestC {
     @GetMapping("/request")
     public String request(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
-        model.addAttribute("page", "request/request.jsp");
         if (mode != null && mode.toString().equals("on")) {
-            model.addAttribute("loginCheck", "login/loginPro.jsp");
-            model.addAttribute("ifYouPro", "1");
-            return "indexPro";
-        } else {
-            model.addAttribute("loginCheck", mainService.loginCheck(session));
-            return "index";
+            session.removeAttribute("mode");
+            session.removeAttribute("proSession");
+            session.removeAttribute("checked");
         }
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
+        model.addAttribute("page", "request/request.jsp");
+            return "index";
     }
 
     @GetMapping("/move")
