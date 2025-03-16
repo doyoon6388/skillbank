@@ -48,10 +48,11 @@ public class TestService {
         Map<String, Object> response = new HashMap<>();
         System.out.println("방 개설 전 pk 확인하기 " + exist);
         if (exist != null ) {
-            response.put("success", 0); // 등록 x
+            response.put("success", 0); // 이미 존재
         } else{
-            response.put("success", 1); // 등록 o
-            exist = testMapper.createChatRoom(chatRoomVO);
+            response.put("success", 1); // 등록 해야 함
+            testMapper.createChatRoom(chatRoomVO);
+            exist = chkRoom(chatRoomVO);
         }
             response.put("roomNo", exist);
             return response;
