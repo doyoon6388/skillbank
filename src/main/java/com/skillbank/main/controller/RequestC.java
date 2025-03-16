@@ -39,6 +39,12 @@ public class RequestC {
         model.addAttribute("page", "request/move.jsp");
         return "index";
     }
+    @GetMapping("/clean")
+    public String clean(Model model, HttpSession session) {
+        model.addAttribute("loginCheck", "login/loginOK.jsp");
+        model.addAttribute("page", "request/clean.jsp");
+        return "index";
+    }
 
     @GetMapping("/my-request")
     public String myRequest2(Model model, HttpSession session, int id, ReqeustVO reqeustVO) {
@@ -70,6 +76,9 @@ public class RequestC {
         requestService.requestReg(reqeustVO);
         return "redirect:/my-request?id=" + reqeustVO.getR_user_id();
     }
+
+
+
 
     @ResponseBody
     @GetMapping("/my-request-detail")
