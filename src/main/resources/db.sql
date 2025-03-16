@@ -164,3 +164,7 @@ CREATE TABLE favorite_pro (
 
 select *
 from favorite_pro;
+
+delete chat_room;
+
+select * from chat_room;

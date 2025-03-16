@@ -18,7 +18,7 @@ public interface TestMapper {
     // 채팅방 개설
     @Insert("insert into chat_room (chat_room_no,chat_user_id, chat_user_name, chat_pro_id, chat_pro_name,chat_req_no) values (chat_room_seq.nextval, #{chat_user_id},#{chat_user_name},#{chat_pro_id},#{chat_pro_name},${chat_req_no})")
     @SelectKey(statement = "SELECT chat_room_seq.currval FROM dual", keyProperty = "chat_room_no", before = false, resultType = Integer.class)
-    int createChatRoom(ChatRoomVO chatRoomVO);
+    void createChatRoom(ChatRoomVO chatRoomVO);
 
     // 동일 채팅방 중복여부
     @Select("select chat_room_no from chat_room where chat_user_id=#{chat_user_id} and chat_pro_id=#{chat_pro_id} and chat_req_no=#{chat_req_no}")
