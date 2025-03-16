@@ -25,6 +25,7 @@ socket.onmessage = (event) => {
 
     // 메시지를 채팅 화면에 추가
     document.getElementById('chatContainer').appendChild(messageContainer);
+    scrollToBottom();
 };
 
 socket.onclose = () => {
@@ -52,6 +53,7 @@ function sendMessage(message,from,to) {
     // 채팅 화면에 추가
     document.getElementById('chatContainer').appendChild(messageContainer);
 
+    scrollToBottom();
     // 서버로 메시지 전송
     const messageData = {
         roomId: roomId,
@@ -63,9 +65,13 @@ function sendMessage(message,from,to) {
     // WebSocket을 통해 메시지 전송
     socket.send(JSON.stringify(messageData));
 }
-
+function scrollToBottom() {
+    const chatContainer = document.getElementById('chatContainer');
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
 
 window.onload = function() {
+    scrollToBottom();
     const cloneReqHTML = sessionStorage.getItem("cloneReqHTML");
     if (cloneReqHTML) {
         document.querySelector("#reqForm").innerHTML = cloneReqHTML;
@@ -88,5 +94,7 @@ window.onload = function() {
         sendMessage(message,from,to);  // 수정된 sendMessage 함수 호출
         document.getElementById("message").value = '';  // 메시지 입력란 비우기
     });
+
+    window.scrollTo(0, document.body.scrollHeight);
 };
 

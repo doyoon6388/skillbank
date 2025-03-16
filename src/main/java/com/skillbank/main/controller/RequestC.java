@@ -23,15 +23,14 @@ public class RequestC {
     @GetMapping("/request")
     public String request(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
-        model.addAttribute("page", "request/request.jsp");
         if (mode != null && mode.toString().equals("on")) {
-            model.addAttribute("loginCheck", "login/loginPro.jsp");
-            model.addAttribute("ifYouPro", "1");
-            return "indexPro";
-        } else {
-            model.addAttribute("loginCheck", mainService.loginCheck(session));
-            return "index";
+            session.removeAttribute("mode");
+            session.removeAttribute("proSession");
+            session.removeAttribute("checked");
         }
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
+        model.addAttribute("page", "request/request.jsp");
+            return "index";
     }
 
     @GetMapping("/move")
@@ -40,12 +39,27 @@ public class RequestC {
         model.addAttribute("page", "request/move.jsp");
         return "index";
     }
+    @GetMapping("/clean")
+    public String clean(Model model, HttpSession session) {
+        model.addAttribute("loginCheck", "login/loginOK.jsp");
+        model.addAttribute("page", "request/clean.jsp");
+        return "index";
+    }
 
     @GetMapping("/my-request")
-    public String myRequest2(Model model, HttpSession session, int id) {
+    public String myRequest2(Model model, HttpSession session, int id, ReqeustVO reqeustVO) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("request", requestService.requestList(id));
         model.addAttribute("page", "request/myRequest.jsp");
+
+        return "index";
+    }
+
+    @GetMapping("/my-request2")
+    public String myRequest3(Model model, HttpSession session, int no) {
+        model.addAttribute("loginCheck", "login/loginOK.jsp");
+        model.addAttribute("request", requestService.requestList2(no));
+        model.addAttribute("page", "request/myRequest2.jsp");
         return "index";
     }
 
@@ -63,6 +77,9 @@ public class RequestC {
         return "redirect:/my-request?id=" + reqeustVO.getR_user_id();
     }
 
+
+
+
     @ResponseBody
     @GetMapping("/my-request-detail")
     public ReqeustVO myRequestDetail(@RequestParam int pk) {
@@ -71,8 +88,8 @@ public class RequestC {
 
     @GetMapping("/request-delete")
     public String requestDelete(int pk, HttpSession session) {
-        requestService.requestDelete(pk);
         UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        requestService.requestDelete(pk);
         return "redirect:/my-request?id=" + user.getUser_pk();
     }
 
@@ -83,6 +100,7 @@ public class RequestC {
         model.addAttribute("loginCheck", mainService.loginCheck(session));
         model.addAttribute("page", "request/myReceive.jsp");
         model.addAttribute("proRequest", requestService.proRequestList(pro_category));
+
         return "indexPro";
     }
 
@@ -91,6 +109,7 @@ public class RequestC {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("page", "request/requestSend.jsp");
         model.addAttribute("proRequest", requestService.proRequestDetail(no));
+
         return "indexPro";
     }
 
@@ -98,6 +117,8 @@ public class RequestC {
     public String requestSend(Model model, HttpSession session, RequestSendVO reqeustVO) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("page", "request/requestSend.jsp");
+
+
         requestService.requestSend(reqeustVO);
         return "redirect:/my-receive";
     }

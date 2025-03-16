@@ -16,8 +16,10 @@ public interface RequestMapper {
     @Insert("insert into request values (request_no_seq.nextval, #{r_user_id}, #{request_type}, sysdate, #{request1}, #{request2}, #{request3}, #{request4}, #{request5}, #{request6}, #{request7}, #{request8}, #{request9}, #{request10}, #{request11}, #{request12}, #{request13}, #{request14})" )
     int requestReg(ReqeustVO reqeustVO);
 
-    @Select("select r.*, u.user_nickname from request r, user_account u where r.R_USER_ID = u.USER_PK and r_user_id=#{r_user_id}")
+    @Select("select * from request where r_user_id=#{r_user_id}")
     List<ReqeustVO> requestList(int id);
+
+
 
     @Select("select * from request where request_no = #{pk}")
     ReqeustVO getDetail(int pk);
@@ -31,6 +33,6 @@ public interface RequestMapper {
     @Insert("insert into response values (r_no_seq.nextval, #{r_price_type},#{r_price} ,#{r_comment}, #{r_file}, #{r_request_no}, #{r_user_id})")
     int requestSend(RequestSendVO requestSendVO);
 
-    @Select("select  r.*, u.user_profile_img, u.user_nickname from request r join user_account u on r.r_user_id = u.user_pk where r.request_no = #{request_no}")
+    @Select("select r.*, u.user_profile_img, u.user_nickname from request r join user_account u on r.r_user_id = u.user_pk where r.request_no = #{request_no}")
     ProRequestVO proRequestDetail(int no);
 }
