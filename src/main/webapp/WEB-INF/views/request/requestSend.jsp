@@ -14,7 +14,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="responseContainer">
         <div>
-          <div><img src="/file/${proRequest.user_profile_img}" alt="" /></div>
+          <div class="requestSendImg"><img src="/file/${proRequest.user_profile_img}" alt="" /></div>
           <div><span>${proRequest.user_nickname}</span></div>
           <div><span>${proRequest.request_type}</span></div>
           <div><span>${proRequest.request10}</span></div>
