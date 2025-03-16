@@ -1,16 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     initMap();
-});
-
+}); // ready 함수 끝
 
 function toggleFavorite() {
-    if (!isLoggedIn) {
-        // 로그인 되어 있지 않으면 로그인 페이지로 이동
-        window.location.href = '/login';
-        return;
-    }
-
-    // 요청 전에 값 확인
+    loginCheck();
     const pro_pk = document.getElementById('proDetail-pro-pk').value;
     const user_pk = document.getElementById('current-user-pk').value;
     fetch('/findpro/favorite', {
@@ -63,4 +56,10 @@ function initMap() {
             alert('주소를 지도에 표시할 수 없습니다. (Error: ' + status + ')');
         }
     });
+}
+
+function loginCheck(){
+    if (!isLoggedIn) {
+        window.location.href = '/login';
+    }
 }

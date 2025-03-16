@@ -24,8 +24,8 @@ public interface TestMapper {
     @Select("select chat_room_no from chat_room where chat_user_id=#{chat_user_id} and chat_pro_id=#{chat_pro_id} and chat_req_no=#{chat_req_no}")
     Integer chkRoom(ChatRoomVO chatRoomVO);
 
-    // 프로의 채팅 리스트
-    @Select("select * from chat_room where chat_pro_id=#{no}")
+    // 유저의 채팅 리스트
+    @Select("select * from chat_room where chat_user_id=#{no}")
     List<ChatRoomVO> chatList(int no);
 
     @Select("select * from chat_room where chat_room_no = #{no}")
