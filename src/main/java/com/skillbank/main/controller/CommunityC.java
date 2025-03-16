@@ -59,8 +59,19 @@ public class CommunityC {
     }
 
     @GetMapping("together")
-    public String together(Model model, HttpSession session,
+    public String together(CommunityPostVO communityPostVO, Model model, HttpSession session,
                            @RequestParam(name = "page", defaultValue = "1") int page) {
+
+        System.out.println("Session mode: " + session.getAttribute("mode"));
+
+        // セッションの mode でプロかどうかを判定する
+        if (session.getAttribute("mode") != null && "on".equals(session.getAttribute("mode").toString())) {
+            communityPostVO.setCommu_writer(0);
+        } else {
+            communityPostVO.setCommu_writer(1);
+        }
+
+
         String category = "together";
         int totalCount = communityService.getPostCount(category);
         int pageSize = 2;
@@ -131,6 +142,44 @@ public class CommunityC {
         }
     }
 
+    @GetMapping("appeal")
+    public String appeal(Model model, HttpSession session,
+                         @RequestParam(name = "page", defaultValue = "1") int page) {
+        String category = "appeal";
+
+        int totalCount = communityService.getPostCount(category);
+        int pageSize = 2;
+        int totalPage = (int) Math.ceil((double) totalCount / pageSize);
+        if (totalPage < 1) {
+            totalPage = 1;
+        }
+        if (page < 1) {
+            page = 1;
+        }
+        if (page > totalPage) {
+            page = totalPage;
+        }
+
+        List<CommunityPostVO> postVOList = communityService.getPostsByPage(category, page);
+        model.addAttribute("communityPost", postVOList);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPage", totalPage);
+
+        Object mode = session.getAttribute("mode");
+        model.addAttribute("page", "community/communityClient.jsp");
+        model.addAttribute("communityPage", "proAppeal.jsp");
+
+        if (mode != null && mode.toString().equals("on")) {
+            model.addAttribute("loginCheck", "login/loginPro.jsp");
+            return "indexPro";
+        } else {
+            model.addAttribute("loginCheck", mainService.loginCheck(session));
+            return "index";
+        }
+    }
+
+
+
     @GetMapping("write")
     public String writePost(Model model, HttpSession session) {
         Object user = session.getAttribute("user");
@@ -163,6 +212,27 @@ public class CommunityC {
         return "redirect:/community/" + communityPostVO.getCommu_post_category();
     }
 
+//    @PostMapping("write")
+//    public String writePost(Model model, HttpSession session, CommunityPostVO communityPostVO, MultipartFile file) {
+//        // セッションの mode をデバッグ出力
+//        System.out.println("Session mode: " + session.getAttribute("mode"));
+//
+//        // セッションの mode でプロかどうかを判定する
+//        if (session.getAttribute("mode") != null && "on".equals(session.getAttribute("mode").toString())) {
+//            communityPostVO.setCommu_writer(0);
+//        } else {
+//            communityPostVO.setCommu_writer(1);
+//        }
+//
+//        String content = communityPostVO.getCommu_content();
+//        if (content != null) {
+//            communityPostVO.setCommu_content(content.trim());
+//        }
+//        communityService.createPost(communityPostVO, file);
+//        return "redirect:/community/" + communityPostVO.getCommu_post_category();
+//    }
+//
+
 
     @GetMapping("detail")
     public String communityDetailPost(@RequestParam("postId") int postId,
@@ -171,7 +241,7 @@ public class CommunityC {
         CommunityPostVO postVO = communityService.getPostById(postId);
         if (postVO == null) {
 
-            return "redirect:/community/" + postVO.getCommu_post_category();
+            return "redirect:/community/main";
         }
 
         if (postVO.getCommu_content() != null) {

@@ -17,7 +17,7 @@ public interface CommunityMapper {
     @Select("select * from community_post where commu_post_category = 'askpro' order by commu_date desc")
     List<CommunityPostVO> getAllAskproPost();
 
-    @Insert("insert into community_post values(community_post_seq.nextval, #{commu_post_category},#{commu_user_id},#{commu_title}, sysdate, #{commu_content}, #{commu_image})")
+    @Insert("insert into community_post values(community_post_seq.nextval, #{commu_post_category},#{commu_user_id},#{commu_title}, sysdate, #{commu_content}, #{commu_image}, default, default)")
     int createPost(CommunityPostVO communityPostVO);
 
     //    順番(実験)
@@ -38,7 +38,7 @@ public interface CommunityMapper {
 
     @Update("update community_post set commu_title = #{commu_title}, commu_content = #{commu_content}, commu_image = #{commu_image} where commu_post_id = #{commu_post_id}")
     int communityUpdatePost(CommunityPostVO communityPostVO);
-    
+
     //    コメント用
     @Insert("insert into community_comment values (community_comment_seq.nextval, #{comment_post_id}, #{user_id}, #{comment_content}, sysdate, #{user_nickname})")
     int insertComment(CommunityCommentVO comment);

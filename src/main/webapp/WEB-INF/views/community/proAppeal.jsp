@@ -13,38 +13,33 @@
 
 <div class="community-button2-container">
     <div>
-        <h3>助け合い</h3>
+        <h3>プロのアピール</h3>
     </div>
 </div>
 
-<div class="client-post-list">
-    <c:forEach var="i" items="${communityPost}">
-        <p>DEBUG: <c:out value="${i.commu_writer}"/></p>
-        <div class="client-post-card" onclick="location.href='/community/detail?postId=${i.commu_post_id}'">
-            <div class="client-post-header">
-                <div class="client-post-author">
-                    投稿者 ${i.commu_user_id}
-<%--                    <c:if test="${i.commu_writer == 0}">--%>
-<%--                        <span class="pro-label">プロ</span>--%>
-<%--                    </c:if>--%>
+<div class="appeal-post-list">
+    <c:forEach var="post" items="${communityPost}">
+        <div class="appeal-post-card" onclick="location.href='/community/detail?postId=${post.commu_post_id}'">
+            <div class="appeal-post-header">
+                <div class="appeal-post-author">
+                    投稿者: ${post.commu_user_id}
                 </div>
-                <div class="client-post-date">
-                    <fmt:formatDate value="${i.commu_date}" pattern="MM/dd - HH:mm"/>
+                <div class="appeal-post-date">
+                    <fmt:formatDate value="${post.commu_date}" pattern="MM/dd - HH:mm"/>
                 </div>
             </div>
-            <div class="client-post-title">
-                [${i.commu_title}]
+            <div class="appeal-post-title">
+                [${post.commu_title}]
             </div>
-            <div class="client-post-content">
-                    ${i.commu_content}
+            <div class="appeal-post-content">
+                    ${post.commu_content}
             </div>
-            <div class="client-post-wrapper">
-                <img src="/file/${i.commu_image}" alt="" style="width: 100px; height: 100px;">
+            <div class="appeal-post-wrapper">
+                <img src="/file/${post.commu_image}" alt="画像" style="width: 100px; height: 100px;">
             </div>
         </div>
     </c:forEach>
 </div>
-
 <div class="community-paging">
     <c:if test="${currentPage > 1}">
         <a href="?page=1"><<</a>

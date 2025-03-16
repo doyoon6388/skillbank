@@ -64,6 +64,28 @@
 }
 
 /*-----------------------------------------------*/
+/*プロの認識用*/
+.pro-label {
+    color: white;
+    background-color: pink;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/*クライアントの認識用*/
+.client-label {
+    color: white;
+    background-color: skyblue;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-left: 5px;
+
+}
+
+/*-----------------------------------------------*/
 
 /*選択したとき色をつける*/
 .selectable-client {

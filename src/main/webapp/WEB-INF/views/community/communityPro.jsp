@@ -13,11 +13,10 @@
 <div class="community-header-wrapper">
     <div class="community-logo"><span class="community-logo-span">コミュニティ - pro</span></div>
     <div class="community-button-container">
-        <div class="selectable-client" onclick="location.href='/community/main'">スバ民の部屋▶</div>
-        <div class="selectable-pro" onclick="location.href='/community/pro/main'">プロの部屋▶</div>
-        <div>
-            <button class="community-pro-write" onclick="location.href='community/pro/write'">書き込み</button>
-        </div>
+        <c:if test="${sessionScope.mode eq 'on'}">
+            <div class="selectable-client" onclick="location.href='/community/main'">スバ民の部屋▶</div>
+            <div class="selectable-pro" onclick="location.href='/community/pro/main'">プロの部屋▶</div>
+        </c:if>
     </div>
 </div>
 <div class="community-body-wrapper">
@@ -28,7 +27,7 @@
         <div>プロのためのガイド</div>
     </div>
     <div class="community-content">
-        <jsp:include page="${communityPage}" />
+        <jsp:include page="${communityPage}"></jsp:include>
     </div>
 </div>
 </body>
