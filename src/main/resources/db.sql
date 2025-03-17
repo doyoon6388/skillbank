@@ -120,7 +120,24 @@ ALTER TABLE pro_account
         pro_profile_img VARCHAR2(100 CHAR),
         pro_cash NUMBER(11) DEFAULT 0
         );
-
+ALTER TABLE pro_account
+    ADD (
+        pro_favorite number(6) default 0,
+        pro_review NUMBER(6) DEFAULT 0
+        );
+ALTER TABLE pro_account
+    ADD (
+        pro_name varchar2(30 char) default 'hello'
+        );
+ALTER TABLE pro_account
+    ADD (
+        pro_address varchar2(1000 char) default null,
+        pro_description varchar2(1000 char) default null
+        );
+ALTER TABLE pro_account
+    ADD (
+        pro_phone varchar2(20 char) default null
+        );
 
 select *
 from pro_account;
@@ -133,5 +150,21 @@ select * from request;
 update pro_account set pro_*/
 
 update pro_account set pro_category = '청소' where pro_pk = 4;
+
+select * from chat_room;
+
+CREATE TABLE favorite_pro (
+                              user_pk INT NOT NULL,
+                              pro_pk INT NOT NULL,
+                              created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                              PRIMARY KEY (user_pk, pro_pk),
+                              CONSTRAINT fk_favorite_user FOREIGN KEY (user_pk) REFERENCES user_account(user_pk) ON DELETE CASCADE,
+                              CONSTRAINT fk_favorite_pro FOREIGN KEY (pro_pk) REFERENCES pro_account(pro_pk) ON DELETE CASCADE
+);
+
+select *
+from favorite_pro;
+
+delete chat_room;
 
 select * from chat_room;

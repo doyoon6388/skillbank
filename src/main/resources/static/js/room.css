@@ -1,9 +1,13 @@
+.chat-wrapper{
+    display: flex;
+}
 /* 채팅 메시지 */
 .message {
     margin: 10px;
     padding: 8px;
     border-radius: 5px;
     max-width: 60%;
+    flex-shrink: 0;
 }
 
 .message.sent {
@@ -22,5 +26,8 @@
 #chatContainer {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+/*    justify-content: flex-end;*/
+    width: 50%;
+    height: 500px;
+    overflow-y: auto;
 }

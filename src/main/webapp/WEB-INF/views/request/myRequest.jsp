@@ -18,7 +18,10 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
       hidden="hidden"
     />
     --%>
-
+    <div class="btn-container">
+      <button id="for-btn">견적 받는중</button>
+      <button id="for-btn2">받은 견적</button>
+    </div>
     <div id="for-div">
       <c:forEach items="${request}" var="r">
         <div class="container1">

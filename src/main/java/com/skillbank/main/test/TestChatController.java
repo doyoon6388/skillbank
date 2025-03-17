@@ -1,6 +1,7 @@
 package com.skillbank.main.test;
 
 import com.skillbank.main.service.MainService;
+import com.skillbank.main.vo.ProAccountVO;
 import com.skillbank.main.vo.ReqeustVO;
 import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
@@ -25,6 +26,9 @@ public class TestChatController {
     @Autowired
     private TestService testService;
 
+    @Autowired
+    private MainService mainService;
+
     @GetMapping
     public String chat(Model model) {
         List<ReqeustVO> reqList = testService.selectAllRequest();
@@ -43,9 +47,16 @@ public class TestChatController {
 
     @GetMapping("/list")
     public String chatList(HttpSession session, Model model) {
+        if (session.getAttribute("user") != null) {
         UserAccountVO user = (UserAccountVO) session.getAttribute("user");
         model.addAttribute("chatRooms", testService.chatList(user.getUser_pk()));
-        return "chat/list";
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
+        model.addAttribute("page", "chat/list.jsp");
+        return "index";
+        }
+        else {
+            return "redirect:/login";
+        }
     }
 
     @GetMapping("/room/{no}")
@@ -56,22 +67,12 @@ public class TestChatController {
         log.info(testService.getChatMessagesByRoomId(no));
         model.addAttribute("chatLog", testService.getChatMessagesByRoomId(no));
         model.addAttribute("page", "chat/room.jsp");
-        return "indexPro";
-    }
-
-
-    // 테스트용 로그인
-    @Autowired
-    private MainService mainService;
-
-    @PostMapping("/login2")
-    public String login(UserAccountVO userAccountVO, HttpSession session) {
-        UserAccountVO user = mainService.loginValid(userAccountVO);
-        if (user != null) {
-            // 로그인 성공: 세션에 사용자 정보 저장
-            session.setAttribute("user", user);
-
+        Object mode = session.getAttribute("mode");
+        if (mode != null && mode.toString().equals("on")) {
+            return "indexPro";
+        } else {
+            return "index";
         }
-        return "redirect:/test/chat";
+
     }
 }
