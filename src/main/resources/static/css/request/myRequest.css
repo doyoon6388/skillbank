@@ -308,7 +308,7 @@ button {
 
 .receiveBtn button:hover {
     background-color: #0056b3;
-<<<<<<< HEAD
+
 }
 
 .myRquestDate {
@@ -316,6 +316,5 @@ button {
     align-items: center; /* 세로 정렬 */
     gap: 10px; /* 요소 간 간격 */
 }
-=======
-}
->>>>>>> 96a71c66df8690ea162431dd971da9210abae3e7
+
+
