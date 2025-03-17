@@ -67,7 +67,7 @@ body {
 #indexPro-container {
     width: 970px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 20px 30px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -76,7 +76,7 @@ body {
 /* ✅ 로고 기본 스타일 */
 .logo {
     display: flex;
-    width: 70px;
+    width: 40px;
     border-radius: 10px;
     align-items: center;
     transition: transform 0.3s ease-in-out; /* 애니메이션 적용 */
