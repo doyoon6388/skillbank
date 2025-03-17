@@ -9,9 +9,7 @@
 <link rel="stylesheet" href="/resources/css/login/loginNO.css">
 <body>
 <div style="display: flex">
-    <div>
         <img class="login-btn" onclick="location.href='/login'" src="/resources/icons/profile/login.png">
-    </div>
 </div>
 </body>
 </html>
