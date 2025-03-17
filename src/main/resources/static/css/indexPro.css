@@ -1,5 +1,13 @@
+@font-face {
+    font-family: 'AppleSDGothicNeo';
+    src: url('/fonts/AppleSDGothicNeoL.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* ✅ 기본 스타일 */
 body {
+    font-family: 'AppleSDGothicNeo', sans-serif;
     font-style: normal;
     margin: 0;
     padding: 0;
@@ -46,7 +54,7 @@ body {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -26px; /* 텍스트 아래에 위치 */
+    bottom: -25px; /* 텍스트 아래에 위치 */
     width: 0; /* 초기에는 보이지 않음 */
     height: 2px;
     background-color: #4DB2E1; /* 밑줄 색상 */
