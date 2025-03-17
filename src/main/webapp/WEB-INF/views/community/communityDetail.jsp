@@ -67,25 +67,32 @@
             </div>
         </c:otherwise>
     </c:choose>
-<div class="community-comment-section">
+
+<c:if test="${param.mode ne 'edit'}">
+    <div class="community-comment-section">
         <input type="hidden" name="comment_post_id" value="${communityPost.commu_post_id}" id="comment-page-post-id"/>
-        <input type="hidden" name="user_nickname" value="${sessionScope.user.user_nickname}" id="comment-page-user-nickname"/>
+        <input type="hidden" name="user_nickname" value="${sessionScope.user.user_nickname}"
+               id="comment-page-user-nickname"/>
         <input type="hidden" name="user_id" value="${sessionScope.user.user_pk}" id="comment-page-user-id"/>
-        <textarea name="comment_content" placeholder="コメントを入力してください。" id="comment-page-comment-content"></textarea>
+
+        <textarea name="comment_content" placeholder="コメントを入力してください。"
+                  id="comment-page-comment-content"></textarea>
+
         <button id="community-comment-btn">送信</button>
 
-    <div class="community-comment-list">
-        <c:forEach var="c" items="${commentList}">
-            <div class="community-comment">
-                <p class="community-comment-author">${c.user_nickname}</p>
-                <p class="community-comment-content">${c.comment_content}</p>
-                <p class="community-comment-date">
-                    <fmt:formatDate value="${c.comment_date}" pattern="yyyy/MM/dd HH:mm"/>
-                </p>
-            </div>
-        </c:forEach>
+        <div class="community-comment-list">
+            <c:forEach var="c" items="${commentList}">
+                <div class="community-comment">
+                    <p class="community-comment-author">${c.user_nickname}</p>
+                    <p class="community-comment-content">${c.comment_content}</p>
+                    <p class="community-comment-date">
+                        <fmt:formatDate value="${c.comment_date}" pattern="yyyy/MM/dd HH:mm"/>
+                    </p>
+                </div>
+            </c:forEach>
+        </div>
     </div>
-</div>
+</c:if>
 </div>
 <script src="/resources/js/community/community.js"></script>
 </body>
