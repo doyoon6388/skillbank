@@ -61,6 +61,9 @@ public class TestService {
     public List<ChatRoomVO> chatList(int no){
         return testMapper.chatList(no);
     }
+    public List<ChatRoomVO> chatListPro(int no){
+        return testMapper.chatListPro(no);
+    }
 
     public ChatRoomVO getChatRoomById(int no) {
         return testMapper.getChatRoomById(no);

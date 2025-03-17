@@ -27,7 +27,7 @@
              onclick="location.href='/mypage'"/>
         <img class="logout-btn" src="/resources/icons/profile/logout.png" alt="로그아웃" onclick="logout()"/>
     </div>
-    <img class="chat-btn" src="/resources/icons/profile/chat.png" alt="채팅" onclick="location.href='/chat'"/>
+    <img class="chat-btn" src="/resources/icons/profile/chat.png" alt="채팅" onclick="location.href='/test/chat/list'"/>
 </div>
 <script>
     const username = "${sessionScope.user.user_name}";
