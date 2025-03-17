@@ -325,6 +325,8 @@ CREATE TABLE request (
                          request14 VARCHAR2(200 CHAR),
                          CONSTRAINT fk_request_user FOREIGN KEY (r_user_id) REFERENCES user_account(user_pk)
 );
+
+alter table request add r_pro_pk number(5);
 create sequence request_no_seq;
 insert into request values (request_no_seq.nextval, 4, '청소', sysdate,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
 select * from request;
