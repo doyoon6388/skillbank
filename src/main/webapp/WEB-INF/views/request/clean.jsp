@@ -21,7 +21,7 @@
             object-fit: cover; /* 비율을 유지하면서 200x200에 맞게 자름 */
             border-radius: 10px; /* 모서리를 둥글게 (선택 사항) */
         }
-       
+
     </style>
     <script>
         window.onload = function () {
