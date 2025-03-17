@@ -21,11 +21,12 @@
             <div hidden="hidden" id="user-text">${sessionScope.proSession.pro_name} 프로님</div>
         </div>
         <div>
-            <button class="cash-btn" onclick="location.href='/my-receive'">받은요청</button>
+            <button class="cash-btn" onclick="location.href='/my-receive'">
+                받은요청
+            </button>
         </div>
         <img id="profileImage1" src="/file/${sessionScope.proSession.pro_profile_img}" alt="プロフィール画像"
              onclick="location.href='/mypage'"/>
-        <img class="logout-btn" src="/resources/icons/profile/logout.png" alt="로그아웃" onclick="logout()"/>
     </div>
     <img class="chat-btn" src="/resources/icons/profile/chat.png" alt="채팅" onclick="location.href='/test/chat/list'"/>
 </div>
