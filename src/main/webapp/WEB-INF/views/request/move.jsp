@@ -68,7 +68,7 @@
             <textarea id="etcInput" placeholder="직접 입력" name="request3"></textarea>
 
         </div>
-    <button onclick="validateStep3(event)">다음</button>
+    <button onclick="loadStep(4)">다음</button>
 </div>`
 
                 console.log(document.getElementById("etcCheck"));
@@ -84,10 +84,26 @@
             }
             if (a == 4) {
                 let selectMove = document.querySelector("input[name='request3']:checked");
-                let bb = selectMove.value;
-                if (selectMove) {
-                    document.getElementById("request3").value = bb;
+                let etcCheck = document.getElementById("etcCheck");
+                let etcInput = document.getElementById("etcInput");
+                let bb = "";
+                // 기타 선택 시 textarea 값 저장
+                event.preventDefault();
+                if (etcCheck.checked) {
+                if (etcInput.value.trim() === "") {
+                    alert("기타 항목을 입력해주세요.");
+                    return;
                 }
+                bb = etcInput.value.trim();
+            } else if (selectMove) {
+                // 원룸 or 투룸 선택 시 해당 값 저장
+                bb = selectMove.value;
+            } else {
+                alert("이사 규모를 선택해주세요.");
+                return;
+            }
+                    document.getElementById("request3").value = bb;
+
                 document.querySelector("#content-3").innerHTML =
                     `<h2>이사 규모</h2>` + bb;
                 document.querySelector("#content-4").innerHTML = `<h2>이사 예정일을 선택해주세요.</h2>
@@ -138,7 +154,7 @@
             <textarea id="etcInput" placeholder="직접 입력" name="request6"></textarea>
 
         </div>
-    <button onclick="validateStep5(event)">다음</button> </div>`
+    <button onclick="loadStep(7)">다음</button> </div>`
 
 
                 console.log(document.getElementById("etcCheck"));
@@ -154,10 +170,24 @@
             }
             if (a == 7) {
                 let selectMoves = document.querySelectorAll("input[name='request6']:checked");
+                let etcCheck = document.getElementById("etcCheck"); // 기타 체크박스
+                let etcInput = document.getElementById("etcInput"); // 기타 입력란
                 let bb = Array.from(selectMoves).map(el => el.value);
-                if (selectMoves) {
-                    document.getElementById("request6").value = bb; // 숨겨진 input에 값 저장
+                event.preventDefault();
+
+                if (etcCheck.checked) {
+                    if (etcInput.value.trim() === "") {
+                        alert("기타 항목을 입력해주세요.");
+                        return;
+                    }
+                    bb.push(etcInput.value.trim()); // 기타 입력값 추가
                 }
+
+                if (bb.length === 0) {
+                    alert("최소 한 개 이상의 항목을 선택해주세요.");
+                    return;
+                }
+                document.getElementById("request6").value = bb.join(", "); // 값 저장 (쉼표로 구분)
                 document.querySelector("#content-6").innerHTML =
                     `<h2>대형가전</h2>` + bb;
                 document.querySelector("#content-7").innerHTML = `<h2>옮길 소형 가전을 선택해주세요.</h2>
@@ -172,7 +202,7 @@
             <textarea id="etcInput" placeholder="직접 입력" name="request7"></textarea>
 
         </div>
-    <button type="button" onclick="validateStep6(event)">다음</button> </div>`
+    <button type="button" onclick="loadStep(8)">다음</button> </div>`
 
 
                 console.log(document.getElementById("etcCheck"));
@@ -188,10 +218,24 @@
             }
             if (a == 8) {
                 let selectMoves = document.querySelectorAll("input[name='request7']:checked");
+                let etcCheck = document.getElementById("etcCheck"); // 기타 체크박스
+                let etcInput = document.getElementById("etcInput"); // 기타 입력란
                 let bb = Array.from(selectMoves).map(el => el.value);
-                if (selectMoves) {
-                    document.getElementById("request7").value = bb; // 숨겨진 input에 값 저장
+                event.preventDefault();
+
+                if (etcCheck.checked) {
+                    if (etcInput.value.trim() === "") {
+                        alert("기타 항목을 입력해주세요.");
+                        return;
+                    }
+                    bb.push(etcInput.value.trim()); // 기타 입력값 추가
                 }
+
+                if (bb.length === 0) {
+                    alert("최소 한 개 이상의 항목을 선택해주세요.");
+                    return;
+                }
+                document.getElementById("request7").value = bb.join(", "); // 값 저장 (쉼표로 구분)
                 document.querySelector("#content-7").innerHTML =
                     `<h2>소형가전</h2>` + bb;
                 document.querySelector("#content-8").innerHTML =
@@ -213,7 +257,7 @@
             <textarea id="etcInput" placeholder="직접 입력" name="request8"></textarea>
 
         </div>
-    <button type="button" onclick="validateStep7(event)">다음</button> </div>`
+    <button type="button" onclick="loadStep(9)">다음</button> </div>`
                 console.log(document.getElementById("etcCheck"));
                 document.getElementById("etcCheck").addEventListener("change", function () {
                     let etcInputContainer = document.getElementById("etcInputContainer");
@@ -227,10 +271,24 @@
             }
             if (a == 9) {
                 let selectMoves = document.querySelectorAll("input[name='request8']:checked");
+                let etcCheck = document.getElementById("etcCheck"); // 기타 체크박스
+                let etcInput = document.getElementById("etcInput"); // 기타 입력란
                 let bb = Array.from(selectMoves).map(el => el.value);
-                if (selectMoves) {
-                    document.getElementById("request8").value = bb; // 숨겨진 input에 값 저장
+                event.preventDefault();
+
+                if (etcCheck.checked) {
+                    if (etcInput.value.trim() === "") {
+                        alert("기타 항목을 입력해주세요.");
+                        return;
+                    }
+                    bb.push(etcInput.value.trim()); // 기타 입력값 추가
                 }
+
+                if (bb.length === 0) {
+                    alert("최소 한 개 이상의 항목을 선택해주세요.");
+                    return;
+                }
+                document.getElementById("request8").value = bb.join(", "); // 값 저장 (쉼표로 구분)
                 document.querySelector("#content-8").innerHTML =
                     `<h2>가구</h2>` + bb;
                 document.querySelector("#content-9").innerHTML =
@@ -247,7 +305,7 @@
             <textarea id="etcInput" placeholder="세부항목 입력"></textarea>
 
         </div>
-    <button type="button" onclick="validateStep8(event)">다음</button> </div>`
+    <button type="button" onclick="loadStep(10)">다음</button> </div>`
                 console.log(document.getElementById("etcCheck"));
                 document.getElementById("etcCheck").addEventListener("change", function () {
                     let etcInputContainer = document.getElementById("etcInputContainer");
@@ -261,10 +319,26 @@
             }
             if (a == 10) {
                 let selectMove = document.querySelector("input[name='request9']:checked");
-                let bb = selectMove.value;
-                if (selectMove) {
-                    document.getElementById("request9").value = bb; // 숨겨진 input에 값 저장
+                let etcCheck = document.getElementById("etcCheck"); // 기타 선택 여부
+                let etcInput = document.getElementById("etcInput"); // 기타 입력란
+                event.preventDefault(); // 🚨 폼 자동 제출 방지
+                let bb = "";
+
+                if (etcCheck.checked) {
+                    // 기타 선택 시 textarea 값 저장
+                    if (etcInput.value.trim() === "") {
+                        alert("기타 항목을 입력해주세요.");
+                        return;
+                    }
+                    bb = etcInput.value.trim();
+                } else if (selectMove) {
+                    // 원룸 or 투룸 선택 시 해당 값 저장
+                    bb = selectMove.value;
+                } else {
+                    alert("잔짐의 양을 선택해주세요.");
+                    return;
                 }
+                document.getElementById("request9").value = bb; // 숨겨진 input에 값 저장
                 document.querySelector("#content-9").innerHTML =
                     `<h2>잔짐의 양</h2>` + bb;
                 document.querySelector("#content-10").innerHTML =
@@ -275,7 +349,7 @@
     <input type="radio" name="request10" value="경기권">경기권 <br>
     <input type="radio" name="request10" value="충청도">충청도 <br>
     <input type="radio" name="request10" value="전라도">전라도<br>
-    <input type="radio" name="request10" value="서랍장">경상도 <br>
+    <input type="radio" name="request10" value="경상도">경상도 <br>
 
 
 
@@ -308,7 +382,7 @@
 
 
         </div>
-    <button type="button" onclick="validateStep10(event)">다음</button> </div>`
+    <button type="button" onclick="loadStep(12)">다음</button> </div>`
 
                 console.log(document.getElementById("etcCheck"));
                 document.getElementById("etcCheck").addEventListener("change", function () {
@@ -323,10 +397,27 @@
             }
             if (a == 12) {
                 let selectMove = document.querySelector("input[name='request11']:checked");
-                let bb = selectMove.value;
-                if (selectMove) {
-                    document.getElementById("request11").value = bb; // 숨겨진 input에 값 저장
+                let etcCheck = document.getElementById("etcCheck"); // 기타 선택 여부
+                let etcInput = document.getElementById("etcInput"); // 기타 입력란
+                event.preventDefault(); // 🚨 폼 자동 제출 방지
+                let bb = "";
+
+                if (etcCheck.checked) {
+                    // 기타 선택 시 textarea 값 저장
+                    if (etcInput.value.trim() === "") {
+                        alert("기타 항목을 입력해주세요.");
+                        return;
+                    }
+                    bb = etcInput.value.trim();
+                } else if (selectMove) {
+                    // 원룸 or 투룸 선택 시 해당 값 저장
+                    bb = selectMove.value;
+                } else {
+                    alert("층수를 선택해주세요.");
+                    return;
                 }
+
+                document.getElementById("request11").value = bb; // 숨겨진 input에 값 저장
                 document.querySelector("#content-11").innerHTML =
                     `<h2>도착지 층수</h2>` + bb;
                 document.querySelector("#content-12").innerHTML =
@@ -369,7 +460,7 @@
 
 
         </div>
-    <button type="button" onclick="validateStep12(event)">다음</button> </div>`
+    <button type="button" onclick="loadStep(14)">다음</button> </div>`
 
                 console.log(document.getElementById("etcCheck"));
                 document.getElementById("etcCheck").addEventListener("change", function () {
@@ -385,10 +476,27 @@
 
             if (a == 14) {
                 let selectMove = document.querySelector("input[name='request13']:checked");
-                let bb = selectMove.value;
-                if (selectMove) {
-                    document.getElementById("request13").value = bb; // 숨겨진 input에 값 저장
+                let etcCheck = document.getElementById("etcCheck"); // 기타 선택 여부
+                let etcInput = document.getElementById("etcInput"); // 기타 입력란
+                event.preventDefault(); // 🚨 폼 자동 제출 방지
+                let bb = "";
+
+                if (etcCheck.checked) {
+                    // 기타 선택 시 textarea 값 저장
+                    if (etcInput.value.trim() === "") {
+                        alert("기타 항목을 입력해주세요.");
+                        return;
+                    }
+                    bb = etcInput.value.trim();
+                } else if (selectMove) {
+                    // 원룸 or 투룸 선택 시 해당 값 저장
+                    bb = selectMove.value;
+                } else {
+                    alert("이사 규모를 선택해주세요.");
+                    return;
                 }
+
+                document.getElementById("request13").value = bb; // 숨겨진 input에 값 저장
                 document.querySelector("#content-13").innerHTML =
                     `<h2>도착지 층수</h2>` + bb;
                 document.querySelector("#content-14").innerHTML =
@@ -405,7 +513,7 @@
                         <div id="etcInputContainer" style="display: none; margin-top: 10px;">
                             <textarea id="etcInput" placeholder="세부항목 입력"  name="request14"></textarea>
  </div>
-    <button type="button" onclick="validateStep13(event)">다음</button> </div>
+    <button type="button" onclick="loadStep(15)">다음</button> </div>
 `
 
                 console.log(document.getElementById("etcCheck"));
@@ -421,9 +529,24 @@
             if (a == 15) {
                 let selectMoves = document.querySelectorAll("input[name='request14']:checked");
                 let bb = Array.from(selectMoves).map(el => el.value);
-                if (selectMoves) {
-                    document.getElementById("request14").value = bb; // 숨겨진 input에 값 저장
+                let etcCheck = document.getElementById("etcCheck"); // 기타 체크박스
+                let etcInput = document.getElementById("etcInput"); // 기타 입력란
+
+                event.preventDefault(); // 🚨 폼 자동 제출 방지
+                if (etcCheck.checked) {
+                    if (etcInput.value.trim() === "") {
+                        alert("기타 항목을 입력해주세요.");
+                        return;
+                    }
+                    bb.push(etcInput.value.trim()); // 기타 입력값 추가
                 }
+
+                if (bb.length === 0) {
+                    alert("최소 한 개 이상의 항목을 선택해주세요.");
+                    return;
+                }
+
+                document.getElementById("request14").value = bb.join(", "); // 값 저장 (쉼표로 구분)
                 document.querySelector("#content-14").innerHTML =
                     `<h2>선택사항</h2>` + bb;
                 document.querySelector("#content-15").innerHTML =
