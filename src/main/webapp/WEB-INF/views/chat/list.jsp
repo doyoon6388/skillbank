@@ -14,7 +14,8 @@
   <c:forEach var="chatRoom" items="${chatRooms}">
   <div class="chat-room" data-room-no="${chatRoom.chat_room_no}" style="cursor: pointer; border: 1px solid black; padding: 10px; margin: 5px;">
       <div>채팅방 번호: ${chatRoom.chat_room_no}</div>
-      <div>상대방: ${chatRoom.chat_user_id} [${chatRoom.chat_user_name}]</div>
+      <div>Pro : ${chatRoom.chat_pro_id} [${chatRoom.chat_pro_name}]</div>
+      <div>Client: ${chatRoom.chat_user_id} [${chatRoom.chat_user_name}]</div>
   </div>
   </c:forEach>
 

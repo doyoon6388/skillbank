@@ -48,13 +48,19 @@ public class TestChatController {
     @GetMapping("/list")
     public String chatList(HttpSession session, Model model) {
         if (session.getAttribute("user") != null) {
-        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
-        model.addAttribute("chatRooms", testService.chatList(user.getUser_pk()));
-        model.addAttribute("loginCheck", mainService.loginCheck(session));
-        model.addAttribute("page", "chat/list.jsp");
-        return "index";
-        }
-        else {
+            model.addAttribute("loginCheck", mainService.loginCheck(session));
+            model.addAttribute("page", "chat/list.jsp");
+            Object mode = session.getAttribute("mode");
+            if (mode != null && mode.toString().equals("on")) {
+                ProAccountVO pro = (ProAccountVO) session.getAttribute("proSession");
+                model.addAttribute("chatRooms", testService.chatListPro(pro.getPro_pk()));
+                return "indexPro";
+            } else {
+                UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+                model.addAttribute("chatRooms", testService.chatList(user.getUser_pk()));
+                return "index";
+            }
+        } else {
             return "redirect:/login";
         }
     }
