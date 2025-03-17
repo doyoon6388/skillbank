@@ -21,6 +21,7 @@
             object-fit: cover; /* 비율을 유지하면서 200x200에 맞게 자름 */
             border-radius: 10px; /* 모서리를 둥글게 (선택 사항) */
         }
+       
     </style>
     <script>
         window.onload = function () {
@@ -110,7 +111,7 @@
 室外機の洗浄：エアコンの効きがよくなって、電気代の節約にも💰<br>
 ドレンホースの洗浄：水漏れ・悪臭の原因になる詰まりを解消！🌤️<br>
 防虫キャップの取付：ゴキブリなどの害虫の侵入を遮断🚧<br>
-          <div class="items"
+          <div class="items">
            <div class="air">
            <div> <input type="checkbox" name="request5" value="抗菌加工・抗菌コート"> 抗菌加工・抗菌コート<br>
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0fRT3qLzRoh0mQcp_WMj1pmyLEI-pmET2Xw&s">
