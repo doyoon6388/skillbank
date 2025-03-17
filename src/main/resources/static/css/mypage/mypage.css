@@ -230,3 +230,30 @@ h1 {
 #saveInfoButton:hover, #saveGenderButton:hover {
     background-color: #1E8449;
 }
+
+.logout-btn {
+    background-color: #ff4d4d; /* 빨간색 */
+    color: white; /* 흰색 텍스트 */
+    border: none;
+    border-radius: 8px; /* 둥근 모서리 */
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    text-align: center;
+    min-width: 100px; /* 최소 너비 설정 */
+    width: 100%;
+}
+
+/* 🔥 호버 효과 */
+.logout-btn:hover {
+    background-color: #cc0000; /* 더 진한 빨간색 */
+    transform: scale(1.01); /* 살짝 확대 */
+}
+
+/* 🔥 클릭 시 효과 */
+.logout-btn:active {
+    transform: scale(0.95); /* 클릭하면 살짝 줄어듦 */
+}
