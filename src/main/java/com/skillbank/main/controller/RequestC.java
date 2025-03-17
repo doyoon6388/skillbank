@@ -95,11 +95,10 @@ public class RequestC {
 
     @GetMapping("/my-receive")
     public String myReceive(Model model, HttpSession session) {
-        ProAccountVO prosession = (ProAccountVO) session.getAttribute("proSession");
-        String pro_category = prosession.getPro_category();
+        ProAccountVO proAccountVO = (ProAccountVO) session.getAttribute("proSession");
         model.addAttribute("loginCheck", mainService.loginCheck(session));
         model.addAttribute("page", "request/myReceive.jsp");
-        model.addAttribute("proRequest", requestService.proRequestList(pro_category));
+        model.addAttribute("proRequest", requestService.proRequestList(proAccountVO));
 
         return "indexPro";
     }
@@ -114,13 +113,9 @@ public class RequestC {
     }
 
     @PostMapping("/request-send")
-    public String requestSend(Model model, HttpSession session, RequestSendVO reqeustVO) {
-        model.addAttribute("loginCheck", "login/loginOK.jsp");
-        model.addAttribute("page", "request/requestSend.jsp");
-
-
-        requestService.requestSend(reqeustVO);
-        return "redirect:/my-receive";
+    public void requestSend(@RequestBody RequestSendVO requestVO) {
+        System.out.println("받은 데이터: " + requestVO);
+        requestService.requestSend(requestVO);
     }
 
 

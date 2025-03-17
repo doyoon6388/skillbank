@@ -4,14 +4,37 @@ document.addEventListener("DOMContentLoaded", function() {
     let request =  document.getElementById('sendR');
 
         request.addEventListener('click',()=>{
-            const requestNo = request.dataset.requestNo;  // 견적서 ID 가져오기
-            const user = request.dataset.user;  // 견적서 ID 가져오기
-            const userName = request.dataset.userNickname;
-            const pro = request.dataset.pro;  // 견적서 ID 가져오기
-            const proName = request.dataset.proName;
-            const cloneReqHTML = request.parentElement.cloneNode(true).outerHTML;
-            console.log(request.dataset)
-            makeChatroom(requestNo, user, userName, pro, proName, cloneReqHTML);
+
+            const r_request_no = document.querySelector("#r_request_no").value;
+            const r_user_id = document.querySelector("#r_user_id").value;
+            const r_pro_pk = document.querySelector("#r_pro_pk").value;
+            const r_price_type = document.querySelector("input[name='r_price_type']:checked").value;
+            const r_comment = document.querySelector("#r_comment").value;
+            const r_price = document.querySelector("#r_price").value;
+
+            fetch('/request-send',{
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    r_request_no: r_request_no,
+                    r_user_id: r_user_id,
+                    r_pro_pk: r_pro_pk,
+                    r_price_type: r_price_type,
+                    r_comment: r_comment,
+                    r_price: r_price
+                })
+            }).then(() => {
+                const requestNo = request.dataset.requestNo;  // 견적서 ID 가져오기
+                const user = request.dataset.user;  // 견적서 ID 가져오기
+                const userName = request.dataset.userNickname;
+                const pro = request.dataset.pro;  // 견적서 ID 가져오기
+                const proName = request.dataset.proName;
+                const cloneReqHTML = request.parentElement.cloneNode(true).outerHTML;
+                console.log(request.dataset)
+                makeChatroom(requestNo, user, userName, pro, proName, cloneReqHTML);
+                })
         })
 }); // 레디 함수 끝
 
