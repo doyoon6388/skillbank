@@ -24,7 +24,9 @@
     <div class="mypage-item-wrapper">
         <div class="mypage-item">
             <div class="mypage-item-tag">SkillBank Cash</div>
-            <div class="mypage-item-list">보유 금액 : ${sessionScope.proSession.pro_cash} C <button onclick="location.href='/pro/cash'">충전하기</button></div>
+            <div class="mypage-item-list">보유 금액 : ${sessionScope.proSession.pro_cash} C
+                <button onclick="location.href='/pro/cash'">충전하기</button>
+            </div>
         </div>
     </div>
 
