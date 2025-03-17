@@ -36,16 +36,9 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
       </div>
       <div class="requestContainer">
         <h1>견적보내기</h1>
-        <input
-          name="r_request_no"
-          value="${proRequest.request_no}"
-          hidden="hidden"
-        />
-        <input
-          name="r_user_id"
-          value="${sessionScope.user.user_pk}"
-          hidden="hidden"
-        />
+        <input id="r_request_no" name="r_request_no" value="${proRequest.request_no}" hidden="hidden"/>
+        <input id="r_user_id" name="r_user_id" value="${proRequest.r_user_id}" hidden="hidden"/>
+        <input id="r_pro_pk" name="r_pro_pk" value="${sessionScope.proSession.pro_pk}" hidden="hidden"/>
         <div class="price-type">
           <h1>금액 설정</h1>
           <div>
@@ -57,16 +50,14 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
         <div class="price">
           <h1>금액</h1>
 
-          <input type="text" oninput="chkNum(event)" name="r_price" />
+          <input type="text" id="r_price" oninput="chkNum(event)" name="r_price" />
         </div>
         <div>
           <h1>견적 설명</h1>
           <div class="requestSend-txt">
-            <textarea name="r_comment"> </textarea>
+            <textarea id="r_comment" name="r_comment"> </textarea>
           </div>
           <div>
-            <h1>파일첨부</h1>
-            <input type="file" name="r_file" />
             <br />
             <!-- 변경하기 버튼: 파일 선택 창 호출 -->
             <button
