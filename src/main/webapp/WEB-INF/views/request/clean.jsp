@@ -174,6 +174,7 @@
     <input name="r_user_id" value="${sessionScope.user.user_pk}" hidden="hidden">
     <input name="request_type" value="청소" hidden="hidden">
 
+
     <input type="hidden" id="request1" name="request1">
     <input type="hidden" id="request2" name="request2">
     <input type="hidden" id="request3" name="request3">

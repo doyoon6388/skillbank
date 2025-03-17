@@ -38,7 +38,7 @@ pageEncoding="utf-8" %>
 <div class="findpro-lower-wrapper">
 <!-- 지도 영역 -->
 <div id="findpro-map"></div>
-<div class="special-request-btn-container"><button id="special-request-btn">개별 견적 요청하기</button></div>
+<div class="special-request-btn-container"><button id="special-request-btn" onclick="location.href='/special-request?no=${proDetail.pro_pk}'">개별 견적 요청하기</button></div>
 </div>
 
 <!-- 프로 상세 PK와 현재 유저 PK를 보관하는 숨겨진 필드 (예시) -->
