@@ -24,7 +24,7 @@ function validateStep2(event) {
     loadStep(3);
 }
 
-function validateStep3(event) {
+/*function validateStep3(event) {
     event.preventDefault(); // 🚨 폼 제출 방지
 
     let selectedOption = document.querySelector("input[name='request3']:checked");
@@ -35,7 +35,7 @@ function validateStep3(event) {
 
     document.getElementById("request3").value = selectedOption.value; // 값 저장
     loadStep(4);
-}
+}*/
 
 function validateStep4(event) {
     event.preventDefault(); // 🚨 폼 제출 방지
@@ -63,18 +63,18 @@ function validateStep5(event) {
     loadStep(7);
 }
 
-function validateStep6(event) {
+/*function validateStep6(event) {
     event.preventDefault(); // 🚨 폼 제출 방지
 
     let selectedOption = document.querySelector("input[name='request7']:checked");
     if (!selectedOption) {
         alert("항목을 선택해 주세요.");
         return;
-    }
+    }*/
 
-    document.getElementById("request7").value = selectedOption.value; // 값 저장
+  /*  document.getElementById("request7").value = selectedOption.value; // 값 저장
     loadStep(8);
-}
+}*/
 
 function validateStep7(event) {
     event.preventDefault(); // 🚨 폼 제출 방지

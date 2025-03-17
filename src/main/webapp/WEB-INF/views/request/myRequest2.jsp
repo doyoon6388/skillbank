@@ -32,7 +32,7 @@
             <div class="myRquestDate"><span>요청일</span><div>${request.request4}</div></div>
             <span>${request.request10}</span>
             <h1>${request.request_type}</h1>
-            
+
             <div class="btn2">
                 <button class="myRequestOpenModalBtn" value="${request.request_no}">내 요청 보기</button>
             </div>
