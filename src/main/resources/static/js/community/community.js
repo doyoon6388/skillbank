@@ -40,7 +40,7 @@ window.onload=()=> {
             })
             .catch(error => console.error("오류 발생:", error));
     });
-// 날짜 포맷 함수 (JSP fmt:formatDate 대체)
+    // 날짜 포맷 함수 (JSP fmt:formatDate 대체)
     function formatDate(dateString) {
         let date = new Date(dateString);
         return date.toLocaleString("ja-JP", { year: "numeric", month: "2-digit", day: "2-digit",
@@ -48,3 +48,55 @@ window.onload=()=> {
 }
 }
 
+
+
+// community.js
+
+window.addEventListener("load", function () {
+    // 「community-date」クラスを持つ要素を全て取得
+    const dateElements = document.querySelectorAll(".community-date");
+
+    dateElements.forEach(el => {
+        // data-date 属性から文字列を取得
+        let dateString = el.getAttribute("data-date");
+        console.log("dateString:", dateString); // デバッグ
+
+        // 取得した文字列を timeAgo 関数で加工して表示
+        if (dateString) {
+            el.textContent = timeAgo(dateString);
+        }
+    });
+});
+
+/**
+ * timeAgo関数: 日付文字列を「○○前」の形式に変換
+ */
+function timeAgo(dateString) {
+    let date = new Date(dateString);
+    let now = new Date();
+    let diff = now - date; // ミリ秒差
+
+    let seconds = Math.floor(diff / 1000);
+    let minutes = Math.floor(seconds / 60);
+    let hours   = Math.floor(minutes / 60);
+    let days    = Math.floor(hours / 24);
+    let weeks   = Math.floor(days / 7);
+    let months  = Math.floor(days / 30);
+    let years   = Math.floor(days / 365);
+
+    if (years > 0) {
+        return years + "年前";
+    } else if (months > 0) {
+        return months + "ヶ月前";
+    } else if (weeks > 0) {
+        return weeks + "週間前";
+    } else if (days > 0) {
+        return days + "日前";
+    } else if (hours > 0) {
+        return hours + "時間前";
+    } else if (minutes > 0) {
+        return minutes + "分前";
+    } else {
+        return "今";
+    }
+}

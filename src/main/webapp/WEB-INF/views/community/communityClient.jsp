@@ -26,7 +26,7 @@
 <div class="community-body-wrapper">
     <div class="community-tab">
         <div onclick="location.href='/community/main'">全体</div>
-        <div onclick="location.href='/community/askpro'">プロに聞く</div>
+        <div onclick="location.href='/community/askpro'">プロに尋ねる</div>
         <div onclick="location.href='/community/together'">一緒に</div>
         <div>レビュー</div>
         <div onclick="location.href='/community/appeal'">プロのアピール</div>
