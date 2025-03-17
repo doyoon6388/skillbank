@@ -48,6 +48,9 @@
                 <span class="mypage-info-arrow">></span>
             </div>
         </div>
+        <div>
+            <button class="logout-btn" onclick="logout()">ログアウト</button>
+        </div>
     </div>
 
     <!-- ✅ 모달 배경 (회색 빛 배경) 추가 -->

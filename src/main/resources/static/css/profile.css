@@ -47,8 +47,11 @@
 #profileImage1 {
     position: relative;
     right: 10px;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    background-color: black; /* 투명한 부분이 보이지 않도록 배경 추가 */
     border-radius: 50%;
     cursor: pointer;
     object-fit: cover;
@@ -119,12 +122,6 @@
     min-width: 120px;
     right: 110px;
     align-content: center;
-    padding: 0 10px;
-}
-
-.logout-btn {
-    width: 25px;
-    cursor: pointer;
     padding: 0 10px;
 }
 

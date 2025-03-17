@@ -88,9 +88,30 @@ public class CommunityService {
         communityMapper.communityDeletePost(postId);
     }
 
-//    public int addComment(CommunityCommentVO comment) {
-//        return communityMapper.insertComment(comment);
-//    }
+    public void deletePostWithComments(int postId) {
+        communityMapper.deleteCommentsByPostId(postId);
+        communityMapper.communityDeletePost(postId);
+    }
+
+
+    public void communityUpdatePost(CommunityPostVO communityPostVO, MultipartFile file) {
+        if (file != null && !file.getOriginalFilename().isEmpty()) {
+            String originalFilename = file.getOriginalFilename();
+            String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
+            UUID uuid = UUID.randomUUID();
+            String[] uuids = uuid.toString().split("-");
+            String fileName = uuids[0] + fileExtension;
+            File saveFile = new File(upload + File.separator + fileName);
+            try {
+                file.transferTo(saveFile);
+                communityPostVO.setCommu_image(fileName);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        communityMapper.communityUpdatePost(communityPostVO);
+    }
+
 
     public int addComment(CommunityCommentVO comment) {
         int result = communityMapper.insertComment(comment);
@@ -103,6 +124,7 @@ public class CommunityService {
     public List<CommunityCommentVO> getCommentsByPost(int postId) {
         return communityMapper.getCommentsByPost(postId);
     }
+
 
 
 //    public void updatePost(CommunityPostVO communityPostVO) {

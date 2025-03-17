@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c"
+          uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,9 @@
                 <c:choose>
                     <c:when test="${sessionScope.user.user_hasPro == 0}">
                         <div>
-                            <button onclick="location.href='/account/pro'">프로 계정 생성</button>
+                            <button onclick="location.href='/account/pro'">
+                                프로 계정 생성
+                            </button>
                         </div>
                     </c:when>
                     <c:otherwise>
@@ -29,15 +32,17 @@
                     </c:otherwise>
                 </c:choose>
             </div>
-            <div hidden="hidden" id="user-text">${sessionScope.user.user_name} 고객님</div>
+            <div hidden="hidden" id="user-text">
+                ${sessionScope.user.user_name} 고객님
+            </div>
         </div>
         <div>
-            <button class="request-btn" onclick="location.href='my-request?id=${sessionScope.user.user_pk}'">받은견적
+            <button class="request-btn" onclick="location.href='my-request?id=${sessionScope.user.user_pk}'">
+                받은견적
             </button>
         </div>
         <img id="profileImage1" src="/file/${sessionScope.user.user_profile_img}" alt="プロフィール画像"
              onclick="location.href='/mypage'"/>
-        <img class="logout-btn" src="/resources/icons/profile/logout.png" alt="로그아웃" onclick="logout()"/>
     </div>
     <img class="chat-btn" src="/resources/icons/profile/chat.png" alt="채팅" onclick="location.href='/test/chat/list'"/>
 </div>
