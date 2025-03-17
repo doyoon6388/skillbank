@@ -1,9 +1,6 @@
 package com.skillbank.main.mapper;
 
-import com.skillbank.main.vo.ProRequestVO;
-import com.skillbank.main.vo.ReqeustVO;
-import com.skillbank.main.vo.RequestSendVO;
-import com.skillbank.main.vo.UserAccountVO;
+import com.skillbank.main.vo.*;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -27,10 +24,10 @@ public interface RequestMapper {
     @Delete("delete request where request_no = #{pk}")
     int requestDelete(int pk);
 
-    @Select("select r.*, u.user_profile_img, u.user_nickname from request r join user_account u on r.r_user_id = u.user_pk where r.request_type = #{pro_category}")
-    List<ProRequestVO> proRequest(String pro_category);
+    @Select("SELECT r.*, u.user_profile_img, u.user_nickname FROM request r JOIN user_account u ON r.r_user_id = u.user_pk WHERE r.request_type = #{pro_category} AND r.request_no NOT IN (SELECT r_request_no FROM response WHERE r_pro_pk = #{pro_pk})")
+    List<ProRequestVO> proRequest(ProAccountVO proAccountVO);
 
-    @Insert("insert into response values (r_no_seq.nextval, #{r_price_type},#{r_price} ,#{r_comment}, #{r_file}, #{r_request_no}, #{r_user_id})")
+    @Insert("insert into response values (r_no_seq.nextval, #{r_price_type},#{r_price} ,#{r_comment}, #{r_request_no}, #{r_user_id},#{r_pro_pk})")
     int requestSend(RequestSendVO requestSendVO);
 
     @Select("select r.*, u.user_profile_img, u.user_nickname from request r join user_account u on r.r_user_id = u.user_pk where r.request_no = #{request_no}")

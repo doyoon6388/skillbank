@@ -50,12 +50,12 @@ public class RequestService {
    }
     }
 
-    public List<ProRequestVO> proRequestList(String pro_category) {
-        return requestMapper.proRequest(pro_category);
+    public List<ProRequestVO> proRequestList(ProAccountVO proAccountVO) {
+        return requestMapper.proRequest(proAccountVO);
     }
 
-    public void requestSend(RequestSendVO reqeustVO) {
-        if (requestMapper.requestSend(reqeustVO) == 1) {
+    public void requestSend(RequestSendVO requestVO) {
+        if (requestMapper.requestSend(requestVO) == 1) {
             System.out.println("등록");
         }
 
