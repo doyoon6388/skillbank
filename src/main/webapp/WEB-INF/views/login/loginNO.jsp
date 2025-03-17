@@ -6,10 +6,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<link rel="stylesheet" href="/resources/css/login/loginNO.css">
 <body>
 <div style="display: flex">
     <div>
-        <button onclick="location.href='/login'">로그인</button>
+        <img class="login-btn" onclick="location.href='/login'" src="/resources/icons/profile/login.png">
     </div>
 </div>
 </body>
