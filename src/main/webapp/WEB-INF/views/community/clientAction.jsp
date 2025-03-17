@@ -29,9 +29,10 @@
 <%--                    </c:if>--%>
                 </div>
                 <div class="client-post-date">
-                    <fmt:formatDate value="${i.commu_date}" pattern="MM/dd - HH:mm"/>
-                </div>
-            </div>
+                    <p class="community-date"
+                       data-date="<fmt:formatDate value='${i.commu_date}' pattern='yyyy-MM-dd\'T\'HH:mm:ss'/>">
+                    </p>
+                </div>            </div>
             <div class="client-post-title">
                 [${i.commu_title}]
             </div>
@@ -61,6 +62,6 @@
     </c:if>
 </div>
 
-
+<script src="/resources/js/community/community.js"></script>
 </body>
 </html>
