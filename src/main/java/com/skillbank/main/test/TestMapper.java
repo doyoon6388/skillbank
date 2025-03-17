@@ -28,6 +28,10 @@ public interface TestMapper {
     @Select("select * from chat_room where chat_user_id=#{no}")
     List<ChatRoomVO> chatList(int no);
 
+    // 프로의 채팅 리스트
+    @Select("select * from chat_room where chat_pro_id=#{no}")
+    List<ChatRoomVO> chatListPro(int no);
+
     @Select("select * from chat_room where chat_room_no = #{no}")
     ChatRoomVO getChatRoomById(int no);
 }
