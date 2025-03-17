@@ -65,25 +65,24 @@
 
 /*-----------------------------------------------*/
 /*プロの認識用*/
-.pro-label {
-    color: white;
-    background-color: pink;
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-weight: bold;
-    margin-left: 5px;
-}
+/*.pro-label {*/
+/*    color: white;*/
+/*    background-color: pink;*/
+/*    padding: 2px 5px;*/
+/*    border-radius: 3px;*/
+/*    font-weight: bold;*/
+/*    margin-left: 5px;*/
+/*}*/
 
 /*クライアントの認識用*/
-.client-label {
-    color: white;
-    background-color: skyblue;
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-weight: bold;
-    margin-left: 5px;
-
-}
+/*.client-label {*/
+/*    color: white;*/
+/*    background-color: skyblue;*/
+/*    padding: 2px 5px;*/
+/*    border-radius: 3px;*/
+/*    font-weight: bold;*/
+/*    margin-left: 5px;*/
+/*}*/
 
 /*-----------------------------------------------*/
 
@@ -198,49 +197,6 @@
         flex-direction: column;
     }
 }
-
-/*label {*/
-/*    display: block;*/
-/*    margin-bottom: 5px;*/
-/*    font-weight: bold;*/
-/*}*/
-
-/*select {*/
-/*    cursor: pointer;*/
-/*    padding: 10px;*/
-/*    margin-bottom: 15px;*/
-/*}*/
-
-/*.select-and-post-btn {*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*    gap: 20px;*/
-/*    margin-bottom: 15px;*/
-/*    width: 103%;*/
-/*}*/
-
-/*input[type="text"],*/
-/*textarea {*/
-/*    width: 100%;*/
-/*    padding: 10px;*/
-/*    margin-bottom: 15px;*/
-/*    border: 1px solid lightgray;*/
-/*}*/
-
-/*.client-post-btn {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    width: 80px;*/
-/*    height: 80px;*/
-/*    border-radius: 50%;*/
-/*    background-color: #2D9CDB;*/
-/*    color: white;*/
-/*    border: none;*/
-/*    !*padding: 12px;*!*/
-/*    cursor: pointer;*/
-/*}*/
 
 /*-----------------------------------------------*/
 
@@ -368,6 +324,65 @@
     white-space: normal; /* 改行は自動折り返しに任せる */
     line-height: 1.6; /* 行の高さ */
     /* 幅やフォントサイズによって、どこで折り返すか変わります */
+}
+
+/*-----------------------------------------------*/
+
+/*プロにアピール*/
+/* proAppeal用：プロのアピール投稿一覧 */
+.appeal-post-list {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.appeal-post-card {
+    background-color: white;
+    /*border: 1px solid cornsilk;*/
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.appeal-post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.appeal-post-author {
+    font-weight: bold;
+    color: #555555;
+}
+
+.appeal-post-date {
+    font-size: 0.85rem;
+    color: darkgrey;
+}
+
+.appeal-post-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: midnightblue;
+}
+
+.appeal-post-content {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* 行数制限: 2行 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* 改行は自動折り返しに任せる */
+    line-height: 1.6; /* 行の高さ */
+    /* 幅やフォントサイズによって、どこで折り返すか変わります */
+}
+
+.appeal-post-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 /*-----------------------------------------------*/
@@ -533,14 +548,9 @@
 
 /*-----------------------------------------------*/
 /*コメント用*/
-/* コメントセクション全体 */
 .community-comment-section {
     margin-top: 30px;
     padding: 20px 0;
-    /* 背景色を付けたい場合は下記をコメントアウト解除:
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    */
 }
 
 /* コメント入力欄 */
@@ -558,7 +568,7 @@
 }
 
 #comment-page-comment-content:focus {
-    border-color: #007BFF; /* フォーカス時の枠線色 */
+    border-color: #007BFF;
 }
 
 /* 送信ボタン */
@@ -586,7 +596,7 @@
 /* コメント一つひとつ */
 .community-comment {
     padding: 10px 0;
-    border-bottom: 1px dashed #ccc; /* シンプルな破線の仕切り */
+    border-bottom: 1px dashed #ccc;
 }
 
 /* 最後のコメントには仕切り線を付けない */
