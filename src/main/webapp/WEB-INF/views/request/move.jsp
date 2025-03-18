@@ -17,6 +17,12 @@
         }
     </style>
     <script>
+        function updateProgressBar(step) {
+    let totalSteps = 12; // 전체 스텝 개수
+    let progressPercentage = (step / totalSteps) * 100;
+    document.getElementById("progress-bar").style.width = progressPercentage + "%";
+    }
+
         window.onload = function () {
             loadStep(1); // 첫 번째 단계 자동 로드
 
@@ -25,6 +31,7 @@
         let dateval;
 
         function loadStep(a) {
+            updateProgressBar(a);
             if (a == 1) {
                 document.querySelector("#content-1").innerHTML = `<h2>이사 종류를 선택해주세요.</h2>
             <div class="items">
@@ -582,6 +589,10 @@
     <input type="hidden" id="request12" name="request12">
     <input type="hidden" id="request13" name="request13">
     <input type="hidden" id="request14" name="request14">
+
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
 
 
     <div id="content-1">

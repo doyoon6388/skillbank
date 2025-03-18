@@ -328,7 +328,7 @@ CREATE TABLE request (
 
 alter table request add r_pro_pk number(5);
 create sequence request_no_seq;
-insert into request values (request_no_seq.nextval, 4, '청소', sysdate,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+insert into request values (request_no_seq.nextval, 66, '청소', sysdate,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4);
 select * from request;
 ---------------- 견적서 테이블
 create table response(
@@ -347,7 +347,7 @@ create sequence r_no_seq;
 
 select * from response;
 
-delete response;
+
 
 drop table response cascade constraints purge;
 
@@ -355,5 +355,5 @@ delete chat_room;
 
 select * from CHAT_ROOM;
 
----------------
-
+update request set r_pro_pk = 4 where request_no = 282;
+delete request where request_no = 284;

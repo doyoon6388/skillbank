@@ -58,6 +58,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
             <div class="status">
               <span class="step">견적요청</span>
               <span class="step">상담진행</span>
+              <span class="step">거래완료</span>
             </div>
 
             <div class="receiveBtn">
