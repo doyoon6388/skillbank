@@ -165,7 +165,7 @@ pageEncoding="utf-8" %>
         }
     </script>
 <script>
-    function updateProgressBar(step) {
+    function updateProgressBar2(step) {
         let totalSteps = 15; // 전체 스텝 개수
         let progressPercentage = (step / totalSteps) * 100;
         document.getElementById("progress-bar").style.width = progressPercentage + "%";
@@ -175,7 +175,7 @@ pageEncoding="utf-8" %>
     let dateval;
 
     function loadStep2(a) {
-        updateProgressBar(a);
+        updateProgressBar2(a);
         if (a == 1) {
             document.querySelector("#content-1").innerHTML = `<h2>이사 종류를 선택해주세요.</h2>
             <div class="items">
