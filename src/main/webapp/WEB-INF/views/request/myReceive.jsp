@@ -32,6 +32,9 @@
 
            <h1 id="receiveTitle">${p.request_type}</h1>
                 <span id="">${p.user_nickname} </span>
+    <c:if test="${p.r_pro_pk == sessionScope.proSession.pro_pk}">
+        <span class="badge">지정 요청</span>
+    </c:if>
 </div>
         <div class="receiveItem2">
             <span>${p.request10}</span>

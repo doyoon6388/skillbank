@@ -778,7 +778,7 @@ pageEncoding="utf-8" %>
         <div id="progress-container">
             <div id="progress-bar"></div>
         </div>
-
+<div class="modal-body">
             <div id="content-1"></div>
             <div id="content-2"></div>
             <div id="content-3"></div>
@@ -794,7 +794,7 @@ pageEncoding="utf-8" %>
             <div id="content-13"></div>
             <div id="content-14"></div>
             <div id="content-15"></div>
-
+</div>
     </div>
 </div>
 </form>
