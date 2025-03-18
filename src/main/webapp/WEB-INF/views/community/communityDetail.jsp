@@ -51,6 +51,9 @@
             </div>
             <div class="post-content" id="post-content" style="min-height:300px; white-space: pre-wrap;">${communityPost.commu_content}</div>
 <%--            いいね--%>
+                <div class="community-like">
+                    <img class="community-empty-heart" src="/icons/profile/community/empty_heart.png" alt="" style="width: 50px; height: 50px;">
+                </div>
                     <%-- 戻る/削除/修正　--%>
                 <button class="community-history-back" id="history-back" type="button" onclick="history.back()">戻る</button>
                 <c:if test="${sessionScope.user != null and sessionScope.user.user_pk == communityPost.commu_user_id}">

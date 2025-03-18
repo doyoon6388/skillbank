@@ -6,6 +6,7 @@ import com.skillbank.main.vo.CommunityPostVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -19,7 +20,7 @@ public class CommunityService {
     @Value("${upload}")
     private String upload;
     //    順番(paging)
-    private static final int page_size = 2;
+    private static final int page_size = 1;
 
     @Autowired
     private CommunityMapper communityMapper;
@@ -63,7 +64,7 @@ public class CommunityService {
             communityPostVO.setCommu_image("defaultCommuImg.png");
         }
 
-        if (communityMapper.createPost(communityPostVO) == 1){
+        if (communityMapper.createPost(communityPostVO) == 1) {
             System.out.println("登録成功！！！！！！！！！！！！！！");
         }
     }
@@ -73,9 +74,44 @@ public class CommunityService {
         return communityMapper.getPostCount(category);
     }
 
-    public  List<CommunityPostVO> getPostsByPage(String category, int page) {
-        int start = (page - 1) * page_size + 1;
-        int end = start + page_size;
+    public List<CommunityPostVO> getPostsByPage(Model model, String category, int totalCount, int page) {
+        int pageSize = 3;
+        if (category.equals("askpro")){
+            pageSize = 5;
+        }
+
+        int totalPage = (int) Math.ceil((double) totalCount / pageSize);
+        if (totalPage < 1) {
+            totalPage = 1;
+        }
+        if (page < 1) {
+            page = 1;
+        }
+        if (page > totalPage) {
+            page = totalPage;
+        }
+        int start = (page - 1) * pageSize + 1;
+        int end = start + pageSize - 1;
+        System.out.println("start = " + start);
+        System.out.println("end = " + end);
+
+        int pageBlockSize = 5;
+
+    // 현재 페이지를 기준으로 보여줄 시작 페이지 번호 계산
+        int startPage = ((page - 1) / pageBlockSize) * pageBlockSize + 1;
+    // 시작 페이지 번호로부터 pageBlockSize만큼 더해 종료 페이지 번호 계산
+        int endPage = startPage + pageBlockSize - 1;
+    // totalPages는 전체 페이지 수 (전체 게시글 수 / pageSize)라고 가정
+        if (endPage > totalPage) {
+            endPage = totalPage;
+        }
+
+    // 모델에 추가
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
+        model.addAttribute("start", start);
+        model.addAttribute("end", end);
+        model.addAttribute("totalPage", totalPage);
         return communityMapper.getPostsByPage(category, start, end);
     }
 
@@ -124,7 +160,6 @@ public class CommunityService {
     public List<CommunityCommentVO> getCommentsByPost(int postId) {
         return communityMapper.getCommentsByPost(postId);
     }
-
 
 
 //    public void updatePost(CommunityPostVO communityPostVO) {

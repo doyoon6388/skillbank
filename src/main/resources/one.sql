@@ -355,5 +355,5 @@ delete chat_room;
 
 select * from CHAT_ROOM;
 
-
+---------------
 

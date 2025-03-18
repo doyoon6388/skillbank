@@ -391,6 +391,12 @@
 .community-paging {
     margin: 60px 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.community-paging li {
+    list-style: none;
+    display: inline-block;
 }
 
 .community-paging a {
@@ -400,6 +406,10 @@
     /*border: 1px solid honeydew;*/
     text-decoration: none;
     color: gray;
+}
+.community-paging a.active{
+    font-weight: bold;
+    color: blue;
 }
 
 /*-----------------------------------------------*/
@@ -625,4 +635,11 @@
     font-size: 12px;
     color: #999;
     text-align: right;
+}
+
+
+/* community tabs */
+.community-tab div.active{
+    font-weight: bold;
+    color: #F8B285;
 }
