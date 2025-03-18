@@ -81,4 +81,5 @@ function openModal() {
 
 function closeModal() {
     document.getElementById("findModal").style.display = "none";
+    location.reload();
 }

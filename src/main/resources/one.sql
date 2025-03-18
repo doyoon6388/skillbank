@@ -347,7 +347,7 @@ create sequence r_no_seq;
 
 select * from response;
 
-delete response;
+
 
 drop table response cascade constraints purge;
 
