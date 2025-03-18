@@ -16,22 +16,31 @@
             border: 1px solid #ddd;
         }
         .air img{
-            width: 200px;
-            height: 200px;
+            width: 100px;
+            height: 100px;
             object-fit: cover; /* 비율을 유지하면서 200x200에 맞게 자름 */
             border-radius: 10px; /* 모서리를 둥글게 (선택 사항) */
         }
 
     </style>
     <script>
+
+        function updateProgressBar(step) {
+            let totalSteps = 6; // 전체 스텝 개수
+            let progressPercentage = (step / totalSteps) * 100;
+            document.getElementById("progress-bar").style.width = progressPercentage + "%";
+        }
         window.onload = function () {
             loadStep(1); // 첫 번째 단계 자동 로드
+
 
 
         };
         let dateval;
 
         function loadStep(a) {
+            updateProgressBar(a); // 스텝이 변경될 때 프로그래스 바 업데이트
+
             if (a == 1) {
                 document.querySelector("#content-1").innerHTML = `<h2>どのタイプのエアコンをクリーニングしたいですか？</h2>
             <div class="items">
@@ -189,6 +198,11 @@
     <input type="hidden" id="request12" name="request12">
     <input type="hidden" id="request13" name="request13">
     <input type="hidden" id="request14" name="request14">
+
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
 
     <div id="content-1">
     </div>
