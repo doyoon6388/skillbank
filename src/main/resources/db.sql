@@ -83,6 +83,7 @@ create table pro_account
     CONSTRAINT fk_pro_account_user FOREIGN KEY (pro_pk) REFERENCES user_account (user_pk)
 );
 
+select * from pro_account;
 CREATE TABLE community_post_like
 (
     post_id   NUMBER,
