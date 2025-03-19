@@ -323,20 +323,37 @@ CREATE TABLE request (
                          request12 VARCHAR2(200 CHAR),
                          request13 VARCHAR2(200 CHAR),
                          request14 VARCHAR2(200 CHAR),
+                         response_no number(5)
                          CONSTRAINT fk_request_user FOREIGN KEY (r_user_id) REFERENCES user_account(user_pk)
 );
+
+ALTER TABLE request MODIFY response_no NUMBER(5);
 alter table request
 add(
-    constraint fk_response_request foreign key (response_no) references response(r_no)
+    constraint fk_response_request foreign key (response_no) references request(request_no)
     );
 alter table request
     add(
         response_no number(5)
         );
-alter table request add r_pro_pk number(5);
+
+CREATE OR REPLACE TRIGGER trg_auto_insert_response
+    AFTER INSERT ON request
+    FOR EACH ROW
+BEGIN
+    INSERT INTO response (r_no, r_request_no, r_price_type, r_price)
+    VALUES (SEQ_RESPONSE_NO.NEXTVAL, :NEW.request_no, '기본값', 0);
+END;
 create sequence request_no_seq;
 insert into request values (request_no_seq.nextval, 66, '청소', sysdate,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4);
 select * from request;
+ALTER TABLE request DROP CONSTRAINT fk_response_request;
+
+alter table request drop column response_no;
+SELECT CONSTRAINT_NAME, TABLE_NAME, R_CONSTRAINT_NAME, STATUS
+FROM USER_CONSTRAINTS
+WHERE TABLE_NAME = 'REQUEST' AND CONSTRAINT_TYPE = 'R';
+
 ---------------- 견적서 테이블
 create table response(
     r_no number primary key ,
@@ -360,5 +377,6 @@ delete chat_room;
 
 select * from CHAT_ROOM;
 
-update request set r_pro_pk = 4 where request_no = 282;
-delete request where request_no = 284;
+
+
+
