@@ -1,13 +1,53 @@
+/* ✅ AppleSDGothicNeo 폰트 다양한 굵기 지원 */
 @font-face {
-    font-family: 'AppleSDGothicNeo';
-    src: url('/fonts/AppleSDGothicNeoL.ttf');
-    font-weight: normal;
+    font-family: "AppleSDGothicNeo";
+    src: url("/fonts/AppleSDGothicNeoL.ttf") format("truetype");
+    font-weight: 300; /* Light */
     font-style: normal;
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    src: url("/fonts/AppleSDGothicNeoR.ttf") format("truetype");
+    font-weight: 400; /* Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    src: url("/fonts/AppleSDGothicNeoB.ttf") format("truetype");
+    font-weight: 700; /* Bold */
+    font-style: normal;
+}
+
+/* ✅ 제목 폰트 */
+h1, h2, h3 {
+    font-weight: 700; /* 볼드 처리 */
+}
+
+h1 {
+    font-size: 24px;
+    margin: 20px 10px;
+}
+
+/* ✅ 일반 텍스트 */
+p, span, div {
+    font-weight: 400; /* 기본 폰트 굵기 */
+}
+
+/* ✅ 강조된 텍스트 */
+strong, b {
+    font-weight: 700;
+}
+
+/* ✅ 얇은 텍스트 (필요할 경우) */
+.light-text {
+    font-weight: 300;
 }
 
 /* ✅ 기본 스타일 */
 body {
-    font-family: 'AppleSDGothicNeo', sans-serif;
+    font-family: "AppleSDGothicNeo", sans-serif;
     font-style: normal;
     margin: 0;
     padding: 0;
@@ -17,7 +57,7 @@ body {
 /* ✅ 헤더 전체 영역 */
 .header-wrapper {
     width: 100%;
-    border-bottom: .0625rem solid #EFF1F5;
+    border-bottom: 0.0625rem solid #eff1f5;
 }
 
 /* ✅ 헤더 내부 컨텐츠 */
@@ -57,7 +97,7 @@ body {
     bottom: -25px; /* 텍스트 아래에 위치 */
     width: 0; /* 초기에는 보이지 않음 */
     height: 2px;
-    background-color: #4DB2E1; /* 밑줄 색상 */
+    background-color: #4db2e1; /* 밑줄 색상 */
     transition: width 0.2s ease-in-out; /* 밑줄이 나타나는 애니메이션 */
 }
 

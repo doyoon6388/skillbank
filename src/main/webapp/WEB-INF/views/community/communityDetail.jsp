@@ -17,23 +17,28 @@
 <div class="post-detail" id="post-detail">
     <c:choose>
         <%--        編集モードの場合--%>
-        <c:when test="${param.mode eq 'edit'}">
-            <h2 class="update-heading" id="update-heading">投稿編集</h2>
-            <form class="update-form" id="update-form" action="/community/update" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="commu_post_id" value="${communityPost.commu_post_id}" id="update-post-id">
-                <input type="hidden" name="commu_image" value="${communityPost.commu_image}" id="existing-image">
-                <label for="commu_title" class="update-label">タイトル</label>
-                <input type="text" id="commu_title" name="commu_title" value="${communityPost.commu_title}" class="update-input">
-                <label for="commu_content" class="update-label">内容</label>
-                <textarea id="commu_content" name="commu_content" rows="5" class="update-textarea">${communityPost.commu_content}</textarea>
-                <label for="file" class="update-label">画像</label>
-                <input type="file" id="file" name="file" class="update-file-input">
-                <div class="update-button-group" id="update-button-group">
-                    <button type="submit" class="community-update-btn" id="update-btn">更新</button>
-                    <button type="button" class="cancel-btn" id="cancel-btn" onclick="location.replace('/community/detail?postId=${communityPost.commu_post_id}')">キャンセル</button>
-                </div>
-            </form>
-        </c:when>
+    <c:when test="${param.mode eq 'edit'}">
+        <h2 class="update-heading" id="update-heading">投稿編集</h2>
+        <form class="update-form" id="update-form" action="/community/update" method="post"
+              enctype="multipart/form-data">
+            <input type="hidden" name="commu_post_id" value="${communityPost.commu_post_id}" id="update-post-id">
+            <input type="hidden" name="commu_image" value="${communityPost.commu_image}" id="existing-image">
+            <label for="commu_title" class="update-label">タイトル</label>
+            <input type="text" id="commu_title" name="commu_title" value="${communityPost.commu_title}"
+                   class="update-input">
+            <label for="commu_content" class="update-label">内容</label>
+            <textarea id="commu_content" name="commu_content" rows="5"
+                      class="update-textarea">${communityPost.commu_content}</textarea>
+            <label for="file" class="update-label">画像</label>
+            <input type="file" id="file" name="file" class="update-file-input">
+            <div class="update-button-group" id="update-button-group">
+                <button type="submit" class="community-update-btn" id="update-btn">更新</button>
+                <button type="button" class="cancel-btn" id="cancel-btn"
+                        onclick="location.replace('/community/detail?postId=${communityPost.commu_post_id}')">キャンセル
+                </button>
+            </div>
+        </form>
+    </c:when>
 
         <%--        通常表示モードの場合--%>
         <c:otherwise>
@@ -96,7 +101,7 @@
         </div>
     </div>
 </c:if>
-</div>
+
 <script src="/resources/js/community/community.js"></script>
 </body>
 </html>

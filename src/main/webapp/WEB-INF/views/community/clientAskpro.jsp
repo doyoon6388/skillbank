@@ -55,6 +55,5 @@
         <a href="?page=${totalPage}">>></a>
     </c:if>
 
-
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.skillbank.main.service;
 
 import com.skillbank.main.mapper.MypageMapper;
+import com.skillbank.main.vo.ProAccountVO;
 import com.skillbank.main.vo.UserAccountVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -70,5 +72,9 @@ public class MypageService {
     // ✅ 회원 정보 수정 기능 추가
     public boolean updateUserInfo(int user_pk, String field, Object value) {
         return mypageMapper.updateUserInfo(user_pk, field, value);
+    }
+
+    public List<ProAccountVO> getFavPros(int user_pk) {
+        return mypageMapper.selectFavPros(user_pk);
     }
 }

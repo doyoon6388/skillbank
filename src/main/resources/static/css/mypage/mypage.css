@@ -1,7 +1,5 @@
 /* ✅ 전체 페이지 기본 스타일 */
 body {
-    font-family: Arial, sans-serif;
-    background-color: white;
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,21 +7,16 @@ body {
     align-items: center;
 }
 
-/* ✅ 제목 스타일 */
-h1 {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 20px 0;
+.user-mypage-wrapper {
+    display: flex;
+    justify-content: space-between;
 }
 
 /* ✅ 마이페이지 래퍼 */
 .mypage-wrapper {
-    width: 60%;
+    width: 650px;
     background: white;
-    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
 }
 
 /* ✅ 프로필 섹션 */
@@ -256,4 +249,121 @@ h1 {
 /* 🔥 클릭 시 효과 */
 .logout-btn:active {
     transform: scale(0.95); /* 클릭하면 살짝 줄어듦 */
+}
+
+/* ✅ 마이페이지 아이템 섹션 */
+.mypage-item-wrapper {
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    gap: 20px; /* 항목 간격 */
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* ✅ 각 아이템 카드 스타일 */
+.mypage-item {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ✅ 아이템 태그 (제목 부분) */
+.mypage-item-tag {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* ✅ 아이템 상세 내용 */
+.mypage-item-list {
+    font-size: 16px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* ✅ 버튼 스타일 */
+.mypage-item-list button {
+    background-color: #ffd700;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.mypage-item-list button:hover {
+    background-color: #b19800;
+    transform: scale(1.05);
+}
+
+/* ✅ 반응형 처리 */
+@media (max-width: 768px) {
+    .mypage-item-wrapper {
+        flex-direction: column;
+    }
+}
+
+.mypage-profile-side-wrapper {
+    padding: 16px;
+}
+
+/* ✅ 마이페이지 사이드 메뉴 */
+.mypage-profile-side-wrapper {
+    position: sticky;
+    width: 250px;
+    height: 160.5px;
+    top: 0;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* 항목 간 간격 */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* ✅ 사이드 메뉴 항목 스타일 */
+.mypage-profile-side-wrapper div {
+    padding: 12px;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+/* ✅ 호버 효과 */
+.mypage-profile-side-wrapper div:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.02);
+}
+
+/* ✅ 클릭 시 효과 */
+.mypage-profile-side-wrapper div:active {
+    transform: scale(0.98);
+}
+
+/* ✅ 반응형 */
+@media (max-width: 768px) {
+    .mypage-profile-side-wrapper {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .mypage-profile-side-wrapper div {
+        font-size: 14px;
+    }
 }
