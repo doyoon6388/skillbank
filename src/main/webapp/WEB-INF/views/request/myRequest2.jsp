@@ -40,11 +40,11 @@
 
 </div>
 
-ser_nickname} </span>
+
 
             </div>
             <div class="receiveItem2">
-                <span>${p.requ
+                <span>${p.requser_nickname} </span>
 
 
 
