@@ -72,6 +72,7 @@
         </div>
     </div>
 </div>
+<input type="hidden" id="proCash" value="${sessionScope.proSession.pro_cash}">
 <script src="/resources/js/request/requestSend.js"></script>
 <script>
     let prevValue = ""; // 숫자만 저장할 변수
