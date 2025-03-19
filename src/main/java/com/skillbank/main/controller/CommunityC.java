@@ -164,7 +164,6 @@ public class CommunityC {
     }
 
 
-
     @GetMapping("write")
     public String writePost(Model model, HttpSession session) {
         Object user = session.getAttribute("user");
@@ -238,7 +237,7 @@ public class CommunityC {
 
     @GetMapping("detail")
     public String communityDetailPost(@RequestParam("postId") int postId,
-                                      @RequestParam(name="mode", required=false) String mode,
+                                      @RequestParam(name = "mode", required = false) String mode,
                                       Model model, HttpSession session) {
         CommunityPostVO postVO = communityService.getPostById(postId);
         if (postVO == null) {
@@ -319,10 +318,6 @@ public class CommunityC {
 
         return communityService.getCommentsByPost(communityCommentVO.getComment_post_id());
     }
-
-
-
-
 
 
 }

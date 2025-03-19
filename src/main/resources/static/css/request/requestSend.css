@@ -1,51 +1,62 @@
+/* ✅ 전체 페이지 기본 스타일 */
 .requestSendWrapper {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fc;
     display: flex;
-    justify-content: center; /* 전체를 가운데 정렬 */
-    align-items: center;     /* 세로 가운데 정렬 */
-    height: 100vh;
-    margin: 0;
-    padding: 20px;
-    position: relative;      /* 절대 위치 설정을 위한 기준 */
-}
-
-/* 왼쪽 프로필 정보 */
-.responsContainer {
-    position: absolute;
-    left: 20px; /* 화면 왼쪽으로 이동 */
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-start;
-    width: 250px;
-    padding: 20px;
 }
 
-/* 가운데 견적 입력 폼 */
-.requestContainer {
-    background-color: #fff;
-    width: 500px;
+/* ✅ 왼쪽 요청 정보 섹션 */
+.responseContainer {
+    background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-left: auto;
-    margin-right: auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-
-h1 {
-    font-size: 18px;
-    font-weight: bold;
+/* ✅ 프로필 이미지 스타일 */
+.requestSendImg img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
     margin-bottom: 10px;
 }
 
-.price-type input {
-    margin-right: 5px;
+.responseContainer span {
+    font-size: 16px;
+    color: #555;
+    display: block;
+    margin-bottom: 8px;
 }
 
-input[type="number"], textarea {
+/* ✅ 오른쪽 견적 입력 섹션 */
+.requestContainer {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    width: 560px;
+    border-radius: 10px;
+}
+
+.price-setting {
+    margin: 40px 0;
+}
+
+/* ✅ 가격 입력 스타일 */
+.price-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.price input[type="text"] {
+    box-sizing: border-box;
     width: 100%;
     padding: 10px;
     border: 1px solid #d1d5db;
@@ -53,58 +64,49 @@ input[type="number"], textarea {
     font-size: 14px;
 }
 
-input[type="number"]:focus, textarea:focus {
-    outline: none;
-    border-color: #4F46E5;
-}
-
-textarea {
-    height: 100px;
+/* ✅ 설명 입력창 스타일 */
+#r_comment {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 120px;
     resize: none;
 }
 
-input[type="file"] {
-
-}
-
-.file-upload {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* ✅ 버튼 스타일 */
+#sendR {
+    box-sizing: border-box;
     width: 100%;
-    height: 50px;
-    border: 2px dashed #d1d5db;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #6b7280;
-}
-
-button {
-    width: 100%;
-    background-color: #4F46E5;
+    background-color: #4DB2E1;
     color: white;
     border: none;
     padding: 12px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+    margin: 10px 0;
 }
 
-button:disabled {
+#sendR:hover {
+    background-color: #2D9CDB;
+}
+
+#sendR:disabled {
     background-color: #d1d5db;
     cursor: not-allowed;
 }
 
-.error {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
-}
-.requestSendImg img{
-    width: 200px;
-    height: 200px;
-    object-fit: cover; /* 비율을 유지하면서 200x200에 맞게 자름 */
-    border-radius: 10px; /* 모서리를 둥글게 (선택 사항) */
+/* ✅ 반응형 스타일 */
+@media (max-width: 768px) {
+    .requestSendWrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .responseContainer, .requestContainer {
+        width: 100%;
+    }
 }

@@ -1,0 +1,91 @@
+/* ✅ 기본 스타일 */
+body {
+    font-family: "AppleSDGothicNeo", sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ✅ 메인 컨테이너 */
+.favPro-wrapper {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* ✅ 제목 */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* ✅ 찜한 고수 목록 */
+.favPro-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* ✅ 개별 고수 카드 */
+.favPro-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* 🔥 호버 시 살짝 커지는 효과 */
+.favPro-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ 프로필 이미지 */
+.favPro-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* ✅ 고수 정보 */
+.favPro-info h2 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.favPro-info p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* ✅ 프로필 보기 버튼 */
+.favPro-info button {
+    background-color: #2D9CDB;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* 🔥 버튼 호버 효과 */
+.favPro-info button:hover {
+    background-color: #217AB7;
+}

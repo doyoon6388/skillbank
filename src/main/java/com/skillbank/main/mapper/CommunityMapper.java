@@ -50,7 +50,7 @@ public interface CommunityMapper {
     @Select("select * from community_comment where comment_post_id = #{postId} order by comment_date desc")
     List<CommunityCommentVO> getCommentsByPost(@Param("postId") int postId);
 
-    //    いいね
+//  いいね
 
 
 }
