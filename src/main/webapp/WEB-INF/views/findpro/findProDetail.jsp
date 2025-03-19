@@ -728,7 +728,7 @@ pageEncoding="utf-8" %>
         <p id="proAddress">${proDetail.pro_address}</p>
     </div>
     <!-- 찜하기 버튼: 클릭 시 toggleFavorite() 함수 실행 -->
-    <button class="findpro-favorite-btn" onclick="toggleFavorite()">
+    <button class="findpro-favorite-btn">
         <c:choose>
             <c:when test="${favorited}">
                 <img src="/resources/icons/findPro/filled_star.png" alt="찜됨" id="favorite-icon" />
