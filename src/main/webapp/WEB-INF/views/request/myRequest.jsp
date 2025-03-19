@@ -9,15 +9,16 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
     <title>견적 요청</title>
     <script src="/resources/js/request/myRequest.js"></script>
     <link rel="stylesheet" href="resources/css/request/myRequest.css" />
+    <style>
+      .container1 {
+        position: relative;
+        border-bottom: 1px solid #ddd;
+        padding: 15px 0;
+      }
+    </style>
   </head>
   <body>
-    <%--
-    <input
-      name="r_user_id"
-      value="${sessionScope.user.user_pk}"
-      hidden="hidden"
-    />
-    --%>
+
     <div class="btn-container">
       <button id="for-btn">견적 받는중</button>
       <button id="for-btn2">받은 견적</button>
@@ -28,16 +29,19 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
           <span>${r.request10}</span>
           <h1>${r.request_type}</h1>
           <div class="btn1">
-            <span class="requestDelete" data-request-no="${r.request_no}"
-              >견적 그만 받기</span
-            >
+            <span class="requestDelete" data-request-no="${r.request_no}">견적 그만 받기</span>
             <a href="#">요청사항 추가</a>
           </div>
           <div class="btn2">
             <button class="myRequestOpenModalBtn" value="${r.request_no}">
               내 요청 보기
             </button>
+
           </div>
+          <c:if test="${r.r_pro_pk != 0}">
+            <span class="badge">지정 요청</span>
+          </c:if>
+
         </div>
       </c:forEach>
     </div>
@@ -51,9 +55,12 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
               <span class="receiveDate">
                 <fmt:formatDate value="${r.r_date}" pattern="yy.MM.dd" />
               </span>
+
             </div>
             <div class="progress-bar">
-              <div class="progress" style="width: 30%"></div>
+              <div class="progress" style="width: ${r.r_request_no >= 1 ? '50%' : '20%'}"></div>
+
+
             </div>
             <div class="status">
               <span class="step">견적요청</span>

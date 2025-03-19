@@ -37,7 +37,6 @@
     <div class="requestContainer">
         <h2>견적보내기</h2>
         <input id="r_request_no" name="r_request_no" value="${proRequest.request_no}" hidden="hidden"/>
-        <input id="r_user_id" name="r_user_id" value="${proRequest.r_user_id}" hidden="hidden"/>
         <input id="r_pro_pk" name="r_pro_pk" value="${sessionScope.proSession.pro_pk}" hidden="hidden"/>
         <div class="price-setting">
             <div class="price-type">
