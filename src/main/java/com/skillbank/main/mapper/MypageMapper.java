@@ -1,9 +1,13 @@
 package com.skillbank.main.mapper;
 
+import com.skillbank.main.vo.ProAccountVO;
 import com.skillbank.main.vo.UserAccountVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+
+import java.util.List;
 
 @Mapper
 public interface MypageMapper {
@@ -25,5 +29,10 @@ public interface MypageMapper {
 
     @Update("update pro_account set pro_profile_img = #{pro_profile_img} where pro_pk = #{pro_pk}")
     void updateProProfile(String pro_profile_img, int pro_pk);
+
+    @Select("SELECT p.* FROM pro_account p " +
+            "JOIN favorite_pro f ON p.pro_pk = f.pro_pk " +
+            "WHERE f.user_pk = #{user_pk}")
+    List<ProAccountVO> selectFavPros(int user_pk);
 
 }

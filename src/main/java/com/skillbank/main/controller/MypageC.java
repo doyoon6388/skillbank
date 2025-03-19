@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -123,7 +124,6 @@ public class MypageC {
         return response;  // ✅ JSON 형태로 응답
     }
 
-    // MypageC 끝
     @PostMapping("/pro")
     public String profileImgUpdatePro(int pro_pk, MultipartFile pro_profile_img, HttpSession session) {
         ProAccountVO pro = (ProAccountVO) session.getAttribute("proSession");
@@ -141,4 +141,23 @@ public class MypageC {
             return "redirect:/mypage";
         }
     }
+
+    @GetMapping("/fav")
+    public String favoritePros(Model model, HttpSession session) {
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+
+        if (user == null) {
+            return "redirect:/login";  // 로그인 필요
+        }
+
+        int user_pk = user.getUser_pk();
+        List<ProAccountVO> favPros = mypageService.getFavPros(user_pk);  // 찜한 고수 목록 불러오기
+
+        model.addAttribute("favPros", favPros);
+        model.addAttribute("page", "mypage/favPro.jsp");  // JSP 페이지 설정
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
+
+        return "index";
+    }
+
 }   // MypageC 끝

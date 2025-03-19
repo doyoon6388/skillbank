@@ -20,7 +20,7 @@ create sequence user_account_seq;
 insert into user_account
 values (user_account_seq.nextval, '00', '99', '이지우', '남', '금천', null, '01023232323', 'default.png', '쥬', 1);
 
-select *
+    select *
 from user_account;
 
 DELETE
@@ -96,6 +96,7 @@ create table pro_account
 );
 
 select * from pro_account;
+
 CREATE TABLE community_post_like
 (
     post_id   NUMBER,
