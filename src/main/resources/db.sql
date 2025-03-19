@@ -84,6 +84,7 @@ create table pro_account
 );
 
 select * from pro_account;
+
 CREATE TABLE community_post_like
 (
     post_id   NUMBER,
