@@ -55,9 +55,12 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
               <span class="receiveDate">
                 <fmt:formatDate value="${r.r_date}" pattern="yy.MM.dd" />
               </span>
+
             </div>
             <div class="progress-bar">
-              <div class="progress" style="width: 30%"></div>
+              <div class="progress" style="width: ${r.r_request_no >= 1 ? '50%' : '20%'}"></div>
+
+
             </div>
             <div class="status">
               <span class="step">견적요청</span>

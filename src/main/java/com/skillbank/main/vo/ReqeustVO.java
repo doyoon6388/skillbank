@@ -25,7 +25,7 @@ public class ReqeustVO {
     private String request13;
     private String request14;
     private int r_pro_pk;
-    private int response_no;
+    private int r_request_no;
 /*//------------------------------------
     private int r_no;
     private String r_price_type;

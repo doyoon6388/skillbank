@@ -60,6 +60,7 @@ public class RequestC {
     public String myRequest3(Model model, HttpSession session, int no) {
         model.addAttribute("loginCheck", "login/loginOK.jsp");
         model.addAttribute("request", requestService.requestList2(no));
+        model.addAttribute("myResponse", requestService.myResponse(no));
         model.addAttribute("page", "request/myRequest2.jsp");
         return "index";
     }
