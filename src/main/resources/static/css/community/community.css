@@ -637,9 +637,15 @@
     text-align: right;
 }
 
+/*-----------------------------------------------*/
 
 /* community tabs */
-.community-tab div.active{
+.community-client-tab div.active{
     font-weight: bold;
     color: #F8B285;
+}
+
+.community-pro-tab div.active{
+    font-weight: bold;
+    color: #4DB2E1;
 }

@@ -138,6 +138,30 @@ public class CommunityC {
         }
     }
 
+    @GetMapping("wisdom")
+    public String wisdom(Model model, HttpSession session,
+                         @RequestParam(name = "page", defaultValue = "1") int page) {
+        String category = "wisdom";
+
+        int totalCount = communityService.getPostCount(category);
+
+        List<CommunityPostVO> postVOList = communityService.getPostsByPage(model, category, totalCount, page);
+        model.addAttribute("communityPost", postVOList);
+        model.addAttribute("currentPage", page);
+
+        Object mode = session.getAttribute("mode");
+        model.addAttribute("page", "community/communityPrp.jsp");
+        model.addAttribute("communityPage", "proWisdom.jsp");
+
+        if (mode != null && mode.toString().equals("on")) {
+            model.addAttribute("loginCheck", "login/loginPro.jsp");
+            return "indexPro";
+        } else {
+            model.addAttribute("loginCheck", mainService.loginCheck(session));
+            return "index";
+        }
+    }
+
 
 
     @GetMapping("write")

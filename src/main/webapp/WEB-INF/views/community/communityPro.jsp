@@ -20,7 +20,7 @@
     </div>
 </div>
 <div class="community-body-wrapper">
-    <div class="community-tab">
+    <div class="community-pro-tab">
         <div>全体</div>
         <div onclick="location.href='/community/pro/wisdom'">プロの知恵</div>
         <div onclick="location.href='/community/pro/event'">イベント/告知</div>
@@ -30,5 +30,7 @@
         <jsp:include page="${communityPage}"></jsp:include>
     </div>
 </div>
+
+
 </body>
 </html>

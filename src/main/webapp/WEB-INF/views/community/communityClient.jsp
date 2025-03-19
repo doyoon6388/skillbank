@@ -24,7 +24,7 @@
     </div>
 </div>
 <div class="community-body-wrapper">
-    <div class="community-tab">
+    <div class="community-client-tab">
         <div data-category="main" onclick="location.href='/community/main'">全体</div>
         <div data-category="askpro" onclick="location.href='/community/askpro'">プロに尋ねる</div>
         <div data-category="together" onclick="location.href='/community/together'">一緒に</div>
@@ -35,5 +35,7 @@
         <jsp:include page="${communityPage}" />
     </div>
 </div>
+
+
 </body>
 </html>

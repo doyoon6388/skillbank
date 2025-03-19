@@ -73,7 +73,7 @@ window.addEventListener("load", function () {
     });
 
     // 선택메뉴 활성화
-    const tabs = document.querySelector(".community-tab").children;
+    const tabs = document.querySelector(".community-client-tab").children;
     const pathname = window.location.pathname;
     const segments = pathname.split('/').filter(segment => segment !== '');
     const lastSegment = segments[segments.length - 1];
@@ -85,6 +85,18 @@ window.addEventListener("load", function () {
     });
 
 });
+    // 선택메뉴 활성화
+    const tabs = document.querySelector(".community-pro-tab").children;
+    const pathname = window.location.pathname;
+    const segments = pathname.split('/').filter(segment => segment !== '');
+    const lastSegment = segments[segments.length - 1];
+    Array.from(tabs).forEach((tab) => {
+        console.log(tab.dataset.category)
+        if (lastSegment == tab.dataset.category) {
+            tab.classList.add("active")
+        }
+    });
+
 
 /**
  * timeAgo関数: 日付文字列を「○○前」の形式に変換
