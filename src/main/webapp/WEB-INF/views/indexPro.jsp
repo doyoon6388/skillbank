@@ -8,14 +8,14 @@
     <meta charset="UTF-8">
     <title>SkillBank</title>
 </head>
-
+<link rel="stylesheet" href="resources/css/main/main.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic&family=Kaisei+Tokumin&family=Kosugi+Maru&display=swap"
       rel="stylesheet"/>
 <link rel="stylesheet" href="/resources/css/indexPro.css">
 <script src="/resources/js/main/index.js"></script>
-<link rel="stylesheet" href="resources/css/main/main.css">
+
 <body>
 <div class="header-wrapper">
     <div class="header">

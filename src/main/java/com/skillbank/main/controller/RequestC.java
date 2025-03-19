@@ -35,13 +35,14 @@ public class RequestC {
 
     @GetMapping("/move")
     public String move(Model model, HttpSession session) {
-        model.addAttribute("loginCheck", "login/loginOK.jsp");
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
+
         model.addAttribute("page", "request/move.jsp");
         return "index";
     }
     @GetMapping("/clean")
     public String clean(Model model, HttpSession session) {
-        model.addAttribute("loginCheck", "login/loginOK.jsp");
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
         model.addAttribute("page", "request/clean.jsp");
         return "index";
     }
