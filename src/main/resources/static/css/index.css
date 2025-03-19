@@ -45,6 +45,10 @@ strong, b {
     font-weight: 300;
 }
 
+* {
+    font-family: "AppleSDGothicNeo", sans-serif !important;
+}
+
 /* ✅ 기본 스타일 */
 body {
     font-family: "AppleSDGothicNeo", sans-serif;
@@ -133,5 +137,5 @@ body {
 /* ✅ 로고 호버 시 크기 커지는 효과 */
 .logo:hover {
     cursor: pointer;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }

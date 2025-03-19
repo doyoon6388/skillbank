@@ -1,12 +1,10 @@
 /* 로그인 컨테이너 스타일 */
 #login-container {
     width: 350px;
-    padding: 20px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    margin: 50px auto;
+    margin: 0 auto;
 }
 
 /* 제목 스타일 */
@@ -30,7 +28,7 @@
     margin-top: 10px;
     font-size: 14px;
     font-weight: bold;
-    color: #555;
+    color: #777777;
 }
 
 /* 입력 필드 스타일 */
@@ -90,6 +88,20 @@
     background-color: #FCEDE5; /* 부드러운 살구색 */
     color: #cc8d6d; /* 다크한 오렌지 */
     border-color: #cc8d6d;
+}
+
+/* LINE 로그인 버튼 기본 스타일 */
+#login-container a img {
+    margin-top: 35px;
+    width: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* ✅ 부드러운 전환 효과 */
+}
+
+/* 🎯 호버 시 (마우스를 올렸을 때) */
+#login-container a img:hover {
+    transform: scale(1.1);  /* ✅ 10% 확대 */
+    opacity: 0.8;  /* ✅ 약간 투명하게 */
 }
 
 /* 에러 메시지 스타일 */

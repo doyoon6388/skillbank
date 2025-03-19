@@ -67,18 +67,6 @@
     font-size: 16px;
 }
 
-#sign-container button:hover {
-    background-color: #cc8d6d; /* 다크한 오렌지 */
-}
-
-/* LINE 로그인 버튼 기본 스타일 */
-#sign-container a img {
-    margin-top: 35px;
-    width: 50px;
-    cursor: pointer;
-    transition: transform 0.3s ease, opacity 0.3s ease; /* ✅ 부드러운 전환 효과 */
-}
-
 /* 🎯 호버 시 (마우스를 올렸을 때) */
 #sign-container a img:hover {
     transform: scale(1.1);  /* ✅ 10% 확대 */
