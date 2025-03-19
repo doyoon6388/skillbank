@@ -10,6 +10,6 @@ private int r_price;
 private String r_comment;
 
 private int r_request_no;
-private int r_user_id;
+
 private int r_pro_pk;
 }

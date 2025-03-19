@@ -1,5 +1,5 @@
 
-COMMIT;
+
 
 delete
 from community_image;
@@ -325,7 +325,14 @@ CREATE TABLE request (
                          request14 VARCHAR2(200 CHAR),
                          CONSTRAINT fk_request_user FOREIGN KEY (r_user_id) REFERENCES user_account(user_pk)
 );
-
+alter table request
+add(
+    constraint fk_response_request foreign key (response_no) references response(r_no)
+    );
+alter table request
+    add(
+        response_no number(5)
+        );
 alter table request add r_pro_pk number(5);
 create sequence request_no_seq;
 insert into request values (request_no_seq.nextval, 66, '청소', sysdate,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4);
@@ -337,12 +344,10 @@ create table response(
     r_price number(9) not null ,
     r_comment varchar2(3000 char),
     r_request_no number(4) not null ,
-    r_user_id number(4),
     r_pro_pk number(4),
-        constraint fk_response_request foreign key (r_request_no) references request(request_no),
-            CONSTRAINT fk_response_user FOREIGN KEY (r_user_id) REFERENCES user_account(user_pk),
-            constraint fk_response_pro foreign key (r_pro_pk) references pro_account(pro_pk)
+        constraint fk_response_pro foreign key (r_pro_pk) references pro_account(pro_pk)
 );
+drop table response cascade constraints purge;
 create sequence r_no_seq;
 
 select * from response;

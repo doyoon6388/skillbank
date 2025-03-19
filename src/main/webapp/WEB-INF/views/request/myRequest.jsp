@@ -18,13 +18,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
     </style>
   </head>
   <body>
-    <%--
-    <input
-      name="r_user_id"
-      value="${sessionScope.user.user_pk}"
-      hidden="hidden"
-    />
-    --%>
+
     <div class="btn-container">
       <button id="for-btn">견적 받는중</button>
       <button id="for-btn2">받은 견적</button>
