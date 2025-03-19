@@ -29,7 +29,11 @@ public class LoginC {
             // 로그인 성공: 세션에 사용자 정보 저장
             session.setAttribute("user", user);
             session.setMaxInactiveInterval(1000);
-            return "redirect:/";
+
+            String prevPage = (String) session.getAttribute("prevPage");
+            session.removeAttribute("prevPage");
+
+            return prevPage != null ? "redirect:" + prevPage : "redirect:/main";
         } else {
             // 로그인 실패: 에러 메시지와 함께 로그인 페이지 재출력
             model.addAttribute("error", "로그인 정보가 올바르지 않습니다.");
@@ -44,6 +48,8 @@ public class LoginC {
         session.removeAttribute("user");
         session.removeAttribute("mode");
         session.removeAttribute("checked");
+        session.removeAttribute("proSession");
+        session.removeAttribute("hasPro");
         return "redirect:/";
     }
 

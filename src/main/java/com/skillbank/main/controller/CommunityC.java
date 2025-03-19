@@ -7,16 +7,13 @@ import com.skillbank.main.vo.CommunityCommentVO;
 import com.skillbank.main.vo.CommunityPostVO;
 import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RequestMapping("/community")
 @Controller
@@ -71,25 +68,14 @@ public class CommunityC {
             communityPostVO.setCommu_writer(1);
         }
 
-
         String category = "together";
-        int totalCount = communityService.getPostCount(category);
-        int pageSize = 2;
-        int totalPage = (int) Math.ceil((double) totalCount / pageSize);
-        if (totalPage < 1) {
-            totalPage = 1;
-        }
-        if (page < 1) {
-            page = 1;
-        }
-        if (page > totalPage) {
-            page = totalPage;
-        }
+        int totalCount = communityService.getPostCount(category);  // 29개
 
-        List<CommunityPostVO> postList = communityService.getPostsByPage(category, page);
+        List<CommunityPostVO> postList = communityService.getPostsByPage(model, category, totalCount, page);
+        System.out.println(postList.size());
         model.addAttribute("communityPost", postList);
         model.addAttribute("currentPage", page);
-        model.addAttribute("totalPage", totalPage);
+
 
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "community/communityClient.jsp");
@@ -110,24 +96,10 @@ public class CommunityC {
 
         int totalCount = communityService.getPostCount(category);
 
-        int pageSize = 2;
-
-        int totalPage = (int) Math.ceil((double) totalCount / pageSize);
-        if (totalPage < 1) {
-            totalPage = 1;
-        }
-
-        if (page < 1) {
-            page = 1;
-        }
-        if (page > totalPage) {
-            page = totalPage;
-        }
-
-        List<CommunityPostVO> postVOList = communityService.getPostsByPage(category, page);
+        List<CommunityPostVO> postVOList = communityService.getPostsByPage(model, category, totalCount, page);
         model.addAttribute("communityPost", postVOList);
         model.addAttribute("currentPage", page);
-        model.addAttribute("totalPage", totalPage);
+
 
 
         Object mode = session.getAttribute("mode");
@@ -148,22 +120,10 @@ public class CommunityC {
         String category = "appeal";
 
         int totalCount = communityService.getPostCount(category);
-        int pageSize = 2;
-        int totalPage = (int) Math.ceil((double) totalCount / pageSize);
-        if (totalPage < 1) {
-            totalPage = 1;
-        }
-        if (page < 1) {
-            page = 1;
-        }
-        if (page > totalPage) {
-            page = totalPage;
-        }
 
-        List<CommunityPostVO> postVOList = communityService.getPostsByPage(category, page);
+        List<CommunityPostVO> postVOList = communityService.getPostsByPage(model, category, totalCount, page);
         model.addAttribute("communityPost", postVOList);
         model.addAttribute("currentPage", page);
-        model.addAttribute("totalPage", totalPage);
 
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "community/communityClient.jsp");
@@ -177,7 +137,6 @@ public class CommunityC {
             return "index";
         }
     }
-
 
 
     @GetMapping("write")
@@ -236,7 +195,7 @@ public class CommunityC {
 
     @GetMapping("detail")
     public String communityDetailPost(@RequestParam("postId") int postId,
-                                      @RequestParam(name="mode", required=false) String mode,
+                                      @RequestParam(name = "mode", required = false) String mode,
                                       Model model, HttpSession session) {
         CommunityPostVO postVO = communityService.getPostById(postId);
         if (postVO == null) {
@@ -317,10 +276,6 @@ public class CommunityC {
 
         return communityService.getCommentsByPost(communityCommentVO.getComment_post_id());
     }
-
-
-
-
 
 
 }

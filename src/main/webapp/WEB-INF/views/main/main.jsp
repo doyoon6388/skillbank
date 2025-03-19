@@ -5,7 +5,7 @@ pageEncoding="utf-8" %>
   <head>
     <meta charset="UTF-8" />
     <title>Title</title>
-    <link rel="stylesheet" href="/resources/css/main/main.css">
+    <link rel="stylesheet" href="/resources/css/main/main.css" />
   </head>
   <body>
     <hr />

@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>コミュニティ</title>
     <link rel="stylesheet" href="/resources/css/community/community.css"></link>
-    <script src="resources/js/community/community.js"></script>
+    <script src="/resources/js/community/community.js"></script>
 </head>
 <body>
 
@@ -25,11 +25,11 @@
 </div>
 <div class="community-body-wrapper">
     <div class="community-tab">
-        <div onclick="location.href='/community/main'">全体</div>
-        <div onclick="location.href='/community/askpro'">プロに尋ねる</div>
-        <div onclick="location.href='/community/together'">一緒に</div>
+        <div data-category="main" onclick="location.href='/community/main'">全体</div>
+        <div data-category="askpro" onclick="location.href='/community/askpro'">プロに尋ねる</div>
+        <div data-category="together" onclick="location.href='/community/together'">一緒に</div>
         <div>レビュー</div>
-        <div onclick="location.href='/community/appeal'">プロのアピール</div>
+        <div data-category="appeal" onclick="location.href='/community/appeal'">プロのアピール</div>
     </div>
     <div class="community-content">
         <jsp:include page="${communityPage}" />

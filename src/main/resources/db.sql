@@ -20,7 +20,7 @@ create sequence user_account_seq;
 insert into user_account
 values (user_account_seq.nextval, '00', '99', '이지우', '남', '금천', null, '01023232323', 'default.png', '쥬', 1);
 
-select *
+    select *
 from user_account;
 
 DELETE
@@ -67,6 +67,18 @@ values (community_post_seq.nextval, 'askpro', 4, 'hellllllo', sysdate, 'asdasddd
 select *
 from community_post;
 
+select count(*)
+from community_post
+where commu_post_category = 'together';
+
+
+select *
+from (select rownum as rn, a.*
+      from (select * from community_post where commu_post_category = 'together' order by commu_date desc) a
+      where rownum <= 3)
+where rn >= 1;
+
+
 
 alter table community_post
     add (
@@ -98,19 +110,22 @@ CREATE TABLE community_post_like
 select *
 from community_post_like;
 
-create table community_comment (
+create table community_comment
+(
     comment_id      number primary key,
     comment_post_id number,
     user_id         number,
     comment_content clob,
     comment_date    date default sysdate,
-    constraint  fk_comment_post foreign key (comment_post_id) references community_post(commu_post_id),
-    constraint fk_comment_user foreign key (user_id) references user_account(user_pk)
+    constraint fk_comment_post foreign key (comment_post_id) references community_post (commu_post_id),
+    constraint fk_comment_user foreign key (user_id) references user_account (user_pk)
 );
 
 create sequence community_comment_seq;
 
-select * from community_comment ORDER BY comment_date DESC;
+select *
+from community_comment
+ORDER BY comment_date DESC;
 
 Alter table community_comment
     add (
@@ -146,22 +161,28 @@ from pro_account;
 
 insert into pro_account
 values (92, 'move', 'default.png', 0);
-select * from pro_account;
-select * from request;
+select *
+from pro_account;
+select *
+from request;
 /*
 update pro_account set pro_*/
 
-update pro_account set pro_category = '청소' where pro_pk = 4;
+update pro_account
+set pro_category = '청소'
+where pro_pk = 4;
 
-select * from chat_room;
+select *
+from chat_room;
 
-CREATE TABLE favorite_pro (
-                              user_pk INT NOT NULL,
-                              pro_pk INT NOT NULL,
-                              created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                              PRIMARY KEY (user_pk, pro_pk),
-                              CONSTRAINT fk_favorite_user FOREIGN KEY (user_pk) REFERENCES user_account(user_pk) ON DELETE CASCADE,
-                              CONSTRAINT fk_favorite_pro FOREIGN KEY (pro_pk) REFERENCES pro_account(pro_pk) ON DELETE CASCADE
+CREATE TABLE favorite_pro
+(
+    user_pk    INT NOT NULL,
+    pro_pk     INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_pk, pro_pk),
+    CONSTRAINT fk_favorite_user FOREIGN KEY (user_pk) REFERENCES user_account (user_pk) ON DELETE CASCADE,
+    CONSTRAINT fk_favorite_pro FOREIGN KEY (pro_pk) REFERENCES pro_account (pro_pk) ON DELETE CASCADE
 );
 
 select *
@@ -169,4 +190,7 @@ from favorite_pro;
 
 delete chat_room;
 
-select * from chat_room;
+select *
+from chat_room;
+
+select sessiontimezone, dbtimezone from dual;

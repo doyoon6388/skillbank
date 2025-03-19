@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="resources/css/mypage/mypage.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
+<body>
 <div class="user-mypage-wrapper">
     <div class="mypage-wrapper">
         <div><h1>マイページ</h1></div>
@@ -51,6 +52,12 @@
         <div>
             <button class="logout-btn" onclick="logout()">ログアウト</button>
         </div>
+    </div>
+
+    <div class="mypage-profile-side-wrapper">
+        <div onclick="location.href='/mypage/fav'">찜한 고수</div>
+        <div>작성한 리뷰</div>
+        <div>작성한 글</div>
     </div>
 
     <!-- ✅ 모달 배경 (회색 빛 배경) 추가 -->
