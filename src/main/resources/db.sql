@@ -86,6 +86,13 @@ alter table community_post
         commu_like number default 0 not null
         );
 
+ALTER TABLE community_post
+    DROP COLUMN commu_tags;
+
+ALTER TABLE community_post
+    ADD commu_tags VARCHAR2(255 CHAR);
+
+
 
 
 create table pro_account
@@ -106,6 +113,7 @@ CREATE TABLE community_post_like
     CONSTRAINT fk_post_like_post FOREIGN KEY (post_id) REFERENCES community_post (commu_post_id),
     CONSTRAINT fk_post_like_user FOREIGN KEY (user_id) REFERENCES user_account (user_pk)
 );
+
 
 select *
 from community_post_like;
@@ -194,3 +202,5 @@ select *
 from chat_room;
 
 select sessiontimezone, dbtimezone from dual;
+
+select * from community_post_like;

@@ -19,13 +19,18 @@ window.onload = () => {
                 body: JSON.stringify(communityCommentVO) // JSON 형식으로 변환
             }).then(response => response.json()) // 응답을 JSON으로 변환
                 .then(data => {
+                    // loginCheck
+                    if (data.loginRequired) {
+                        window.location.href = '/login';
+                        return;
+                    }
                     console.log("서버 응답:", data);
 
-                    if (data.length > 0) { // 정상적으로 댓글 목록이 반환된 경우
+                    if (data.commentListResponse.length > 0) { // 정상적으로 댓글 목록이 반환된 경우
                         let commentList = document.querySelector(".community-comment-list"); // 댓글이 들어갈 영역 선택
                         commentList.innerHTML = ""; // 기존 목록 초기화
 
-                        data.forEach(comment => {
+                        data.commentListResponse.forEach(comment => {
                             let commentItem = document.createElement("div");
                             commentItem.classList.add("community-comment");
                             commentItem.innerHTML = `
@@ -52,7 +57,38 @@ window.onload = () => {
             hour: "2-digit", minute: "2-digit"
         });
     }
-}
+
+    document.querySelector(".community-like").addEventListener("click", () => {
+        const post_id = document.getElementById('community-like-id').value;
+        const user_id = document.getElementById('current-user-pk').value;
+        console.log(post_id, user_id);
+        fetch('/community/like', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({post_id, user_id})
+        }).then(response => response.json())
+            .then(data => {
+                if (data.loginRequired) {
+                    window.location.href = '/login';
+                    return;
+                }
+                // 서버 응답 예시: { favorited: true, favoriteCount: 10 }
+                const likeIcon = document.getElementById('like-icon');
+                const likeCount = document.getElementById('like-count');
+                if (data.favorited) {
+                    likeIcon.src = "/icons/profile/community/filled_heart.png";
+                } else {
+                    likeIcon.src = "/icons/profile/community/empty_heart.png";
+                }
+                likeCount.textContent = data.likeCount;
+
+            })
+            .catch(err => console.error("찜하기 처리 에러:", err));
+    })
+
+
+
+} // ready 함수 끝
 
 
 // community.js
@@ -73,7 +109,7 @@ window.addEventListener("load", function () {
     });
 
     // 선택메뉴 활성화
-    const tabs = document.querySelector(".community-tab").children;
+    const tabs = document.querySelector(".community-client-tab").children;
     const pathname = window.location.pathname;
     const segments = pathname.split('/').filter(segment => segment !== '');
     const lastSegment = segments[segments.length - 1];
@@ -85,6 +121,18 @@ window.addEventListener("load", function () {
     });
 
 });
+    // 선택메뉴 활성화
+    const tabs = document.querySelector(".community-pro-tab").children;
+    const pathname = window.location.pathname;
+    const segments = pathname.split('/').filter(segment => segment !== '');
+    const lastSegment = segments[segments.length - 1];
+    Array.from(tabs).forEach((tab) => {
+        console.log(tab.dataset.category)
+        if (lastSegment == tab.dataset.category) {
+            tab.classList.add("active")
+        }
+    });
+
 
 /**
  * timeAgo関数: 日付文字列を「○○前」の形式に変換
@@ -119,13 +167,13 @@ function timeAgo(dateString) {
     }
 }
 
+// ＃タグつけ
+    document.addEventListener("DOMContentLoaded", () => {
+    const tagInput = document.getElementById("tags");
 
-    document.querySelector(".community-like").addEventListener("click", function () {
-    const img = this.querySelector(".community-empty-heart");
-    if (img.src.includes("empty_heart.png")) {
-    img.src = "/icons/profile/community/filled_heart.png";
-} else {
-    img.src = "/icons/profile/community/empty_heart.png";
-}
+    tagInput.addEventListener("input", () => {
+
+    tagInput.value = tagInput.value.replace(/,/g, "、");
+});
 });
 

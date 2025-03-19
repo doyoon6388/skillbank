@@ -54,7 +54,7 @@
         <div>
             <h3>견적 설명</h3>
             <div class="requestSend-txt">
-                <textarea id="r_comment" name="r_comment"> </textarea>
+                <textarea id="r_comment" name="r_comment"></textarea>
             </div>
             <div>
                 <br/>
