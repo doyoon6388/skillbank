@@ -37,7 +37,9 @@
             </div>
         </div>
         <div>
-
+            <button class="request-btn" onclick="location.href='my-request?id=${sessionScope.user.user_pk}'">
+                받은견적
+            </button>
         </div>
         <img id="profileImage1" src="/file/${sessionScope.user.user_profile_img}" alt="プロフィール画像"
              onclick="location.href='/mypage'"/>
