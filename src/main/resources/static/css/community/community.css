@@ -1309,3 +1309,15 @@
     margin-right: 5px;
     font-size: 12px;
 }
+
+
+.community-like {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.community-like img {
+    width: 32px;
+    height: 32px;
+}

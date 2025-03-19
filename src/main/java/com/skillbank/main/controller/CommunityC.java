@@ -4,8 +4,10 @@ import com.skillbank.main.mapper.CommunityMapper;
 import com.skillbank.main.service.CommunityService;
 import com.skillbank.main.service.MainService;
 import com.skillbank.main.vo.CommunityCommentVO;
+import com.skillbank.main.vo.CommunityLikeVO;
 import com.skillbank.main.vo.CommunityPostVO;
 import com.skillbank.main.vo.UserAccountVO;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +16,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RequestMapping("/community")
 @Controller
@@ -264,6 +268,13 @@ public class CommunityC {
         model.addAttribute("commentList", commentList);
         model.addAttribute("page", "community/communityDetail.jsp");
 
+        int user_id = (session.getAttribute("user") != null) ? ((UserAccountVO) session.getAttribute("user")).getUser_pk() : 0;
+        boolean liked = false;
+        if(user_id != 0) {
+            liked = communityService.isFavorited(user_id, postId);
+        }
+        model.addAttribute("liked", liked);
+
         Object modeSession = session.getAttribute("mode");
         if (modeSession != null && "on".equals(modeSession.toString())) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
@@ -321,6 +332,29 @@ public class CommunityC {
 
         return communityService.getCommentsByPost(communityCommentVO.getComment_post_id());
     }
+
+    @ResponseBody
+    @PostMapping("/like")
+    public Map<String, Object> likePost(@RequestBody CommunityLikeVO communityLikeVO, HttpSession session, HttpServletRequest request) {
+
+        Map<String, Object> response = new HashMap();
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        if (user == null) {
+            String referer = request.getHeader("referer");  // 이전 페이지 URL
+            session.setAttribute("prevPage", referer);      // 로그인 성공 후 복귀 URL 저장
+            response.put("loginRequired", true);
+            return response;
+        }
+
+        // 로그인 된 경우
+        boolean favorited = communityService.toggleLike(communityLikeVO.getPost_id(), communityLikeVO.getUser_id());
+        int likeCount = communityService.getLikeCount(communityLikeVO.getPost_id());
+
+        response.put("favorited", favorited);
+        response.put("likeCount", likeCount);
+        return response;
+    }
+
 
 
 }

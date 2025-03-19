@@ -53,10 +53,7 @@
                 </c:if>
             </div>
 
-            <div class="community-like">
-                <img class="community-heart" src="/icons/profile/community/empty_heart.png" alt=""
-                     style="width: 50px; height: 50px;">
-            </div>
+            <div class="community-like-number">いいね: ${i.commu_like}</div>
         </div>
     </c:forEach>
 </div>

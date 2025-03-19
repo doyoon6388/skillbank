@@ -1,7 +1,9 @@
 package com.skillbank.main.mapper;
 
 import com.skillbank.main.vo.CommunityCommentVO;
+import com.skillbank.main.vo.CommunityLikeVO;
 import com.skillbank.main.vo.CommunityPostVO;
+import com.skillbank.main.vo.FavoriteProVO;
 import org.apache.ibatis.annotations.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -51,6 +53,21 @@ public interface CommunityMapper {
     List<CommunityCommentVO> getCommentsByPost(@Param("postId") int postId);
 
 //  いいね
+    @Select("SELECT COUNT(*) FROM community_post_like WHERE post_id = #{post_id}")
+    int countLikes(int post_id);
 
+    @Insert("INSERT INTO community_post_like (post_id, user_id, like_date) VALUES (#{post_id}, #{user_id}, sysdate)")
+    void insertLike(CommunityLikeVO communityLikeVO);
 
+    @Select("SELECT * FROM community_post_like WHERE post_id = #{post_id} and user_id = #{user_id}")
+    CommunityLikeVO selectLike(int user_id, int post_id);
+
+    @Delete("DELETE FROM community_post_like WHERE post_id = #{post_id} and user_id = #{user_id}")
+    void deleteLike(int user_id, int post_id);
+
+    @Update("UPDATE community_post SET commu_like = commu_like - 1 WHERE commu_post_id = #{post_id}")
+    void decrementLike(int post_id);
+
+    @Update("UPDATE community_post SET commu_like = commu_like + 1 WHERE commu_post_id = #{post_id}")
+    void incrementLike(int post_id);
 }

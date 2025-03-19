@@ -52,7 +52,38 @@ window.onload = () => {
             hour: "2-digit", minute: "2-digit"
         });
     }
-}
+
+    document.querySelector(".community-like").addEventListener("click", () => {
+        const post_id = document.getElementById('community-like-id').value;
+        const user_id = document.getElementById('current-user-pk').value;
+        console.log(post_id, user_id);
+        fetch('/community/like', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({post_id, user_id})
+        }).then(response => response.json())
+            .then(data => {
+                if (data.loginRequired) {
+                    window.location.href = '/login';
+                    return;
+                }
+                // 서버 응답 예시: { favorited: true, favoriteCount: 10 }
+                const likeIcon = document.getElementById('like-icon');
+                const likeCount = document.getElementById('like-count');
+                if (data.favorited) {
+                    likeIcon.src = "/icons/profile/community/filled_heart.png";
+                } else {
+                    likeIcon.src = "/icons/profile/community/empty_heart.png";
+                }
+                likeCount.textContent = data.likeCount;
+
+            })
+            .catch(err => console.error("찜하기 처리 에러:", err));
+    })
+
+
+
+} // ready 함수 끝
 
 
 // community.js
@@ -130,15 +161,6 @@ function timeAgo(dateString) {
         return "今";
     }
 }
-
-    document.querySelector(".community-like").addEventListener("click", function () {
-    const img = this.querySelector(".community-empty-heart");
-    if (img.src.includes("empty_heart.png")) {
-    img.src = "/icons/profile/community/filled_heart.png";
-} else {
-    img.src = "/icons/profile/community/empty_heart.png";
-}
-});
 
 // ＃タグつけ
     document.addEventListener("DOMContentLoaded", () => {
