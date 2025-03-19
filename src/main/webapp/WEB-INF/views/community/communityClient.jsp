@@ -12,16 +12,18 @@
 <body>
 
 <div class="community-header-wrapper">
-    <div class="community-logo"><span class="community-logo-span">コミュニティ</span></div>
-    <div class="community-button-container">
-        <c:if test="${sessionScope.mode eq 'on'}">
-            <div class="selectable-client" onclick="location.href='/community/main'">スバ民の部屋▶</div>
-            <div class="selectable-pro" onclick="location.href='/community/pro/main'">プロの部屋▶</div>
-        </c:if>
-        <div>
+    <div class="community-logo">
+        <span class="community-logo-span">コミュニティ</span>
+    </div>
+<%--    <div class="community-button-container">--%>
+<%--        <c:if test="${sessionScope.mode eq 'on'}">--%>
+<%--            <div class="selectable-client" onclick="location.href='/community/main'">スバ民の部屋▶</div>--%>
+<%--            <div class="selectable-pro" onclick="location.href='/community/pro/main'">プロの部屋▶</div>--%>
+<%--        </c:if>--%>
+<%--    </div>--%>
+        <div class="community-write-btn">
             <button class="community-client-write" onclick="location.href='/community/write'">書き込み</button>
         </div>
-    </div>
 </div>
 <div class="community-body-wrapper">
     <div class="community-client-tab">

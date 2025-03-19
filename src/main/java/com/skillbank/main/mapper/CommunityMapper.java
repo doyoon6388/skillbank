@@ -17,8 +17,12 @@ public interface CommunityMapper {
     @Select("select * from community_post where commu_post_category = 'askpro' order by commu_date desc")
     List<CommunityPostVO> getAllAskproPost();
 
-    @Insert("insert into community_post values(community_post_seq.nextval, #{commu_post_category},#{commu_user_id},#{commu_title}, current_timestamp, #{commu_content}, #{commu_image}, default, default)")
+    @Insert("insert into community_post values(community_post_seq.nextval, #{commu_post_category},#{commu_user_id},#{commu_title}, current_timestamp, #{commu_content}, #{commu_image}, default, default, #{commu_tags})")
     int createPost(CommunityPostVO communityPostVO);
+
+    //    タグ
+    @Select("select * from community_post where commu_tags like '%' || #{tag} || '%' order by commu_date desc")
+    List<CommunityPostVO> findByTag(@Param("tag") String tag);
 
     //    順番(実験)
     @Select("select count(*) from community_post where commu_post_category = #{category}")
@@ -46,7 +50,7 @@ public interface CommunityMapper {
     @Select("select * from community_comment where comment_post_id = #{postId} order by comment_date desc")
     List<CommunityCommentVO> getCommentsByPost(@Param("postId") int postId);
 
-//    いいね
+    //    いいね
 
 
 }

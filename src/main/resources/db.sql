@@ -86,6 +86,13 @@ alter table community_post
         commu_like number default 0 not null
         );
 
+ALTER TABLE community_post
+    DROP COLUMN commu_tags;
+
+ALTER TABLE community_post
+    ADD commu_tags VARCHAR2(255 CHAR);
+
+
 
 
 create table pro_account

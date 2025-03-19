@@ -40,13 +40,14 @@
         </div>
     </c:forEach>
 </div>
+
 <div class="community-paging">
     <c:if test="${currentPage > 1}">
         <a href="?page=1"><<</a>
         <a href="?page=${currentPage - 1}"><</a>
     </c:if>
 
-    <c:forEach var="p" begin="1" end="${totalPage}">
+    <c:forEach var="p" begin="${startPage}" end="${endPage}">
         <a href="?page=${p}" class="${p == currentPage ? 'active' : ''}">${p}</a>
     </c:forEach>
 
@@ -55,7 +56,14 @@
         <a href="?page=${totalPage}">>></a>
     </c:if>
 </div>
+<div style="display: none">
+    <input type="text" value="${currentPage}" name="currentPage">
+    <input type="text" value="${start}" name="start">
+    <input type="text" value="${end}" name="end">
+    <input type="text" value="${totalPage}" name="totalPage">
+</div>
 
+<script src="/resources/js/community/community.js"></script>
 
 </body>
 </html>

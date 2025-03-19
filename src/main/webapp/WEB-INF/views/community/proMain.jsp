@@ -10,10 +10,10 @@ pageEncoding="utf-8" %>
 
 <div class="community-button2-container">
     <div>
-        <h2>告知</h2>
+        <h2>一緒に</h2>
     </div>
     <div>
-        <h2>イベント</h2>
+        <h2>プロのアピール</h2>
     </div>
 </div>
 

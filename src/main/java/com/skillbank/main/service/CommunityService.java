@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -53,9 +54,7 @@ public class CommunityService {
 
             try {
                 file.transferTo(saveFile); // 실제 파일 저장 기능
-
                 communityPostVO.setCommu_image(fileName);
-
 
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -64,9 +63,20 @@ public class CommunityService {
             communityPostVO.setCommu_image("defaultCommuImg.png");
         }
 
+        if (communityPostVO.getCommu_tags() != null) {
+            List<String> tags = Arrays.asList(communityPostVO.getCommu_tags().split("、\\s*"));
+            communityPostVO.setCommu_tags(String.join("、", tags));
+            System.out.println("タグリスト" + tags);
+        }
+
         if (communityMapper.createPost(communityPostVO) == 1) {
             System.out.println("登録成功！！！！！！！！！！！！！！");
         }
+    }
+
+    //tag
+    public List<CommunityPostVO> getPostsByTag(String tag) {
+        return communityMapper.findByTag(tag);
     }
 
     //順番(paging)

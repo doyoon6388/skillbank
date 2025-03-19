@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.awt.*;
 import java.util.List;
 
 @RequestMapping("/community")
@@ -44,7 +45,7 @@ public class CommunityC {
     @GetMapping("pro/main")
     public String communityPro(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
-        model.addAttribute("page", "community/communityPro.jsp");
+        model.addAttribute("page", "community/communityClient.jsp");
         model.addAttribute("communityPage", "proMain.jsp");
         if (mode != null && mode.toString().equals("on")) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
@@ -184,7 +185,7 @@ public class CommunityC {
     }
 
     @PostMapping("write")
-    public String writePost(Model model, HttpSession session, CommunityPostVO communityPostVO, MultipartFile file) {
+    public String writePost(Model model, HttpSession session, @ModelAttribute CommunityPostVO communityPostVO, MultipartFile file) {
         String content = communityPostVO.getCommu_content();
 
         if (content != null) {
@@ -194,6 +195,23 @@ public class CommunityC {
 
         communityService.createPost(communityPostVO, file);
         return "redirect:/community/" + communityPostVO.getCommu_post_category();
+    }
+
+    @GetMapping("search")
+    public String searchByTag(@RequestParam("tag") String tag, Model model) {
+        List<CommunityPostVO> posts = communityService.getPostsByTag(tag);
+        model.addAttribute("communityPost", posts);
+        model.addAttribute("currentPage", 1);
+
+        // 投稿がある場合にカテゴリを取得してリダイレクト
+        if (!posts.isEmpty()) {
+            String category = posts.get(0).getCommu_post_category();
+            return "redirect:/community/" + category;
+        }
+
+        // 投稿がない場合はメインページに戻る
+        return "redirect:/community/main";
+
     }
 
 //    @PostMapping("write")

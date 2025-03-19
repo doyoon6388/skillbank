@@ -19,15 +19,15 @@
 
 <div class="client-post-list">
     <c:forEach var="i" items="${communityPost}">
-<%--        <p>DEBUG: <c:out value="${i.commu_writer}"/></p>--%>
+        <%--        <p>DEBUG: <c:out value="${i.commu_writer}"/></p>--%>
         <div class="client-post-card" onclick="location.href='/community/detail?postId=${i.commu_post_id}'">
             <div class="client-post-header">
                 <div class="client-post-author">
                     投稿者 ${i.commu_user_id}
-<%--                    / ${i.commu_post_id}--%>
-<%--                    <c:if test="${i.commu_writer == 0}">--%>
-<%--                        <span class="pro-label">プロ</span>--%>
-<%--                    </c:if>--%>
+                        <%--                    / ${i.commu_post_id}--%>
+                        <%--                    <c:if test="${i.commu_writer == 0}">--%>
+                        <%--                        <span class="pro-label">プロ</span>--%>
+                        <%--                    </c:if>--%>
                 </div>
                 <div class="client-post-date">
                     <p class="community-date"
@@ -45,7 +45,8 @@
                 <img src="/file/${i.commu_image}" alt="" style="width: 100px; height: 100px;">
             </div>
             <div class="community-like">
-                <img class="community-heart" src="/icons/profile/community/empty_heart.png" alt="" style="width: 50px; height: 50px;">
+                <img class="community-heart" src="/icons/profile/community/empty_heart.png" alt=""
+                     style="width: 50px; height: 50px;">
             </div>
         </div>
     </c:forEach>
@@ -57,9 +58,9 @@
         <a href="?page=${currentPage - 1}"><</a>
     </c:if>
 
-    <c:forEach var="p" begin="${startPage}" end="${endPage}">
-        <a href="?page=${p}" class="${p == currentPage ? 'active' : ''}">${p}</a>
-    </c:forEach>
+        <c:forEach var="p" begin="${startPage}" end="${endPage}">
+            <a href="?page=${p}" class="${p == currentPage ? 'active' : ''}">${p}</a>
+        </c:forEach>
 
     <c:if test="${currentPage < totalPage}">
         <a href="?page=${currentPage + 1}">></a>
@@ -72,9 +73,8 @@
     <input type="text" value="${end}" name="end">
     <input type="text" value="${totalPage}" name="totalPage">
 </div>
-<script src="/resources/js/community/community.js"></script>
-<script>
 
-</script>
+<script src="/resources/js/community/community.js"></script>
+
 </body>
 </html>
