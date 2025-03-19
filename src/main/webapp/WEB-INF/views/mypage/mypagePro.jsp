@@ -8,29 +8,68 @@
     <link rel="stylesheet" href="resources/css/mypage/mypage.css">
 </head>
 <body>
-<div class="mypage-wrapper">
-    <div><h1>マイページ</h1></div>
-    <div class="mypage-profile-wrapper">
-        <div class="mypage-profile-img" id="mypage-profile-img-change-btn">
-            <img id="profileImage"
-                 src="/file/${sessionScope.proSession.pro_profile_img}"
-                 alt="프로필 이미지">
-        </div>
-        <div class="mypage-profile-name">
-            <div>${sessionScope.user.user_name} 고수님</div>
-            <div>asdasd</div>
-        </div>
-    </div>
-    <div class="mypage-item-wrapper">
-        <div class="mypage-item">
-            <div class="mypage-item-tag">SkillBank Cash</div>
-            <div class="mypage-item-list">残高 : ${sessionScope.proSession.pro_cash} C
-                <button onclick="location.href='/pro/cash'">チャージ</button>
+<div class="user-mypage-wrapper">
+    <div class="mypage-wrapper">
+        <div><h1>マイページ</h1></div>
+        <div class="mypage-profile-wrapper">
+            <div class="mypage-profile-img" id="mypage-profile-img-change-btn">
+                <img id="profileImage"
+                     src="/file/${sessionScope.proSession.pro_profile_img}"
+                     alt="프로필 이미지">
+            </div>
+            <div class="mypage-profile-name">
+                <div class="mypage-user-nickname">${sessionScope.proSession.pro_name} プロ</div>
+                <div class="mypage-user-email">${sessionScope.user.user_email}</div>
             </div>
         </div>
+
+        <div class="mypage-item-wrapper">
+            <div class="mypage-item">
+                <div class="mypage-item-tag">SkillBank Cash</div>
+                <div class="mypage-item-list">残高 : ${sessionScope.proSession.pro_cash} C
+                    <button onclick="location.href='/pro/cash'">チャージ</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 프로 계정 전용 정보 -->
+        <div class="mypage-info-wrapper">
+            <div class="mypage-info-item">
+                <span class="mypage-info-tag">カテゴリ</span>
+                <span class="mypage-info-value">${sessionScope.proSession.pro_category}</span>
+            </div>
+            <div class="mypage-info-item">
+                <span class="mypage-info-tag">電話番号</span>
+                <span class="mypage-info-value">${sessionScope.proSession.pro_phone}</span>
+            </div>
+            <div class="mypage-info-item">
+                <span class="mypage-info-tag">住所</span>
+                <span class="mypage-info-value">${sessionScope.proSession.pro_address}</span>
+            </div>
+            <div class="mypage-info-item">
+                <span class="mypage-info-tag">自己紹介</span>
+                <span class="mypage-info-value">${sessionScope.proSession.pro_description}</span>
+            </div>
+            <div class="mypage-info-item">
+                <span class="mypage-info-tag">レビュー数</span>
+                <span class="mypage-info-value">${sessionScope.proSession.pro_review}件</span>
+            </div>
+            <div class="mypage-info-item">
+                <span class="mypage-info-tag">お気に入り</span>
+                <span class="mypage-info-value">${sessionScope.proSession.pro_favorite}人</span>
+            </div>
+        </div>
+
+        <div>
+            <button class="logout-btn" onclick="logout()">ログアウト</button>
+        </div>
+
     </div>
-    <div>
-        <button class="logout-btn" onclick="logout()">ログアウト</button>
+
+    <div class="mypage-profile-side-wrapper">
+        <div onclick="location.href='/mypage/fav'">찜한 고수</div>
+        <div>작성한 리뷰</div>
+        <div>작성한 글</div>
     </div>
 
     <!-- 모달 구조 -->
@@ -58,7 +97,8 @@
             </form>
         </div>
     </div>
-    <%-- 모달 끝 --%>
-    <script src="/resources/js/mypage/mypage.js"></script>
+</div>
+<%-- 모달 끝 --%>
+<script src="/resources/js/mypage/mypage.js"></script>
 </body>
 </html>

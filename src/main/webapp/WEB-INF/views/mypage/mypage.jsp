@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="resources/css/mypage/mypage.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
+<body>
 <div class="user-mypage-wrapper">
     <div class="mypage-wrapper">
         <div><h1>マイページ</h1></div>

@@ -1,9 +1,9 @@
 .chat-btn {
     position: fixed;
-    right: max(calc((100vw - 1220px) / 2 + 20px), 20px); /* 너비 1280px 기준으로 조정 */
+    right: max(calc((100vw - 1210px) / 2 + 20px), 20px); /* 너비 1280px 기준으로 조정 */
     bottom: 20vh;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: white;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
@@ -16,8 +16,8 @@
 
 .request-btn {
     position: fixed;
-    right: max(calc((100vw - 1280px) / 2 + 20px), 20px); /* 너비 1280px 기준으로 조정 */
-    bottom: 20vh;
+    right: max(calc((100vw - 1220px) / 2 + 20px), 20px);
+    bottom: 30vh;
     width: 50px;
     height: 50px;
     border-radius: 50%; /* 원 모양 */
@@ -28,8 +28,8 @@
 
 .cash-btn {
     position: fixed;
-    right: max(calc((100vw - 1280px) / 2 + 20px), 20px); /* 너비 1280px 기준으로 조정 */
-    bottom: 20vh;
+    right: max(calc((100vw - 1220px) / 2 + 20px), 20px);
+    bottom: 30vh;
     width: 50px;
     height: 50px;
     border-radius: 50%; /* 원 모양 */
