@@ -57,9 +57,9 @@
 }
 
 #sign-container button {
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 10px;
-    background-color: #2D9CDB;
+    background-color: #F7AB85; /* 메인 색상 */
     color: white;
     border: none;
     border-radius: 5px;
@@ -68,7 +68,7 @@
 }
 
 #sign-container button:hover {
-    background-color: #1C7CC3;
+    background-color: #cc8d6d; /* 다크한 오렌지 */
 }
 
 /* LINE 로그인 버튼 기본 스타일 */
@@ -97,8 +97,8 @@
     margin-left: 8px;
     cursor: pointer;
     font-size: 14px;
-    color: #2D9CDB; /* 파란색 */
-    border: 1px solid #2D9CDB;
+    color: black; /* 파란색 */
+    border: 1px solid black;
     border-radius: 50%;
     width: 18px;
     height: 18px;

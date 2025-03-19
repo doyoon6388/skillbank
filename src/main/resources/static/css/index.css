@@ -1,97 +1,132 @@
+/* ✅ AppleSDGothicNeo 폰트 다양한 굵기 지원 */
 @font-face {
-  font-family: "AppleSDGothicNeo";
-  src: url("/fonts/AppleSDGothicNeoL.ttf");
-  font-weight: normal;
-  font-style: normal;
+    font-family: "AppleSDGothicNeo";
+    src: url("/fonts/AppleSDGothicNeoL.ttf") format("truetype");
+    font-weight: 300; /* Light */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    src: url("/fonts/AppleSDGothicNeoR.ttf") format("truetype");
+    font-weight: 400; /* Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeo";
+    src: url("/fonts/AppleSDGothicNeoB.ttf") format("truetype");
+    font-weight: 700; /* Bold */
+    font-style: normal;
+}
+
+/* ✅ 제목 폰트 */
+h1, h2, h3 {
+    font-weight: 700; /* 볼드 처리 */
+}
+
+/* ✅ 일반 텍스트 */
+p, span, div {
+    font-weight: 400; /* 기본 폰트 굵기 */
+}
+
+/* ✅ 강조된 텍스트 */
+strong, b {
+    font-weight: 700;
+}
+
+/* ✅ 얇은 텍스트 (필요할 경우) */
+.light-text {
+    font-weight: 300;
 }
 
 /* ✅ 기본 스타일 */
 body {
-  font-family: "AppleSDGothicNeo", sans-serif;
-  font-style: normal;
-  margin: 0;
-  padding: 0;
-  background-color: white;
+    font-family: "AppleSDGothicNeo", sans-serif;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color: white;
 }
 
 /* ✅ 헤더 전체 영역 */
 .header-wrapper {
-  width: 100%;
-  border-bottom: 0.0625rem solid #eff1f5;
+    width: 100%;
+    border-bottom: 0.0625rem solid #eff1f5;
 }
 
 /* ✅ 헤더 내부 컨텐츠 */
 .header {
-  max-width: 970px;
-  height: 40px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  color: white;
+    max-width: 970px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    color: white;
 }
 
 /* ✅ 헤더 메뉴 항목 */
 .header-items {
-  display: flex;
-  justify-content: space-between;
-  width: 400px;
-  gap: 20px;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    gap: 20px;
+    align-items: center;
 }
 
 /* ✅ 헤더 메뉴 텍스트 스타일 */
 .header-items div:not(:has(.logo)) {
-  color: black;
-  cursor: pointer;
-  position: relative; /* 밑줄 위치 지정 */
-  transition: color 0.3s ease-in-out; /* 색상 변화 부드럽게 */
+    color: black;
+    cursor: pointer;
+    position: relative; /* 밑줄 위치 지정 */
+    transition: color 0.3s ease-in-out; /* 색상 변화 부드럽게 */
 }
 
 /* ✅ 메뉴 항목 호버 시 밑줄 효과 */
 .header-items div:not(:has(.logo))::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -25px; /* 텍스트 아래에 위치 */
-  width: 0; /* 초기에는 보이지 않음 */
-  height: 2px;
-  background-color: #f8b285; /* 밑줄 색상 */
-  transition: width 0.2s ease-in-out; /* 밑줄이 나타나는 애니메이션 */
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -25px; /* 텍스트 아래에 위치 */
+    width: 0; /* 초기에는 보이지 않음 */
+    height: 2px;
+    background-color: #f8b285; /* 밑줄 색상 */
+    transition: width 0.2s ease-in-out; /* 밑줄이 나타나는 애니메이션 */
 }
 
 /* ✅ 마우스를 올리면 밑줄이 나타남 */
 .header-items div:not(:has(.logo)):hover::after {
-  width: 100%;
+    width: 100%;
 }
 
 /* ✅ 마우스를 올리면 글자 색상 약간 진하게 */
 .header-items div:not(:has(.logo)):hover {
-  color: #333;
+    color: #333;
 }
 
 /* ✅ 인덱스 페이지의 메인 컨테이너 */
 #index-container {
-  width: 970px;
-  margin: 20px auto;
-  padding: 20px 30px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 970px;
+    margin: 20px auto;
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* ✅ 로고 기본 스타일 */
 .logo {
-  display: flex;
-  width: 40px;
-  border-radius: 10px;
-  align-items: center;
-  transition: transform 0.3s ease-in-out; /* 애니메이션 적용 */
+    display: flex;
+    width: 40px;
+    border-radius: 10px;
+    align-items: center;
+    transition: transform 0.3s ease-in-out; /* 애니메이션 적용 */
 }
 
 /* ✅ 로고 호버 시 크기 커지는 효과 */
 .logo:hover {
-  cursor: pointer;
-  transform: scale(1.2);
+    cursor: pointer;
+    transform: scale(1.2);
 }

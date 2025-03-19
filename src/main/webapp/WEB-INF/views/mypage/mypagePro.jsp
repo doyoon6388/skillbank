@@ -24,10 +24,13 @@
     <div class="mypage-item-wrapper">
         <div class="mypage-item">
             <div class="mypage-item-tag">SkillBank Cash</div>
-            <div class="mypage-item-list">보유 금액 : ${sessionScope.proSession.pro_cash} C
-                <button onclick="location.href='/pro/cash'">충전하기</button>
+            <div class="mypage-item-list">残高 : ${sessionScope.proSession.pro_cash} C
+                <button onclick="location.href='/pro/cash'">チャージ</button>
             </div>
         </div>
+    </div>
+    <div>
+        <button class="logout-btn" onclick="logout()">ログアウト</button>
     </div>
 
     <!-- 모달 구조 -->

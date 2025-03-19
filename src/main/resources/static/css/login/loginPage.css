@@ -58,7 +58,7 @@
 #register-btn {
     width: 100%;
     padding: 10px;
-    background-color: #2D9CDB;
+    background-color: #F7AB85;
     color: white;
     border: none;
     border-radius: 5px;
@@ -68,20 +68,28 @@
     transition: background-color 0.3s ease-in-out;
 }
 
-/* 버튼 호버 효과 */
-#login-container input[type="submit"]:hover,
-#register-btn:hover {
-    background-color: #1C7CC3;
+/* ✅ 로그인 버튼 (메인 버튼) */
+#login-container input[type="submit"] {
+    background-color: #F7AB85; /* 메인 색상 */
+    color: white;
+    border: none;
 }
 
-/* 회원가입 버튼 스타일 */
+#login-container input[type="submit"]:hover {
+    background-color: #cc8d6d; /* 다크한 오렌지 */
+}
+
+/* ✅ 회원가입 버튼 (서브 버튼) */
 #register-btn {
-    background-color: #6c757d;
+    background-color: white;
+    color: #F7AB85; /* 로그인 버튼과 톤을 맞춤 */
+    border: 1px solid #F7AB85;
 }
 
-/* 회원가입 버튼 호버 효과 */
 #register-btn:hover {
-    background-color: #5a6268;
+    background-color: #FCEDE5; /* 부드러운 살구색 */
+    color: #cc8d6d; /* 다크한 오렌지 */
+    border-color: #cc8d6d;
 }
 
 /* 에러 메시지 스타일 */
