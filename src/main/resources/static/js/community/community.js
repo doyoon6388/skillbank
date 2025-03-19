@@ -141,15 +141,12 @@ function timeAgo(dateString) {
 });
 
 // ＃タグつけ
-document.addEventListener("DOMContentLoaded", () => {
-    const tagInput = document.getElementById("tags")
+    document.addEventListener("DOMContentLoaded", () => {
+    const tagInput = document.getElementById("tags");
 
-    tagInput.addEventListener("input", (e) => {
-        let value = tagInput.value
-            .split('、')
-            .map(tag => tag.trim())
-            .map(tag => tag.startsWith("#") ? tag : `#${tag}`)
-            .join('、');
-        tagInput.value = value;
-    });
+    tagInput.addEventListener("input", () => {
+
+    tagInput.value = tagInput.value.replace(/,/g, "、");
 });
+});
+

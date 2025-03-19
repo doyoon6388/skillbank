@@ -44,6 +44,15 @@
             <div class="client-post-wrapper">
                 <img src="/file/${i.commu_image}" alt="" style="width: 100px; height: 100px;">
             </div>
+
+            <div class="community-tags">
+                <c:if test="${not empty i.commu_tags}">
+                    <c:forEach var="tag" items="${i.commu_tags.split('、')}">
+                        <a href="/community/search?tag=${tag}" class="tag-link">#${tag.trim()}</a>
+                    </c:forEach>
+                </c:if>
+            </div>
+
             <div class="community-like">
                 <img class="community-heart" src="/icons/profile/community/empty_heart.png" alt=""
                      style="width: 50px; height: 50px;">

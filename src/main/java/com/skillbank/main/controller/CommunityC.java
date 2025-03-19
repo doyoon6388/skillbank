@@ -191,9 +191,14 @@ public class CommunityC {
             content = content.trim();
             communityPostVO.setCommu_content(content);
         }
-
-        communityService.createPost(communityPostVO, file);
-        return "redirect:/community/" + communityPostVO.getCommu_post_category();
+        try {
+            communityService.createPost(communityPostVO, file);
+            return "redirect:/community/" + communityPostVO.getCommu_post_category();
+        } catch (Exception e) {
+            model.addAttribute("communityPost", communityPostVO);
+            model.addAttribute("error", "投稿に失敗しました。");
+            return "community/communityClientWrite";
+        }
     }
 
     @GetMapping("search")
@@ -202,7 +207,6 @@ public class CommunityC {
         model.addAttribute("communityPost", posts);
         model.addAttribute("currentPage", 1);
 
-        // 投稿がある場合にカテゴリを取得してリダイレクト
         if (!posts.isEmpty()) {
             String category = posts.get(0).getCommu_post_category();
             return "redirect:/community/" + category;
@@ -210,7 +214,6 @@ public class CommunityC {
 
         // 投稿がない場合はメインページに戻る
         return "redirect:/community/main";
-
     }
 
 //    @PostMapping("write")

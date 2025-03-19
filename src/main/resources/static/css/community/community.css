@@ -1295,3 +1295,17 @@
 
 /*-----------------------------------------------*/
 
+/*タグ用*/
+.community-tags {
+    margin-top: 10px;
+}
+
+.tag-link {
+    display: inline-block;
+    color: lightgray;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 5px;
+    font-size: 12px;
+}

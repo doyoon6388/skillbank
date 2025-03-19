@@ -66,7 +66,7 @@ public class CommunityService {
         if (communityPostVO.getCommu_tags() != null) {
             List<String> tags = Arrays.asList(communityPostVO.getCommu_tags().split("、\\s*"));
             communityPostVO.setCommu_tags(String.join("、", tags));
-            System.out.println("タグリスト" + tags);
+            System.out.println("タグリスト: " + tags);
         }
 
         if (communityMapper.createPost(communityPostVO) == 1) {
