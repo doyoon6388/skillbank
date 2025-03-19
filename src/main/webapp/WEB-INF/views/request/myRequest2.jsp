@@ -38,13 +38,7 @@
             </div>
         </div>
 
-</div>
 
-ser_nickname} </span>
-
-            </div>
-            <div class="receiveItem2">
-                <span>${p.requ
 
 
 
