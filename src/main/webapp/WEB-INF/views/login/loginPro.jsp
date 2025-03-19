@@ -21,7 +21,7 @@
             <div hidden="hidden" id="user-text">${sessionScope.proSession.pro_name} 프로님</div>
         </div>
         <div>
-            
+
         </div>
         <img id="profileImage1" src="/file/${sessionScope.proSession.pro_profile_img}" alt="プロフィール画像"
              onclick="location.href='/mypage'"/>
