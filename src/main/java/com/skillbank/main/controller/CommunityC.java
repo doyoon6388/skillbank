@@ -106,7 +106,6 @@ public class CommunityC {
         model.addAttribute("currentPage", page);
 
 
-
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "community/communityClient.jsp");
         model.addAttribute("communityPage", "clientAskpro.jsp");
@@ -170,13 +169,8 @@ public class CommunityC {
 
     @GetMapping("write")
     public String writePost(Model model, HttpSession session) {
-        Object user = session.getAttribute("user");
         Object mode = session.getAttribute("mode");
-        if (user == null) {
-            model.addAttribute("loginCheck", "login/loginNO.jsp");
-            model.addAttribute("page", "login/loginPage.jsp");
-            return "index";
-        } else if (user != null && mode != null && mode.toString().equals("on")) {
+        if (mode != null && mode.toString().equals("on")) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
             model.addAttribute("page", "community/communityProWrite.jsp");
             return "indexPro";
@@ -270,7 +264,7 @@ public class CommunityC {
 
         int user_id = (session.getAttribute("user") != null) ? ((UserAccountVO) session.getAttribute("user")).getUser_pk() : 0;
         boolean liked = false;
-        if(user_id != 0) {
+        if (user_id != 0) {
             liked = communityService.isFavorited(user_id, postId);
         }
         model.addAttribute("liked", liked);
@@ -326,11 +320,20 @@ public class CommunityC {
 
     @ResponseBody
     @PostMapping("comment")
-    public List<CommunityCommentVO> addComment(@RequestBody CommunityCommentVO communityCommentVO, HttpSession session) {
+    public Map<String, Object> addComment(@RequestBody CommunityCommentVO communityCommentVO, HttpSession session, HttpServletRequest request) {
+
+        Map<String, Object> response = new HashMap<>();
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        if (user == null) {
+            String referer = request.getHeader("referer");  // 이전 페이지 URL
+            session.setAttribute("prevPage", referer);      // 로그인 성공 후 복귀 URL 저장
+            response.put("loginRequired", true);
+            return response;
+        }
 
         communityService.addComment(communityCommentVO);
-
-        return communityService.getCommentsByPost(communityCommentVO.getComment_post_id());
+        response.put("commentListResponse", communityService.getCommentsByPost(communityCommentVO.getComment_post_id()));
+        return response;
     }
 
     @ResponseBody
@@ -354,7 +357,6 @@ public class CommunityC {
         response.put("likeCount", likeCount);
         return response;
     }
-
 
 
 }

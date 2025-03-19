@@ -19,13 +19,18 @@ window.onload = () => {
                 body: JSON.stringify(communityCommentVO) // JSON 형식으로 변환
             }).then(response => response.json()) // 응답을 JSON으로 변환
                 .then(data => {
+                    // loginCheck
+                    if (data.loginRequired) {
+                        window.location.href = '/login';
+                        return;
+                    }
                     console.log("서버 응답:", data);
 
-                    if (data.length > 0) { // 정상적으로 댓글 목록이 반환된 경우
+                    if (data.commentListResponse.length > 0) { // 정상적으로 댓글 목록이 반환된 경우
                         let commentList = document.querySelector(".community-comment-list"); // 댓글이 들어갈 영역 선택
                         commentList.innerHTML = ""; // 기존 목록 초기화
 
-                        data.forEach(comment => {
+                        data.commentListResponse.forEach(comment => {
                             let commentItem = document.createElement("div");
                             commentItem.classList.add("community-comment");
                             commentItem.innerHTML = `
