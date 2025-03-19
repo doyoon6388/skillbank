@@ -63,3 +63,23 @@ function loginCheck(){
         window.location.href = '/login';
     }
 }
+
+function openModal() {
+    document.getElementById("findModal").style.display = "block";
+
+    // data-pro-category 속성에서 값 가져오기
+    var category = document.getElementById("proD").getAttribute("data-pro-category");
+
+    console.log("Category:", category); // 디버깅용
+
+    if (category === "청소") {
+        loadStep(1);
+    } else if (category === "원룸/소형 이사") {
+        loadStep2(1);
+    }
+}
+
+function closeModal() {
+    document.getElementById("findModal").style.display = "none";
+    location.reload();
+}

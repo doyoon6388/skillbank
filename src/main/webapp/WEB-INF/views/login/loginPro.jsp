@@ -18,9 +18,16 @@
                     <span class="slider"></span>
                 </label>
             </div>
+<<<<<<< HEAD
             <div hidden="hidden" id="user-text">
                 ${sessionScope.proSession.pro_name} 프로님
             </div>
+=======
+            <div hidden="hidden" id="user-text">${sessionScope.proSession.pro_name} 프로님</div>
+        </div>
+        <div>
+            
+>>>>>>> 18ceeed9118eee6d097ad7c0c4047c47ef00a4d5
         </div>
         <img id="profileImage1" src="/file/${sessionScope.proSession.pro_profile_img}" alt="プロフィール画像"
              onclick="location.href='/mypage'"/>

@@ -41,21 +41,19 @@
     </c:forEach>
 </div>
 
-<div class="community-paging">
     <c:if test="${currentPage > 1}">
         <a href="?page=1"><<</a>
         <a href="?page=${currentPage - 1}"><</a>
     </c:if>
-
+<div class="community-paging">
     <c:forEach var="p" begin="1" end="${totalPage}">
         <a href="?page=${p}" class="${p == currentPage ? 'active' : ''}">${p}</a>
     </c:forEach>
-
+</div>
     <c:if test="${currentPage < totalPage}">
         <a href="?page=${currentPage + 1}">></a>
         <a href="?page=${totalPage}">>></a>
     </c:if>
-</div>
 
 </body>
 </html>

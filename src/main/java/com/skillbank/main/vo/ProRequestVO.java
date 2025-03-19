@@ -26,4 +26,5 @@ public class ProRequestVO {
     private String request12;
     private String request13;
     private String request14;
+    private int r_pro_pk;
 }

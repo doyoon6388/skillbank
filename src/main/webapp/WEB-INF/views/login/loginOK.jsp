@@ -36,6 +36,12 @@
                 ${sessionScope.user.user_name} 고객님
             </div>
         </div>
+<<<<<<< HEAD
+=======
+        <div>
+
+        </div>
+>>>>>>> 18ceeed9118eee6d097ad7c0c4047c47ef00a4d5
         <img id="profileImage1" src="/file/${sessionScope.user.user_profile_img}" alt="プロフィール画像"
              onclick="location.href='/mypage'"/>
     </div>
