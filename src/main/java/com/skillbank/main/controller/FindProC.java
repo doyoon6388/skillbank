@@ -5,6 +5,8 @@ import com.skillbank.main.service.MainService;
 import com.skillbank.main.vo.FavoriteProVO;
 import com.skillbank.main.vo.ProAccountVO;
 import com.skillbank.main.vo.UserAccountVO;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -70,18 +72,27 @@ public class FindProC {
             return "index";
         }
     }
+
     @ResponseBody
     @PostMapping("/favorite")
-    public ResponseEntity<Map<String, Object>> toggleFavorite(@RequestBody FavoriteProVO favoriteProVO) {
-        // toggleFavorite: 찜이 되어있으면 제거, 안 되어있으면 추가 후 결과 상태를 반환
-        boolean favorited = findProService.toggleFavorite(favoriteProVO.getUser_pk(), favoriteProVO.getPro_pk());
-        // 변경된 찜 수를 가져옴 (favorite_pro 테이블에 해당 pro_pk의 건수를 조회)
-        int favoriteCount = findProService.getFavoriteCount(favoriteProVO.getPro_pk());
-
+    public Map<String, Object> addFavorite(@RequestBody FavoriteProVO favoriteVO,
+                                           HttpSession session, HttpServletRequest request) {
         Map<String, Object> response = new HashMap<>();
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        if (user == null) {
+            String referer = request.getHeader("referer");  // 이전 페이지 URL
+            session.setAttribute("prevPage", referer);      // 로그인 성공 후 복귀 URL 저장
+            response.put("loginRequired", true);
+            return response;
+        }
+
+        // 로그인 된 경우
+        boolean favorited = findProService.toggleFavorite(favoriteVO.getUser_pk(), favoriteVO.getPro_pk());
+        int favoriteCount = findProService.getFavoriteCount(favoriteVO.getPro_pk());
+
         response.put("favorited", favorited);
         response.put("favoriteCount", favoriteCount);
-        return ResponseEntity.ok(response);
+        return response;
     }
 
 

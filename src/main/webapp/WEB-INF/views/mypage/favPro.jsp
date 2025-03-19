@@ -26,7 +26,7 @@
                         <div class="favPro-info">
                             <h2>${pro.pro_name} 고수</h2>
                             <p>전문 분야: ${pro.pro_category}</p>
-                            <button onclick="location.href='/pro/${pro.pro_pk}'">프로필 보기</button>
+                            <button onclick="location.href='/findpro/detail/${pro.pro_pk}'">프로필 보기</button>
                         </div>
                     </div>
                 </c:forEach>
