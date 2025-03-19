@@ -41,8 +41,8 @@
 #profileImage1 {
     position: relative;
     right: 10px;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     min-width: 30px;
     min-height: 30px;
     background-color: black; /* 투명한 부분이 보이지 않도록 배경 추가 */
@@ -53,7 +53,7 @@
 
 .toggle-container {
     position: absolute;
-    right: 35px;
+    right: 40px;
     display: flex;
     align-items: center;
     gap: 10px;

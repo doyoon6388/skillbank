@@ -21,4 +21,5 @@ public class CommunityPostVO {
     private int commu_writer; // clientなら1、proなら0
     private int commu_like;
 
+    private String commu_tags;
 }

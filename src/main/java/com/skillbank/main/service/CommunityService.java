@@ -2,7 +2,9 @@ package com.skillbank.main.service;
 
 import com.skillbank.main.mapper.CommunityMapper;
 import com.skillbank.main.vo.CommunityCommentVO;
+import com.skillbank.main.vo.CommunityLikeVO;
 import com.skillbank.main.vo.CommunityPostVO;
+import com.skillbank.main.vo.FavoriteProVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -53,9 +56,7 @@ public class CommunityService {
 
             try {
                 file.transferTo(saveFile); // 실제 파일 저장 기능
-
                 communityPostVO.setCommu_image(fileName);
-
 
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -64,9 +65,20 @@ public class CommunityService {
             communityPostVO.setCommu_image("defaultCommuImg.png");
         }
 
+        if (communityPostVO.getCommu_tags() != null) {
+            List<String> tags = Arrays.asList(communityPostVO.getCommu_tags().split("、\\s*"));
+            communityPostVO.setCommu_tags(String.join("、", tags));
+            System.out.println("タグリスト: " + tags);
+        }
+
         if (communityMapper.createPost(communityPostVO) == 1) {
             System.out.println("登録成功！！！！！！！！！！！！！！");
         }
+    }
+
+    //tag
+    public List<CommunityPostVO> getPostsByTag(String tag) {
+        return communityMapper.findByTag(tag);
     }
 
     //順番(paging)
@@ -161,8 +173,30 @@ public class CommunityService {
         return communityMapper.getCommentsByPost(postId);
     }
 
+    public boolean toggleLike(int post_id, int user_id) {
+        CommunityLikeVO communityLikeVO = communityMapper.selectLike(user_id, post_id);
+        if (communityLikeVO != null) {
+            // 찜이 이미 되어 있으면 삭제
+            communityMapper.deleteLike(user_id, post_id);
+            communityMapper.decrementLike(post_id);
+            return false;
+        } else {
+            // 찜이 되어 있지 않으면 새로 추가
+            CommunityLikeVO newLikeVO = new CommunityLikeVO();
+            newLikeVO.setUser_id(user_id);
+            newLikeVO.setPost_id(post_id);
+            communityMapper.insertLike(newLikeVO);
+            communityMapper.incrementLike(post_id);
+            return true;
+        }
+    }
 
-//    public void updatePost(CommunityPostVO communityPostVO) {
-//    }
+    public int getLikeCount(int postId) {
+        return communityMapper.countLikes(postId);
+    }
 
+    public boolean isFavorited(int user_pk, int pro_pk) {
+        CommunityLikeVO communityLikeVO = communityMapper.selectLike(user_pk, pro_pk);
+        return communityLikeVO != null;
+    }
 }

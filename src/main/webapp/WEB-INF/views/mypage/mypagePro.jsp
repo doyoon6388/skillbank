@@ -60,16 +60,14 @@
             </div>
         </div>
 
-        <div>
-            <button class="logout-btn" onclick="logout()">ログアウト</button>
-        </div>
-
     </div>
 
-    <div class="mypage-profile-side-wrapper">
+    <div class="mypage-profile-side-wrapper-pro">
+        <div onclick="location.href='/my-receive'">받은 요청</div>
         <div onclick="location.href='/mypage/fav'">찜한 고수</div>
         <div>작성한 리뷰</div>
         <div>작성한 글</div>
+        <button class="logout-btn" onclick="logout()">ログアウト</button>
     </div>
 
     <!-- 모달 구조 -->

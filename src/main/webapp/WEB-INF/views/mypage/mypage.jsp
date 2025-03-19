@@ -49,15 +49,14 @@
                 <span class="mypage-info-arrow">></span>
             </div>
         </div>
-        <div>
-            <button class="logout-btn" onclick="logout()">ログアウト</button>
-        </div>
     </div>
 
     <div class="mypage-profile-side-wrapper">
+        <div onclick="location.href='my-request?id=${sessionScope.user.user_pk}'">받은 요청</div>
         <div onclick="location.href='/mypage/fav'">찜한 고수</div>
         <div>작성한 리뷰</div>
         <div>작성한 글</div>
+        <button class="logout-btn" onclick="logout()">ログアウト</button>
     </div>
 
     <!-- ✅ 모달 배경 (회색 빛 배경) 추가 -->

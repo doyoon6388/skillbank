@@ -10,10 +10,13 @@ pageEncoding="utf-8" %>
 
 <div class="community-button2-container">
     <div>
-        <h3>一緒に</h3>
+        <h3>今一番人気のスバ民投稿</h3>
     </div>
     <div>
-        <h3>プロのアピール</h3>
+        <h3>スバ民の＜満足度高い＞最新投稿</h3>
+    </div>
+    <div>
+        <h3>スバスバスバスバ</h3>
     </div>
 </div>
 
