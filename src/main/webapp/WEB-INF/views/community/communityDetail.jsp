@@ -63,6 +63,7 @@
     <div class="community-like">
         <img class="community-empty-heart" src="/icons/profile/community/empty_heart.png" alt=""
              style="width: 50px; height: 50px;">
+        좋아요 : ${communityPost.commu_like}개
     </div>
         <%-- 戻る/削除/修正　--%>
     <button class="community-history-back" id="history-back" type="button" onclick="history.back()">戻る</button>
