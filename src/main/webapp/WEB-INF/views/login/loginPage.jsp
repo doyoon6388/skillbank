@@ -16,6 +16,7 @@
 
         <label for="user_pw">password :</label>
         <input type="password" id="user_pw" name="user_pw" required/>
+        <input type="hidden" name="prevPage" value="${param.prevPage}">
 
         <!-- 로그인 실패 시 에러 메시지 -->
         <c:if test="${not empty error}">
@@ -33,5 +34,11 @@
     </a>
 
 </div>
+<script>
+    // 로그인 페이지 로딩 시, prevPage URL 파라미터 값 넣기
+    const urlParams = new URLSearchParams(window.location.search);
+    document.querySelector('form').innerHTML +=
+        `<input type='hidden' name='prevPage' value='${urlParams.get("prevPage") || ""}' />`;
+</script>
 </body>
 </html>
