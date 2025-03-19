@@ -53,9 +53,6 @@
         <button type="submit">登録</button>
     </form>
 
-    <a href="/login/line">
-        <img src="/resources/images/line_login.png" alt="LINEでログイン">
-    </a>
 </div>
 </body>
 </html>

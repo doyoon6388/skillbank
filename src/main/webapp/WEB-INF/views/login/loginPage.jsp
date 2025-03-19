@@ -9,12 +9,12 @@
 </head>
 <body>
 <div id="login-container">
-    <h2>ログイン</h2>
+    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 30px;">
     <form action="/login" method="post">
-        <label for="user_email">メールアドレス:</label>
+        <label for="user_email">e-mail :</label>
         <input type="text" id="user_email" name="user_email" required/>
 
-        <label for="user_pw">パスワード:</label>
+        <label for="user_pw">password :</label>
         <input type="password" id="user_pw" name="user_pw" required/>
         <input type="hidden" name="prevPage" value="${param.prevPage}">
 
@@ -28,6 +28,11 @@
 
     <!-- 회원가입 페이지로 이동 버튼 -->
     <button id="register-btn" onclick="location.href='/signin'">会員登録</button>
+
+    <a href="/login/line">
+        <img src="/resources/images/login/line_login.png" alt="LINEでログイン">
+    </a>
+
 </div>
 <script>
     // 로그인 페이지 로딩 시, prevPage URL 파라미터 값 넣기
