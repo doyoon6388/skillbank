@@ -4,8 +4,10 @@ import com.skillbank.main.mapper.CommunityMapper;
 import com.skillbank.main.service.CommunityService;
 import com.skillbank.main.service.MainService;
 import com.skillbank.main.vo.CommunityCommentVO;
+import com.skillbank.main.vo.CommunityLikeVO;
 import com.skillbank.main.vo.CommunityPostVO;
 import com.skillbank.main.vo.UserAccountVO;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +15,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.awt.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RequestMapping("/community")
 @Controller
@@ -44,7 +49,7 @@ public class CommunityC {
     @GetMapping("pro/main")
     public String communityPro(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
-        model.addAttribute("page", "community/communityPro.jsp");
+        model.addAttribute("page", "community/communityClient.jsp");
         model.addAttribute("communityPage", "proMain.jsp");
         if (mode != null && mode.toString().equals("on")) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
@@ -101,7 +106,6 @@ public class CommunityC {
         model.addAttribute("currentPage", page);
 
 
-
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "community/communityClient.jsp");
         model.addAttribute("communityPage", "clientAskpro.jsp");
@@ -138,16 +142,35 @@ public class CommunityC {
         }
     }
 
+    @GetMapping("wisdom")
+    public String wisdom(Model model, HttpSession session,
+                         @RequestParam(name = "page", defaultValue = "1") int page) {
+        String category = "wisdom";
+
+        int totalCount = communityService.getPostCount(category);
+
+        List<CommunityPostVO> postVOList = communityService.getPostsByPage(model, category, totalCount, page);
+        model.addAttribute("communityPost", postVOList);
+        model.addAttribute("currentPage", page);
+
+        Object mode = session.getAttribute("mode");
+        model.addAttribute("page", "community/communityPrp.jsp");
+        model.addAttribute("communityPage", "proWisdom.jsp");
+
+        if (mode != null && mode.toString().equals("on")) {
+            model.addAttribute("loginCheck", "login/loginPro.jsp");
+            return "indexPro";
+        } else {
+            model.addAttribute("loginCheck", mainService.loginCheck(session));
+            return "index";
+        }
+    }
+
 
     @GetMapping("write")
     public String writePost(Model model, HttpSession session) {
-        Object user = session.getAttribute("user");
         Object mode = session.getAttribute("mode");
-        if (user == null) {
-            model.addAttribute("loginCheck", "login/loginNO.jsp");
-            model.addAttribute("page", "login/loginPage.jsp");
-            return "index";
-        } else if (user != null && mode != null && mode.toString().equals("on")) {
+        if (mode != null && mode.toString().equals("on")) {
             model.addAttribute("loginCheck", "login/loginPro.jsp");
             model.addAttribute("page", "community/communityProWrite.jsp");
             return "indexPro";
@@ -159,16 +182,36 @@ public class CommunityC {
     }
 
     @PostMapping("write")
-    public String writePost(Model model, HttpSession session, CommunityPostVO communityPostVO, MultipartFile file) {
+    public String writePost(Model model, HttpSession session, @ModelAttribute CommunityPostVO communityPostVO, MultipartFile file) {
         String content = communityPostVO.getCommu_content();
 
         if (content != null) {
             content = content.trim();
             communityPostVO.setCommu_content(content);
         }
+        try {
+            communityService.createPost(communityPostVO, file);
+            return "redirect:/community/" + communityPostVO.getCommu_post_category();
+        } catch (Exception e) {
+            model.addAttribute("communityPost", communityPostVO);
+            model.addAttribute("error", "投稿に失敗しました。");
+            return "community/communityClientWrite";
+        }
+    }
 
-        communityService.createPost(communityPostVO, file);
-        return "redirect:/community/" + communityPostVO.getCommu_post_category();
+    @GetMapping("search")
+    public String searchByTag(@RequestParam("tag") String tag, Model model) {
+        List<CommunityPostVO> posts = communityService.getPostsByTag(tag);
+        model.addAttribute("communityPost", posts);
+        model.addAttribute("currentPage", 1);
+
+        if (!posts.isEmpty()) {
+            String category = posts.get(0).getCommu_post_category();
+            return "redirect:/community/" + category;
+        }
+
+        // 投稿がない場合はメインページに戻る
+        return "redirect:/community/main";
     }
 
 //    @PostMapping("write")
@@ -218,6 +261,13 @@ public class CommunityC {
         List<CommunityCommentVO> commentList = communityService.getCommentsByPost(postId);
         model.addAttribute("commentList", commentList);
         model.addAttribute("page", "community/communityDetail.jsp");
+
+        int user_id = (session.getAttribute("user") != null) ? ((UserAccountVO) session.getAttribute("user")).getUser_pk() : 0;
+        boolean liked = false;
+        if (user_id != 0) {
+            liked = communityService.isFavorited(user_id, postId);
+        }
+        model.addAttribute("liked", liked);
 
         Object modeSession = session.getAttribute("mode");
         if (modeSession != null && "on".equals(modeSession.toString())) {
@@ -270,11 +320,42 @@ public class CommunityC {
 
     @ResponseBody
     @PostMapping("comment")
-    public List<CommunityCommentVO> addComment(@RequestBody CommunityCommentVO communityCommentVO, HttpSession session) {
+    public Map<String, Object> addComment(@RequestBody CommunityCommentVO communityCommentVO, HttpSession session, HttpServletRequest request) {
+
+        Map<String, Object> response = new HashMap<>();
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        if (user == null) {
+            String referer = request.getHeader("referer");  // 이전 페이지 URL
+            session.setAttribute("prevPage", referer);      // 로그인 성공 후 복귀 URL 저장
+            response.put("loginRequired", true);
+            return response;
+        }
 
         communityService.addComment(communityCommentVO);
+        response.put("commentListResponse", communityService.getCommentsByPost(communityCommentVO.getComment_post_id()));
+        return response;
+    }
 
-        return communityService.getCommentsByPost(communityCommentVO.getComment_post_id());
+    @ResponseBody
+    @PostMapping("/like")
+    public Map<String, Object> likePost(@RequestBody CommunityLikeVO communityLikeVO, HttpSession session, HttpServletRequest request) {
+
+        Map<String, Object> response = new HashMap();
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        if (user == null) {
+            String referer = request.getHeader("referer");  // 이전 페이지 URL
+            session.setAttribute("prevPage", referer);      // 로그인 성공 후 복귀 URL 저장
+            response.put("loginRequired", true);
+            return response;
+        }
+
+        // 로그인 된 경우
+        boolean favorited = communityService.toggleLike(communityLikeVO.getPost_id(), communityLikeVO.getUser_id());
+        int likeCount = communityService.getLikeCount(communityLikeVO.getPost_id());
+
+        response.put("favorited", favorited);
+        response.put("likeCount", likeCount);
+        return response;
     }
 
 

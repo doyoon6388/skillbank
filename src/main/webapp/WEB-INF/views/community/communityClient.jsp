@@ -12,19 +12,22 @@
 <body>
 
 <div class="community-header-wrapper">
-    <div class="community-logo"><span class="community-logo-span">コミュニティ</span></div>
-    <div class="community-button-container">
-        <c:if test="${sessionScope.mode eq 'on'}">
-            <div class="selectable-client" onclick="location.href='/community/main'">スバ民の部屋▶</div>
-            <div class="selectable-pro" onclick="location.href='/community/pro/main'">プロの部屋▶</div>
-        </c:if>
-        <div>
-            <button class="community-client-write" onclick="location.href='/community/write'">書き込み</button>
-        </div>
+    <div class="community-logo">
+        <%--        <span class="community-logo-span">コミュニティ</span>--%>
+        <h1>コミュニティ</h1>
+    </div>
+    <%--    <div class="community-button-container">--%>
+    <%--        <c:if test="${sessionScope.mode eq 'on'}">--%>
+    <%--            <div class="selectable-client" onclick="location.href='/community/main'">スバ民の部屋▶</div>--%>
+    <%--            <div class="selectable-pro" onclick="location.href='/community/pro/main'">プロの部屋▶</div>--%>
+    <%--        </c:if>--%>
+    <%--    </div>--%>
+    <div class="community-write-btn">
+        <button class="community-client-write" onclick="location.href='/community/write'">書き込み</button>
     </div>
 </div>
 <div class="community-body-wrapper">
-    <div class="community-tab">
+    <div class="community-client-tab">
         <div data-category="main" onclick="location.href='/community/main'">全体</div>
         <div data-category="askpro" onclick="location.href='/community/askpro'">プロに尋ねる</div>
         <div data-category="together" onclick="location.href='/community/together'">一緒に</div>
@@ -32,8 +35,10 @@
         <div data-category="appeal" onclick="location.href='/community/appeal'">プロのアピール</div>
     </div>
     <div class="community-content">
-        <jsp:include page="${communityPage}" />
+        <jsp:include page="${communityPage}"/>
     </div>
 </div>
+
+
 </body>
 </html>
