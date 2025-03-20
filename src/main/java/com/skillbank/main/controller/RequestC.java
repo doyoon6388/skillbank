@@ -2,10 +2,7 @@ package com.skillbank.main.controller;
 
 import com.skillbank.main.service.MainService;
 import com.skillbank.main.service.RequestService;
-import com.skillbank.main.vo.ProAccountVO;
-import com.skillbank.main.vo.ReqeustVO;
-import com.skillbank.main.vo.RequestSendVO;
-import com.skillbank.main.vo.UserAccountVO;
+import com.skillbank.main.vo.*;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,7 +46,8 @@ public class RequestC {
 
     @GetMapping("/my-request")
     public String myRequest2(Model model, HttpSession session, int id, ReqeustVO reqeustVO) {
-        model.addAttribute("loginCheck", "login/loginOK.jsp");
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
+        System.out.println(id);
         model.addAttribute("request", requestService.requestList(id));
         model.addAttribute("page", "request/myRequest.jsp");
 
@@ -58,8 +56,9 @@ public class RequestC {
 
     @GetMapping("/my-request2")
     public String myRequest3(Model model, HttpSession session, int no) {
-        model.addAttribute("loginCheck", "login/loginOK.jsp");
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
         model.addAttribute("request", requestService.requestList2(no));
+        model.addAttribute("proResponse", requestService.proResponse(no));
         model.addAttribute("page", "request/myRequest2.jsp");
         return "index";
     }
@@ -86,6 +85,14 @@ public class RequestC {
     public ReqeustVO myRequestDetail(@RequestParam int pk) {
         return requestService.getDetail(pk);
     }
+
+    @ResponseBody
+    @GetMapping("/my-response-detail")
+    public ProResponseVO myResponseDetail(@RequestParam int pk) {
+        return requestService.proResponseDetail(pk);
+    }
+
+
 
     @GetMapping("/request-delete")
     public String requestDelete(int pk, HttpSession session) {
