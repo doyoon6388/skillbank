@@ -62,38 +62,4 @@ window.onload = () => {
     })
     // onload 끝
 
-document.querySelectorAll('.myRequestOpenModalBtn2').forEach(button => {
-    button.addEventListener('click', () => {
-        let pk = button.value;
-        // console.log(pk);
-        openModal2()
-        fetch("/my-response-detail?pk=" + encodeURIComponent(pk), {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }) // fetch 끝
-            .then(function (response) {
-                if (!response.ok) {
-                    throw new Error('서버 요청 실패');
-                }
-                return response.json(); // JSON 데이터로 변환
-            }).then(function (data) {
-            // 모달에 데이터 표시
-            document.querySelector('.modalContainer2').innerHTML = `
-          
-            <br>
-            <h1> 요청상세 </h1>
-            어떤 서비스를 원하시나요?
-            <div>${data.r_price}</div>
-            고수님과 함께 짐을 옮길 수 있나요? (포장이사 제외)
-           
-
-            <button class="close-btn2" onclick="closeModal2()">닫기</button>`;
-
-        }).catch(function (error) {
-            console.error('에러 발생:', error);
-        });
-    }) // click event 끝
-})
-} // onload 끝
+}

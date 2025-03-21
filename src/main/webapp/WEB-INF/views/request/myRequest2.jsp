@@ -61,7 +61,7 @@
 
             <!-- 버튼 -->
             <div class="proActions">
-                <button class="myRequestOpenModalBtn2" value="${request.request_no}"> 견적서 보기</button>
+                <button class="myRequestOpenModalBtn2" value="${request.request_no}>견적서 보기</button>
                 <button class="btn chatBtn" >채팅하기</button>
             </div>
         </div>
@@ -78,8 +78,8 @@
     </div>
 </div>
 
-<div id="modal-overlay2" onclick="closeModal2()"></div>
-<div id="modal2">
+<div id="modal-overlay" onclick="closeModal()"></div>
+<div id="modal">
     <div class="modalContainer2">
     </div>
 </div>
@@ -98,16 +98,6 @@
         document.getElementById("modal-overlay").style.display = "none";
     }
 
-    function openModal2() {
-        document.getElementById("modal2").style.display = "block";
-        document.getElementById("modal-overlay2").style.display = "block";
-    }
-
-    // 모달 닫기
-    function closeModal2() {
-        document.getElementById("modal").style.display = "none";
-        document.getElementById("modal-overlay").style.display = "none";
-    }
     function submitVote() {
         const form = document.getElementById("voteForm");
         form.submit();
