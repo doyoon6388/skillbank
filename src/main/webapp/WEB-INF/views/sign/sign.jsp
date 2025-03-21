@@ -13,38 +13,38 @@
 <body>
 <div id="sign-container">
 
-    <h2>会員登録</h2>
+    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 30px;">
 
     <input type="hidden" id="message-data" value="<%= request.getAttribute("message") %>">
     <input type="hidden" id="error-data" value="<%= request.getAttribute("error") %>">
 
     <form id="sign-form" action="/register" method="post" onsubmit="return validateForm();">
 
-        <label for="user_email">メールアドレス:</label>
+        <label for="user_email">e-mail :</label>
         <div class="input-wrapper">
             <input type="email" id="user_email" name="user_email" required>
             <span class="tooltip-icon" data-tooltip="有効なメールアドレスを入力してください。">?</span>
         </div>
 
-        <label for="user_pw">パスワード:</label>
+        <label for="user_pw">password :</label>
         <div class="input-wrapper">
             <input type="password" id="user_pw" name="user_pw" required>
             <span class="tooltip-icon" data-tooltip="英字と数字を含む5文字以上のパスワードを入力してください。">?</span>
         </div>
 
-        <label for="user_pw_confirm">パスワード再確認:</label>
+        <label for="user_pw_confirm">Confirm Password :</label>
         <div class="input-wrapper">
             <input type="password" id="user_pw_confirm" name="user_pw_confirm" required>
             <span class="tooltip-icon" data-tooltip="パスワードが一致しているか確認してください。">?</span>
         </div>
 
-        <label for="user_name">名前:</label>
+        <label for="user_name">name :</label>
         <div class="input-wrapper">
             <input type="text" id="user_name" name="user_name" required>
             <span class="tooltip-icon" data-tooltip="名前には数字や記号を含めないでください。">?</span>
         </div>
 
-        <label for="user_nickname">ニックネーム:</label>
+        <label for="user_nickname">nickname :</label>
         <div class="input-wrapper">
             <input type="text" id="user_nickname" name="user_nickname" required>
             <span class="tooltip-icon" data-tooltip="ニックネームには特殊文字を含めないでください。">?</span>

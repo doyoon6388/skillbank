@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>채팅방</title>
-    <link rel="stylesheet" href="/resources/js/room.css">
+    <link rel="stylesheet" href="/resources/css/chat/room.css">
 </head>
 <body>
 <h1>채팅방: ${chatRoom.chat_room_no}</h1>

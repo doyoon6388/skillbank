@@ -3,12 +3,10 @@
 /* sign 전용 스타일: index.css와 겹치는 문제 방지 */
 #sign-container {
     width: 400px;
-    padding: 20px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin: 50px auto;
+    margin: 0 auto;
 }
 
 #sign-container h2 {
@@ -22,10 +20,12 @@
 }
 
 #sign-container label {
+    width: 100%;
     text-align: left;
     margin-top: 10px;
     font-size: 14px;
     font-weight: bold;
+    color: #777777;
 }
 
 #sign-container input {
@@ -64,7 +64,8 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 /* 🎯 호버 시 (마우스를 올렸을 때) */

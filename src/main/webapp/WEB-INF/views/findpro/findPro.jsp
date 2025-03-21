@@ -11,7 +11,7 @@
 </head>
 <body>
 <div id="findpro-search-container">
-    <div class="findpro-header"> プロを探す</div>
+    <h1>プロを探す</h1>
     <div class="findpro-filter-wrapper">
         <div class="findpro-filter-left">
             <select id="service-main-category" name="pro-category">

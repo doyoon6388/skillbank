@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="resources/css/mypage/mypage.css">
+    <link rel="stylesheet" href="/resources/css/mypage/mypage.css">
 </head>
 <body>
 <div class="user-mypage-wrapper">
@@ -26,7 +26,8 @@
         <div class="mypage-item-wrapper">
             <div class="mypage-item">
                 <div class="mypage-item-tag">SkillBank Cash</div>
-                <div class="mypage-item-list">残高 : ${sessionScope.proSession.pro_cash} C
+                <div class="mypage-item-list">
+                    <div class="user-cash">${sessionScope.proSession.pro_cash} コイン</div>
                     <button onclick="location.href='/pro/cash'">チャージ</button>
                 </div>
             </div>
@@ -35,7 +36,7 @@
         <!-- 프로 계정 전용 정보 -->
         <div class="mypage-info-wrapper">
             <div class="mypage-info-item">
-                <span class="mypage-info-tag">カテゴリ</span>
+                <span class="mypage-info-tag">カテゴリー</span>
                 <span class="mypage-info-value">${sessionScope.proSession.pro_category}</span>
             </div>
             <div class="mypage-info-item">
@@ -63,7 +64,7 @@
     </div>
 
     <div class="mypage-profile-side-wrapper-pro">
-        <div onclick="location.href='/my-receive'">받은 요청</div>
+        <div onclick="location.href='/my-receive'">MY リクエスト</div>
         <div onclick="location.href='/mypage/fav'">찜한 고수</div>
         <div>작성한 리뷰</div>
         <div>작성한 글</div>
