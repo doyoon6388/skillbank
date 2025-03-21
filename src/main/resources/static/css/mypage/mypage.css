@@ -341,7 +341,7 @@ body {
     height: 350px;
     top: 0;
     border-radius: 10px;
-    padding: 20px 0 20px 20px;
+    padding: 40px 0 20px 20px;
     display: flex;
     flex-direction: column;
     gap: 15px; /* 항목 간 간격 */
@@ -353,7 +353,7 @@ body {
 .mypage-profile-side-wrapper div {
     padding: 12px;
     color: #555;
-    border: 2px solid #F8B285;
+    border: 1.5px solid #F8B285;
     border-radius: 100px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -396,7 +396,7 @@ body {
     height: 350px;
     top: 0;
     border-radius: 10px;
-    padding: 20px 0 20px 20px;
+    padding: 40px 0 20px 20px;
     display: flex;
     flex-direction: column;
     gap: 15px; /* 항목 간 간격 */
@@ -408,7 +408,7 @@ body {
 .mypage-profile-side-wrapper-pro div {
     padding: 12px;
     color: #555;
-    border: 2px solid #4DB2E0;
+    border: 1.5px solid #4DB2E0;
     border-radius: 100px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;

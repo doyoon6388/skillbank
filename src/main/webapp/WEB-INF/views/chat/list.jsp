@@ -3,23 +3,42 @@
 <%@ taglib prefix="c"
            uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8"/>
-    <title>견적서 리스트</title>
+    <title>채팅 목록</title>
     <link rel="stylesheet" href="/resources/css/chat/list.css"/>
 </head>
 <body>
+<div class="chat-wrapper">
+<%--    <h1 class="chat-title">チャット</h1>--%>
 
-<h1>채팅 목록</h1>
-<c:forEach var="chatRoom" items="${chatRooms}">
-<div class="chat-room" data-room-no="${chatRoom.chat_room_no}"
-     style="cursor: pointer; border: 1px solid black; padding: 10px; margin: 5px;">
-    <div>채팅방 번호: ${chatRoom.chat_room_no}</div>
-    <div>Pro : ${chatRoom.chat_pro_id} [${chatRoom.chat_pro_name}]</div>
-    <div>Client : ${chatRoom.chat_user_id} [${chatRoom.chat_user_name}]</div>
+    <c:choose>
+        <c:when test="${empty chatRooms}">
+            <div class="chat-empty">현재 채팅방이 없습니다.</div>
+        </c:when>
+        <c:otherwise>
+            <div class="chat-list">
+                <c:forEach var="chatRoom" items="${chatRooms}">
+                    <div class="chat-room" data-room-no="${chatRoom.chat_room_no}">
+                        <div class="chat-info">
+                            <span class="chat-label">채팅방 번호:</span>
+                            <span class="chat-value">#${chatRoom.chat_room_no}</span>
+                        </div>
+                        <div class="chat-info">
+                            <span class="chat-label">Pro:</span>
+                            <span class="chat-value">${chatRoom.chat_pro_name} (${chatRoom.chat_pro_id})</span>
+                        </div>
+                        <div class="chat-info">
+                            <span class="chat-label">Client:</span>
+                            <span class="chat-value">${chatRoom.chat_user_name} (${chatRoom.chat_user_id})</span>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+        </c:otherwise>
+    </c:choose>
 </div>
-</c:forEach>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -31,4 +50,5 @@
         });
     });
 </script>
+</body>
 </html>
