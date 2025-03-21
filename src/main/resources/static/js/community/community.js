@@ -1,5 +1,6 @@
 window.onload = () => {
 
+
     const commentBtn = document.querySelector("#community-comment-btn");
     if (commentBtn) {
         commentBtn.addEventListener('click', () => {

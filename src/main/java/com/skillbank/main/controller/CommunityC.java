@@ -199,12 +199,21 @@ public class CommunityC {
     @GetMapping("detail")
     public String communityDetailPost(@RequestParam("postId") int postId,
                                       @RequestParam(name = "mode", required = false) String mode,
-                                      Model model, HttpSession session) {
+                                      Model model, HttpSession session, HttpServletRequest request) {
         CommunityPostVO postVO = communityService.getPostById(postId);
         if (postVO == null) {
 
             return "redirect:/community/main";
         }
+
+        String referer = request.getHeader("Referer");
+        if (referer != null && !referer.contains("mode=edit") && !referer.contains("/community/detail")) {
+            session.setAttribute("previousUrl", referer);
+        } else if (session.getAttribute("previousUrl") == null) {
+            // previousUrlがnullならフォールバック
+            session.setAttribute("previousUrl", "/community/main");
+        }
+
 
         if (postVO.getCommu_content() != null) {
             String originalContent = postVO.getCommu_content();

@@ -129,7 +129,6 @@
         </div>
     </div>
 </c:if>
-
 <script src="/resources/js/community/community.js"></script>
 </body>
 </html>
