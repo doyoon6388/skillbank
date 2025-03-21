@@ -142,31 +142,6 @@ public class CommunityC {
         }
     }
 
-    @GetMapping("wisdom")
-    public String wisdom(Model model, HttpSession session,
-                         @RequestParam(name = "page", defaultValue = "1") int page) {
-        String category = "wisdom";
-
-        int totalCount = communityService.getPostCount(category);
-
-        List<CommunityPostVO> postVOList = communityService.getPostsByPage(model, category, totalCount, page);
-        model.addAttribute("communityPost", postVOList);
-        model.addAttribute("currentPage", page);
-
-        Object mode = session.getAttribute("mode");
-        model.addAttribute("page", "community/communityPrp.jsp");
-        model.addAttribute("communityPage", "proWisdom.jsp");
-
-        if (mode != null && mode.toString().equals("on")) {
-            model.addAttribute("loginCheck", "login/loginPro.jsp");
-            return "indexPro";
-        } else {
-            model.addAttribute("loginCheck", mainService.loginCheck(session));
-            return "index";
-        }
-    }
-
-
     @GetMapping("write")
     public String writePost(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
@@ -195,23 +170,8 @@ public class CommunityC {
         } catch (Exception e) {
             model.addAttribute("communityPost", communityPostVO);
             model.addAttribute("error", "投稿に失敗しました。");
-            return "community/communityClientWrite";
+            return "redirect:/community/" + communityPostVO.getCommu_post_category();
         }
-    }
-
-    @GetMapping("search")
-    public String searchByTag(@RequestParam("tag") String tag, Model model) {
-        List<CommunityPostVO> posts = communityService.getPostsByTag(tag);
-        model.addAttribute("communityPost", posts);
-        model.addAttribute("currentPage", 1);
-
-        if (!posts.isEmpty()) {
-            String category = posts.get(0).getCommu_post_category();
-            return "redirect:/community/" + category;
-        }
-
-        // 投稿がない場合はメインページに戻る
-        return "redirect:/community/main";
     }
 
 //    @PostMapping("write")
@@ -294,6 +254,8 @@ public class CommunityC {
         }
 
         String category = postVO.getCommu_post_category();
+
+        communityService.deleteLikesByPostId(postId);
 
         communityService.deletePostWithComments(postId);
 

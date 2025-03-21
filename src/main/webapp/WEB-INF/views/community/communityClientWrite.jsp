@@ -29,10 +29,6 @@
         <label for="content">内容</label>
         <textarea id="content" name="commu_content" placeholder="内容を入力" rows="5" required></textarea>
 
-        <label for="tags">#タグ</label>
-        <input type="text" id="tags" name="commu_tags" placeholder="例: 質問、掃除、修理" value="communityPost.commu_tags">
-        <small>「、」で区切って入力してください。</small>
-
         <input type="hidden" name="commu_user_id" value="${sessionScope.user.user_pk}">
     </form>
     <button class="community-history-back" id="history-back" type="button" onclick="history.back()">戻る</button>

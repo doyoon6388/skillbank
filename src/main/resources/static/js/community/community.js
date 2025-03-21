@@ -58,6 +58,7 @@ window.onload = () => {
         });
     }
 
+    // いいね
     document.querySelector(".community-like").addEventListener("click", () => {
         const post_id = document.getElementById('community-like-id').value;
         const user_id = document.getElementById('current-user-pk').value;
@@ -167,13 +168,5 @@ function timeAgo(dateString) {
     }
 }
 
-// ＃タグつけ
-    document.addEventListener("DOMContentLoaded", () => {
-    const tagInput = document.getElementById("tags");
 
-    tagInput.addEventListener("input", () => {
-
-    tagInput.value = tagInput.value.replace(/,/g, "、");
-});
-});
-
+// ハンバーガーメニュー

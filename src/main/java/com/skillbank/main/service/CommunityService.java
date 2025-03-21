@@ -42,20 +42,23 @@ public class CommunityService {
     }
 
     public void createPost(CommunityPostVO communityPostVO, MultipartFile file) {
+        // commu_post_categoryがnullの場合エラーハンドリング
+        if (communityPostVO.getCommu_post_category() == null || communityPostVO.getCommu_post_category().isEmpty()) {
+            throw new IllegalArgumentException("投稿カテゴリが空です。");
+        }
+
         if (!file.getOriginalFilename().isEmpty()) {
             String originalFilename = file.getOriginalFilename();
             String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
 
             UUID uuid = UUID.randomUUID();
-            System.out.println(uuid);
             String[] uuids = uuid.toString().split("-");
-            System.out.println(uuids[0]);
             String fileName = uuids[0] + fileExtension;
 
             File saveFile = new File(upload + File.separator + fileName);
 
             try {
-                file.transferTo(saveFile); // 실제 파일 저장 기능
+                file.transferTo(saveFile);
                 communityPostVO.setCommu_image(fileName);
 
             } catch (IOException e) {
@@ -65,20 +68,9 @@ public class CommunityService {
             communityPostVO.setCommu_image("defaultCommuImg.png");
         }
 
-        if (communityPostVO.getCommu_tags() != null) {
-            List<String> tags = Arrays.asList(communityPostVO.getCommu_tags().split("、\\s*"));
-            communityPostVO.setCommu_tags(String.join("、", tags));
-            System.out.println("タグリスト: " + tags);
-        }
-
         if (communityMapper.createPost(communityPostVO) == 1) {
             System.out.println("登録成功！！！！！！！！！！！！！！");
         }
-    }
-
-    //tag
-    public List<CommunityPostVO> getPostsByTag(String tag) {
-        return communityMapper.findByTag(tag);
     }
 
     //順番(paging)
@@ -198,5 +190,9 @@ public class CommunityService {
     public boolean isFavorited(int user_pk, int pro_pk) {
         CommunityLikeVO communityLikeVO = communityMapper.selectLike(user_pk, pro_pk);
         return communityLikeVO != null;
+    }
+
+    public void deleteLikesByPostId(int postId) {
+        communityMapper.deleteLikesByPostId(postId);
     }
 }

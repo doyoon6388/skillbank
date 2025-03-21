@@ -19,12 +19,8 @@ public interface CommunityMapper {
     @Select("select * from community_post where commu_post_category = 'askpro' order by commu_date desc")
     List<CommunityPostVO> getAllAskproPost();
 
-    @Insert("insert into community_post values(community_post_seq.nextval, #{commu_post_category},#{commu_user_id},#{commu_title}, current_timestamp, #{commu_content}, #{commu_image}, default, default, #{commu_tags})")
+    @Insert("insert into community_post values(community_post_seq.nextval, #{commu_post_category},#{commu_user_id},#{commu_title}, current_timestamp, #{commu_content}, #{commu_image}, default, default)")
     int createPost(CommunityPostVO communityPostVO);
-
-    //    タグ
-    @Select("select * from community_post where commu_tags like '%' || #{tag} || '%' order by commu_date desc")
-    List<CommunityPostVO> findByTag(@Param("tag") String tag);
 
     //    順番(実験)
     @Select("select count(*) from community_post where commu_post_category = #{category}")
@@ -61,6 +57,9 @@ public interface CommunityMapper {
 
     @Select("SELECT * FROM community_post_like WHERE post_id = #{post_id} and user_id = #{user_id}")
     CommunityLikeVO selectLike(int user_id, int post_id);
+
+    @Delete("DELETE FROM community_post_like WHERE post_id = #{postId}")
+    void deleteLikesByPostId(int postId);
 
     @Delete("DELETE FROM community_post_like WHERE post_id = #{post_id} and user_id = #{user_id}")
     void deleteLike(int user_id, int post_id);
