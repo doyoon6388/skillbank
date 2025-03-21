@@ -1,9 +1,9 @@
 window.onload = () => {
     scrollToBottom();
-    const cloneReqHTML = sessionStorage.getItem("cloneReqHTML");
+/*    const cloneReqHTML = sessionStorage.getItem("cloneReqHTML");
     if (cloneReqHTML) {
         document.querySelector("#reqForm").innerHTML = cloneReqHTML;
-    }
+    }*/
     const from = document.querySelector("#from").value;
     const to = document.querySelector("#to").value;
     console.log(from);
@@ -25,7 +25,9 @@ window.onload = () => {
 
     window.scrollTo(0, document.body.scrollHeight);
 
+    console.log('22')
     loadClientProInfo();
+    console.log('33')
     // 페이지 로드 시 기본적으로 클라이언트 정보 영역을 보이도록 설정
     document.getElementById('clientContent').style.display = 'block';
     document.getElementById('proContent').style.display = 'none';

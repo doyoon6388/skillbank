@@ -9,7 +9,7 @@
 <body>
 <div class="cash-success-wrapper">
     <!-- ✅ 결제 완료 아이콘 -->
-    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 30px;">
+    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 40px 0;">
 
     <!-- ✅ 보유 금액 -->
     <div class="cash-balance">

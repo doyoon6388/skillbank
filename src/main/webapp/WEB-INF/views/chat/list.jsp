@@ -6,31 +6,32 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8"/>
-    <title>채팅 목록</title>
+    <title>チャット</title>
     <link rel="stylesheet" href="/resources/css/chat/list.css"/>
 </head>
 <body>
 <div class="chat-wrapper">
-<%--    <h1 class="chat-title">チャット</h1>--%>
+
+    <h1>チャット</h1>
 
     <c:choose>
         <c:when test="${empty chatRooms}">
-            <div class="chat-empty">현재 채팅방이 없습니다.</div>
+            <div class="chat-empty">会話中のチャットが存在しません</div>
         </c:when>
         <c:otherwise>
             <div class="chat-list">
                 <c:forEach var="chatRoom" items="${chatRooms}">
                     <div class="chat-room" data-room-no="${chatRoom.chat_room_no}">
                         <div class="chat-info">
-                            <span class="chat-label">채팅방 번호:</span>
+                            <span class="chat-label">チャットNo. </span>
                             <span class="chat-value">#${chatRoom.chat_room_no}</span>
                         </div>
                         <div class="chat-info">
-                            <span class="chat-label">Pro:</span>
+                            <span class="chat-label">プロ : </span>
                             <span class="chat-value">${chatRoom.chat_pro_name} (${chatRoom.chat_pro_id})</span>
                         </div>
                         <div class="chat-info">
-                            <span class="chat-label">Client:</span>
+                            <span class="chat-label">クライアント : </span>
                             <span class="chat-value">${chatRoom.chat_user_name} (${chatRoom.chat_user_id})</span>
                         </div>
                     </div>

@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="login-container">
-    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 30px;">
+    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 40px 0;">
     <form action="/login" method="post">
         <label for="user_email">e-mail :</label>
         <input type="text" id="user_email" name="user_email" required/>

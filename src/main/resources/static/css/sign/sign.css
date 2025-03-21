@@ -57,7 +57,7 @@
 }
 
 #sign-container button {
-    margin-top: 30px;
+    margin: 40px 0;
     padding: 10px;
     background-color: #F7AB85; /* 메인 색상 */
     color: white;
