@@ -26,7 +26,7 @@
 <input name="r_user_id" value="${sessionScope.user.user_pk}" hidden="hidden">
 --%>
 
-<div id="for-div">
+
 
         <div class="container1">
             <div class="myRquestDate"><span>요청일</span><div>${request.request4}</div></div>
@@ -37,77 +37,54 @@
                 <button class="myRequestOpenModalBtn" value="${request.request_no}">내 요청 보기</button>
             </div>
         </div>
+
+
+<div class="proResponseContainer">
+    <c:forEach items="${proResponse}" var="p">
+        <div class="proCard">
+            <!-- 프로필 이미지 -->
+            <div class="proImgWrapper">
+                <img src="/file/${p.pro_profile_img}" alt="프로필 이미지" class="proImg">
+            </div>
+
+            <!-- 전문가 정보 -->
+            <div class="proInfo">
+                <h3 class="proName">${p.pro_name}</h3>
+                <div class="proReview">⭐ ${p.pro_review}</div>
+                <div class="proAddress">${p.pro_address}</div>
+            </div>
+
+            <!-- 가격 정보 -->
+            <div class="proPrice">
+                <span>총 ${p.r_price}원</span>
+            </div>
+
+            <!-- 버튼 -->
+            <div class="proActions">
+                <button class="myRequestOpenModalBtn2" value="${request.request_no}>견적서 보기</button>
+                <button class="btn chatBtn" >채팅하기</button>
+            </div>
+        </div>
+    </c:forEach>
 </div>
+
+
+
+
 
 <div id="modal-overlay" onclick="closeModal()"></div>
 <div id="modal">
     <div class="modalContainer">
     </div>
 </div>
+
+<div id="modal-overlay" onclick="closeModal()"></div>
+<div id="modal">
+    <div class="modalContainer2">
+    </div>
+</div>
 <script>
-    window.onload = () => {
 
-        document.querySelectorAll('.myRequestOpenModalBtn').forEach(button => {
-            button.addEventListener('click', () => {
-                let pk = button.value;
-                // console.log(pk);
-                openModal()
-                fetch("/my-request-detail?pk=" + encodeURIComponent(pk), {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }) // fetch 끝
-                    .then(function (response) {
-                        if (!response.ok) {
-                            throw new Error('서버 요청 실패');
-                        }
-                        return response.json(); // JSON 데이터로 변환
-                    }).then(function (data) {
-                    // 모달에 데이터 표시
-                    document.querySelector('.modalContainer').innerHTML = `
-            <h1>\${data.request_type == 1 ? '원룸/소형 이사' :
-            data.request_type == 2 ? '청소' :
-            data.request_type == 3 ? '폐기물' : ''}</h1>
-            <br>
-            <h1> 요청상세 </h1>
-            어떤 서비스를 원하시나요?
-            <div>\${data.request1}</div>
-            고수님과 함께 짐을 옮길 수 있나요? (포장이사 제외)
-            <div>\${data.request2}</div>
-            <div>이사 종류를 선택해주세요.</div>
-            <div> \${data.request3}</div>
-            이사 예정일을 선택해주세요.
-            <div> \${data.request4}</div>
-            이사를 원하는 시간대를 선택해주세요
-            <div>\${data.request5}</div>
-            옮길 대형 가전을 선택해주세요.
-            <div>\${data.request6}</div>
-            옮길 소형 가전을 선택해주세요.
-            <div>\${data.request7}</div>
-            옮길 가구를 선택해주세요.
-            <div>\${data.request8}</div>
-            잔 짐의 양을 선택해주세요.(의류,식기,책 등의 생활 짐)
-            <div>\${data.request9}</div>
-            출발지를 선택해주세요.
-            <div>\${data.request10}</div>
-            출발지 층수를 선택해주세요.
-            <div>\${data.request11}</div>
-            도착지를 선택해주세요.
-            <div>\${data.request12}</div>
-            도착지 층수를 선택해주세요.
-            <div>\${data.request13}</div>
-            해당 사항을 선택해주세요.
-            <div>\${data.request14}</div>
-
-            <button class="close-btn" onclick="closeModal()">닫기</button>`;
-
-                }).catch(function (error) {
-                    console.error('에러 발생:', error);
-                });
-            }) // click event 끝
-        })
-    } // onload 끝
 
     // 모달 열기
     function openModal() {
@@ -125,6 +102,7 @@
         const form = document.getElementById("voteForm");
         form.submit();
     }
+
 </script>
 </body>
 </html>

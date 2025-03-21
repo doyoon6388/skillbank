@@ -164,8 +164,7 @@ ALTER TABLE pro_account
         pro_phone varchar2(20 char) default null
         );
 
-select *
-from pro_account;
+select * from pro_account;
 
 insert into pro_account
 values (92, 'move', 'default.png', 0);
