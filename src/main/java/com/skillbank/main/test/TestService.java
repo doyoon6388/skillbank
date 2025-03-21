@@ -1,6 +1,8 @@
 package com.skillbank.main.test;
 
+import com.skillbank.main.vo.ProAccountVO;
 import com.skillbank.main.vo.ReqeustVO;
+import com.skillbank.main.vo.UserAccountVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,5 +69,13 @@ public class TestService {
 
     public ChatRoomVO getChatRoomById(int no) {
         return testMapper.getChatRoomById(no);
+    }
+
+    public UserAccountVO getClientInfo(UserAccountVO userAccountVO) {
+        return testMapper.getClientInfo(userAccountVO);
+    }
+
+    public ProAccountVO getProInfo(ProAccountVO proAccountVO) {
+        return testMapper.getProInfo(proAccountVO);
     }
 }
