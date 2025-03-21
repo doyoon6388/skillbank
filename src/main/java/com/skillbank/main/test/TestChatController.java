@@ -79,6 +79,19 @@ public class TestChatController {
         } else {
             return "index";
         }
-
     }
+
+    @ResponseBody
+    @PostMapping("/client-info")
+    public UserAccountVO clientInfo(@RequestBody UserAccountVO userAccountVO) {
+        return testService.getClientInfo(userAccountVO);
+    }
+    @ResponseBody
+    @PostMapping("/pro-info")
+    public ProAccountVO proInfo(@RequestBody ProAccountVO proAccountVO) {
+        return testService.getProInfo(proAccountVO);
+    }
+
+
+
 }

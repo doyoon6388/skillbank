@@ -37,12 +37,7 @@
                 <button class="myRequestOpenModalBtn" value="${request.request_no}">내 요청 보기</button>
             </div>
         </div>
-
-
-
-
-
-
+</div>
 
 <div id="modal-overlay" onclick="closeModal()"></div>
 <div id="modal">
