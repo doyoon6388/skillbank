@@ -12,7 +12,7 @@
 <div class="container">
     <form action="/community/write" method="post" enctype="multipart/form-data">
         <div class="select-and-post-btn">
-            <select name="commu_post_category">
+            <select name="commu_post_category" required>
                 <option value="" disabled selected>選んでください</option>
                 <option value="together">一緒に</option>
                 <option value="appeal">プロのアピール</option>
@@ -27,8 +27,6 @@
         <textarea id="content" name="commu_content" placeholder="内容を入力" raws="5"></textarea>
 
         <input type="hidden" name="commu_user_id" value="${sessionScope.user.user_pk}">
-
-
     </form>
 </div>
 

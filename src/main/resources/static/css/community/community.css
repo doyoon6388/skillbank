@@ -1137,27 +1137,27 @@
     cursor: pointer;
 }
 
-/*削除ボタン*/
-.community-delete-btn {
-    background-color: cornsilk;
-    color:gray;
-    padding: 10px 18px;
-    font-size: 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+/*!*削除ボタン*!*/
+/*.community-delete-btn {*/
+/*    background-color: cornsilk;*/
+/*    color:gray;*/
+/*    padding: 10px 18px;*/
+/*    font-size: 12px;*/
+/*    border: none;*/
+/*    border-radius: 4px;*/
+/*    cursor: pointer;*/
+/*}*/
 
-/*修正ボタン*/
-.community-update-btn {
-    background-color: cornsilk;
-    color:gray;
-    padding: 10px 18px;
-    font-size: 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+/*!*修正ボタン*!*/
+/*.community-update-btn {*/
+/*    background-color: cornsilk;*/
+/*    color:gray;*/
+/*    padding: 10px 18px;*/
+/*    font-size: 12px;*/
+/*    border: none;*/
+/*    border-radius: 4px;*/
+/*    cursor: pointer;*/
+/*}*/
 
 /* キャンセルボタン */
 .cancel-btn {
@@ -1209,8 +1209,6 @@
     outline: none;
 }
 
-/*-----------------------------------------------*/
-/*いいね*/
 
 /*-----------------------------------------------*/
 /*コメント用*/
@@ -1295,22 +1293,7 @@
 
 /*-----------------------------------------------*/
 
-/*タグ用*/
-.community-tags {
-    margin-top: 10px;
-}
-
-.tag-link {
-    display: inline-block;
-    color: lightgray;
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 20px;
-    margin-right: 5px;
-    font-size: 12px;
-}
-
-
+/*いいね*/
 .community-like {
     background: none;
     border: none;
@@ -1320,4 +1303,87 @@
 .community-like img {
     width: 32px;
     height: 32px;
+}
+
+.like-count {
+    color: darkgray;
+}
+
+.community-like-number {
+    color: darkgrey;
+}
+
+/*-----------------------------------------------*/
+
+/* ハンバーガーボタン */
+.hamburger-menu {
+    position: relative;
+    display: inline-block;
+    z-index: 9999; /* 他の要素より最前面に表示 */
+}
+
+.hamburger-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+
+    z-index: 10000; /* メニューより上に表示 */
+    pointer-events: auto;
+}
+
+/* ボタンクリック時 or ホバー時の色変更 */
+.hamburger-btn:hover {
+    background-color: #2980b9;
+}
+
+/* メニューオプション */
+.menu-options {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 5px 0;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+/* メニューの表示 */
+.hamburger-menu.open .menu-options {
+    display: block;
+}
+
+/* ボタンのスタイル */
+.menu-item {
+    padding: 10px 20px;
+    color: #333;
+    text-align: left;
+    width: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* ホバー時の色変更 */
+.menu-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* 削除ボタン */
+.delete-item {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* 編集ボタン */
+.edit-item {
+    color: #3498db;
+    font-weight: bold;
 }

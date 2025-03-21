@@ -37,6 +37,19 @@
             <div class="client-post-wrapper">
                 <img src="/file/${i.commu_image}" alt="" style="width: 100px; height: 100px;">
             </div>
+<%--            <div class="community-like-number">いいね: ${i.commu_like}</div>--%>
+            <div class="community-like-number">
+                いいね:
+                <c:choose>
+                    <c:when test="${i.commu_like > 0}">
+                        <span class="like-count">${i.commu_like}個</span>
+                    </c:when>
+                    <c:otherwise>
+                        <span class="like-count">0個</span>
+                    </c:otherwise>
+                </c:choose>
+            </div>
+
         </div>
     </c:forEach>
 </div>
