@@ -63,4 +63,11 @@ public class RequestService {
     }
 
 
+    public List<ProResponseVO> proResponse(int no) {
+        return requestMapper.proResponse(no);
+    }
+
+    public ProResponseVO proResponseDetail(int no) {
+        return requestMapper.proResponseDetail(no);
+    }
 }

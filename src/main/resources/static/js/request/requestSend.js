@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
           // 이후 견적서 전송 등의 로직 진행
 
           const r_request_no = document.querySelector("#r_request_no").value;
-          const r_user_id = document.querySelector("#r_user_id").value;
           const r_pro_pk = document.querySelector("#r_pro_pk").value;
           const r_price_type = document.querySelector(
             "input[name='r_price_type']:checked"
@@ -38,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             body: JSON.stringify({
               r_request_no: r_request_no,
-              r_user_id: r_user_id,
               r_pro_pk: r_pro_pk,
               r_price_type: r_price_type,
               r_comment: r_comment,

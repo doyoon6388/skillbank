@@ -356,7 +356,8 @@ create table response(
     r_comment varchar2(3000 char),
     r_request_no number(4) not null ,
     r_pro_pk number(4),
-        constraint fk_response_pro foreign key (r_pro_pk) references pro_account(pro_pk)
+    constraint fk_response_pro foreign key (r_pro_pk) references pro_account (pro_pk),
+    constraint fk_response_request foreign key (r_request_no) references request (request_no)
 );
 drop table response cascade constraints purge;
 create sequence r_no_seq;
@@ -373,5 +374,13 @@ delete chat_room;
 select * from CHAT_ROOM;
 
 
+SELECT DISTINCT r.*, res.r_request_no
+FROM request r
+FULL OUTER JOIN response res ON r.request_no = res.r_request_no
+WHERE r.r_user_id = '92';
 
+select * from request;
+
+
+delete request where request_no = 181;
 
