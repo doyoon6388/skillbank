@@ -38,12 +38,20 @@
     display: flex;
 }
 
-#deal-button-container{
+.deal-button-container{
     display: flex;
 }
 
 #deal-complete-btn{
     background-color: green;
+    width: 200px;
+    height: 200px;
+}
+
+#deal-cancel-btn{
+    background-color: indianred;
+    width: 200px;
+    height: 200px;
 }
 
 /* 채팅 정보 컨테이너 */

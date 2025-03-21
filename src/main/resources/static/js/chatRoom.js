@@ -55,6 +55,8 @@ window.onload = () => {
     });
 }; // 레디 함수 끝
 
+
+
 // WebSocket 연결 생성
 const roomId = window.location.pathname.split("/").pop();
 const socket = new WebSocket(`ws://localhost/ws/test/chat?roomId=${roomId}`);
@@ -79,10 +81,12 @@ socket.onmessage = (event) => {
     const messageContent = document.createElement('p');
     messageContent.innerText = messageData.message; // 메시지 내용 추가
     messageContainer.appendChild(messageContent);
+
     // 메시지를 채팅 화면에 추가
     document.getElementById('chatContainer').appendChild(messageContainer);
     scrollToBottom();
 };
+
 socket.onclose = () => {
     console.log(`채팅방 ${roomId}에서 연결 종료`);
 };
@@ -91,6 +95,7 @@ function sendMessage(message,from,to) {
     // 자기 자신의 메시지를 화면에 먼저 표시
     const messageContainer = document.createElement('div');
     messageContainer.classList.add('message', 'sent');
+
     // 발신자 구분
     const isSender = true; // 여기서 'true'는 '나'라는 의미, 'false'는 '상대방'
 
@@ -99,11 +104,14 @@ function sendMessage(message,from,to) {
     } else {
         messageContainer.classList.add('received');  // 상대방의 메시지 스타일
     }
+
     const messageContent = document.createElement('p');
     messageContent.innerText = message;  // 보낸 메시지 내용
     messageContainer.appendChild(messageContent);
+
     // 채팅 화면에 추가
     document.getElementById('chatContainer').appendChild(messageContainer);
+
     scrollToBottom();
     // 서버로 메시지 전송
     const messageData = {
@@ -112,10 +120,10 @@ function sendMessage(message,from,to) {
         to: to,     // 받은 사람의 ID
         message: message,
     };
+
     // WebSocket을 통해 메시지 전송
     socket.send(JSON.stringify(messageData));
 }
-
 function scrollToBottom() {
     const chatContainer = document.getElementById('chatContainer');
     chatContainer.scrollTop = chatContainer.scrollHeight;
@@ -173,4 +181,12 @@ function generateProHtml(data) {
         <p>전화번호: ${data.pro_phone}</p>
         <p>주소: ${data.pro_address}</p>
     `;
+}
+
+function tabTab(){
+    // 페이지 로드 시 클라이언트 정보 영역 보이기
+    document.getElementById('clientContent').style.display = 'block';
+    document.getElementById('proContent').style.display = 'none';
+    // 기본 탭에 active 클래스 추가
+    document.getElementById('clientTab').classList.add('active');
 }
