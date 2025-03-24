@@ -74,9 +74,14 @@ public class TestChatController {
         model.addAttribute("chatLog", testService.getChatMessagesByRoomId(no));
         model.addAttribute("page", "chat/room.jsp");
         Object mode = session.getAttribute("mode");
+            boolean isPro;
         if (mode != null && mode.toString().equals("on")) {
+            isPro = true;
+            model.addAttribute("isPro", isPro);
             return "indexPro";
         } else {
+            isPro = false;
+            model.addAttribute("isPro", isPro);
             return "index";
         }
     }

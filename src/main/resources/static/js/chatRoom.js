@@ -25,7 +25,13 @@ window.onload = () => {
 
     window.scrollTo(0, document.body.scrollHeight);
 
-    loadClientProInfo();
+    if (isPro){
+    loadClientInfo();
+    }else{
+    loadProInfo();
+    }
+
+
     // 페이지 로드 시 기본적으로 클라이언트 정보 영역을 보이도록 설정
     document.getElementById('clientContent').style.display = 'block';
     document.getElementById('proContent').style.display = 'none';
@@ -129,11 +135,9 @@ function scrollToBottom() {
     chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
-function loadClientProInfo(){
+function loadClientInfo(){
 
     const fromValue = document.getElementById('hiddenFrom').value;
-    const toValue = document.getElementById('hiddenTo').value;
-
 
     fetch('/test/chat/client-info',{
         method: 'POST',
@@ -145,9 +149,15 @@ function loadClientProInfo(){
         .then(response => response.json())
         .then(clientData => {
             console.log(clientData);
-            document.getElementById('clientContent').innerHTML = generateClientHtml(clientData);
+            document.getElementById('chat-information-content').innerHTML = generateClientHtml(clientData);
         })
         .catch(error => console.error('클라이언트 정보 로드 실패:', error));
+
+}
+
+function loadProInfo(){
+
+    const toValue = document.getElementById('hiddenTo').value;
 
     fetch('/test/chat/pro-info',{
         method: 'POST',
@@ -159,7 +169,7 @@ function loadClientProInfo(){
         .then(response => response.json())
         .then(proData => {
             console.log(proData);
-            document.getElementById('proContent').innerHTML = generateProHtml(proData);
+            document.getElementById('chat-information-content').innerHTML = generateProHtml(proData);
         })
         .catch(error => console.error('프로 정보 로드 실패:', error));
 }
@@ -181,12 +191,4 @@ function generateProHtml(data) {
         <p>전화번호: ${data.pro_phone}</p>
         <p>주소: ${data.pro_address}</p>
     `;
-}
-
-function tabTab(){
-    // 페이지 로드 시 클라이언트 정보 영역 보이기
-    document.getElementById('clientContent').style.display = 'block';
-    document.getElementById('proContent').style.display = 'none';
-    // 기본 탭에 active 클래스 추가
-    document.getElementById('clientTab').classList.add('active');
 }
