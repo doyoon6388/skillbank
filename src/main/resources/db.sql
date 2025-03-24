@@ -206,6 +206,11 @@ delete chat_room;
 select *
 from chat_room;
 
+alter table chat_room
+    add (
+        chat_complete number(1) default 0
+               );
+
 select sessiontimezone, dbtimezone from dual;
 
 select * from community_post_like;
@@ -226,4 +231,10 @@ create table review
 
 select * from review;
 delete review;
+delete request;
+delete response;
+delete chat_room;
 create sequence review_seq;
+
+select * from request;
+

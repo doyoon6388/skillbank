@@ -34,14 +34,6 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
       <div id="chat-information-container">
         <div id="chat-information-content"></div>
       </div>
-      <div class="deal-button-container">
-        <div>
-          <button id="deal-complete-btn">거래 성사</button>
-        </div>
-        <div>
-          <button id="deal-cancel-btn">거래 취소</button>
-        </div>
-      </div>
     </div>
 
     <!-- 메시지 입력창 -->

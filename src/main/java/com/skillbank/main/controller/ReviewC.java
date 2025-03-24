@@ -22,6 +22,7 @@ public class ReviewC {
     @PostMapping("/review")
     public String review(ReviewVO reviewVO, Model model, HttpSession session) {
 
+
         if (reviewService.createReview(reviewVO) == 1){
         System.out.println("등록완료");
         }

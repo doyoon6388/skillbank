@@ -33,33 +33,17 @@ window.onload = () => {
     loadProInfo();
   }
 
-  // 페이지 로드 시 기본적으로 클라이언트 정보 영역을 보이도록 설정
-  document.getElementById("clientContent").style.display = "block";
-  document.getElementById("proContent").style.display = "none";
-
-  // 기본 탭(클라이언트 정보 탭)에 active 클래스 추가
-  const tabs = document.querySelectorAll("#tabs button");
-  tabs.forEach((tab) => tab.classList.remove("active")); // 혹시 모를 active 제거
-  document.getElementById("clientTab").classList.add("active");
-
-  // 모든 탭에 클릭 이벤트 등록
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", function () {
-      // 모든 탭에서 active 클래스를 제거
-      tabs.forEach((t) => t.classList.remove("active"));
-      // 클릭한 탭에 active 클래스 추가
-      this.classList.add("active");
-
-      // 탭에 따른 콘텐츠 표시 전환
-      if (this.id === "clientTab") {
-        document.getElementById("clientContent").style.display = "block";
-        document.getElementById("proContent").style.display = "none";
-      } else if (this.id === "proTab") {
-        document.getElementById("clientContent").style.display = "none";
-        document.getElementById("proContent").style.display = "block";
+  document.getElementById("deal-complete-btn").addEventListener("click", function () {
+    if (confirm("거래를 성사하시겠습니까?")) {
+      if (confirm("고수님을 위해 리뷰를 작성해주세요!")) {
+        document.getElementById("review-form").submit(); // POST to /review
+      } else {
+        window.location.href = "/noReview"; // GET to /noReview
       }
-    });
+    }
   });
+
+
 }; // 레디 함수 끝
 
 // WebSocket 연결 생성
@@ -173,34 +157,34 @@ function loadProInfo() {
 }
 
 function generateClientHtml(data) {
-  let review_client = document.getElementById("hiddenFrom").value;
-  let review_pro = document.getElementById("hiddenTo").value;
   return `
         <h3>클라이언트 정보</h3>
         <p>이름: ${data.user_nickname}</p>
         <p>이메일: ${data.user_email}</p>
         <p>기타 정보: ${data.user_phone}</p>
-        <div class="deal-button-container">
-        <form action="/review" method="post">
-        <input type="text" name="review_client" value="${review_client}">
-        <input type="text" name="review_pro" value="${review_pro}">
-    <div>
-        <button id="deal-complete-btn">거래 성사</button>
-    </div>
-    </form>
-    <div>
-        <button id="deal-cancel-btn">거래 취소</button>
-    </div>
-</div>
     `;
 }
 
 function generateProHtml(data) {
+  let review_client = document.getElementById("hiddenFrom").value;
+  let review_pro = document.getElementById("hiddenTo").value;
   return `
         <h3>프로 정보</h3>
         <p>이름: ${data.pro_name}</p>
         <p>전문 분야: ${data.pro_category}</p>
         <p>전화번호: ${data.pro_phone}</p>
         <p>주소: ${data.pro_address}</p>
+          <div class="deal-button-container">
+<form id="review-form" action="/review" method="post">
+  <input type="hidden" name="review_client" value="${review_client}">
+  <input type="hidden" name="review_pro" value="${review_pro}">
+  <div>
+    <button id="deal-complete-btn" type="button">거래 성사</button>
+  </div>
+  <div>
+    <button id="deal-cancel-btn" type="button">거래 취소</button>
+  </div>
+</form>
+</div>
     `;
 }
