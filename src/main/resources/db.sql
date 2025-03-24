@@ -92,6 +92,12 @@ ALTER TABLE community_post
 ALTER TABLE community_post
     ADD commu_tags VARCHAR2(255 CHAR);
 
+ALTER TABLE community_post
+    DROP COLUMN commu_tags;
+
+ALTER TABLE community_post
+    MODIFY commu_image VARCHAR2(2000 CHAR);
+
 
 
 

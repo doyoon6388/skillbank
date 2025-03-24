@@ -41,21 +41,25 @@ public class CommunityService {
         return communityMapper.getAllAskproPost();
     }
 
+    //    本物
     public void createPost(CommunityPostVO communityPostVO, MultipartFile file) {
+        // commu_post_categoryがnullの場合エラーハンドリング
+        if (communityPostVO.getCommu_post_category() == null || communityPostVO.getCommu_post_category().isEmpty()) {
+            throw new IllegalArgumentException("投稿カテゴリが空です。");
+        }
+
         if (!file.getOriginalFilename().isEmpty()) {
             String originalFilename = file.getOriginalFilename();
             String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
 
             UUID uuid = UUID.randomUUID();
-            System.out.println(uuid);
             String[] uuids = uuid.toString().split("-");
-            System.out.println(uuids[0]);
             String fileName = uuids[0] + fileExtension;
 
             File saveFile = new File(upload + File.separator + fileName);
 
             try {
-                file.transferTo(saveFile); // 실제 파일 저장 기능
+                file.transferTo(saveFile);
                 communityPostVO.setCommu_image(fileName);
 
             } catch (IOException e) {
@@ -65,20 +69,9 @@ public class CommunityService {
             communityPostVO.setCommu_image("defaultCommuImg.png");
         }
 
-        if (communityPostVO.getCommu_tags() != null) {
-            List<String> tags = Arrays.asList(communityPostVO.getCommu_tags().split("、\\s*"));
-            communityPostVO.setCommu_tags(String.join("、", tags));
-            System.out.println("タグリスト: " + tags);
-        }
-
         if (communityMapper.createPost(communityPostVO) == 1) {
             System.out.println("登録成功！！！！！！！！！！！！！！");
         }
-    }
-
-    //tag
-    public List<CommunityPostVO> getPostsByTag(String tag) {
-        return communityMapper.findByTag(tag);
     }
 
     //順番(paging)
@@ -88,7 +81,7 @@ public class CommunityService {
 
     public List<CommunityPostVO> getPostsByPage(Model model, String category, int totalCount, int page) {
         int pageSize = 3;
-        if (category.equals("askpro")){
+        if (category.equals("askpro")) {
             pageSize = 5;
         }
 
@@ -109,16 +102,16 @@ public class CommunityService {
 
         int pageBlockSize = 5;
 
-    // 현재 페이지를 기준으로 보여줄 시작 페이지 번호 계산
+        // 현재 페이지를 기준으로 보여줄 시작 페이지 번호 계산
         int startPage = ((page - 1) / pageBlockSize) * pageBlockSize + 1;
-    // 시작 페이지 번호로부터 pageBlockSize만큼 더해 종료 페이지 번호 계산
+        // 시작 페이지 번호로부터 pageBlockSize만큼 더해 종료 페이지 번호 계산
         int endPage = startPage + pageBlockSize - 1;
-    // totalPages는 전체 페이지 수 (전체 게시글 수 / pageSize)라고 가정
+        // totalPages는 전체 페이지 수 (전체 게시글 수 / pageSize)라고 가정
         if (endPage > totalPage) {
             endPage = totalPage;
         }
 
-    // 모델에 추가
+        // 모델에 추가
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
         model.addAttribute("start", start);
@@ -199,4 +192,16 @@ public class CommunityService {
         CommunityLikeVO communityLikeVO = communityMapper.selectLike(user_pk, pro_pk);
         return communityLikeVO != null;
     }
+
+    public void deleteLikesByPostId(int postId) {
+        communityMapper.deleteLikesByPostId(postId);
+    }
+
+    //    いいね上位３つ
+    public List<CommunityPostVO> getTop3LikedPosts() {
+        return communityMapper.getTop3LikedPosts();
+    }
+
+
+
 }

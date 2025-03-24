@@ -19,12 +19,8 @@ public interface CommunityMapper {
     @Select("select * from community_post where commu_post_category = 'askpro' order by commu_date desc")
     List<CommunityPostVO> getAllAskproPost();
 
-    @Insert("insert into community_post values(community_post_seq.nextval, #{commu_post_category},#{commu_user_id},#{commu_title}, current_timestamp, #{commu_content}, #{commu_image}, default, default, #{commu_tags})")
+    @Insert("insert into community_post values(community_post_seq.nextval, #{commu_post_category},#{commu_user_id},#{commu_title}, current_timestamp, #{commu_content}, #{commu_image}, default, default)")
     int createPost(CommunityPostVO communityPostVO);
-
-    //    タグ
-    @Select("select * from community_post where commu_tags like '%' || #{tag} || '%' order by commu_date desc")
-    List<CommunityPostVO> findByTag(@Param("tag") String tag);
 
     //    順番(実験)
     @Select("select count(*) from community_post where commu_post_category = #{category}")
@@ -52,7 +48,7 @@ public interface CommunityMapper {
     @Select("select * from community_comment where comment_post_id = #{postId} order by comment_date desc")
     List<CommunityCommentVO> getCommentsByPost(@Param("postId") int postId);
 
-//  いいね
+    //  いいね
     @Select("SELECT COUNT(*) FROM community_post_like WHERE post_id = #{post_id}")
     int countLikes(int post_id);
 
@@ -62,6 +58,9 @@ public interface CommunityMapper {
     @Select("SELECT * FROM community_post_like WHERE post_id = #{post_id} and user_id = #{user_id}")
     CommunityLikeVO selectLike(int user_id, int post_id);
 
+    @Delete("DELETE FROM community_post_like WHERE post_id = #{postId}")
+    void deleteLikesByPostId(int postId);
+
     @Delete("DELETE FROM community_post_like WHERE post_id = #{post_id} and user_id = #{user_id}")
     void deleteLike(int user_id, int post_id);
 
@@ -70,4 +69,10 @@ public interface CommunityMapper {
 
     @Update("UPDATE community_post SET commu_like = commu_like + 1 WHERE commu_post_id = #{post_id}")
     void incrementLike(int post_id);
+
+//    いいね上位３つ
+    @Select("SELECT * FROM (SELECT * FROM community_post ORDER BY commu_like DESC) WHERE ROWNUM <= 3")
+    List<CommunityPostVO> getTop3LikedPosts();
+
+
 }

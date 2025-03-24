@@ -24,9 +24,16 @@
                 <div class="appeal-post-author">
                     投稿者: ${post.commu_user_id}
                 </div>
-                <div class="appeal-post-date">
-                    <fmt:formatDate value="${post.commu_date}" pattern="MM/dd - HH:mm"/>
+<%--                <div class="appeal-post-date">--%>
+<%--                    <fmt:formatDate value="${post.commu_date}" pattern="MM/dd - HH:mm"/>--%>
+<%--                </div>--%>
+
+                <div class="client-post-date">
+                    <p class="community-date"
+                       data-date="<fmt:formatDate value='${post.commu_date}' pattern='yyyy-MM-dd\'T\'HH:mm:ss'/>">
+                    </p>
                 </div>
+
             </div>
             <div class="appeal-post-title">
                 [${post.commu_title}]
@@ -37,6 +44,19 @@
             <div class="appeal-post-wrapper">
                 <img src="/file/${post.commu_image}" alt="画像" style="width: 100px; height: 100px;">
             </div>
+<%--            <div class="community-like-number">いいね: ${post.commu_like}</div>--%>
+            <div class="community-like-number">
+                いいね:
+                <c:choose>
+                    <c:when test="${post.commu_like > 0}">
+                        <span class="like-count">${post.commu_like}個</span>
+                    </c:when>
+                    <c:otherwise>
+                        <span class="like-count">0個</span>
+                    </c:otherwise>
+                </c:choose>
+            </div>
+
         </div>
     </c:forEach>
 </div>
