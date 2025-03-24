@@ -34,6 +34,10 @@ public class CommunityC {
 
     @GetMapping("main")
     public String community(Model model, HttpSession session) {
+//        いいね多い順
+        List<CommunityPostVO> topPosts = communityService.getTop3LikedPosts();
+        model.addAttribute("topPosts", topPosts);
+
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "community/communityClient.jsp");
         model.addAttribute("communityPage", "clientMain.jsp");
@@ -46,8 +50,16 @@ public class CommunityC {
         }
     }
 
+
+
     @GetMapping("pro/main")
     public String communityPro(Model model, HttpSession session) {
+
+        //        いいね多い順
+        List<CommunityPostVO> topPosts = communityService.getTop3LikedPosts();
+        model.addAttribute("topPosts", topPosts);
+
+
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "community/communityClient.jsp");
         model.addAttribute("communityPage", "proMain.jsp");
@@ -156,6 +168,7 @@ public class CommunityC {
         }
     }
 
+//    本物
     @PostMapping("write")
     public String writePost(Model model, HttpSession session, @ModelAttribute CommunityPostVO communityPostVO, MultipartFile file) {
         String content = communityPostVO.getCommu_content();
@@ -173,27 +186,6 @@ public class CommunityC {
             return "redirect:/community/" + communityPostVO.getCommu_post_category();
         }
     }
-
-//    @PostMapping("write")
-//    public String writePost(Model model, HttpSession session, CommunityPostVO communityPostVO, MultipartFile file) {
-//        // セッションの mode をデバッグ出力
-//        System.out.println("Session mode: " + session.getAttribute("mode"));
-//
-//        // セッションの mode でプロかどうかを判定する
-//        if (session.getAttribute("mode") != null && "on".equals(session.getAttribute("mode").toString())) {
-//            communityPostVO.setCommu_writer(0);
-//        } else {
-//            communityPostVO.setCommu_writer(1);
-//        }
-//
-//        String content = communityPostVO.getCommu_content();
-//        if (content != null) {
-//            communityPostVO.setCommu_content(content.trim());
-//        }
-//        communityService.createPost(communityPostVO, file);
-//        return "redirect:/community/" + communityPostVO.getCommu_post_category();
-//    }
-//
 
 
     @GetMapping("detail")
@@ -247,7 +239,6 @@ public class CommunityC {
             return "index";
         }
     }
-
 
     @PostMapping("delete")
     public String communityDeletePost(@RequestParam("postId") int postId, Model model, HttpSession session) {
@@ -327,6 +318,16 @@ public class CommunityC {
         response.put("favorited", favorited);
         response.put("likeCount", likeCount);
         return response;
+    }
+
+
+    //    いいね上位３つ
+    @GetMapping("top")
+    public String showTopPosts(Model model, HttpSession session) {
+        List<CommunityPostVO> topPosts = communityService.getTop3LikedPosts();
+        model.addAttribute("topPosts", topPosts);
+        return "community/clientMain";
+
     }
 
 

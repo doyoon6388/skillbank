@@ -24,8 +24,13 @@
                 <div class="pro-post-author">
                     投稿者 ${i.commu_user_id}
                 </div>
-                <div class="pro-post-date">
-                    <fmt:formatDate value="${i.commu_date}" pattern="yyyy/MM/dd HH:mm"/>
+<%--                <div class="pro-post-date">--%>
+<%--                    <fmt:formatDate value="${i.commu_date}" pattern="yyyy/MM/dd HH:mm"/>--%>
+<%--                </div>--%>
+                <div class="client-post-date">
+                    <p class="community-date"
+                       data-date="<fmt:formatDate value='${i.commu_date}' pattern='yyyy-MM-dd\'T\'HH:mm:ss'/>">
+                    </p>
                 </div>
             </div>
             <div class="pro-post-title">

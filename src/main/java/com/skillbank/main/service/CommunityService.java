@@ -41,6 +41,7 @@ public class CommunityService {
         return communityMapper.getAllAskproPost();
     }
 
+    //    本物
     public void createPost(CommunityPostVO communityPostVO, MultipartFile file) {
         // commu_post_categoryがnullの場合エラーハンドリング
         if (communityPostVO.getCommu_post_category() == null || communityPostVO.getCommu_post_category().isEmpty()) {
@@ -80,7 +81,7 @@ public class CommunityService {
 
     public List<CommunityPostVO> getPostsByPage(Model model, String category, int totalCount, int page) {
         int pageSize = 3;
-        if (category.equals("askpro")){
+        if (category.equals("askpro")) {
             pageSize = 5;
         }
 
@@ -101,16 +102,16 @@ public class CommunityService {
 
         int pageBlockSize = 5;
 
-    // 현재 페이지를 기준으로 보여줄 시작 페이지 번호 계산
+        // 현재 페이지를 기준으로 보여줄 시작 페이지 번호 계산
         int startPage = ((page - 1) / pageBlockSize) * pageBlockSize + 1;
-    // 시작 페이지 번호로부터 pageBlockSize만큼 더해 종료 페이지 번호 계산
+        // 시작 페이지 번호로부터 pageBlockSize만큼 더해 종료 페이지 번호 계산
         int endPage = startPage + pageBlockSize - 1;
-    // totalPages는 전체 페이지 수 (전체 게시글 수 / pageSize)라고 가정
+        // totalPages는 전체 페이지 수 (전체 게시글 수 / pageSize)라고 가정
         if (endPage > totalPage) {
             endPage = totalPage;
         }
 
-    // 모델에 추가
+        // 모델에 추가
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
         model.addAttribute("start", start);
@@ -195,4 +196,12 @@ public class CommunityService {
     public void deleteLikesByPostId(int postId) {
         communityMapper.deleteLikesByPostId(postId);
     }
+
+    //    いいね上位３つ
+    public List<CommunityPostVO> getTop3LikedPosts() {
+        return communityMapper.getTop3LikedPosts();
+    }
+
+
+
 }
