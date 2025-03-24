@@ -10,7 +10,7 @@ import java.util.List;
 
 @Mapper
 public interface RequestMapper {
-    @Insert("insert into request values (request_no_seq.nextval, #{r_user_id}, #{request_type}, sysdate, #{request1}, #{request2}, #{request3}, #{request4}, #{request5}, #{request6}, #{request7}, #{request8}, #{request9}, #{request10}, #{request11}, #{request12}, #{request13}, #{request14}, #{r_pro_pk})" )
+    @Insert("insert into request values (request_no_seq.nextval, #{r_user_id}, #{request_type}, sysdate, #{request1}, #{request2}, #{request3}, #{request4}, #{request5}, #{request6}, #{request7}, #{request8}, #{request9}, #{request10}, #{request11}, #{request12}, #{request13}, #{request14}, #{r_pro_pk}, 0)" )
     int requestReg(ReqeustVO reqeustVO);
 
     @Select("SELECT distinct r.*, res.r_request_no FROM request r FULL OUTER JOIN response res ON r.request_no = res.r_request_no WHERE r.r_user_id = #{r_user_id)} order by r.r_pro_pk desc")
