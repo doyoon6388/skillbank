@@ -34,7 +34,7 @@
 }
 
 .community-pro-tab {
-    border: 7px solid greenyellow;
+    /*border: 7px solid greenyellow;*/
     position: sticky;
     top: 70px;
     height: 177px;
@@ -57,7 +57,7 @@
 
 /*内容物*/
 .community-content {
-    border: 7px solid darkblue;
+    /*border: 7px solid darkblue;*/
     height: 100%;
     width: 100%;
 }
@@ -570,9 +570,7 @@
 }
 
 /*-----------------------------------------------*/
-/*いいね*/
 
-/*-----------------------------------------------*/
 /*コメント用*/
 .community-comment-section {
     margin-top: 30px;
@@ -682,44 +680,6 @@
 
 /*-----------------------------------------------*/
 
-/*選択表示*/
-.community-client-tab {
-    border: 7px solid greenyellow;
-    position: sticky;
-    top: 70px;
-    height: 177px;
-    width: 200px;
-    z-index: 2;
-    cursor: pointer;
-}
-
-/* community tabs */
-.community-client-tab div.active{
-    font-weight: bold;
-    color: #F8B285;
-}
-
-.community-pro-tab {
-    border: 7px solid greenyellow;
-    position: sticky;
-    top: 70px;
-    height: 177px;
-    width: 200px;
-    z-index: 2;
-    cursor: pointer;
-}
-
-.community-pro-tab div.active{
-    font-weight: bold;
-    color: #4DB2E1;
-}
-
-.community-body-wrapper {
-    display: flex;
-    gap: 30px;
-}
-
-/*-----------------------------------------------*/
 /*プロの認識用*/
 /*.pro-label {*/
 /*    color: white;*/
@@ -941,7 +901,7 @@
 
 .pro-post-card {
     background-color: white;
-    /*border: 1px solid cornsilk;*/
+    border: 1px solid cornsilk;
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 15px;
@@ -1137,27 +1097,27 @@
     cursor: pointer;
 }
 
-/*!*削除ボタン*!*/
-/*.community-delete-btn {*/
-/*    background-color: cornsilk;*/
-/*    color:gray;*/
-/*    padding: 10px 18px;*/
-/*    font-size: 12px;*/
-/*    border: none;*/
-/*    border-radius: 4px;*/
-/*    cursor: pointer;*/
-/*}*/
+/*削除ボタン*/
+.community-delete-btn {
+    background-color: cornsilk;
+    color:gray;
+    padding: 10px 18px;
+    font-size: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-/*!*修正ボタン*!*/
-/*.community-update-btn {*/
-/*    background-color: cornsilk;*/
-/*    color:gray;*/
-/*    padding: 10px 18px;*/
-/*    font-size: 12px;*/
-/*    border: none;*/
-/*    border-radius: 4px;*/
-/*    cursor: pointer;*/
-/*}*/
+/*修正ボタン*/
+.community-update-btn {
+    background-color: cornsilk;
+    color:gray;
+    padding: 10px 18px;
+    font-size: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
 /* キャンセルボタン */
 .cancel-btn {
@@ -1315,75 +1275,103 @@
 
 /*-----------------------------------------------*/
 
-/* ハンバーガーボタン */
-.hamburger-menu {
-    position: relative;
-    display: inline-block;
-    z-index: 9999; /* 他の要素より最前面に表示 */
+/*Top Posts (一番人気の投稿)*/
+/* Top Posts (一番人気の投稿) */
+.top-posts {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    /*border: 1px solid #eaeaea;*/
+    border-radius: 10px;
+    text-align: center;
 }
 
-.hamburger-btn {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.2s ease;
-
-    z-index: 10000; /* メニューより上に表示 */
-    pointer-events: auto;
-}
-
-/* ボタンクリック時 or ホバー時の色変更 */
-.hamburger-btn:hover {
-    background-color: #2980b9;
-}
-
-/* メニューオプション */
-.menu-options {
-    display: none;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 5px 0;
-    z-index: 10;
-    border-radius: 5px;
-}
-
-/* メニューの表示 */
-.hamburger-menu.open .menu-options {
-    display: block;
-}
-
-/* ボタンのスタイル */
-.menu-item {
-    padding: 10px 20px;
+.top-posts h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
     color: #333;
-    text-align: left;
-    width: 100%;
-    border: none;
-    background: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
 }
 
-/* ホバー時の色変更 */
-.menu-item:hover {
-    background-color: #f0f0f0;
+/* グリッドレイアウト */
+.post-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
 }
 
-/* 削除ボタン */
-.delete-item {
+/* カード本体 */
+.post-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    /*border: 1px solid #eaeaea;*/
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    word-break: break-all;
+    white-space: normal;
+    overflow: hidden;
+    /* 余分な高さを抑えてコンパクトに */
+    min-height: 300px;
+}
+
+.post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* タイトル */
+.post-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+/* いいね数 */
+.post-like {
+    font-size: 14px;
+    margin-bottom: 4px;
     color: #e74c3c;
     font-weight: bold;
 }
 
-/* 編集ボタン */
-.edit-item {
-    color: #3498db;
-    font-weight: bold;
+/* 投稿日時 */
+.post-date {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+/* 画像 */
+.post-card img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+/* 本文サマリ */
+.post-card .post-content {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* 「続きを読む」リンク */
+.read-more {
+    margin-top: auto;  /* カード下部に固定 */
+    font-size: 14px;
+    color: #1e90ff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.read-more:hover {
+    color: #0056b3;
+    text-decoration: underline;
 }

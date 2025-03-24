@@ -48,7 +48,7 @@ public interface CommunityMapper {
     @Select("select * from community_comment where comment_post_id = #{postId} order by comment_date desc")
     List<CommunityCommentVO> getCommentsByPost(@Param("postId") int postId);
 
-//  いいね
+    //  いいね
     @Select("SELECT COUNT(*) FROM community_post_like WHERE post_id = #{post_id}")
     int countLikes(int post_id);
 
@@ -69,4 +69,10 @@ public interface CommunityMapper {
 
     @Update("UPDATE community_post SET commu_like = commu_like + 1 WHERE commu_post_id = #{post_id}")
     void incrementLike(int post_id);
+
+//    いいね上位３つ
+    @Select("SELECT * FROM (SELECT * FROM community_post ORDER BY commu_like DESC) WHERE ROWNUM <= 3")
+    List<CommunityPostVO> getTop3LikedPosts();
+
+
 }
