@@ -14,14 +14,6 @@
 <input id="from" value="${sessionScope.user.user_nickname}" hidden>
 <input id="to" value="${chatRoom.chat_pro_name}" hidden>
 <div class="chat-response-container"></div>
-<div class="deal-button-container">
-    <div>
-        <button id="deal-complete-btn">거래 성사</button>
-    </div>
-    <div>
-        <button id="deal-cancel-btn">거래 취소</button>
-    </div>
-</div>
 <div class="chat-wrapper">
     <div id="chatContainer">
         <c:forEach items="${chatLog}" var="chat">

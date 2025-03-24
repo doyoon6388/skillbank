@@ -334,7 +334,7 @@ add(
     );
 alter table request
     add(
-        response_no number(5)
+        r_complete number(1) default 0
         );
 
 
@@ -363,7 +363,6 @@ drop table response cascade constraints purge;
 create sequence r_no_seq;
 
 select * from response;
-
 
 
 

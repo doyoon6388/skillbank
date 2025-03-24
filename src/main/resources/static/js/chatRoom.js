@@ -1,9 +1,9 @@
 window.onload = () => {
     scrollToBottom();
-    const cloneReqHTML = sessionStorage.getItem("cloneReqHTML");
+    /*const cloneReqHTML = sessionStorage.getItem("cloneReqHTML");
     if (cloneReqHTML) {
         document.querySelector("#reqForm").innerHTML = cloneReqHTML;
-    }
+    }*/
     const from = document.querySelector("#from").value;
     const to = document.querySelector("#to").value;
     console.log(from);
@@ -165,11 +165,25 @@ function loadClientProInfo(){
 }
 
 function generateClientHtml(data) {
+    let review_client = document.getElementById('hiddenFrom').value;
+    let review_pro =  document.getElementById('hiddenTo').value;
     return `
         <h3>클라이언트 정보</h3>
         <p>이름: ${data.user_nickname}</p>
         <p>이메일: ${data.user_email}</p>
         <p>기타 정보: ${data.user_phone}</p>
+        <div class="deal-button-container">
+        <form action="/review" method="post">
+        <input type="text" name="review_client" value="${review_client}">
+        <input type="text" name="review_pro" value="${review_pro}">
+    <div>
+        <button id="deal-complete-btn">거래 성사</button>
+    </div>
+    </form>
+    <div>
+        <button id="deal-cancel-btn">거래 취소</button>
+    </div>
+</div>
     `;
 }
 
@@ -190,3 +204,5 @@ function tabTab(){
     // 기본 탭에 active 클래스 추가
     document.getElementById('clientTab').classList.add('active');
 }
+
+

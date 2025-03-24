@@ -203,3 +203,21 @@ from chat_room;
 select sessiontimezone, dbtimezone from dual;
 
 select * from community_post_like;
+
+create table review
+(
+    review_pk number(5) primary key,
+    review_complete number(1) default 0,
+    review_client number,
+    review_pro number,
+    review_category varchar2(100 char),
+    review_title varchar2(100 char),
+    review_txt clob,
+    review_star number(2,1) default 0,
+    CONSTRAINT fk_review_client FOREIGN KEY (review_client) REFERENCES user_account(user_pk) ON DELETE CASCADE,
+    CONSTRAINT fk_review_pro FOREIGN KEY (review_pro) REFERENCES pro_account(pro_pk) ON DELETE CASCADE
+);
+
+select * from review;
+delete review;
+create sequence review_seq;
