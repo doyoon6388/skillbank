@@ -24,9 +24,16 @@
                 <div class="appeal-post-author">
                     投稿者: ${post.commu_user_id}
                 </div>
-                <div class="appeal-post-date">
-                    <fmt:formatDate value="${post.commu_date}" pattern="MM/dd - HH:mm"/>
+<%--                <div class="appeal-post-date">--%>
+<%--                    <fmt:formatDate value="${post.commu_date}" pattern="MM/dd - HH:mm"/>--%>
+<%--                </div>--%>
+
+                <div class="client-post-date">
+                    <p class="community-date"
+                       data-date="<fmt:formatDate value='${post.commu_date}' pattern='yyyy-MM-dd\'T\'HH:mm:ss'/>">
+                    </p>
                 </div>
+
             </div>
             <div class="appeal-post-title">
                 [${post.commu_title}]
