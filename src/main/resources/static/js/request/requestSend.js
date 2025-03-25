@@ -85,7 +85,7 @@ function makeChatroom(requestNo, user, userName, pro, proName, cloneReqHTML) {
       // 서버에서 응답을 받으면 채팅방 개설 성공 여부 등을 처리
       console.log(data.roomNo);
       console.log(data.success);
-      if (data.success == 1) {
+      if (data.success === 1) {
         alert("채팅방이 개설되었습니다.");
       } else {
         alert("존재하는 채팅을 불러옵니다.");
