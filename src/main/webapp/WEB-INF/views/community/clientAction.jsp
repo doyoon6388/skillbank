@@ -45,15 +45,19 @@
                 <img src="/file/${i.commu_image}" alt="" style="width: 100px; height: 100px;">
             </div>
 
-            <div class="community-tags">
-                <c:if test="${not empty i.commu_tags}">
-                    <c:forEach var="tag" items="${i.commu_tags.split('、')}">
-                        <a href="/community/search?tag=${tag}" class="tag-link">#${tag.trim()}</a>
-                    </c:forEach>
-                </c:if>
+<%--            <div class="community-like-number">いいね: ${i.commu_like}</div>--%>
+            <div class="community-like-number">
+                いいね:
+                <c:choose>
+                    <c:when test="${i.commu_like > 0}">
+                        <span class="like-count">${i.commu_like}個</span>
+                    </c:when>
+                    <c:otherwise>
+                        <span class="like-count">0個</span>
+                    </c:otherwise>
+                </c:choose>
             </div>
 
-            <div class="community-like-number">いいね: ${i.commu_like}</div>
         </div>
     </c:forEach>
 </div>

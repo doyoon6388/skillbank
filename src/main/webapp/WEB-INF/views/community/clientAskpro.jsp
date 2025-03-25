@@ -24,8 +24,13 @@
                 <div class="pro-post-author">
                     投稿者 ${i.commu_user_id}
                 </div>
-                <div class="pro-post-date">
-                    <fmt:formatDate value="${i.commu_date}" pattern="yyyy/MM/dd HH:mm"/>
+<%--                <div class="pro-post-date">--%>
+<%--                    <fmt:formatDate value="${i.commu_date}" pattern="yyyy/MM/dd HH:mm"/>--%>
+<%--                </div>--%>
+                <div class="client-post-date">
+                    <p class="community-date"
+                       data-date="<fmt:formatDate value='${i.commu_date}' pattern='yyyy-MM-dd\'T\'HH:mm:ss'/>">
+                    </p>
                 </div>
             </div>
             <div class="pro-post-title">
@@ -37,6 +42,19 @@
             <div class="client-post-wrapper">
                 <img src="/file/${i.commu_image}" alt="" style="width: 100px; height: 100px;">
             </div>
+<%--            <div class="community-like-number">いいね: ${i.commu_like}</div>--%>
+            <div class="community-like-number">
+                いいね:
+                <c:choose>
+                    <c:when test="${i.commu_like > 0}">
+                        <span class="like-count">${i.commu_like}個</span>
+                    </c:when>
+                    <c:otherwise>
+                        <span class="like-count">0個</span>
+                    </c:otherwise>
+                </c:choose>
+            </div>
+
         </div>
     </c:forEach>
 </div>

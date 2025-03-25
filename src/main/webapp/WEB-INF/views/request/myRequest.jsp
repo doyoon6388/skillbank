@@ -58,7 +58,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
 
             </div>
             <div class="progress-bar">
-              <div class="progress" style="width: ${r.r_request_no >= 1 ? '50%' : '20%'}"></div>
+              <div class="progress" style="width: ${r.r_request_no >= 1 ? (r.r_complete == 1 ? '100%' : '50%') : '20%'}"></div>
               <c:if test="${r.r_pro_pk != 0}">
                 <span class="badge2">지정 요청</span>
               </c:if>

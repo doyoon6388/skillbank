@@ -70,12 +70,22 @@
                 </c:otherwise>
             </c:choose>
         </button>
-        좋아요 : <span id="like-count">${communityPost.commu_like}</span>개
+        いいね : <span id="like-count">${communityPost.commu_like}</span>個
         <input type="hidden" id="community-like-id" value="${communityPost.commu_post_id}">
         <input type="hidden" id="current-user-pk" value="${sessionScope.user.user_pk}">
 
-        <%-- 戻る/削除/修正　--%>
-    <button class="community-history-back" id="history-back" type="button" onclick="history.back()">戻る</button>
+        <%-- 戻る--%>
+<%--    <button class="community-history-back" id="history-back" type="button" onclick="history.back()">戻る</button>--%>
+        <button class="community-history-back"
+                id="history-back"
+                type="button"
+                onclick="location.href='${sessionScope.previousUrl}'">
+            戻る
+        </button>
+
+
+
+    <%--    削除/修正　--%>
     <c:if test="${sessionScope.user != null and sessionScope.user.user_pk == communityPost.commu_user_id}">
         <form class="delete-form" id="delete-form" action="/community/delete" method="post" style="display:inline;">
             <input type="hidden" name="postId" value="${communityPost.commu_post_id}" id="delete-post-id"/>
@@ -119,7 +129,6 @@
         </div>
     </div>
 </c:if>
-
 <script src="/resources/js/community/community.js"></script>
 </body>
 </html>

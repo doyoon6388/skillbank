@@ -34,6 +34,10 @@ public class CommunityC {
 
     @GetMapping("main")
     public String community(Model model, HttpSession session) {
+//        いいね多い順
+        List<CommunityPostVO> topPosts = communityService.getTop3LikedPosts();
+        model.addAttribute("topPosts", topPosts);
+
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "community/communityClient.jsp");
         model.addAttribute("communityPage", "clientMain.jsp");
@@ -46,8 +50,16 @@ public class CommunityC {
         }
     }
 
+
+
     @GetMapping("pro/main")
     public String communityPro(Model model, HttpSession session) {
+
+        //        いいね多い順
+        List<CommunityPostVO> topPosts = communityService.getTop3LikedPosts();
+        model.addAttribute("topPosts", topPosts);
+
+
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "community/communityClient.jsp");
         model.addAttribute("communityPage", "proMain.jsp");
@@ -142,31 +154,6 @@ public class CommunityC {
         }
     }
 
-    @GetMapping("wisdom")
-    public String wisdom(Model model, HttpSession session,
-                         @RequestParam(name = "page", defaultValue = "1") int page) {
-        String category = "wisdom";
-
-        int totalCount = communityService.getPostCount(category);
-
-        List<CommunityPostVO> postVOList = communityService.getPostsByPage(model, category, totalCount, page);
-        model.addAttribute("communityPost", postVOList);
-        model.addAttribute("currentPage", page);
-
-        Object mode = session.getAttribute("mode");
-        model.addAttribute("page", "community/communityPrp.jsp");
-        model.addAttribute("communityPage", "proWisdom.jsp");
-
-        if (mode != null && mode.toString().equals("on")) {
-            model.addAttribute("loginCheck", "login/loginPro.jsp");
-            return "indexPro";
-        } else {
-            model.addAttribute("loginCheck", mainService.loginCheck(session));
-            return "index";
-        }
-    }
-
-
     @GetMapping("write")
     public String writePost(Model model, HttpSession session) {
         Object mode = session.getAttribute("mode");
@@ -181,6 +168,7 @@ public class CommunityC {
         }
     }
 
+//    本物
     @PostMapping("write")
     public String writePost(Model model, HttpSession session, @ModelAttribute CommunityPostVO communityPostVO, MultipartFile file) {
         String content = communityPostVO.getCommu_content();
@@ -195,56 +183,29 @@ public class CommunityC {
         } catch (Exception e) {
             model.addAttribute("communityPost", communityPostVO);
             model.addAttribute("error", "投稿に失敗しました。");
-            return "community/communityClientWrite";
+            return "redirect:/community/" + communityPostVO.getCommu_post_category();
         }
     }
-
-    @GetMapping("search")
-    public String searchByTag(@RequestParam("tag") String tag, Model model) {
-        List<CommunityPostVO> posts = communityService.getPostsByTag(tag);
-        model.addAttribute("communityPost", posts);
-        model.addAttribute("currentPage", 1);
-
-        if (!posts.isEmpty()) {
-            String category = posts.get(0).getCommu_post_category();
-            return "redirect:/community/" + category;
-        }
-
-        // 投稿がない場合はメインページに戻る
-        return "redirect:/community/main";
-    }
-
-//    @PostMapping("write")
-//    public String writePost(Model model, HttpSession session, CommunityPostVO communityPostVO, MultipartFile file) {
-//        // セッションの mode をデバッグ出力
-//        System.out.println("Session mode: " + session.getAttribute("mode"));
-//
-//        // セッションの mode でプロかどうかを判定する
-//        if (session.getAttribute("mode") != null && "on".equals(session.getAttribute("mode").toString())) {
-//            communityPostVO.setCommu_writer(0);
-//        } else {
-//            communityPostVO.setCommu_writer(1);
-//        }
-//
-//        String content = communityPostVO.getCommu_content();
-//        if (content != null) {
-//            communityPostVO.setCommu_content(content.trim());
-//        }
-//        communityService.createPost(communityPostVO, file);
-//        return "redirect:/community/" + communityPostVO.getCommu_post_category();
-//    }
-//
 
 
     @GetMapping("detail")
     public String communityDetailPost(@RequestParam("postId") int postId,
                                       @RequestParam(name = "mode", required = false) String mode,
-                                      Model model, HttpSession session) {
+                                      Model model, HttpSession session, HttpServletRequest request) {
         CommunityPostVO postVO = communityService.getPostById(postId);
         if (postVO == null) {
 
             return "redirect:/community/main";
         }
+
+        String referer = request.getHeader("Referer");
+        if (referer != null && !referer.contains("mode=edit") && !referer.contains("/community/detail")) {
+            session.setAttribute("previousUrl", referer);
+        } else if (session.getAttribute("previousUrl") == null) {
+            // previousUrlがnullならフォールバック
+            session.setAttribute("previousUrl", "/community/main");
+        }
+
 
         if (postVO.getCommu_content() != null) {
             String originalContent = postVO.getCommu_content();
@@ -279,7 +240,6 @@ public class CommunityC {
         }
     }
 
-
     @PostMapping("delete")
     public String communityDeletePost(@RequestParam("postId") int postId, Model model, HttpSession session) {
         UserAccountVO user = (UserAccountVO) session.getAttribute("user");
@@ -294,6 +254,8 @@ public class CommunityC {
         }
 
         String category = postVO.getCommu_post_category();
+
+        communityService.deleteLikesByPostId(postId);
 
         communityService.deletePostWithComments(postId);
 
@@ -356,6 +318,16 @@ public class CommunityC {
         response.put("favorited", favorited);
         response.put("likeCount", likeCount);
         return response;
+    }
+
+
+    //    いいね上位３つ
+    @GetMapping("top")
+    public String showTopPosts(Model model, HttpSession session) {
+        List<CommunityPostVO> topPosts = communityService.getTop3LikedPosts();
+        model.addAttribute("topPosts", topPosts);
+        return "community/clientMain";
+
     }
 
 
