@@ -30,7 +30,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
           <h1>${r.request_type}</h1>
           <div class="btn1">
             <span class="requestDelete" data-request-no="${r.request_no}">견적 그만 받기</span>
-            <a href="#">요청사항 추가</a>
+
           </div>
           <div class="btn2">
             <button class="myRequestOpenModalBtn" value="${r.request_no}">

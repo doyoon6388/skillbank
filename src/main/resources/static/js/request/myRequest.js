@@ -1,10 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("for-btn").addEventListener("click", function () {
+    let btn1 = document.getElementById("for-btn");
+    let btn2 = document.getElementById("for-btn2");
+
+    // 페이지 로드 시 기본 활성화 버튼 설정 (견적 받는중)
+    btn1.classList.add("active");
+
+
+    btn1.addEventListener("click", function () {
+        btn1.classList.add("active");
+        btn2.classList.remove("active");
         document.getElementById("for-div").style.display = "block";
         document.getElementById("for-div2").style.display = "none";
     });
 
-    document.getElementById("for-btn2").addEventListener("click", function () {
+    btn2.addEventListener("click", function () {
+        btn2.classList.add("active");
+        btn1.classList.remove("active");
         document.getElementById("for-div").style.display = "none";
         document.getElementById("for-div2").style.display = "block";
     });
@@ -45,52 +56,36 @@ window.onload = () => {
                         throw new Error('서버 요청 실패');
                     }
                     return response.json(); // JSON 데이터로 변환
-                }).then(function (data) {
+                }).then(data => {
+                // null 또는 undefined인 데이터는 표시하지 않음
+                const requestDetails = [
+                    data.request1, data.request2, data.request3, data.request4,
+                    data.request5, data.request6, data.request7, data.request8,
+                    data.request9, data.request10, data.request11, data.request12,
+                    data.request13, data.request14
+                ].filter(value => value !== null && value !== undefined && value !== ''); // 빈 문자열도 제외
+
+                // request_type 변환
+                let requestTypeText = '';
+                if (data.request_type == 1) requestTypeText = '원룸/소형 이사';
+                else if (data.request_type == 2) requestTypeText = '청소';
+                else if (data.request_type == 3) requestTypeText = '폐기물';
+
                 // 모달에 데이터 표시
                 document.querySelector('.modalContainer').innerHTML = `
-            <h1>${data.request_type == 1 ? '원룸/소형 이사' :
-            data.request_type == 2 ? '청소' :
-            data.request_type == 3 ? '폐기물' : ''}</h1>
-            <br>
-            <h1> 요청상세 </h1>
-            어떤 서비스를 원하시나요?
-            <div>${data.request1}</div>
-            고수님과 함께 짐을 옮길 수 있나요? (포장이사 제외)
-            <div>${data.request2}</div>
-            <div>이사 종류를 선택해주세요.</div>
-            <div>${data.request3}</div>
-            이사 예정일을 선택해주세요.
-            <div>${data.request4}</div>
-            이사를 원하는 시간대를 선택해주세요
-            <div>${data.request5}</div>
-            옮길 대형 가전을 선택해주세요.
-            <div>${data.request6}</div>
-            옮길 소형 가전을 선택해주세요.
-            <div>${data.request7}</div>
-            옮길 가구를 선택해주세요.
-            <div>${data.request8}</div>
-            잔 짐의 양을 선택해주세요.(의류,식기,책 등의 생활 짐)
-            <div>${data.request9}</div>
-            <div>${data.request9}</div>
-            출발지를 선택해주세요.
-            <div>${data.request10}</div>
-            출발지 층수를 선택해주세요.
-            <div>${data.request11}</div>
-            도착지를 선택해주세요.
-            <div>${data.request12}</div>
-            도착지 층수를 선택해주세요.
-            <div>${data.request13}</div>
-            해당 사항을 선택해주세요.
-            <div>${data.request14}</div>
-
-            <button class="close-btn" onclick="closeModal()">닫기</button>`;
-
-            }).catch(function (error) {
-                console.error('에러 발생:', error);
-            });
-        }) // click event 끝
-    })
-} // onload 끝
+                    <h1>${requestTypeText}</h1>
+                    <br>
+                    <h1> 요청 상세 </h1>
+                    ${requestDetails.map(detail => `<div>${detail}</div>`).join('')}
+                    <button class="close-btn" onclick="closeModal()">닫기</button>
+                `;
+            })
+                .catch(error => {
+                    console.error('에러 발생:', error);
+                });
+        });
+    });
+};
 
 document.addEventListener("DOMContentLoaded", function (){
 
