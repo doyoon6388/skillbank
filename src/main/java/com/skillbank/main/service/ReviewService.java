@@ -5,6 +5,8 @@ import com.skillbank.main.vo.ReviewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ReviewService {
 
@@ -18,5 +20,24 @@ public class ReviewService {
 
     public ReviewVO getReview(ReviewVO reviewVO) {
         return reviewMapper.getReview(reviewVO);
+    }
+
+    public void completeRequest(int chatReqNo) {
+        reviewMapper.completeRequest(chatReqNo);
+    }
+
+    public void completeChat(int chatReqNo) {
+        reviewMapper.completeChat(chatReqNo);
+    }
+
+    public List<ReviewVO> incompleteReviewList(int user_pk) {
+       return reviewMapper.incompleteReviewList(user_pk);
+    }
+    public List<ReviewVO> completeReviewList(int user_pk) {
+       return reviewMapper.completeReviewList(user_pk);
+    }
+
+    public ReviewVO getReviewByPk(int reviewPk) {
+        return reviewMapper.getReviewByPk(reviewPk);
     }
 }

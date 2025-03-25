@@ -38,8 +38,9 @@
     display: flex;
 }
 
-.deal-button-container{
+.deal-button-container .flex-box {
     display: flex;
+    gap: 10px;
 }
 
 #deal-complete-btn{

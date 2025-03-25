@@ -54,7 +54,7 @@
     <div class="mypage-profile-side-wrapper">
         <div onclick="location.href='my-request?id=${sessionScope.user.user_pk}'">받은 요청</div>
         <div onclick="location.href='/mypage/fav'">찜한 고수</div>
-        <div>작성한 리뷰</div>
+        <div onclick="location.href='/mypage/review'">작성한 리뷰</div>
         <div>작성한 글</div>
         <button class="logout-btn" onclick="logout()">ログアウト</button>
     </div>
