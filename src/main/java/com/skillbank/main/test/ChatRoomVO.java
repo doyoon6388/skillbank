@@ -14,4 +14,5 @@ public class ChatRoomVO {
     private int chat_req_no;
     private String cloneReqHTML;
     private Timestamp chat_created_at;
+    private int chat_complete;
 }

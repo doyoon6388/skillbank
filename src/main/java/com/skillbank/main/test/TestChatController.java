@@ -97,6 +97,4 @@ public class TestChatController {
         return testService.getProInfo(proAccountVO);
     }
 
-
-
 }

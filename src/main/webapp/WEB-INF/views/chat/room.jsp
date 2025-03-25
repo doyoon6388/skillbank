@@ -13,6 +13,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <input id="hiddenTo" value="${chatRoom.chat_pro_id}" hidden />
     <input id="from" value="${sessionScope.user.user_nickname}" hidden />
     <input id="to" value="${chatRoom.chat_pro_name}" hidden />
+    <input id="chatReqNum" value="${chatRoom.chat_req_no}" hidden>
     <div class="chat-response-container"></div>
     <div class="chat-wrapper">
       <div id="chatContainer">
@@ -31,11 +32,12 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
           </c:choose>
         </c:forEach>
       </div>
+      <c:if test="${chatRoom.chat_complete == 0}">
       <div id="chat-information-container">
         <div id="chat-information-content"></div>
       </div>
+      </c:if>
     </div>
-
     <!-- 메시지 입력창 -->
     <input type="text" id="message" placeholder="메시지를 입력하세요" />
     <button id="sendButton">보내기</button>

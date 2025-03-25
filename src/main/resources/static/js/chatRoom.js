@@ -32,18 +32,6 @@ window.onload = () => {
   } else {
     loadProInfo();
   }
-
-  document.getElementById("deal-complete-btn").addEventListener("click", function () {
-    if (confirm("거래를 성사하시겠습니까?")) {
-      if (confirm("고수님을 위해 리뷰를 작성해주세요!")) {
-        document.getElementById("review-form").submit(); // POST to /review
-      } else {
-        window.location.href = "/noReview"; // GET to /noReview
-      }
-    }
-  });
-
-
 }; // 레디 함수 끝
 
 // WebSocket 연결 생성
@@ -97,7 +85,6 @@ function sendMessage(message, from, to) {
   const messageContent = document.createElement("p");
   messageContent.innerText = message; // 보낸 메시지 내용
   messageContainer.appendChild(messageContent);
-
   // 채팅 화면에 추가
   document.getElementById("chatContainer").appendChild(messageContainer);
 
@@ -109,7 +96,6 @@ function sendMessage(message, from, to) {
     to: to, // 받은 사람의 ID
     message: message,
   };
-
   // WebSocket을 통해 메시지 전송
   socket.send(JSON.stringify(messageData));
 }
@@ -120,7 +106,6 @@ function scrollToBottom() {
 
 function loadClientInfo() {
   const fromValue = document.getElementById("hiddenFrom").value;
-
   fetch("/test/chat/client-info", {
     method: "POST",
     headers: {
@@ -139,7 +124,6 @@ function loadClientInfo() {
 
 function loadProInfo() {
   const toValue = document.getElementById("hiddenTo").value;
-
   fetch("/test/chat/pro-info", {
     method: "POST",
     headers: {
@@ -152,6 +136,7 @@ function loadProInfo() {
       console.log(proData);
       document.getElementById("chat-information-content").innerHTML =
         generateProHtml(proData);
+        bindDealButtonListeners();
     })
     .catch((error) => console.error("프로 정보 로드 실패:", error));
 }
@@ -168,6 +153,7 @@ function generateClientHtml(data) {
 function generateProHtml(data) {
   let review_client = document.getElementById("hiddenFrom").value;
   let review_pro = document.getElementById("hiddenTo").value;
+  const chatReqNo = document.getElementById("chatReqNum").value;
   return `
         <h3>프로 정보</h3>
         <p>이름: ${data.pro_name}</p>
@@ -178,13 +164,30 @@ function generateProHtml(data) {
 <form id="review-form" action="/review" method="post">
   <input type="hidden" name="review_client" value="${review_client}">
   <input type="hidden" name="review_pro" value="${review_pro}">
-  <div>
+  <input type="hidden" name="chatReqNo" value="${chatReqNo}">
+      <div class="flex-box">
     <button id="deal-complete-btn" type="button">거래 성사</button>
-  </div>
-  <div>
     <button id="deal-cancel-btn" type="button">거래 취소</button>
   </div>
 </form>
 </div>
     `;
+}
+
+function bindDealButtonListeners() {
+  const dealBtn = document.getElementById("deal-complete-btn");
+
+  if (dealBtn) {
+    dealBtn.addEventListener("click",  () => {
+      if (confirm("거래를 성사하시겠습니까?")) {
+        if (confirm("고수님을 위해 리뷰를 작성해주세요!")) {
+          document.getElementById("review-form").submit(); // POST to /review
+        } else {
+          const review_client = document.querySelector('input[name="review_client"]').value;
+          const review_pro = document.querySelector('input[name="review_pro"]').value;
+          window.location.href = `/noReview?review_client=${review_client}&review_pro=${review_pro}`;
+        }
+      }
+    });
+  }
 }
