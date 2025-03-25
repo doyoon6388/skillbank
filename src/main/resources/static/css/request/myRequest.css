@@ -11,6 +11,24 @@ h1 {
     gap: 10px;
     margin-bottom: 20px;
 }
+.btn-container button {
+    color: gray;
+    border: none;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-bottom: 3px solid transparent; /* 기본적으로 밑줄 없음 */
+    color: gray; /* 비활성화 버튼은 회색 */
+    font-weight: normal; /* 기본 글씨 굵기 */
+}
+
+/* 활성화된 버튼 스타일 */
+.btn-container button.active {
+    color: black;
+    border-bottom: 3px solid black;
+    font-weight: bold;
+}
 
 /* 기본 버튼 스타일 */
 button {
@@ -25,11 +43,10 @@ button {
 /* 활성 버튼 */
 #for-btn {
     color: black;
-    border-bottom: 3px solid black;
 }
 
 #for-btn2 {
-    color: gray;
+    color: black;
 }
 
 /* 탭 스타일 */
@@ -108,6 +125,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
+
 }
 
 #modal-overlay {
