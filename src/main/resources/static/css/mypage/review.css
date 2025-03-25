@@ -1,24 +1,87 @@
-#starRating {
+/* 리뷰 폼 전체 컨테이너 */
+.review-form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* 리뷰 입력 관련 스타일 */
+.review-form-container .review-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.review-form-container .review-textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* 라디오 버튼 감싸는 레이블 */
+.review-form-container .review-radio {
+    margin-right: 10px;
+    font-size: 0.95em;
+}
+
+/* 별점 영역 */
+.review-star-rating {
     display: inline-block;
+    margin-bottom: 10px;
+}
+
+.review-star-rating .review-star {
+    display: inline-block;
+    margin-right: 4px;
     cursor: pointer;
 }
-.star {
-    display: inline-block;
-    position: relative;
-    width: 48px;  /* 원하는 크기로 조절 */
-    height: 48px;
-    background: url('/resources/icons/findPro/empty_star.png') no-repeat center center;
-    background-size: contain;
-    margin-right: 4px; /* 별 사이 간격 */
+
+.review-star-rating .review-star img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
 }
-.star-fill {
-    position: absolute;
-    top: 1px;
-    left: 0;
-    height: 100%;
-    width: 0;
-    background: url('/resources/icons/findPro/filled_star.png') no-repeat center center;
-    background-size: contain;
-    overflow: hidden;
-    pointer-events: none; /* 마우스 이벤트가 부모에 집중되도록 */
+
+/* 파일 업로드 영역 */
+.review-file-upload {
+    margin: 15px 0;
+}
+
+.review-file-upload label {
+    font-weight: bold;
+}
+
+.review-file-upload input[type="file"] {
+    display: block;
+    margin-top: 5px;
+}
+
+.review-file-upload .upload-note {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* 제출 버튼 */
+.review-submit-button {
+    padding: 10px 20px;
+    background-color: #4285f4;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.review-submit-button:hover {
+    background-color: #357ae8;
 }

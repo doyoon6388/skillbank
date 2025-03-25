@@ -2,6 +2,8 @@ package com.skillbank.main.vo;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class ReviewVO {
 
@@ -13,5 +15,6 @@ public class ReviewVO {
     private String review_title;
     private String review_txt;
     private double review_star;
-
+    private Date review_date;
+    private String review_file;
 }
