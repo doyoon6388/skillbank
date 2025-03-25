@@ -52,10 +52,10 @@
     </div>
 
     <div class="mypage-profile-side-wrapper">
-        <div onclick="location.href='my-request?id=${sessionScope.user.user_pk}'">받은 요청</div>
-        <div onclick="location.href='/mypage/fav'">찜한 고수</div>
-        <div>작성한 리뷰</div>
-        <div>작성한 글</div>
+        <div onclick="location.href='my-request?id=${sessionScope.user.user_pk}'">MY リクエスト</div>
+        <div onclick="location.href='/mypage/fav'">お気に入り</div>
+        <div>レビュー</div>
+        <div>コミュニティー</div>
         <button class="logout-btn" onclick="logout()">ログアウト</button>
     </div>
 

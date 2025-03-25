@@ -48,10 +48,6 @@
                 <span class="mypage-info-value">${sessionScope.proSession.pro_address}</span>
             </div>
             <div class="mypage-info-item">
-                <span class="mypage-info-tag">自己紹介</span>
-                <span class="mypage-info-value">${sessionScope.proSession.pro_description}</span>
-            </div>
-            <div class="mypage-info-item">
                 <span class="mypage-info-tag">レビュー数</span>
                 <span class="mypage-info-value">${sessionScope.proSession.pro_review}件</span>
             </div>
@@ -59,15 +55,18 @@
                 <span class="mypage-info-tag">お気に入り</span>
                 <span class="mypage-info-value">${sessionScope.proSession.pro_favorite}人</span>
             </div>
+            <div class="mypage-info-item">
+                <span class="mypage-info-tag">自己紹介</span>
+                <span class="mypage-info-value">${sessionScope.proSession.pro_description}</span>
+            </div>
         </div>
-
     </div>
 
     <div class="mypage-profile-side-wrapper-pro">
         <div onclick="location.href='/my-receive'">MY リクエスト</div>
-        <div onclick="location.href='/mypage/fav'">찜한 고수</div>
-        <div>작성한 리뷰</div>
-        <div>작성한 글</div>
+        <div onclick="location.href='/mypage/fav'">ファロワー</div>
+        <div>レビュー</div>
+        <div>コミュニティー</div>
         <button class="logout-btn" onclick="logout()">ログアウト</button>
     </div>
 

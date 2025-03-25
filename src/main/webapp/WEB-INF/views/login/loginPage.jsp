@@ -11,10 +11,10 @@
 <div id="login-container">
     <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 40px 0;">
     <form action="/login" method="post">
-        <label for="user_email">e-mail :</label>
+        <label for="user_email">E-mail :</label>
         <input type="text" id="user_email" name="user_email" required/>
 
-        <label for="user_pw">password :</label>
+        <label for="user_pw">Password :</label>
         <input type="password" id="user_pw" name="user_pw" required/>
         <input type="hidden" name="prevPage" value="${param.prevPage}">
 

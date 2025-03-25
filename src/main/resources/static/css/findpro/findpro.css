@@ -49,18 +49,17 @@
     width: calc(50% - 10px); /* 2개씩 보이도록 설정 */
     display: flex;
     align-items: center;
-    padding: 16px;
-    border: 2px solid #e3f2fd; /* 파스텔 블루 보더 */
-    border-radius: 10px;
-    background-color: #fafdff; /* 은은한 배경색 */
+    padding: 16px 26px;
+    border: 2px solid #ecc5b3; /* 파스텔 블루 보더 */
+    border-radius: 100px;
     box-sizing: border-box;
     cursor: pointer;
     transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .findpro-item:hover {
-    background-color: #e3f2fd;
-    border-color: #4DB2E1;
+    background-color: #fff3ee;
+    border-color: #F7AB85;
 }
 
 /* ✅ 이미지 영역 */
@@ -69,7 +68,7 @@
     height: 100px;
     flex-shrink: 0;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 50%;
 }
 
 /* ✅ 이미지 자체 */
@@ -85,14 +84,17 @@
     flex-grow: 1;
 }
 
-.findpro-info p {
-    margin: 5px 0;
-    font-size: 1rem;
+.findpro-info p:first-child {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
     color: #333;
 }
 
 /* ✅ 포인트 색상 강조 */
-.findpro-info p:first-child {
+.findpro-info p:nth-child(2) {
     font-weight: bold;
     color: #2D9CDB; /* 메인 블루 */
+    margin: 0 0 10px;
+    font-size: 18px;
 }

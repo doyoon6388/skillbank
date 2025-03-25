@@ -20,13 +20,13 @@
 
     <form id="sign-form" action="/register" method="post" onsubmit="return validateForm();">
 
-        <label for="user_email">e-mail :</label>
+        <label for="user_email">E-mail :</label>
         <div class="input-wrapper">
             <input type="email" id="user_email" name="user_email" required>
             <span class="tooltip-icon" data-tooltip="有効なメールアドレスを入力してください。">?</span>
         </div>
 
-        <label for="user_pw">password :</label>
+        <label for="user_pw">Password :</label>
         <div class="input-wrapper">
             <input type="password" id="user_pw" name="user_pw" required>
             <span class="tooltip-icon" data-tooltip="英字と数字を含む5文字以上のパスワードを入力してください。">?</span>
@@ -38,13 +38,13 @@
             <span class="tooltip-icon" data-tooltip="パスワードが一致しているか確認してください。">?</span>
         </div>
 
-        <label for="user_name">name :</label>
+        <label for="user_name">Name :</label>
         <div class="input-wrapper">
             <input type="text" id="user_name" name="user_name" required>
             <span class="tooltip-icon" data-tooltip="名前には数字や記号を含めないでください。">?</span>
         </div>
 
-        <label for="user_nickname">nickname :</label>
+        <label for="user_nickname">Nickname :</label>
         <div class="input-wrapper">
             <input type="text" id="user_nickname" name="user_nickname" required>
             <span class="tooltip-icon" data-tooltip="ニックネームには特殊文字を含めないでください。">?</span>

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1>プロを探す</h1>
+<h1>プロサーチ</h1>
 
 <!-- ✅ 검색 및 필터 영역 -->
 <section id="findpro-search-container">

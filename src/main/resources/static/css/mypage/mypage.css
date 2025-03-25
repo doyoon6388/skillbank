@@ -320,7 +320,6 @@ body {
 
 .mypage-item-list button:hover {
     background-color: #caae00;
-    transform: scale(1.05);
 }
 
 /* ✅ 반응형 처리 */
