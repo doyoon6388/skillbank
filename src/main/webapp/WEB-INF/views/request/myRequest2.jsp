@@ -6,20 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <title>견적 요청</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("for-btn").addEventListener("click", function () {
-                document.getElementById("for-div").style.display = "block";
-                document.getElementById("for-div2").style.display = "none";
-            });
 
-            document.getElementById("for-btn2").addEventListener("click", function () {
-                document.getElementById("for-div").style.display = "none";
-                document.getElementById("for-div2").style.display = "block";
-            });
-        });
-    </script>
     <link rel="stylesheet" href="resources/css/request/myRequest.css">
+    <script src="/resources/js/request/myRequest2.js"></script>
 </head>
 <body>
 <%--
@@ -61,8 +50,8 @@
 
             <!-- 버튼 -->
             <div class="proActions">
-                <button class="myRequestOpenModalBtn2" value="${request.request_no}>견적서 보기</button>
-                <button class="btn chatBtn" >채팅하기</button>
+                <button class="myRequestOpenModalBtn2" value="${p.r_no}">견적서 보기</button>
+                <button class="btn chatBtn">채팅하기</button>
             </div>
         </div>
     </c:forEach>
@@ -70,38 +59,14 @@
 
 
 
-
-
-<div id="modal-overlay" onclick="closeModal()"></div>
-<div id="modal">
-    <div class="modalContainer">
-    </div>
+<div class="modalContainer1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);">
 </div>
 
-<div id="modal-overlay" onclick="closeModal()"></div>
-<div id="modal">
-    <div class="modalContainer2">
-    </div>
+<!-- 응답 상세 모달 -->
+<div class="modalContainer2" id="modalContainer2" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);">
 </div>
-<script>
 
 
-    // 모달 열기
-    function openModal() {
-        document.getElementById("modal").style.display = "block";
-        document.getElementById("modal-overlay").style.display = "block";
-    }
-
-    // 모달 닫기
-    function closeModal() {
-        document.getElementById("modal").style.display = "none";
-        document.getElementById("modal-overlay").style.display = "none";
-    }
-
-    function submitVote() {
-        const form = document.getElementById("voteForm");
-        form.submit();
-    }
 
 </script>
 </body>
