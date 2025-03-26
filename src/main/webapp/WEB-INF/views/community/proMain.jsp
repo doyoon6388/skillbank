@@ -1,8 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!-- JSTL関数を使うなら -->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> <!-- JSTL関数を使うなら -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +27,7 @@
                         <!-- 投稿日時 -->
                         <div class="post-date">
                             投稿日:
-                            <fmt:formatDate value="${post.commu_date}" pattern="yyyy/MM/dd"/>
+                            <fmt:formatDate value="${post.commu_date}" pattern="yyyy/MM/dd" />
                         </div>
 
                         <!-- 投稿画像(ある場合) -->
@@ -39,7 +38,7 @@
                         <!-- 本文のサマリ表示（長い場合は一部だけ） -->
                         <c:if test="${not empty post.commu_content}">
                             <div>
-                                <c:out value="${fn:substring(post.commu_content, 0, 60)}"/>...
+                                <c:out value="${fn:substring(post.commu_content, 0, 60)}" />...
                             </div>
                         </c:if>
 
@@ -51,10 +50,40 @@
                 </c:forEach>
             </div>
         </c:if>
-        <div>
-            <h3>＜満足度高い＞最新投稿</h3>
+    </div>
+    <div class="bottom-posts">
+        <h3>＜満足度高い＞最新投稿</h3>
+        <div class="post-list">
+            <c:forEach var="review" items="${bottomPosts}">
+                <div class="post-card">
+                    <!-- タイトル -->
+                    <div class="post-title">${review.review_title}</div>
+
+                    <!-- いいね数 -->
+                    <div class="post-like"> スコア : ${review.review_star}</div>
+
+                    <!-- 投稿日時 -->
+                    <div class="post-date">
+                        投稿日:
+                        <fmt:formatDate value="${review.review_date}" pattern="yyyy/MM/dd" />
+                    </div>
+
+                    <!-- 投稿画像(ある場合) -->
+                    <img src="/file/${review.review_file}" alt="投稿画像" style="max-width:100%;">
+
+                    <!-- 本文のサマリ表示（長い場合は一部だけ） -->
+                    <div>
+                        <c:out value="${fn:substring(review.review_txt, 0, 60)}" />...
+                    </div>
+
+                    <!-- 詳細ページへのリンク -->
+                    <a class="read-more" href="/review/${review.review_pk}">
+                        続きを読む
+                    </a>
+                </div>
+            </c:forEach>
         </div>
     </div>
-
+</div>
 </body>
 </html>
