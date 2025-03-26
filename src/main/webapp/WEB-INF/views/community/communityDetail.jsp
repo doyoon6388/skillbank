@@ -70,18 +70,18 @@
                 </c:otherwise>
             </c:choose>
         </button>
-        いいね : <span id="like-count">${communityPost.commu_like}</span>個
+        <span id="like-count">${communityPost.commu_like}</span>
         <input type="hidden" id="community-like-id" value="${communityPost.commu_post_id}">
         <input type="hidden" id="current-user-pk" value="${sessionScope.user.user_pk}">
 
         <%-- 戻る--%>
 <%--    <button class="community-history-back" id="history-back" type="button" onclick="history.back()">戻る</button>--%>
-        <button class="community-history-back"
-                id="history-back"
-                type="button"
-                onclick="location.href='${sessionScope.previousUrl}'">
-            戻る
-        </button>
+<%--        <button class="community-history-back"--%>
+<%--                id="history-back"--%>
+<%--                type="button"--%>
+<%--                onclick="location.href='${sessionScope.previousUrl}'">--%>
+<%--            戻る--%>
+<%--        </button>--%>
 
 
 

@@ -1,35 +1,40 @@
 .community-header-wrapper {
+    /*border: 7px solid red;*/
     position: relative;
     display: flex;
     align-items: center;
     padding: 20px;
     background-color: white;
     margin-bottom: 100px;
-    top: 0;
-    justify-content: center;
-    height: 50px;
-    z-index: 2;
 }
 
+.community-write-btn {
+    position: absolute;
+    right: 20px;
+    /*border: 7px solid blueviolet;*/
+}
+
+/*-----------------------------------------------*/
+
+/*選択表示*/
 .community-client-tab {
+    /*border: 7px solid greenyellow;*/
     position: sticky;
-    top: 20px;
+    top: 70px;
     height: 177px;
     width: 200px;
     z-index: 2;
     cursor: pointer;
 }
 
-.community-client-tab div {
-    margin: 10px;
-}
-
+/* community tabs */
 .community-client-tab div.active {
     font-weight: bold;
     color: #f8b285;
 }
 
 .community-pro-tab {
+    /*border: 7px solid greenyellow;*/
     position: sticky;
     top: 70px;
     height: 177px;
@@ -48,13 +53,20 @@
     gap: 30px;
 }
 
+/*-----------------------------------------------*/
+
+/*内容物*/
 .community-content {
+    /*border: 7px solid darkblue;*/
     height: 100%;
     width: 100%;
 }
 
+/*-----------------------------------------------*/
+
+/*Main.jsp*/
 .community-button2-container {
-/*    display: flex;*/
+    display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 5px;
@@ -67,6 +79,30 @@
     padding: 20px;
 }
 
+/*-----------------------------------------------*/
+/*プロの認識用*/
+/*.pro-label {*/
+/*    color: white;*/
+/*    background-color: pink;*/
+/*    padding: 2px 5px;*/
+/*    border-radius: 3px;*/
+/*    font-weight: bold;*/
+/*    margin-left: 5px;*/
+/*}*/
+
+/*クライアントの認識用*/
+/*.client-label {*/
+/*    color: white;*/
+/*    background-color: skyblue;*/
+/*    padding: 2px 5px;*/
+/*    border-radius: 3px;*/
+/*    font-weight: bold;*/
+/*    margin-left: 5px;*/
+/*}*/
+
+/*-----------------------------------------------*/
+
+/*選択したとき色をつける*/
 .selectable-client {
     padding: 10px;
     margin: 5px;
@@ -86,12 +122,15 @@
     color: white;
 }
 
+/*-----------------------------------------------*/
+
+/*書きこみボタン*/
 .community-client-write {
     padding: 10px;
     margin: 5px;
     border: none;
-    background-color: #f7ab85;
-    border-radius: 50px;
+    background-color: powderblue;
+    border-radius: 4px;
     color: white;
     cursor: pointer;
 }
@@ -106,20 +145,30 @@
     cursor: pointer;
 }
 
+/*-----------------------------------------------*/
+
+/*コミュニティ新規投稿*/
 .community-write-container {
     margin: 50px auto;
     padding: 30px;
     background-color: white;
+    /*border: 1px solid gainsboro;*/
 }
 
+.community-write-container select,
+.community-write-container input[type="text"],
+.community-write-container textarea,
 .community-write-container input[type="file"] {
     width: 95%;
     padding: 12px;
     margin-bottom: 20px;
+    /*border: 1px solid lightgray;*/
     font-size: 14px;
-    padding: 5px;
 }
 
+.community-write-container select:focus,
+.community-write-container input[type="text"]:focus,
+.community-write-container textarea:focus,
 .community-write-container input[type="file"]:focus {
     border-color: powderblue;
     outline: none;
@@ -138,7 +187,6 @@
     align-items: center;
     gap: 20px;
     margin-bottom: 20px;
-    flex-direction: column;
 }
 
 .select-and-post-btn select {
@@ -155,6 +203,18 @@
     cursor: pointer;
 }
 
+.community-write-container input[type="file"] {
+    padding: 5px;
+}
+
+.select-and-post-btn {
+    flex-direction: column;
+}
+
+
+/*-----------------------------------------------*/
+
+/*写真用→client用*/
 .community-client-upload {
     margin-bottom: 20px;
 }
@@ -168,6 +228,9 @@
     text-align: center;
 }
 
+/*-----------------------------------------------*/
+
+/*clientの助け合いのデザイン*/
 .client-post-list {
     max-width: 700px;
     margin: 20px auto;
@@ -176,6 +239,7 @@
 
 .client-post-card {
     background-color: white;
+    /*border: 1px solid beige;*/
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 15px;
@@ -215,13 +279,17 @@
 .client-post-content {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 2; /* 行数制限: 2行 */
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: normal;
-    line-height: 1.6;
+    white-space: normal; /* 改行は自動折り返しに任せる */
+    line-height: 1.6; /* 行の高さ */
+    /* 幅やフォントサイズによって、どこで折り返すか変わります */
 }
 
+/*-----------------------------------------------*/
+
+/*プロに聞くのデザイン*/
 .pro-post-list {
     max-width: 700px;
     margin: 20px auto;
@@ -230,11 +298,7 @@
 
 .pro-post-card {
     background-color: white;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: white;
-    border: 1px solid cornsilk;
+    /*border: 1px solid cornsilk;*/
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 15px;
@@ -267,13 +331,18 @@
 .pro-post-content {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 2; /* 行数制限: 2行 */
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: normal;
-    line-height: 1.6;
+    white-space: normal; /* 改行は自動折り返しに任せる */
+    line-height: 1.6; /* 行の高さ */
+    /* 幅やフォントサイズによって、どこで折り返すか変わります */
 }
 
+/*-----------------------------------------------*/
+
+/*プロにアピール*/
+/* proAppeal用：プロのアピール投稿一覧 */
 .appeal-post-list {
     max-width: 700px;
     margin: 20px auto;
@@ -282,6 +351,7 @@
 
 .appeal-post-card {
     background-color: white;
+    /*border: 1px solid cornsilk;*/
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 15px;
@@ -314,11 +384,12 @@
 .appeal-post-content {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 2; /* 行数制限: 2行 */
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: normal;
-    line-height: 1.6;
+    white-space: normal; /* 改行は自動折り返しに任せる */
+    line-height: 1.6; /* 行の高さ */
+    /* 幅やフォントサイズによって、どこで折り返すか変わります */
 }
 
 .appeal-post-wrapper {
@@ -327,6 +398,9 @@
     align-items: center;
 }
 
+/*-----------------------------------------------*/
+
+/*pagingのためのcss*/
 .community-paging {
     margin: 60px 0;
     text-align: center;
@@ -343,6 +417,7 @@
     display: inline-block;
     margin: 0 5px;
     padding: 6px 10px;
+    /*border: 1px solid honeydew;*/
     text-decoration: none;
     color: gray;
 }
@@ -352,10 +427,15 @@
     color: blue;
 }
 
+/*-----------------------------------------------*/
+
+/*詳細部分*/
 .post-detail {
     max-width: 700px;
     margin: 20px auto;
     padding: 20px;
+    /*border: 1px solid lightgray;*/
+    /*border-radius: 8px;*/
     background-color: white;
 }
 
@@ -369,10 +449,6 @@
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 6px;
-    color: #222;
 }
 
 .post-content {
@@ -399,6 +475,9 @@
     margin-left: 10px;
 }
 
+/*-----------------------------------------------*/
+
+/*ボタン*/
 .community-btn-container {
     display: flex;
     align-items: center;
@@ -406,6 +485,7 @@
     margin-top: 20px;
 }
 
+/*戻るボタン*/
 .community-history-back {
     background-color: cornsilk;
     color: gray;
@@ -416,6 +496,7 @@
     cursor: pointer;
 }
 
+/*削除ボタン*/
 .community-delete-btn {
     background-color: cornsilk;
     color: gray;
@@ -426,6 +507,7 @@
     cursor: pointer;
 }
 
+/*修正ボタン*/
 .community-update-btn {
     background-color: cornsilk;
     color: gray;
@@ -436,6 +518,7 @@
     cursor: pointer;
 }
 
+/* キャンセルボタン */
 .cancel-btn {
     background-color: cornsilk;
     color: gray;
@@ -446,6 +529,9 @@
     cursor: pointer;
 }
 
+/*-----------------------------------------------*/
+
+/*編集モード中*/
 .update-heading {
     font-size: 28px;
     font-weight: bold;
@@ -465,23 +551,32 @@
     color: black;
 }
 
+.update-input,
+.update-textarea,
 .update-file-input {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
+    /*border: 1px solid black;*/
     font-size: 14px;
 }
 
+.update-input:focus,
+.update-textarea:focus,
 .update-file-input:focus {
     border-color: powderblue;
     outline: none;
 }
 
+/*-----------------------------------------------*/
+
+/*コメント用*/
 .community-comment-section {
     margin-top: 30px;
     padding: 20px 0;
 }
 
+/* コメント入力欄 */
 #comment-page-comment-content {
     display: block;
     width: 100%;
@@ -499,6 +594,7 @@
     border-color: #007bff;
 }
 
+/* 送信ボタン */
 #community-comment-btn {
     background-color: #007bff;
     color: #fff;
@@ -515,19 +611,23 @@
     background-color: #0056b3;
 }
 
+/* コメント一覧 */
 .community-comment-list {
     margin-top: 20px;
 }
 
+/* コメント一つひとつ */
 .community-comment {
     padding: 10px 0;
     border-bottom: 1px dashed #ccc;
 }
 
+/* 最後のコメントには仕切り線を付けない */
 .community-comment:last-child {
     border-bottom: none;
 }
 
+/* 投稿者のニックネーム */
 .community-comment-author {
     font-weight: bold;
     font-size: 14px;
@@ -535,6 +635,7 @@
     color: #333;
 }
 
+/* コメント内容 */
 .community-comment-content {
     font-size: 14px;
     margin-bottom: 5px;
@@ -542,10 +643,29 @@
     line-height: 1.4;
 }
 
+/* 日付 */
 .community-comment-date {
     font-size: 12px;
     color: #999;
     text-align: right;
+}
+
+/*-----------------------------------------------*/
+
+.community-header-wrapper {
+    /*border: 7px solid red;*/
+    /*position: sticky;*/
+    top: 0;
+    /*display: flex;*/
+    justify-content: center;
+    margin-bottom: 100px;
+    height: 50px;
+    z-index: 2;
+    background-color: white;
+}
+
+.community-write-btn {
+    justify-content: end;
 }
 
 .community-logo-span {
@@ -557,6 +677,134 @@
     display: flex;
 }
 
+/*-----------------------------------------------*/
+
+/*プロの認識用*/
+/*.pro-label {*/
+/*    color: white;*/
+/*    background-color: pink;*/
+/*    padding: 2px 5px;*/
+/*    border-radius: 3px;*/
+/*    font-weight: bold;*/
+/*    margin-left: 5px;*/
+/*}*/
+
+/*クライアントの認識用*/
+/*.client-label {*/
+/*    color: white;*/
+/*    background-color: skyblue;*/
+/*    padding: 2px 5px;*/
+/*    border-radius: 3px;*/
+/*    font-weight: bold;*/
+/*    margin-left: 5px;*/
+/*}*/
+
+/*-----------------------------------------------*/
+
+/*選択したとき色をつける*/
+
+
+/*-----------------------------------------------*/
+
+/*書きこみボタン*/
+
+
+/*-----------------------------------------------*/
+
+/*コミュニティ新規投稿*/
+
+.community-write-container select,
+.community-write-container input[type="text"],
+.community-write-container textarea,
+.community-write-container select:focus,
+.community-write-container input[type="text"]:focus,
+.community-write-container textarea:focus,
+
+/*-----------------------------------------------*/
+
+/*写真用→client用*/
+
+
+/*-----------------------------------------------*/
+
+/*clientの助け合いのデザイン*/
+
+
+/*-----------------------------------------------*/
+
+/*プロに聞くのデザイン*/
+
+.pro-post-card {
+    background-color: white;
+    border: 1px solid cornsilk;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+
+/*-----------------------------------------------*/
+
+/*プロにアピール*/
+/* proAppeal用：プロのアピール投稿一覧 */
+
+
+/*-----------------------------------------------*/
+
+/*pagingのためのcss*/
+
+
+/*-----------------------------------------------*/
+
+/*詳細部分*/
+
+
+/*-----------------------------------------------*/
+
+/*ボタン*/
+
+/*戻るボタン*/
+
+/*削除ボタン*/
+
+/*修正ボタン*/
+
+/* キャンセルボタン */
+
+/*-----------------------------------------------*/
+
+/*編集モード中*/
+
+
+.update-input,
+.update-textarea,
+.update-input:focus,
+.update-textarea:focus,
+
+    /*-----------------------------------------------*/
+    /*コメント用*/
+
+    /* コメント入力欄 */
+
+
+    /* 送信ボタン */
+
+
+    /* コメント一覧 */
+
+    /* コメント一つひとつ */
+
+    /* 最後のコメントには仕切り線を付けない */
+
+    /* 投稿者のニックネーム */
+
+    /* コメント内容 */
+
+    /* 日付 */
+
+    /*-----------------------------------------------*/
+
+    /*いいね*/
 .community-like {
     background: none;
     border: none;
@@ -578,20 +826,26 @@
     color: darkgrey;
 }
 
+/*-----------------------------------------------*/
+
+/*Top Posts (一番人気の投稿)*/
+/* Top Posts (一番人気の投稿) */
 .top-posts {
     margin-bottom: 30px;
-    padding: 0 20px 20px;
+    padding: 20px;
     background-color: #ffffff;
+    /*border: 1px solid #eaeaea;*/
     border-radius: 10px;
     text-align: center;
 }
 
 .top-posts h3 {
     font-size: 22px;
-    margin: 0 16px 16px;
+    margin-bottom: 16px;
     color: #333;
 }
 
+/* グリッドレイアウト */
 .post-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -601,10 +855,12 @@
     align-items: stretch;
 }
 
+/* カード本体 */
 .post-card {
     display: flex;
     flex-direction: column;
     background-color: #fff;
+    /*border: 1px solid #eaeaea;*/
     border-radius: 8px;
     padding: 12px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -612,6 +868,7 @@
     word-break: break-all;
     white-space: normal;
     overflow: hidden;
+    /* 余分な高さを抑えてコンパクトに */
     min-height: 300px;
 }
 
@@ -620,6 +877,15 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* タイトル */
+.post-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+/* いいね数 */
 .post-like {
     font-size: 14px;
     margin-bottom: 4px;
@@ -627,18 +893,21 @@
     font-weight: bold;
 }
 
+/* 投稿日時 */
 .post-date {
     font-size: 13px;
     color: #888;
     margin-bottom: 8px;
 }
 
+/* 画像 */
 .post-card img {
     max-width: 100%;
     border-radius: 4px;
     margin-bottom: 8px;
 }
 
+/* 本文サマリ */
 .post-card .post-content {
     font-size: 14px;
     color: #555;
@@ -646,8 +915,9 @@
     line-height: 1.4;
 }
 
+/* 「続きを読む」リンク */
 .read-more {
-    margin-top: auto;
+    margin-top: auto; /* カード下部に固定 */
     font-size: 14px;
     color: #1e90ff;
     text-decoration: none;
