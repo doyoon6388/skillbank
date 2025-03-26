@@ -238,3 +238,10 @@ create sequence review_seq;
 
 select * from request;
 
+
+
+alter table review
+    add (
+        review_date DATE DEFAULT sysdate,
+        review_file varchar2 (200 char) default 'defaultCommuImg.png'
+        );

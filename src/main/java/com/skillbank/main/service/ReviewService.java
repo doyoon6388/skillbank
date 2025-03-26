@@ -40,4 +40,8 @@ public class ReviewService {
     public ReviewVO getReviewByPk(int reviewPk) {
         return reviewMapper.getReviewByPk(reviewPk);
     }
+
+    public int updateReview(ReviewVO reviewVO) {
+        return reviewMapper.updateReview(reviewVO);
+    }
 }

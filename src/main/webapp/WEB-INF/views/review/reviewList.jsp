@@ -25,7 +25,7 @@ ${i.review_pro}님을 위한 리뷰
         <div>작성 된 리뷰가 없습니다</div>
     </c:if>
     <c:forEach items="${completeReview}" var="i">
-        <div class="complete-review" style="cursor: pointer" onclick="location.href='/mypage/review/${i.review_pk}'">
+        <div class="complete-review" style="cursor: pointer" onclick="location.href='/review/${i.review_pk}'">
                 ${i.review_pro}님을 위한 리뷰
         </div>
     </c:forEach>
