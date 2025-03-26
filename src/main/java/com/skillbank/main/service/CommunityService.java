@@ -1,10 +1,7 @@
 package com.skillbank.main.service;
 
 import com.skillbank.main.mapper.CommunityMapper;
-import com.skillbank.main.vo.CommunityCommentVO;
-import com.skillbank.main.vo.CommunityLikeVO;
-import com.skillbank.main.vo.CommunityPostVO;
-import com.skillbank.main.vo.FavoriteProVO;
+import com.skillbank.main.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -203,5 +200,11 @@ public class CommunityService {
     }
 
 
+    public List<ReviewVO> getTop3RatedPosts() {
+        return communityMapper.getTop3RatedPosts();
+    }
 
+    public List<ReviewVO> getReviewList() {
+        return communityMapper.getReviewList();
+    }
 }

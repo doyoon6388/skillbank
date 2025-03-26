@@ -1,9 +1,6 @@
 package com.skillbank.main.mapper;
 
-import com.skillbank.main.vo.CommunityCommentVO;
-import com.skillbank.main.vo.CommunityLikeVO;
-import com.skillbank.main.vo.CommunityPostVO;
-import com.skillbank.main.vo.FavoriteProVO;
+import com.skillbank.main.vo.*;
 import org.apache.ibatis.annotations.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -74,5 +71,9 @@ public interface CommunityMapper {
     @Select("SELECT * FROM (SELECT * FROM community_post ORDER BY commu_like DESC) WHERE ROWNUM <= 3")
     List<CommunityPostVO> getTop3LikedPosts();
 
+    @Select("SELECT * FROM (SELECT * FROM review where review_complete = 1 ORDER BY review_star DESC) WHERE ROWNUM <= 3")
+    List<ReviewVO> getTop3RatedPosts();
 
+    @Select("select * from review where review_complete = 1")
+    List<ReviewVO> getReviewList();
 }
