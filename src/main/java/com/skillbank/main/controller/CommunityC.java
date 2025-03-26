@@ -59,6 +59,8 @@ public class CommunityC {
         List<CommunityPostVO> topPosts = communityService.getTop3LikedPosts();
         model.addAttribute("topPosts", topPosts);
 
+        List<ReviewVO> bottomPosts = communityService.getTop3RatedPosts();
+        model.addAttribute("bottomPosts", bottomPosts);
 
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "community/communityClient.jsp");
