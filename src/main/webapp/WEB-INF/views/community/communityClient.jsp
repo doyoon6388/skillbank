@@ -31,7 +31,7 @@
         <div data-category="main" onclick="location.href='/community/main'">全体</div>
         <div data-category="askpro" onclick="location.href='/community/askpro'">プロに尋ねる</div>
         <div data-category="together" onclick="location.href='/community/together'">一緒に</div>
-        <div>レビュー</div>
+        <div data-category="together" onclick="location.href='/community/review'">レビュー</div>
         <div data-category="appeal" onclick="location.href='/community/appeal'">プロのアピール</div>
     </div>
     <div class="community-content">
