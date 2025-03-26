@@ -27,7 +27,7 @@ h1, h2, h3 {
 
 h1 {
     font-size: 24px;
-    margin: 20px 10px;
+    margin: 40px 10px 20px 10px;
 }
 
 /* ✅ 일반 텍스트 */
@@ -121,8 +121,8 @@ body {
     margin: 20px auto;
     padding: 20px 30px;
     background-color: white;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* ✅ 로고 기본 스타일 */
