@@ -91,9 +91,21 @@ body {
     font-weight: bold;
 }
 
+.user-cash {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 40px !important;
+    border-radius: 100px;
+    background-color: #4DB2E0;
+    color: white;
+    font-weight: 600;
+}
+
 /* ✅ 정보 값 */
 .mypage-info-value {
-    font-size: 16px;
+    font-size: 17px;
     color: #555;
 }
 
@@ -279,7 +291,7 @@ body {
 .mypage-item-tag {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin: 0 0 15px 5px;
     color: #333;
 }
 
@@ -308,7 +320,6 @@ body {
 
 .mypage-item-list button:hover {
     background-color: #caae00;
-    transform: scale(1.05);
 }
 
 /* ✅ 반응형 처리 */
@@ -329,7 +340,7 @@ body {
     height: 350px;
     top: 0;
     border-radius: 10px;
-    padding: 20px 0 20px 20px;
+    padding: 40px 0 20px 20px;
     display: flex;
     flex-direction: column;
     gap: 15px; /* 항목 간 간격 */
@@ -341,11 +352,12 @@ body {
 .mypage-profile-side-wrapper div {
     padding: 12px;
     color: #555;
-    border: 1px solid #F8B285;
+    border: 1.5px solid #F8B285;
     border-radius: 100px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     text-align: center;
+    font-weight: 600;
 }
 
 /* ✅ 호버 효과 */
@@ -383,7 +395,7 @@ body {
     height: 350px;
     top: 0;
     border-radius: 10px;
-    padding: 20px 0 20px 20px;
+    padding: 40px 0 20px 20px;
     display: flex;
     flex-direction: column;
     gap: 15px; /* 항목 간 간격 */
@@ -395,11 +407,12 @@ body {
 .mypage-profile-side-wrapper-pro div {
     padding: 12px;
     color: #555;
-    border: 1px solid #4DB2E0;
+    border: 1.5px solid #4DB2E0;
     border-radius: 100px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     text-align: center;
+    font-weight: 600;
 }
 
 /* ✅ 호버 효과 */

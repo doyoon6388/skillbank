@@ -65,7 +65,7 @@
                         data-user-nickname="${proRequest.user_nickname}"
                         data-pro="${sessionScope.proSession.pro_pk}"
                         data-pro-name="${sessionScope.user.user_nickname}">
-                    견적 제출하기
+                    50コインで見積書を送信
                 </button>
             </div>
         </div>

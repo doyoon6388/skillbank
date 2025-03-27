@@ -1,43 +1,38 @@
-const stars = document.querySelectorAll('.star');
+// review-star-rating 영역과 rating hidden input 선택
+const starRatingContainer = document.getElementById('starRating');
 const ratingValue = document.getElementById('ratingValue');
-let currentRating = 0;
+const reviewStars = starRatingContainer.querySelectorAll('.review-star');
 
-function updateStarsDisplay(rating) {
-    stars.forEach((star, index) => {
-        const starFill = star.querySelector('.star-fill');
-        const starNumber = index + 1;
-        if (rating >= starNumber) {
-            starFill.style.width = '100%';
-        } else if (rating >= starNumber - 0.5) {
-            starFill.style.width = '50%';
+// 별 이미지를 업데이트하는 함수 (클릭 또는 마우스 오버에 따른 효과)
+function updateReviewStars(rating) {
+    reviewStars.forEach(star => {
+        const starValue = parseInt(star.getAttribute('data-value'));
+        const img = star.querySelector('img');
+        if (starValue <= rating) {
+            img.src = '/resources/icons/findPro/filled_star.png';
         } else {
-            starFill.style.width = '0';
+            img.src = '/resources/icons/findPro/empty_star.png';
         }
     });
 }
 
-stars.forEach((star, index) => {
-    // 마우스 이동 시 현재 별에서 왼쪽(0.5) 또는 오른쪽(1)의 선택 감지
-    star.addEventListener('mousemove', (e) => {
-        const rect = star.getBoundingClientRect();
-        const offsetX = e.clientX - rect.left;
-        const fillAmount = offsetX < rect.width / 2 ? 0.5 : 1;
-        const previewRating = index + fillAmount;
-        updateStarsDisplay(previewRating);
+// 각 별에 마우스 오버 및 클릭 이벤트 추가
+reviewStars.forEach(star => {
+    // 마우스 오버 시 해당 별까지 채워진 이미지 표시
+    star.addEventListener('mouseover', () => {
+        const value = parseInt(star.getAttribute('data-value'));
+        updateReviewStars(value);
     });
 
-    // 클릭 시 선택된 별점 저장
-    star.addEventListener('click', (e) => {
-        const rect = star.getBoundingClientRect();
-        const offsetX = e.clientX - rect.left;
-        const fillAmount = offsetX < rect.width / 2 ? 0.5 : 1;
-        currentRating = index + fillAmount;
-        ratingValue.value = currentRating;
-        updateStarsDisplay(currentRating);
+    // 클릭 시 선택한 별점 저장 및 업데이트
+    star.addEventListener('click', () => {
+        const value = parseInt(star.getAttribute('data-value'));
+        ratingValue.value = value;
+        updateReviewStars(value);
     });
 });
 
 // 마우스가 영역을 벗어나면 현재 선택된 별점으로 복원
-document.getElementById('starRating').addEventListener('mouseleave', () => {
-    updateStarsDisplay(currentRating);
+starRatingContainer.addEventListener('mouseout', () => {
+    updateReviewStars(parseInt(ratingValue.value));
 });

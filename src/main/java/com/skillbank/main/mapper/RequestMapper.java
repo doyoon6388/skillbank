@@ -16,7 +16,6 @@ public interface RequestMapper {
     @Select("SELECT distinct r.*, res.r_request_no FROM request r FULL OUTER JOIN response res ON r.request_no = res.r_request_no WHERE r.r_user_id = #{r_user_id)} order by r.r_pro_pk desc")
     List<ReqeustVO> requestList(int id);
 
-
     //    @Select("select * from request where r_user_id = #{id}")
     @Select("select * from request where request_no = #{pk}")
     ReqeustVO getDetail(int pk);

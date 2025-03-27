@@ -3,10 +3,7 @@ package com.skillbank.main.controller;
 import com.skillbank.main.mapper.CommunityMapper;
 import com.skillbank.main.service.CommunityService;
 import com.skillbank.main.service.MainService;
-import com.skillbank.main.vo.CommunityCommentVO;
-import com.skillbank.main.vo.CommunityLikeVO;
-import com.skillbank.main.vo.CommunityPostVO;
-import com.skillbank.main.vo.UserAccountVO;
+import com.skillbank.main.vo.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +35,9 @@ public class CommunityC {
         List<CommunityPostVO> topPosts = communityService.getTop3LikedPosts();
         model.addAttribute("topPosts", topPosts);
 
+        List<ReviewVO> bottomPosts = communityService.getTop3RatedPosts();
+        model.addAttribute("bottomPosts", bottomPosts);
+
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "community/communityClient.jsp");
         model.addAttribute("communityPage", "clientMain.jsp");
@@ -59,6 +59,8 @@ public class CommunityC {
         List<CommunityPostVO> topPosts = communityService.getTop3LikedPosts();
         model.addAttribute("topPosts", topPosts);
 
+        List<ReviewVO> bottomPosts = communityService.getTop3RatedPosts();
+        model.addAttribute("bottomPosts", bottomPosts);
 
         Object mode = session.getAttribute("mode");
         model.addAttribute("page", "community/communityClient.jsp");
@@ -329,6 +331,24 @@ public class CommunityC {
         return "community/clientMain";
 
     }
+
+    @GetMapping("review")
+    public String showReview(Model model, HttpSession session) {
+        List<ReviewVO> reviews = communityService.getReviewList();
+        model.addAttribute("review", reviews);
+        model.addAttribute("page", "community/communityClient.jsp");
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
+        model.addAttribute("communityPage", "communityReview.jsp");
+
+        Object mode = session.getAttribute("mode");
+        if (mode != null && mode.toString().equals("on")) {
+            return "indexPro";
+        } else {
+            return "index";
+        }
+    }
+
+
 
 
 }
