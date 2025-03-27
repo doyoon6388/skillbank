@@ -92,6 +92,7 @@ public class ReviewC {
         reviewVO.setReview_file(fileNames);
         System.out.println(reviewVO);
         if (reviewService.updateReview(reviewVO) == 1) {
+            reviewService.updateProReview(reviewVO);
             System.out.println("수정 완료 레전드");
         }
         return "redirect:/main";
