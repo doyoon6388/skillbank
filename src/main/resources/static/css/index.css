@@ -27,7 +27,7 @@ h1, h2, h3 {
 
 h1 {
     font-size: 24px;
-    margin: 40px 10px 20px 10px;
+    margin: 40px 0 20px;
 }
 
 /* ✅ 일반 텍스트 */
@@ -118,11 +118,8 @@ body {
 /* ✅ 인덱스 페이지의 메인 컨테이너 */
 #index-container {
     width: 970px;
-    margin: 20px auto;
-    padding: 20px 30px;
+    margin: 0 auto;
     background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
 }
 
 /* ✅ 로고 기본 스타일 */

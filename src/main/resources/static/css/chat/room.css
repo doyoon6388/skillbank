@@ -1,64 +1,189 @@
-.chat-wrapper{
+/* 공통 색상 */
+:root {
+    --user-color: #F8B285;
+    --pro-color: #4DB2E1;
+}
+
+body.user-theme {
+    --main-color: var(--user-color);
+}
+
+body.pro-theme {
+    --main-color: var(--pro-color);
+}
+
+.chat-room-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    border-radius: 12px;
+}
+
+.chat-header {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 25px;
+}
+
+.chat-room-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.chat-participants {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.chat-body {
     display: flex;
-}
-/* 채팅 메시지 */
-.message {
-    margin: 10px;
-    padding: 8px;
-    border-radius: 5px;
-    max-width: 60%;
-    flex-shrink: 0;
+    gap: 20px;
 }
 
-.message.sent {
-    background-color: #DCF8C6;  /* 나의 메시지 배경색 */
-    margin-left: auto;
-    text-align: right; /* 오른쪽 정렬 */
-}
-
-.message.received {
-    background-color: #E5E5EA;  /* 상대방의 메시지 배경색 */
-    margin-right: auto;
-    text-align: left; /* 왼쪽 정렬 */
-}
-
-/* 메시지 박스에 스타일 추가 */
-#chatContainer {
+.chat-main {
+    flex: 2;
     display: flex;
     flex-direction: column;
-    /*    justify-content: flex-end;*/
-    width: 50%;
-    height: 500px;
+    justify-content: space-between;
+}
+
+.chat-container {
+    height: 400px;
     overflow-y: auto;
-    background-color: lightskyblue;
-    border-radius: 10px;
-}
-
-#information-wrapper{
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 20px;
     display: flex;
-}
-
-.deal-button-container .flex-box {
-    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
-#deal-complete-btn{
-    background-color: green;
-    width: 80px;
-    height: 80px;
+.message {
+    max-width: 60%;
+    padding: 0 15px;
+    border-radius: 16px;
+    font-size: 14px;
+    word-break: break-word;
+    display: inline-block;
 }
 
-#deal-cancel-btn{
-    background-color: indianred;
-    width: 80px;
-    height: 80px;
+.sent {
+    align-self: flex-end;
+    background-color: var(--user-color);
+    color: white;
 }
 
-/* 채팅 정보 컨테이너 */
-#chat-information-container {
-    margin-top: 20px;
+.received {
+    align-self: flex-start;
+    background-color: var(--pro-color);
+    color: white;
+}
+
+.chat-input-box {
+    display: flex;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+#message {
+    flex: 1;
+    padding: 12px;
+    border-radius: 100px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 300px;
+}
+
+#sendButton {
+    padding: 12px 20px;
+    border: none;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 100px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease, filter 0.2s ease;
+}
+
+#sendButton:hover {
+    filter: brightness(0.9); /* 약간 어둡게 */
+}
+
+.chat-info {
+    flex: 1;
+    height: 100%;
+    padding: 20px;
+    border-left: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+/* 거래 버튼 */
+.deal-button-container {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.deal-button-container button {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 100px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
+#deal-complete-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#deal-complete-btn:hover {
+    filter: brightness(0.9);
+}
+
+#deal-cancel-btn {
+    background-color: #E74C3C;
+    color: white;
+}
+
+#deal-cancel-btn:hover {
+    filter: brightness(0.9);
+}
+
+.user-bubble {
+    background-color: #F8B285;
+    color: white;
+}
+
+.pro-bubble {
+    background-color: #4DB2E1;
+    color: white;
+}
+
+/* 전체 스크롤바 영역 */
+.chat-container::-webkit-scrollbar {
+    width: 8px; /* 세로 스크롤바 너비 */
+    height: 8px; /* 가로 스크롤바 높이 (가로 스크롤 쓸 경우) */
+}
+
+/* 스크롤바 트랙 (배경) */
+.chat-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* 스크롤바 핸들 (움직이는 부분) */
+.chat-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+    transform: scaleY(0.7); /* thumb의 길이를 시각적으로 줄임 */
+}
+
+/* 스크롤바 hover 시 색상 */
+.chat-container::-webkit-scrollbar-thumb:hover {
+    background: #999;
 }
