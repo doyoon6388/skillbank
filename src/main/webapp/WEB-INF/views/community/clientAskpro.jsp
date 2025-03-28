@@ -12,9 +12,7 @@
 <body>
 
 <div class="community-button2-container">
-    <div>
-        <h3>プロに聞く</h3>
-    </div>
+    <h3>プロに聞く</h3>
 </div>
 
 <div class="pro-post-list">
@@ -24,9 +22,9 @@
                 <div class="pro-post-author">
                     投稿者 ${i.commu_user_id}
                 </div>
-<%--                <div class="pro-post-date">--%>
-<%--                    <fmt:formatDate value="${i.commu_date}" pattern="yyyy/MM/dd HH:mm"/>--%>
-<%--                </div>--%>
+                    <%--                <div class="pro-post-date">--%>
+                    <%--                    <fmt:formatDate value="${i.commu_date}" pattern="yyyy/MM/dd HH:mm"/>--%>
+                    <%--                </div>--%>
                 <div class="client-post-date">
                     <p class="community-date"
                        data-date="<fmt:formatDate value='${i.commu_date}' pattern='yyyy-MM-dd\'T\'HH:mm:ss'/>">
@@ -42,7 +40,7 @@
             <div class="client-post-wrapper">
                 <img src="/file/${i.commu_image}" alt="" style="width: 100px; height: 100px;">
             </div>
-<%--            <div class="community-like-number">いいね: ${i.commu_like}</div>--%>
+                <%--            <div class="community-like-number">いいね: ${i.commu_like}</div>--%>
             <div class="community-like-number">
                 いいね:
                 <c:choose>

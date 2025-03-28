@@ -1,3 +1,13 @@
+h1 {
+    margin: 40px 0 50px;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 40px;
+}
+
 .community-header-wrapper {
     position: relative;
     display: flex;
@@ -18,10 +28,11 @@
     width: 200px;
     z-index: 2;
     cursor: pointer;
+    border-left: 1px solid #ddd;
 }
 
 .community-client-tab div {
-    margin: 10px;
+    margin: 10px 0 10px 20px;
 }
 
 .community-client-tab div.active {
@@ -88,7 +99,7 @@
 
 .community-client-write {
     padding: 10px;
-    margin: 5px;
+    margin: 10px 0 0 15px;
     border: none;
     background-color: #f7ab85;
     border-radius: 50px;
@@ -180,6 +191,7 @@
     margin-bottom: 20px;
     padding: 15px;
     cursor: pointer;
+    border: 2px solid #F7AB85;
 }
 
 .client-post-wrapper {
@@ -233,11 +245,8 @@
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 15px;
-    background-color: white;
-    border: 1px solid cornsilk;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    padding: 15px;
+    border: 2px solid #F8B285;
+    cursor: pointer;
 }
 
 .pro-post-header {
@@ -249,7 +258,7 @@
 
 .pro-post-author {
     font-weight: bold;
-    color: #555555;
+    color: midnightblue;
 }
 
 .pro-post-date {
@@ -285,6 +294,8 @@
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 15px;
+    cursor: pointer;
+    border: 2px solid #4DB2E1;
 }
 
 .appeal-post-header {
@@ -296,7 +307,7 @@
 
 .appeal-post-author {
     font-weight: bold;
-    color: #555555;
+    color: midnightblue;
 }
 
 .appeal-post-date {
@@ -353,9 +364,9 @@
 }
 
 .post-detail {
-    max-width: 700px;
+    max-width: 970px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 20px 0;
     background-color: white;
 }
 
@@ -424,6 +435,7 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-left: 30px;
 }
 
 .community-update-btn {
@@ -484,7 +496,7 @@
 
 #comment-page-comment-content {
     display: block;
-    width: 100%;
+    width: 950px;
     min-height: 80px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -613,14 +625,19 @@
     white-space: normal;
     overflow: hidden;
     min-height: 300px;
+    cursor: pointer;
 }
 
 .post-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
 }
 
 .post-like {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 14px;
     margin-bottom: 4px;
     color: #e74c3c;

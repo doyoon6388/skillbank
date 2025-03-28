@@ -12,9 +12,7 @@
 <body>
 
 <div class="community-button2-container">
-    <div>
-        <h3>プロのアピール</h3>
-    </div>
+    <h3>プロのアピール</h3>
 </div>
 
 <div class="appeal-post-list">
@@ -24,9 +22,9 @@
                 <div class="appeal-post-author">
                     投稿者: ${post.commu_user_id}
                 </div>
-<%--                <div class="appeal-post-date">--%>
-<%--                    <fmt:formatDate value="${post.commu_date}" pattern="MM/dd - HH:mm"/>--%>
-<%--                </div>--%>
+                    <%--                <div class="appeal-post-date">--%>
+                    <%--                    <fmt:formatDate value="${post.commu_date}" pattern="MM/dd - HH:mm"/>--%>
+                    <%--                </div>--%>
 
                 <div class="client-post-date">
                     <p class="community-date"
@@ -44,7 +42,7 @@
             <div class="appeal-post-wrapper">
                 <img src="/file/${post.commu_image}" alt="画像" style="width: 100px; height: 100px;">
             </div>
-<%--            <div class="community-like-number">いいね: ${post.commu_like}</div>--%>
+                <%--            <div class="community-like-number">いいね: ${post.commu_like}</div>--%>
             <div class="community-like-number">
                 いいね:
                 <c:choose>
