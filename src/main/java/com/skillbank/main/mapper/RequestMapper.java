@@ -34,11 +34,11 @@ public interface RequestMapper {
 
 
     @Select("SELECT r.* , p.* FROM pro_account p FULL OUTER JOIN response r ON  p.pro_pk = r.r_pro_pk WHERE r.r_request_no = #{no} ")
-
+    List<ProResponseVO> proResponse(int no);
 /*
     @Select("SELECT r.*, p.pro_category FROM response r JOIN pro_account p ON r.r_pro_pk = p.pro_pk ")
 */
-    List<ProResponseVO> proResponse(int no);
+
 
     @Select("SELECT r.* , p.* FROM pro_account p FULL OUTER JOIN response r ON  p.pro_pk = r.r_pro_pk WHERE r.r_no = #{no} ")
     ProResponseVO proResponseDetail(int no);
