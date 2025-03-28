@@ -1,6 +1,7 @@
 package com.skillbank.main.test;
 
 import com.skillbank.main.vo.ProAccountVO;
+import com.skillbank.main.vo.ProResponseVO;
 import com.skillbank.main.vo.ReqeustVO;
 import com.skillbank.main.vo.UserAccountVO;
 import org.apache.ibatis.annotations.Insert;
@@ -37,9 +38,13 @@ public interface TestMapper {
     @Select("select * from chat_room where chat_room_no = #{no}")
     ChatRoomVO getChatRoomById(int no);
 
+    @Select("SELECT r.* , p.* FROM pro_account p FULL OUTER JOIN response r ON  p.pro_pk = r.r_pro_pk WHERE r.r_request_no = #{r_request_no}")
+    ProResponseVO getResponseInfo(ProResponseVO proResponseVO);
+
+    @Select("select * from pro_account where pro_pk = #{pro_pk}")
+    ProAccountVO getProInfo(ProAccountVO proAccountVO);
+
     @Select("select * from user_account where user_pk = #{user_pk}")
     UserAccountVO getClientInfo(UserAccountVO userAccountVO);
 
-    @Select(("SELECT r.* , p.* FROM pro_account p FULL OUTER JOIN response r ON  p.pro_pk = r.r_pro_pk WHERE r.r_no = #{no}"))
-    ProAccountVO getProInfo(ProAccountVO proAccountVO);
 }
