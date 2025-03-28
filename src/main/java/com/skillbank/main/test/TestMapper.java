@@ -40,6 +40,6 @@ public interface TestMapper {
     @Select("select * from user_account where user_pk = #{user_pk}")
     UserAccountVO getClientInfo(UserAccountVO userAccountVO);
 
-    @Select(("select * from pro_account where pro_pk = #{pro_pk}"))
+    @Select(("SELECT r.* , p.* FROM pro_account p FULL OUTER JOIN response r ON  p.pro_pk = r.r_pro_pk WHERE r.r_no = #{no}"))
     ProAccountVO getProInfo(ProAccountVO proAccountVO);
 }
