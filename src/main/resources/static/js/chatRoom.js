@@ -17,10 +17,11 @@ window.onload = () => {
         sendMessage(message, from, to);
         document.getElementById("message").value = "";
     });
-
     if (isPro) {
+    loadResponseInfo();
         loadClientInfo();
     } else {
+        loadResponseInfoClient();
         loadProInfo();
     }
 };
@@ -83,18 +84,51 @@ function scrollToBottom() {
     chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
+function loadResponseInfo() {
+    const requestNumber = document.getElementById("chatReqNum").value;
+    fetch("/test/chat/response-info", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ r_request_no: requestNumber }),
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            document.getElementById("chat-information-content").innerHTML = generateResponseHtml(data);
+        })
+        .catch((err) => console.error("클라이언트 정보 로드 실패:", err));
+}
+
+function loadResponseInfoClient() {
+    const requestNumber = document.getElementById("chatReqNum").value;
+    fetch("/test/chat/response-info", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ r_request_no: requestNumber }),
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            document.getElementById("chat-information-content").innerHTML = generateResponseHtmlClient(data);
+            bindDealButtonListeners();
+        })
+        .catch((err) => console.error("클라이언트 정보 로드 실패:", err));
+}
+
 function loadClientInfo() {
     const fromValue = document.getElementById("hiddenFrom").value;
     fetch("/test/chat/client-info", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json",
+        },
         body: JSON.stringify({ user_pk: fromValue }),
     })
-        .then((res) => res.json())
-        .then((data) => {
-            document.getElementById("chat-information-content").innerHTML = generateClientHtml(data);
+        .then((response) => response.json())
+        .then((clientData) => {
+            console.log(clientData);
+            document.getElementById("chat-partner-info").innerHTML =
+                generateClientHtml(clientData);
         })
-        .catch((err) => console.error("클라이언트 정보 로드 실패:", err));
+        .catch((error) => console.error("클라이언트 정보 로드 실패:", error));
 }
 
 function loadProInfo() {
@@ -106,32 +140,26 @@ function loadProInfo() {
     })
         .then((res) => res.json())
         .then((data) => {
-            document.getElementById("chat-information-content").innerHTML = generateProHtml(data);
-            bindDealButtonListeners();
+            document.getElementById("chat-partner-info").innerHTML = generateProHtml(data);
         })
         .catch((err) => console.error("프로 정보 로드 실패:", err));
 }
 
-function generateClientHtml(data) {
+function generateResponseHtml(data) {
     return `
-        <h3>클라이언트 정보</h3>
-        <p>이름: ${data.user_nickname}</p>
-        <p>이메일: ${data.user_email}</p>
-        <p>기타 정보: ${data.user_phone}</p>
+        <h3>見積書 情報</h3>
+        <p>${data.r_price_type} : ${data.r_price} 円</p>
+        <p>詳細情報: ${data.r_comment}</p>
     `;
 }
-
-function generateProHtml(data) {
+function generateResponseHtmlClient(data) {
     let review_client = document.getElementById("hiddenFrom").value;
     let review_pro = document.getElementById("hiddenTo").value;
     const chatReqNo = document.getElementById("chatReqNum").value;
-
     return `
-        <h3>프로 정보</h3>
-        <p>이름: ${data.pro_name}</p>
-        <p>전문 분야: ${data.pro_category}</p>
-        <p>전화번호: ${data.pro_phone}</p>
-        <p>주소: ${data.pro_address}</p>
+        <h3>見積書 情報</h3>
+        <p>${data.r_price_type} : ${data.r_price} 円</p>
+        <p>詳細情報: ${data.r_comment}</p>
         <div class="deal-button-container">
             <form id="review-form" action="/review" method="post">
                 <input type="hidden" name="review_client" value="${review_client}">
@@ -143,6 +171,22 @@ function generateProHtml(data) {
                 </div>
             </form>
         </div>
+    `;
+}
+function generateClientHtml(data) {
+    return `
+    <div>
+    <div> <img src="/file/${data.user_profile_img}" alt=""> </div>
+    <div> ${data.user_nickname}</div>
+    </div>
+    `;
+}
+function generateProHtml(data) {
+    return `
+    <div>
+    <div> <img src="/file/${data.pro_profile_img}" alt=""> </div>
+    <div> ${data.pro_name}</div>
+    </div>
     `;
 }
 
