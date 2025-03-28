@@ -1,6 +1,7 @@
 package com.skillbank.main.test;
 
 import com.skillbank.main.vo.ProAccountVO;
+import com.skillbank.main.vo.ProResponseVO;
 import com.skillbank.main.vo.ReqeustVO;
 import com.skillbank.main.vo.UserAccountVO;
 import org.slf4j.Logger;
@@ -71,11 +72,15 @@ public class TestService {
         return testMapper.getChatRoomById(no);
     }
 
-    public UserAccountVO getClientInfo(UserAccountVO userAccountVO) {
-        return testMapper.getClientInfo(userAccountVO);
+    public ProResponseVO getResponseInfo(ProResponseVO proResponseVO) {
+        return testMapper.getResponseInfo(proResponseVO);
     }
 
     public ProAccountVO getProInfo(ProAccountVO proAccountVO) {
         return testMapper.getProInfo(proAccountVO);
+    }
+
+    public UserAccountVO getClientInfo(UserAccountVO userAccountVO) {
+        return testMapper.getClientInfo(userAccountVO);
     }
 }
