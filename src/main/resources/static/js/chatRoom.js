@@ -1,8 +1,8 @@
-
 window.onload = () => {
     scrollToBottom();
     const from = document.querySelector("#from").value;
     const to = document.querySelector("#to").value;
+    window.myNickname = from; // 전역에서 내 닉네임 참조할 수 있게
 
     document.getElementById("message").addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
@@ -17,8 +17,6 @@ window.onload = () => {
         sendMessage(message, from, to);
         document.getElementById("message").value = "";
     });
-
-    window.scrollTo(0, document.body.scrollHeight);
 
     if (isPro) {
         loadClientInfo();
@@ -36,22 +34,21 @@ socket.onopen = () => {
 
 socket.onmessage = (event) => {
     const messageData = JSON.parse(event.data);
-
     const messageContainer = document.createElement("div");
-    messageContainer.classList.add("message");
-
-    if (messageData.sender === "me") {
-        messageContainer.classList.add("sent");
-        messageContainer.classList.add(isPro ? "pro-color" : "user-color");
-    } else {
-        messageContainer.classList.add("received");
-        messageContainer.classList.add(isPro ? "user-color" : "pro-color");
-    }
-
     const messageContent = document.createElement("p");
     messageContent.innerText = messageData.message;
-    messageContainer.appendChild(messageContent);
 
+    const isSender = messageData.sender === window.myNickname;
+
+    messageContainer.classList.add("message");
+    messageContainer.classList.add(isSender ? "sent" : "received");
+    messageContainer.classList.add(
+        isSender
+            ? isPro ? "pro-bubble" : "user-bubble"
+            : isPro ? "user-bubble" : "pro-bubble"
+    );
+
+    messageContainer.appendChild(messageContent);
     document.getElementById("chatContainer").appendChild(messageContainer);
     scrollToBottom();
 };
@@ -63,19 +60,13 @@ socket.onclose = () => {
 function sendMessage(message, from, to) {
     const messageContainer = document.createElement("div");
     messageContainer.classList.add("message", "sent");
-
-    // ✅ 유저 or 프로 테마 클래스 추가
-    if (isPro) {
-        messageContainer.classList.add("pro-bubble");
-    } else {
-        messageContainer.classList.add("user-bubble");
-    }
+    messageContainer.classList.add(isPro ? "pro-bubble" : "user-bubble");
 
     const messageContent = document.createElement("p");
     messageContent.innerText = message;
     messageContainer.appendChild(messageContent);
-    document.getElementById("chatContainer").appendChild(messageContainer);
 
+    document.getElementById("chatContainer").appendChild(messageContainer);
     scrollToBottom();
 
     const messageData = {
@@ -96,33 +87,29 @@ function loadClientInfo() {
     const fromValue = document.getElementById("hiddenFrom").value;
     fetch("/test/chat/client-info", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({user_pk: fromValue}),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_pk: fromValue }),
     })
-        .then((response) => response.json())
-        .then((clientData) => {
-            document.getElementById("chat-information-content").innerHTML = generateClientHtml(clientData);
+        .then((res) => res.json())
+        .then((data) => {
+            document.getElementById("chat-information-content").innerHTML = generateClientHtml(data);
         })
-        .catch((error) => console.error("클라이언트 정보 로드 실패:", error));
+        .catch((err) => console.error("클라이언트 정보 로드 실패:", err));
 }
 
 function loadProInfo() {
     const toValue = document.getElementById("hiddenTo").value;
     fetch("/test/chat/pro-info", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({pro_pk: toValue}),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pro_pk: toValue }),
     })
-        .then((response) => response.json())
-        .then((proData) => {
-            document.getElementById("chat-information-content").innerHTML = generateProHtml(proData);
+        .then((res) => res.json())
+        .then((data) => {
+            document.getElementById("chat-information-content").innerHTML = generateProHtml(data);
             bindDealButtonListeners();
         })
-        .catch((error) => console.error("프로 정보 로드 실패:", error));
+        .catch((err) => console.error("프로 정보 로드 실패:", err));
 }
 
 function generateClientHtml(data) {
@@ -138,6 +125,7 @@ function generateProHtml(data) {
     let review_client = document.getElementById("hiddenFrom").value;
     let review_pro = document.getElementById("hiddenTo").value;
     const chatReqNo = document.getElementById("chatReqNum").value;
+
     return `
         <h3>프로 정보</h3>
         <p>이름: ${data.pro_name}</p>
@@ -160,18 +148,17 @@ function generateProHtml(data) {
 
 function bindDealButtonListeners() {
     const dealBtn = document.getElementById("deal-complete-btn");
+    if (!dealBtn) return;
 
-    if (dealBtn) {
-        dealBtn.addEventListener("click", () => {
-            if (confirm("거래를 성사하시겠습니까?")) {
-                if (confirm("고수님을 위해 리뷰를 작성해주세요!")) {
-                    document.getElementById("review-form").submit();
-                } else {
-                    const review_client = document.querySelector('input[name="review_client"]').value;
-                    const review_pro = document.querySelector('input[name="review_pro"]').value;
-                    window.location.href = `/noReview?review_client=${review_client}&review_pro=${review_pro}`;
-                }
+    dealBtn.addEventListener("click", () => {
+        if (confirm("거래를 성사하시겠습니까?")) {
+            if (confirm("고수님을 위해 리뷰를 작성해주세요!")) {
+                document.getElementById("review-form").submit();
+            } else {
+                const review_client = document.querySelector('input[name="review_client"]').value;
+                const review_pro = document.querySelector('input[name="review_pro"]').value;
+                window.location.href = `/noReview?review_client=${review_client}&review_pro=${review_pro}`;
             }
-        });
-    }
+        }
+    });
 }

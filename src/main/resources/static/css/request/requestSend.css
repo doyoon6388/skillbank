@@ -3,15 +3,16 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin: 40px auto;
 }
 
 /* ✅ 왼쪽 요청 정보 섹션 */
 .responseContainer {
     background: white;
     padding: 20px;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,9 +40,10 @@
     position: sticky;
     top: 0;
     background-color: white;
-    width: 560px;
+    width: 600px;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 20px 0;
+    padding: 20px 40px;
 }
 
 .price-setting {
