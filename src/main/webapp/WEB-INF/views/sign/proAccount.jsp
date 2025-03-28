@@ -8,6 +8,9 @@
 </head>
 <body>
 <div>
+
+    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 60px 0 40px;">
+
     <form action="/account/pro" method="post">
         <div>어떤 일을 전문으로 하시나요 ?_?</div>
         <div><input type="radio" name="pro_category" value="원룸/소형 이사">이사</div>

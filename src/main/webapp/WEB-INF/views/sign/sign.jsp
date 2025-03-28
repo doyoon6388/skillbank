@@ -13,7 +13,7 @@
 <body>
 <div id="sign-container">
 
-    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 40px 0;">
+    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 60px 0 40px;">
 
     <input type="hidden" id="message-data" value="<%= request.getAttribute("message") %>">
     <input type="hidden" id="error-data" value="<%= request.getAttribute("error") %>">

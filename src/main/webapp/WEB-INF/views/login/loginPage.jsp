@@ -9,7 +9,9 @@
 </head>
 <body>
 <div id="login-container">
-    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 40px 0;">
+
+    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 60px 0 40px;">
+
     <form action="/login" method="post">
         <label for="user_email">E-mail :</label>
         <input type="text" id="user_email" name="user_email" required/>
@@ -40,6 +42,7 @@
     </div>
 
 </div>
+
 <script>
     // 로그인 페이지 로딩 시, prevPage URL 파라미터 값 넣기
     const urlParams = new URLSearchParams(window.location.search);

@@ -11,7 +11,7 @@
 
 <div class="cash-wrapper">
 
-    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 40px 0;">
+    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 60px 0 40px;">
 
     <div class="cash-balance">
         残高 : <span style="font-weight: 600">${sessionScope.proSession.pro_cash} コイン</span>

@@ -17,6 +17,7 @@
 <script src="/resources/js/main/index.js"></script>
 
 <body>
+
 <div class="header-wrapper">
     <div class="header">
         <div class="header-items">
@@ -30,10 +31,16 @@
         </div>
     </div>
 </div>
+
 <div id="index-container">
     <c:if test="${not empty page}">
         <jsp:include page="${page}"></jsp:include>
     </c:if>
 </div>
+
+<div class="footer-wrapper">
+    푸터입니당
+</div>
+
 </body>
 </html>
