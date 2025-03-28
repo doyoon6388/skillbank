@@ -1,7 +1,7 @@
 .chat-btn {
     position: fixed;
     right: max(calc((100vw - 1190px) / 2 + 20px), 20px); /* 너비 1280px 기준으로 조정 */
-    bottom: 25vh;
+    top: 60vh;
     width: 40px;
     height: 40px;
     cursor: pointer;

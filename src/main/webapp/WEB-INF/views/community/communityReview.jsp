@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-pageEncoding="utf-8" %>
+         pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
@@ -10,9 +10,7 @@ pageEncoding="utf-8" %>
 </head>
 <body>
 <div class="community-button2-container">
-    <div>
-        <h3>レビュー</h3>
-    </div>
+    <h3>レビュー</h3>
 </div>
 
 <div class="client-post-list">
