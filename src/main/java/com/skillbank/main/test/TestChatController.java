@@ -2,6 +2,7 @@ package com.skillbank.main.test;
 
 import com.skillbank.main.service.MainService;
 import com.skillbank.main.vo.ProAccountVO;
+import com.skillbank.main.vo.ProResponseVO;
 import com.skillbank.main.vo.ReqeustVO;
 import com.skillbank.main.vo.UserAccountVO;
 import jakarta.servlet.http.HttpSession;
@@ -85,12 +86,17 @@ public class TestChatController {
             return "index";
         }
     }
-
     @ResponseBody
     @PostMapping("/client-info")
     public UserAccountVO clientInfo(@RequestBody UserAccountVO userAccountVO) {
         return testService.getClientInfo(userAccountVO);
     }
+    @ResponseBody
+    @PostMapping("/response-info")
+    public ProResponseVO responseInfo(@RequestBody ProResponseVO proResponseVO) {
+        return testService.getResponseInfo(proResponseVO);
+    }
+
     @ResponseBody
     @PostMapping("/pro-info")
     public ProAccountVO proInfo(@RequestBody ProAccountVO proAccountVO) {

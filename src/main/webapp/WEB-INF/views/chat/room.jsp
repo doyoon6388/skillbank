@@ -12,10 +12,8 @@
 <div class="chat-room-wrapper ${isPro ? 'pro-theme' : 'user-theme'}">
     <!-- 상단 정보 -->
     <div class="chat-header">
-        <div class="chat-room-title">채팅방: ${chatRoom.chat_room_no}</div>
-        <div class="chat-participants">
-            <span>Client: ${chatRoom.chat_user_name}</span>
-            <span>Pro: ${chatRoom.chat_pro_name}</span>
+        <div class="chat-participants" id="chat-partner-info">
+
         </div>
     </div>
 

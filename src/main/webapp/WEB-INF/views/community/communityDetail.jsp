@@ -10,7 +10,6 @@
     <title>Title</title>
     <link rel="stylesheet" href="/resources/css/community/community.css"></link>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 </head>
 <body>
 
@@ -59,33 +58,23 @@
          style="min-height:300px; white-space: pre-wrap;">${communityPost.commu_content}</div>
 
 
-    <%--            いいね--%>
-        <button class="community-like">
-            <c:choose>
-                <c:when test="${liked}">
-                    <img src="/icons/profile/community/filled_heart.png" alt="찜됨" id="like-icon" style="width: 50px; height: 50px;"/>
-                </c:when>
-                <c:otherwise>
-                    <img src="/icons/profile/community/empty_heart.png" alt="찜하기" id="like-icon" style="width: 50px; height: 50px;"/>
-                </c:otherwise>
-            </c:choose>
-        </button>
-        <span id="like-count">${communityPost.commu_like}</span>
-        <input type="hidden" id="community-like-id" value="${communityPost.commu_post_id}">
-        <input type="hidden" id="current-user-pk" value="${sessionScope.user.user_pk}">
+        <%--            いいね--%>
+    <button class="community-like">
+        <c:choose>
+            <c:when test="${liked}">
+                <img src="/icons/profile/community/filled_heart.png" alt="찜됨" id="like-icon"
+                     style="width: 50px; height: 50px;"/>
+            </c:when>
+            <c:otherwise>
+                <img src="/icons/profile/community/empty_heart.png" alt="찜하기" id="like-icon"
+                     style="width: 50px; height: 50px;"/>
+            </c:otherwise>
+        </c:choose>
+    </button>
+    <span id="like-count">${communityPost.commu_like}</span>
+    <input type="hidden" id="community-like-id" value="${communityPost.commu_post_id}">
+    <input type="hidden" id="current-user-pk" value="${sessionScope.user.user_pk}">
 
-        <%-- 戻る--%>
-<%--    <button class="community-history-back" id="history-back" type="button" onclick="history.back()">戻る</button>--%>
-<%--        <button class="community-history-back"--%>
-<%--                id="history-back"--%>
-<%--                type="button"--%>
-<%--                onclick="location.href='${sessionScope.previousUrl}'">--%>
-<%--            戻る--%>
-<%--        </button>--%>
-
-
-
-    <%--    削除/修正　--%>
     <c:if test="${sessionScope.user != null and sessionScope.user.user_pk == communityPost.commu_user_id}">
         <form class="delete-form" id="delete-form" action="/community/delete" method="post" style="display:inline;">
             <input type="hidden" name="postId" value="${communityPost.commu_post_id}" id="delete-post-id"/>

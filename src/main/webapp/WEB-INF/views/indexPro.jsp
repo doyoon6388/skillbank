@@ -40,7 +40,11 @@
 </div>
 
 <div class="footer-wrapper">
-    푸터입니당
+    <img class="login-Logo" src="/resources/images/login/loginLogo-removebg.png" alt="" style="width: 220px;">
+    <br />
+    &copy; 2025 SkillBank. All rights reserved.
+    <br />
+    <a href="/terms">利用規約</a> | <a href="/privacy">個人情報の取り扱い</a> | <a href="/contact">お問い合わせ</a>
 </div>
 
 </body>

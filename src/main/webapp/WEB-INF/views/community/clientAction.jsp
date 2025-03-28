@@ -12,22 +12,15 @@
 <body>
 
 <div class="community-button2-container">
-    <div>
-        <h3>助け合い</h3>
-    </div>
+    <h3>助け合い</h3>
 </div>
 
 <div class="client-post-list">
     <c:forEach var="i" items="${communityPost}">
-        <%--        <p>DEBUG: <c:out value="${i.commu_writer}"/></p>--%>
         <div class="client-post-card" onclick="location.href='/community/detail?postId=${i.commu_post_id}'">
             <div class="client-post-header">
                 <div class="client-post-author">
                     投稿者 ${i.commu_user_id}
-                        <%--                    / ${i.commu_post_id}--%>
-                        <%--                    <c:if test="${i.commu_writer == 0}">--%>
-                        <%--                        <span class="pro-label">プロ</span>--%>
-                        <%--                    </c:if>--%>
                 </div>
                 <div class="client-post-date">
                     <p class="community-date"
@@ -45,7 +38,6 @@
                 <img src="/file/${i.commu_image}" alt="" style="width: 100px; height: 100px;">
             </div>
 
-<%--            <div class="community-like-number">いいね: ${i.commu_like}</div>--%>
             <div class="community-like-number">
                 いいね:
                 <c:choose>
@@ -68,9 +60,9 @@
         <a href="?page=${currentPage - 1}"><</a>
     </c:if>
 
-        <c:forEach var="p" begin="${startPage}" end="${endPage}">
-            <a href="?page=${p}" class="${p == currentPage ? 'active' : ''}">${p}</a>
-        </c:forEach>
+    <c:forEach var="p" begin="${startPage}" end="${endPage}">
+        <a href="?page=${p}" class="${p == currentPage ? 'active' : ''}">${p}</a>
+    </c:forEach>
 
     <c:if test="${currentPage < totalPage}">
         <a href="?page=${currentPage + 1}">></a>
