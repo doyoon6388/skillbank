@@ -44,7 +44,7 @@
     <br />
     &copy; 2025 SkillBank. All rights reserved.
     <br />
-    <a href="/terms">이용약관</a> | <a href="/privacy">개인정보처리방침</a> | <a href="/contact">문의하기</a>
+    <a href="/terms">利用規約</a> | <a href="/privacy">個人情報の取り扱い</a> | <a href="/contact">お問い合わせ</a>
 </div>
 
 </body>
