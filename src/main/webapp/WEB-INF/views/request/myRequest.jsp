@@ -22,8 +22,8 @@
 <body>
 <div class="request-container">
     <div class="btn-container">
-        <button id="for-btn">견적 받는중</button>
-        <button id="for-btn2">받은 견적</button>
+        <button id="for-btn">ミツモリ待ち</button>
+        <button id="for-btn2">提案中ミツモリ</button>
     </div>
     <div id="for-div">
         <c:forEach items="${request}" var="r">
@@ -39,17 +39,17 @@
                 <span>${r.request10}</span>
                 <h1>${r.request_type}</h1>
                 <div class="btn1">
-                    <span class="requestDelete" data-request-no="${r.request_no}">견적 그만 받기</span>
+                    <span class="requestDelete" data-request-no="${r.request_no}">依頼のキャンセル</span>
 
                 </div>
                 <div class="btn2">
                     <button class="myRequestOpenModalBtn" value="${r.request_no}">
-                        내 요청 보기
+                        自分の依頼を見る
                     </button>
 
                 </div>
                 <c:if test="${r.r_pro_pk != 0}">
-                    <span class="badge">지정 요청</span>
+                    <span class="badge">指定依頼</span>
                 </c:if>
 
             </div>
@@ -71,18 +71,18 @@
                         <div class="progress"
                              style="width: ${r.r_request_no >= 1 ? (r.r_complete == 1 ? '100%' : '50%') : '20%'}"></div>
                         <c:if test="${r.r_pro_pk != 0}">
-                            <span class="badge2">지정 요청</span>
+                            <span class="badge2">指定依頼</span>
                         </c:if>
                     </div>
                     <div class="status">
-                        <span class="step">견적요청</span>
-                        <span class="step">상담진행</span>
-                        <span class="step">거래완료</span>
+                        <span class="step">プロに依頼</span>
+                        <span class="step">相談中</span>
+                        <span class="step">取引完了</span>
                     </div>
 
                     <div class="receiveBtn">
                         <button onclick="location.href='my-request2?no=${r.request_no}'">
-                            자세히 보기
+                            もっと見る
                         </button>
                     </div>
                 </div>

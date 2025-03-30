@@ -120,7 +120,8 @@ CREATE TABLE community_post_like
     CONSTRAINT fk_post_like_user FOREIGN KEY (user_id) REFERENCES user_account (user_pk)
 );
 
-
+update pro_account set pro_category = 'クリーニング' where pro_category = '청소';
+SELECT * FROM pro_account WHERE pro_category = '청소';
 select *
 from community_post_like;
 

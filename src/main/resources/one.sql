@@ -364,7 +364,8 @@ create sequence r_no_seq;
 
 select * from response;
 
-
+update request set request_type = '引っ越し' where request_type = '원룸/소형 이사';
+SELECT * FROM pro_account WHERE pro_category = '청소';
 
 drop table response cascade constraints purge;
 
