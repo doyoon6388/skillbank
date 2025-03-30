@@ -31,8 +31,8 @@
             <div class="findpro-filter-options">
                 <label for="service-filtering" class="visually-hidden">並び替え</label>
                 <select id="service-filtering" name="service-filtering">
-                    <option value="review" selected>口コミが多い順</option>
-                    <option value="favorite">찜 수順</option>
+                    <option value="review" selected>クチコミが多い順</option>
+                    <option value="favorite">お気に入りが多い順</option>
                 </select>
             </div>
         </div>
