@@ -15,7 +15,6 @@
 <section id="findpro-search-container">
 
     <div class="findpro-filter-wrapper">
-        <!-- ✅ 왼쪽: 카테고리 필터 -->
         <div class="findpro-filter-left">
             <label for="service-main-category" class="visually-hidden">カテゴリー</label>
             <select id="service-main-category" name="pro-category">
@@ -26,13 +25,12 @@
             </select>
         </div>
 
-        <!-- ✅ 오른쪽: 정렬 옵션 -->
         <div class="findpro-filter-right">
             <div class="findpro-filter-options">
                 <label for="service-filtering" class="visually-hidden">並び替え</label>
                 <select id="service-filtering" name="service-filtering">
-                    <option value="review" selected>クチコミが多い順</option>
-                    <option value="favorite">お気に入りが多い順</option>
+                    <option value="review" selected>口コミ順</option>
+                    <option value="favorite">ファロワー順</option>
                 </select>
             </div>
         </div>

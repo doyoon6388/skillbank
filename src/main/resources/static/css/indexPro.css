@@ -2,69 +2,53 @@
 @font-face {
     font-family: "AppleSDGothicNeo";
     src: url("/fonts/AppleSDGothicNeoL.ttf") format("truetype");
-    font-weight: 300; /* Light */
+    font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: "AppleSDGothicNeo";
     src: url("/fonts/AppleSDGothicNeoR.ttf") format("truetype");
-    font-weight: 400; /* Regular */
+    font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: "AppleSDGothicNeo";
     src: url("/fonts/AppleSDGothicNeoB.ttf") format("truetype");
-    font-weight: 700; /* Bold */
-    font-style: normal;
-}
-
-/* ✅ 제목 폰트 */
-h1, h2, h3 {
-    font-weight: 700; /* 볼드 처리 */
-}
-
-h1 {
-    font-size: 24px;
-    margin: 40px 0 20px;
-}
-
-/* ✅ 일반 텍스트 */
-p, span, div {
-    font-weight: 400; /* 기본 폰트 굵기 */
-}
-
-/* ✅ 강조된 텍스트 */
-strong, b {
     font-weight: 700;
-}
-
-/* ✅ 얇은 텍스트 (필요할 경우) */
-.light-text {
-    font-weight: 300;
-}
-
-* {
-    font-family: "AppleSDGothicNeo", sans-serif !important;
-}
-
-/* ✅ 기본 스타일 */
-body {
-    font-family: "AppleSDGothicNeo", sans-serif;
     font-style: normal;
+}
+
+/* ✅ body를 flex column 구조로 설정하여 footer 밀어내기 */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     background-color: white;
+    font-family: "AppleSDGothicNeo", sans-serif;
 }
 
-/* ✅ 헤더 전체 영역 */
+/* ✅ index-main-wrapper는 본문을 감싸는 유연한 wrapper */
+.index-main-wrapper {
+    flex: 1;
+}
+
+/* ✅ 본문 컨테이너는 너비 유지 + 아래 마진 추가 */
+#indexPro-container {
+    width: 970px;
+    margin: 0 auto 100px;
+    background-color: white;
+}
+
+/* ✅ 헤더 영역 */
 .header-wrapper {
     width: 100%;
     border-bottom: 0.0625rem solid #eff1f5;
 }
 
-/* ✅ 헤더 내부 컨텐츠 */
 .header {
     max-width: 970px;
     height: 40px;
@@ -76,7 +60,6 @@ body {
     color: white;
 }
 
-/* ✅ 헤더 메뉴 항목 */
 .header-items {
     display: flex;
     justify-content: space-between;
@@ -85,58 +68,46 @@ body {
     align-items: center;
 }
 
-/* ✅ 헤더 메뉴 텍스트 스타일 */
 .header-items div:not(:has(.logo)) {
     color: black;
     cursor: pointer;
-    position: relative; /* 밑줄 위치 지정 */
-    transition: color 0.3s ease-in-out; /* 색상 변화 부드럽게 */
+    position: relative;
+    transition: color 0.3s ease-in-out;
 }
 
-/* ✅ 메뉴 항목 호버 시 밑줄 효과 */
 .header-items div:not(:has(.logo))::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -25px; /* 텍스트 아래에 위치 */
-    width: 0; /* 초기에는 보이지 않음 */
+    bottom: -25px;
+    width: 0;
     height: 2px;
-    background-color: #4db2e1; /* 밑줄 색상 */
-    transition: width 0.2s ease-in-out; /* 밑줄이 나타나는 애니메이션 */
+    background-color: #4db2e1;
+    transition: width 0.2s ease-in-out;
 }
 
-/* ✅ 마우스를 올리면 밑줄이 나타남 */
 .header-items div:not(:has(.logo)):hover::after {
     width: 100%;
 }
 
-/* ✅ 마우스를 올리면 글자 색상 약간 진하게 */
 .header-items div:not(:has(.logo)):hover {
     color: #333;
 }
 
-/* ✅ 인덱스 페이지의 메인 컨테이너 */
-#indexPro-container {
-    width: 970px;
-    margin: 0 auto;
-    background-color: white;
-}
-
-/* ✅ 로고 기본 스타일 */
 .logo {
     display: flex;
     width: 40px;
     border-radius: 10px;
     align-items: center;
-    transition: transform 0.3s ease-in-out; /* 애니메이션 적용 */
+    transition: transform 0.3s ease-in-out;
 }
 
-/* ✅ 로고 호버 시 크기 커지는 효과 */
 .logo:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
 
+/* ✅ 푸터 스타일 */
 .footer-wrapper {
     padding: 40px 20px;
     background-color: #eaf7fc;
@@ -144,7 +115,6 @@ body {
     text-align: center;
     font-size: 14px;
     color: #555;
-    margin: 80px auto 0;
 }
 
 .footer-wrapper a {
@@ -156,4 +126,26 @@ body {
 
 .footer-wrapper a:hover {
     color: #4DB2E1;
+}
+
+/* ✅ 텍스트 스타일 */
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 40px 0 20px;
+}
+
+p, span, div {
+    font-weight: 400;
+}
+
+strong, b {
+    font-weight: 700;
+}
+
+.light-text {
+    font-weight: 300;
 }
