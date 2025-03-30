@@ -332,9 +332,9 @@ alter table response
 add(
     constraint fk_response_request foreign key (r_request_no) references request(request_no)
     );
-alter table request
+alter table response
     add(
-        r_complete number(1) default 0
+        r_c number(1) default 0
         );
 
 

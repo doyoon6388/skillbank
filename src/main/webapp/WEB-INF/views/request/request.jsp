@@ -43,15 +43,15 @@
 <div class="mainRequestWrapper">
     <div onclick="location.href='/move'"><img
             src="https://static.cdn.soomgo.com/upload/service/11bd8485-cc6a-416e-b186-692a39b4e9a1.png?h=302&w=452&webp=1">
-        <spna>원룸/소형이사</spna>
+        <spna>ワンルーム/ 小型引っ越し</spna>
     </div>
     <div onclick="location.href='/clean'"><img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTmn4pRBo-5sX2ve2Or-5X7FKC56Cc4A7O9w&s">
-        <spna>에어컨 청소</spna>
+            src="https://clokabe-88.jp/wp-content/uploads/AdobeStock_84702018.jpg">
+        <spna>エアコンクリーニング</spna>
     </div>
     <div><img
             src="https://static.cdn.soomgo.com/upload/service/9248d94a-60a6-4935-9322-750841c988df.png?h=302&w=452&webp=1">
-        <spna>폐기물 처리</spna>
+        <spna>粗大ごみ回収</spna>
     </div>
 </div>
 

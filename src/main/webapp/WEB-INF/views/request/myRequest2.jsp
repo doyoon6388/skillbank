@@ -50,7 +50,6 @@
             <!-- 버튼 -->
             <div class="proActions">
                 <button class="myRequestOpenModalBtn2" value="${p.r_no}">견적서 보기</button>
-                <button class="btn chatBtn">채팅하기</button>
             </div>
         </div>
     </c:forEach>

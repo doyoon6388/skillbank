@@ -27,7 +27,15 @@
     </div>
     <div id="for-div">
         <c:forEach items="${request}" var="r">
-            <div class="container1">
+            <div class="container1" style="display:
+            <c:choose>
+            <c:when test="${r.r_request_no != 0}">
+                    none
+            </c:when>
+            <c:otherwise>
+                    block
+            </c:otherwise>
+            </c:choose>;">
                 <span>${r.request10}</span>
                 <h1>${r.request_type}</h1>
                 <div class="btn1">
