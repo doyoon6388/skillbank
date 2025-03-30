@@ -6,7 +6,7 @@
     background-color: white;
     border-radius: 10px;
     text-align: center;
-    margin: 0 auto;
+    margin: 40px auto 0;
 }
 
 #sign-container h2 {
@@ -68,6 +68,10 @@
     font-weight: 600;
 }
 
+#sign-container button:hover {
+    opacity: 0.8;
+}
+
 /* 🎯 호버 시 (마우스를 올렸을 때) */
 #sign-container a img:hover {
     transform: scale(1.1);  /* ✅ 10% 확대 */
@@ -86,8 +90,8 @@
     margin-left: 8px;
     cursor: pointer;
     font-size: 14px;
-    color: black; /* 파란색 */
-    border: 1px solid black;
+    color: #777;
+    border: 1px solid #777;
     border-radius: 50%;
     width: 18px;
     height: 18px;
