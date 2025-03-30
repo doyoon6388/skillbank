@@ -15,46 +15,40 @@
 --%>
 
 <div class="receiveWrapper">
-<c:forEach items="${proRequest}" var="p">
-<div onclick="location.href='/request-send?no=${p.request_no}&userId=${p.r_user_id}'" class="receiveContainer"
-     style="display:
-     <c:choose>
-     <c:when test="${p.r_pro_pk != 0 && p.r_pro_pk != sessionScope.proSession.pro_pk}">
-             none
-     </c:when>
-     <c:otherwise>
-             block
-     </c:otherwise>
-     </c:choose>;"
->
-<div class="receiveItem">
-    <div><img src="/file/${p.user_profile_img}" alt=""></div>
+    <c:forEach items="${proRequest}" var="p">
+        <div onclick="location.href='/request-send?no=${p.request_no}&userId=${p.r_user_id}'" class="receiveContainer"
+             style="display:
+             <c:choose>
+             <c:when test="${p.r_pro_pk != 0 && p.r_pro_pk != sessionScope.proSession.pro_pk}">
+                     none
+             </c:when>
+             <c:otherwise>
+                     block
+             </c:otherwise>
+             </c:choose>;"
+        >
+            <div class="receiveItem">
+                <div><img src="/file/${p.user_profile_img}" alt=""></div>
 
-           <h1 id="receiveTitle">${p.request_type}</h1>
+                <h1 id="receiveTitle">${p.request_type}</h1>
                 <span id="">${p.user_nickname} </span>
-    <c:if test="${p.r_pro_pk == sessionScope.proSession.pro_pk}">
-        <span class="badge">지정 요청</span>
-    </c:if>
-</div>
-        <div class="receiveItem2">
-            <span>${p.request10}</span>
-            <span>${p.request4}</span>
+                <c:if test="${p.r_pro_pk == sessionScope.proSession.pro_pk}">
+                    <span class="badge">지정 요청</span>
+                </c:if>
+            </div>
+            <div class="receiveItem2">
+                <span>${p.request10}</span>
+                <span>${p.request4}</span>
 
             </div>
 
-<div class="receiveBtn">
-<a>다시 보지 않기</a>
-<a >자세히보기</a>
-        </div>
+            <div class="receiveBtn">
+                <a>다시 보지 않기</a>
+                <a>자세히보기</a>
+            </div>
         </div>
     </c:forEach>
-
 </div>
-
-
-
-
-
 
 </body>
 </html>

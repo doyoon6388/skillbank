@@ -1,20 +1,8 @@
-/* ✅ 기본 스타일 */
-body {
-    font-family: "AppleSDGothicNeo", sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 /* ✅ 메인 컨테이너 */
 .favPro-wrapper {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     text-align: center;
 }

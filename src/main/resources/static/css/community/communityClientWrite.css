@@ -1,0 +1,98 @@
+h1 {
+    font-size: 24px;
+    margin: 30px 0 50px;
+}
+
+/* 전체 컨테이너 */
+.community-write-container {
+    box-sizing: border-box;
+    max-width: 700px;
+    margin: 0 auto 60px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+}
+
+.community-write-container input,
+.community-write-container textarea {
+    box-sizing: border-box;
+}
+
+/* 각 입력 박스 간격 */
+.community-input-box {
+    margin-bottom: 25px;
+}
+
+/* 공통 라벨 */
+.community-input-box label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* 텍스트 입력, 셀렉트, 파일 */
+.community-input-box input[type="text"],
+.community-input-box input[type="file"],
+.community-input-box select,
+.community-input-box textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.community-input-box input:focus,
+.community-input-box textarea:focus,
+.community-input-box select:focus {
+    border-color: #2D9CDB;
+}
+
+/* 파일 업로드는 약간 패딩 조정 */
+.community-file {
+    padding: 6px;
+}
+
+/* 버튼 정렬 박스 */
+.community-submit-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* 투고 버튼 */
+.community-submit-btn {
+    background-color: #2D9CDB;
+    color: white;
+    padding: 12px 28px;
+    font-size: 14px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.community-submit-btn:hover {
+    background-color: #1c7bbf;
+}
+
+/* 되돌아가기 버튼 */
+.community-history-back {
+    background-color: #f0f0f0;
+    color: #555;
+    padding: 12px 22px;
+    font-size: 14px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.community-history-back:hover {
+    background-color: #e0e0e0;
+}

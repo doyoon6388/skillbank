@@ -48,8 +48,9 @@
 .findpro-item {
     width: calc(50% - 10px); /* 2개씩 보이도록 설정 */
     display: flex;
+    gap: 10px;
     align-items: center;
-    padding: 16px 26px;
+    padding: 16px 16px;
     border: 2px solid #ecc5b3; /* 파스텔 블루 보더 */
     border-radius: 100px;
     box-sizing: border-box;
@@ -80,7 +81,9 @@
 
 /* ✅ 프로 정보 텍스트 */
 .findpro-info {
-    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 40px 20px 20px;
     flex-grow: 1;
 }
 
@@ -95,6 +98,12 @@
 .findpro-info p:nth-child(2) {
     font-weight: bold;
     color: #2D9CDB; /* 메인 블루 */
-    margin: 0 0 10px;
+    margin: 0;
     font-size: 18px;
+}
+
+.pro-badge {
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }

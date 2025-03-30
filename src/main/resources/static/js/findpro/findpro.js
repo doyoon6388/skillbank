@@ -42,8 +42,10 @@ function updateProList(pros) {
                 <img src="/file/${pro.pro_profile_img}" alt="${pro.pro_name}" />
             </div>
             <div class="findpro-info">
-                <p class="pro-category">${pro.pro_category}</p>
-                <p class="pro-name">${pro.pro_name}</p>
+                <div class="findpro-profile">
+                    <p class="pro-category">${pro.pro_category}</p>
+                    <p class="pro-name">${pro.pro_name}</p>
+                </div>
                 <div class="pro-badge">
                     <span>⭐ ${pro.pro_favorite}</span>
                     <span>📝 ${pro.pro_review}</span>

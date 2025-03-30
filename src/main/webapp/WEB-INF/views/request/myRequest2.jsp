@@ -15,18 +15,17 @@
 <input name="r_user_id" value="${sessionScope.user.user_pk}" hidden="hidden">
 --%>
 
+<div class="container1">
+    <div class="myRquestDate"><span>요청일</span>
+        <div>${request.request4}</div>
+    </div>
+    <span>${request.request10}</span>
+    <h1>${request.request_type}</h1>
 
-
-        <div class="container1">
-            <div class="myRquestDate"><span>요청일</span><div>${request.request4}</div></div>
-            <span>${request.request10}</span>
-            <h1>${request.request_type}</h1>
-
-            <div class="btn2">
-                <button class="myRequestOpenModalBtn" value="${request.request_no}">내 요청 보기</button>
-            </div>
-        </div>
-
+    <div class="btn2">
+        <button class="myRequestOpenModalBtn" value="${request.request_no}">내 요청 보기</button>
+    </div>
+</div>
 
 <div class="proResponseContainer">
     <c:forEach items="${proResponse}" var="p">
@@ -57,17 +56,14 @@
     </c:forEach>
 </div>
 
-
-
-<div class="modalContainer1" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);">
+<div class="modalContainer1"
+     style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);">
 </div>
 
 <!-- 응답 상세 모달 -->
-<div class="modalContainer2" id="modalContainer2" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);">
+<div class="modalContainer2" id="modalContainer2"
+     style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);">
 </div>
 
-
-
-</script>
 </body>
 </html>

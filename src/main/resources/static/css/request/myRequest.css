@@ -11,6 +11,7 @@ h1 {
     gap: 10px;
     margin-bottom: 20px;
 }
+
 .btn-container button {
     color: gray;
     border: none;
@@ -59,6 +60,10 @@ button {
 
 #for-div {
     display: block;
+}
+
+.request-container {
+    margin: 40px auto 0;
 }
 
 /* 요청 목록 스타일 */
@@ -231,10 +236,6 @@ button {
 }
 
 /* 버튼 스타일 */
-
-
-
-
 .receiveBtn button {
     background: #7B5CFA;
     color: white;
@@ -250,14 +251,11 @@ button {
     background: #6245e0;
 }
 
-
-
-.receiveWrapper{
+.receiveWrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
-
 }
 
 .receiveContainer {
@@ -339,9 +337,6 @@ button {
     gap: 10px; /* 요소 간 간격 */
 }
 
-
-
-
 .badge {
     position: absolute;
     top: 10px;
@@ -354,7 +349,6 @@ button {
     font-weight: 600;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 
 /* 전체 컨테이너 */
 .proResponseContainer {
@@ -440,8 +434,6 @@ button {
     transition: 0.3s;
 }
 
-.
-
 /*.btn:hover {
     opacity: 0.8;
 }*/
@@ -452,9 +444,11 @@ button {
         grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
     }
 }
-.receiveRequestContainer{
+
+.receiveRequestContainer {
     position: relative;
 }
+
 .badge2 {
     position: absolute;
     top: -75px;
@@ -465,5 +459,5 @@ button {
     border-radius: 8px;
     font-size: 13px;
     font-weight: 600;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
