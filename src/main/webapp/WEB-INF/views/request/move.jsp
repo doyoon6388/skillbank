@@ -573,7 +573,7 @@
 <body>
 <form action="/my-request" method="post">
     <input name="r_user_id" value="${sessionScope.user.user_pk}" hidden="hidden">
-    <input name="request_type" value="원룸/소형 이사" hidden="hidden">
+    <input name="request_type" value="引っ越し" hidden="hidden">
 
     <input type="hidden" id="request1" name="request1">
     <input type="hidden" id="request2" name="request2">

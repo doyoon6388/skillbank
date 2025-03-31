@@ -33,7 +33,7 @@
                 <h1 id="receiveTitle">${p.request_type}</h1>
                 <span id="">${p.user_nickname} </span>
                 <c:if test="${p.r_pro_pk == sessionScope.proSession.pro_pk}">
-                    <span class="badge">지정 요청</span>
+                    <span class="badge">指定依頼</span>
                 </c:if>
             </div>
             <div class="receiveItem2">
@@ -42,10 +42,6 @@
 
             </div>
 
-            <div class="receiveBtn">
-                <a>다시 보지 않기</a>
-                <a>자세히보기</a>
-            </div>
         </div>
     </c:forEach>
 </div>
