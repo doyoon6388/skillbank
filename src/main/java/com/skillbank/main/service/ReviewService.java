@@ -48,4 +48,8 @@ public class ReviewService {
     public void updateProReview(ReviewVO reviewVO) {
         reviewMapper.updateProReview(reviewVO);
     }
+
+    public List<ReviewVO> getProReviews(int pro_pk) {
+        return reviewMapper.getProReviews(pro_pk);
+    }
 }
