@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.File;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -105,6 +106,19 @@ public class ReviewC {
         model.addAttribute("page", "review/reviewDetail.jsp");
         model.addAttribute("loginCheck", mainService.loginCheck(session));
         return "index";
+    }
+    @GetMapping("review/pro/{pro_pk}")
+    public String reviewProDetail(@PathVariable int pro_pk, Model model, HttpSession session) {
+        List<ReviewVO> proReviewList = reviewService.getProReviews(pro_pk);
+        model.addAttribute("reviews", proReviewList);
+        model.addAttribute("page", "review/proReviewList.jsp");
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
+        Object mode = session.getAttribute("mode");
+        if (mode != null && mode.toString().equals("on")) {
+            return "indexPro";
+        } else {
+            return "index";
+        }
     }
 
 
