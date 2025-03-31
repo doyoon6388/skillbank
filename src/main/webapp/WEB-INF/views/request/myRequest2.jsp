@@ -16,14 +16,14 @@
 --%>
 
 <div class="container1">
-    <div class="myRquestDate"><span>요청일</span>
+    <div class="myRquestDate"><span>要請日</span>
         <div>${request.request4}</div>
     </div>
     <span>${request.request10}</span>
     <h1>${request.request_type}</h1>
 
     <div class="btn2">
-        <button class="myRequestOpenModalBtn" value="${request.request_no}">내 요청 보기</button>
+        <button class="myRequestOpenModalBtn" value="${request.request_no}">自分の依頼を見る</button>
     </div>
 </div>
 
@@ -49,7 +49,7 @@
 
             <!-- 버튼 -->
             <div class="proActions">
-                <button class="myRequestOpenModalBtn2" value="${p.r_no}">견적서 보기</button>
+                <button class="myRequestOpenModalBtn2" value="${p.r_no}">見積書を見る</button>
             </div>
         </div>
     </c:forEach>
