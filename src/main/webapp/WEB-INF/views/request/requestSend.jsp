@@ -35,16 +35,16 @@
         </div>
     </div>
     <div class="requestContainer">
-        <h2>견적보내기</h2>
+        <h2>見積もりの送信</h2>
         <div class="mycoin">${sessionScope.proSession.pro_cash} コイン</div>
         <input id="r_request_no" name="r_request_no" value="${proRequest.request_no}" hidden="hidden"/>
         <input id="r_pro_pk" name="r_pro_pk" value="${sessionScope.proSession.pro_pk}" hidden="hidden"/>
         <div class="price-setting">
             <div class="price-type">
-                <h3>금액 설정</h3>
+                <h3>金額入力</h3>
                 <div>
-                    <input type="radio" name="r_price_type" value="총비용"/>총 비용
-                    <input type="radio" name="r_price_type" value="시간당"/>시간 당
+                    <input type="radio" name="r_price_type" value="총비용"/>総費用
+                    <input type="radio" name="r_price_type" value="시간당"/>時間当たり
                 </div>
             </div>
             <div class="price">
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div>
-            <h3>견적 설명</h3>
+            <h3>見積説明</h3>
             <div class="requestSend-txt">
                 <textarea id="r_comment" name="r_comment"></textarea>
             </div>

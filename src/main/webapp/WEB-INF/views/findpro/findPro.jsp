@@ -19,9 +19,9 @@
             <label for="service-main-category" class="visually-hidden">カテゴリー</label>
             <select id="service-main-category" name="pro-category">
                 <option value="category_all" selected>すべてのサービス</option>
-                <option value="원룸/소형 이사">引っ越し全般</option>
-                <option value="청소">クリーニング全般</option>
-                <option value="폐기물 처리">廃棄物処理</option>
+                <option value="引っ越し">引っ越し全般</option>
+                <option value="クリーニング">クリーニング全般</option>
+                <option value="粗大ゴミ回収">廃棄物処理</option>
             </select>
         </div>
 

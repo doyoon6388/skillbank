@@ -59,6 +59,7 @@ window.onload = () => {
                 }).then(data => {
                 // null 또는 undefined인 데이터는 표시하지 않음
                 const requestDetails = [
+                    data.request_type,
                     data.request1, data.request2, data.request3, data.request4,
                     data.request5, data.request6, data.request7, data.request8,
                     data.request9, data.request10, data.request11, data.request12,
@@ -66,16 +67,12 @@ window.onload = () => {
                 ].filter(value => value !== null && value !== undefined && value !== ''); // 빈 문자열도 제외
 
                 // request_type 변환
-                let requestTypeText = '';
-                if (data.request_type == 1) requestTypeText = '원룸/소형 이사';
-                else if (data.request_type == 2) requestTypeText = '청소';
-                else if (data.request_type == 3) requestTypeText = '폐기물';
 
                 // 모달에 데이터 표시
                 document.querySelector('.modalContainer').innerHTML = `
-                    <h1>${requestTypeText}</h1>
+                    
                     <br>
-                    <h1> 요청 상세 </h1>
+                    <h1> 依頼詳細 </h1>
                     ${requestDetails.map(detail => `<div>${detail}</div>`).join('')}
                     <button class="close-btn" onclick="closeModal()">닫기</button>
                 `;
@@ -95,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function (){
             deleteBtn.addEventListener("click", function (){
              let requestNo = deleteBtn.getAttribute("data-request-no");
 
-                let ok = confirm('정말 삭제하시겠습니까?');
+                let ok = confirm('本当に削除しますか？');
             if (ok){
                 location.href=`/request-delete?pk=${requestNo}`;
             }
