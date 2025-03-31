@@ -12,7 +12,7 @@
 <body>
 
 <div class="community-button2-container">
-    <h3>助け合い</h3>
+    <h3>一緒に</h3>
 </div>
 
 <div class="client-post-list">
