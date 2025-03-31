@@ -19,7 +19,7 @@
             <select name="commu_post_category" id="category" required class="community-select">
                 <option value="" disabled selected>カテゴリーを選んでください</option>
                 <option value="together">一緒に</option>
-                <option value="askpro">プロに聞く</option>
+                <option value="askpro">プロに尋ねる</option>
             </select>
         </div>
 
