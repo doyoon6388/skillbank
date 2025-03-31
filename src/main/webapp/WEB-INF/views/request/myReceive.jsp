@@ -42,10 +42,6 @@
 
             </div>
 
-            <div class="receiveBtn">
-                <a>다시 보지 않기</a>
-                <a>자세히보기</a>
-            </div>
         </div>
     </c:forEach>
 </div>

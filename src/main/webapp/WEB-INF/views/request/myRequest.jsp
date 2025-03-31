@@ -75,7 +75,7 @@
                         </c:if>
                     </div>
                     <div class="status">
-                        <span class="step">プロに依頼</span>
+                        <span class="step">依頼中</span>
                         <span class="step">相談中</span>
                         <span class="step">取引完了</span>
                     </div>
