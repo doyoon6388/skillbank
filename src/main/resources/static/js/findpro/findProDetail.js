@@ -6,9 +6,9 @@ function openModal() {
         document.getElementById("findModal").style.display = "block";
         const category = document.getElementById("proD").getAttribute("data-pro-category");
 
-        if (category === "청소") {
+        if (category === "クリーニング") {
             loadCleaningStep(1);
-        } else if (category === "원룸/소형 이사") {
+        } else if (category === "引っ越し") {
             loadMovingStep(1);
         }
     }
