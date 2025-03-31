@@ -332,9 +332,9 @@ alter table response
 add(
     constraint fk_response_request foreign key (r_request_no) references request(request_no)
     );
-alter table request
+alter table response
     add(
-        r_complete number(1) default 0
+        r_c number(1) default 0
         );
 
 
@@ -364,7 +364,8 @@ create sequence r_no_seq;
 
 select * from response;
 
-
+update request set request_type = '引っ越し' where request_type = '원룸/소형 이사';
+SELECT * FROM pro_account WHERE pro_category = '청소';
 
 drop table response cascade constraints purge;
 

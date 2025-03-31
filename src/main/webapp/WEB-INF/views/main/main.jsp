@@ -6,6 +6,34 @@
     <meta charset="UTF-8"/>
     <title>SkillBank</title>
     <link rel="stylesheet" href="/resources/css/main/main.css"/>
+    <style>
+
+        .mainRequestWrapper {
+            display: flex; /* 가로 정렬 */
+            gap: 30px; /* 요소 간 간격 */
+            justify-content: center; /* 가운데 정렬 */
+            align-items: center; /* 세로 정렬 */
+        }
+
+        .mainRequestWrapper div {
+            text-align: center; /* 텍스트 중앙 정렬 */
+            cursor: pointer; /* 클릭 가능하도록 설정 */
+        }
+
+        .mainRequestWrapper img {
+            width: 200px; /* 정사각형 크기 */
+            height: 200px;
+            object-fit: cover; /* 품질 유지 및 크롭 */
+            border-radius: 10px; /* 모서리를 둥글게 */
+        }
+
+        .mainRequestWrapper spna {
+            display: block; /* 아래로 정렬 */
+            margin-top: 10px; /* 이미지와 텍스트 간격 */
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 <main>
@@ -14,6 +42,24 @@
         <div class="main-title">
             探す時代から、選ぶ時代へ。
         </div>
+
+        <h1>リクエスト</h1>
+
+        <div class="mainRequestWrapper">
+            <div onclick="location.href='/move'"><img
+                    src="https://static.cdn.soomgo.com/upload/service/11bd8485-cc6a-416e-b186-692a39b4e9a1.png?h=302&w=452&webp=1">
+                <spna>ワンルーム/ 小型引っ越し</spna>
+            </div>
+            <div onclick="location.href='/clean'"><img
+                    src="https://clokabe-88.jp/wp-content/uploads/AdobeStock_84702018.jpg">
+                <spna>エアコンクリーニング</spna>
+            </div>
+            <div><img
+                    src="https://static.cdn.soomgo.com/upload/service/9248d94a-60a6-4935-9322-750841c988df.png?h=302&w=452&webp=1">
+                <spna>粗大ごみ回収</spna>
+            </div>
+        </div>
+
     </div>
 </main>
 

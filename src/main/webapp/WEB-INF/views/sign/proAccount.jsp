@@ -13,9 +13,9 @@
 
     <form action="/account/pro" method="post">
         <div>어떤 일을 전문으로 하시나요 ?_?</div>
-        <div><input type="radio" name="pro_category" value="원룸/소형 이사">이사</div>
-        <div><input type="radio" name="pro_category" value="청소">청소</div>
-        <div><input type="radio" name="pro_category" value="폐기물">폐기물</div>
+        <div><input type="radio" name="pro_category" value="引っ越し">引っ越し</div>
+        <div><input type="radio" name="pro_category" value="クリーニング">クリーニング</div>
+        <div><input type="radio" name="pro_category" value="粗大ゴミ回収">粗大ゴミ回収</div>
 
         <div>작업장 이름</div>
         <div><input type="text" name="pro_name"></div>
