@@ -124,3 +124,17 @@
     display: flex;
     align-items: center;
 }
+
+.pro-signin {
+    width: 50px;
+    height: 25px;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    background-color: #8958dd;
+    cursor: pointer;
+}
+
+.pro-signin:hover {
+    opacity: 0.8;
+}
