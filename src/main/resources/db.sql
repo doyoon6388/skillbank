@@ -246,3 +246,10 @@ alter table review
         review_date DATE DEFAULT sysdate,
         review_file varchar2 (200 char) default 'defaultCommuImg.png'
         );
+
+delete chat_room;
+delete review;
+delete community_comment;
+delete community_post;
+delete REQUEST;
+delete RESPONSE;

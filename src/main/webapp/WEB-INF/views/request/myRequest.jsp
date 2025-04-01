@@ -10,7 +10,7 @@
     <meta charset="UTF-8"/>
     <title>견적 요청</title>
     <script src="/resources/js/request/myRequest.js"></script>
-    <link rel="stylesheet" href="resources/css/request/myRequest.css"/>
+    <link rel="stylesheet" href="/resources/css/request/myRequest.css"/>
     <style>
         .container1 {
             position: relative;
