@@ -3,15 +3,7 @@
     background: white;
     padding: 20px;
     border-radius: 10px;
-    margin: 20px auto;
     text-align: center;
-}
-
-/* ✅ 제목 */
-h1 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
 }
 
 /* ✅ 찜한 고수 목록 */
@@ -27,6 +19,7 @@ h1 {
     background: white;
     border: 1px solid #ddd;
     border-radius: 10px;
+    margin: 40px auto;
     padding: 20px;
     width: 250px;
     text-align: center;
