@@ -2,7 +2,7 @@
 
 /* sign 전용 스타일: index.css와 겹치는 문제 방지 */
 #sign-container {
-    width: 400px;
+    width: 350px;
     background-color: white;
     border-radius: 10px;
     text-align: center;
