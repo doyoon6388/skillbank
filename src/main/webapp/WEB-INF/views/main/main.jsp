@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>SkillBank</title>
+
     <link rel="stylesheet" href="/resources/css/main/main.css"/>
 </head>
 <body>
@@ -12,7 +13,7 @@
     <div class="main-container">
         <div class="main-title-img">
             <img class="main-title-1" src="/resources/images/main/title.png" alt=""/>
-            <%--            <img class="main-title-2" src="/resources/images/login/loginlogo.png" alt=""/>--%>
+
         </div>
         <div class="mainRequestWrapper">
             <div class="main-request" onclick="location.href='/move'">
@@ -27,7 +28,7 @@
                      alt=""/>
                 <span>エアコンクリーニング</span>
             </div>
-            <div class="main-request">
+            <div class="main-request" onclick="location.href='/waste'">
                 <img class="main-request-img"
                      src="/resources/images/main/trash.png"
                      alt=""/>

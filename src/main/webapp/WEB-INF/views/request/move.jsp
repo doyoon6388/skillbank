@@ -38,7 +38,7 @@
             <input type="radio" name="request1" value="일반이사"/>일반이사<br>
             <input type ="radio" name = "request1" value = "반포장이사"/> 반포장이사 <br/>
                 <input type = "radio" name="request1" value="포장이사"/> 포장이사 <br/>
-               <button onClick = "validateStep1(event)">다음</button>
+               <button onClick = "validateStep1(event)">次へ</button>
             </div>`
             }
 
@@ -54,7 +54,7 @@
          <div class="items">
          <input type="radio" name="request2" value="가능"> 네.<br>
          <input type="radio" name="request2" value="불가능"> 아니요.<br>
-         <button onclick="validateStep2(event)">다음</button>
+         <button onclick="validateStep2(event)">次へ</button>
 </div>`
 
             }
@@ -75,7 +75,7 @@
             <textarea id="etcInput" placeholder="직접 입력" name="request3"></textarea>
 
         </div>
-    <button onclick="loadStep(4)">다음</button>
+    <button onclick="loadStep(4)">次へ</button>
 </div>`
 
                 console.log(document.getElementById("etcCheck"));
@@ -116,7 +116,7 @@
                 document.querySelector("#content-4").innerHTML = `<h2>이사 예정일을 선택해주세요.</h2>
 
         <input type="date" name="date-input">
-    <button onclick="loadStep(5)">다음</button> `
+    <button onclick="loadStep(5)">次へ</button> `
 
                 document.querySelector('input[name="date-input"]').addEventListener("change", (e) => {
 
@@ -137,7 +137,7 @@
     <input type="radio" name="request5" value="오후 12시~3시">오후 12시~3시 <br>
     <input type="radio" name="request5" value="오후 3시~6시">오후 3시~6시 <br>
     <input type="radio" name="request5" value="오후 9시 이후">오후 3시~6시 <br>
-    <button onclick="validateStep4(event)">다음</button></div>`;
+    <button onclick="validateStep4(event)">次へ</button></div>`;
             }
             if (a == 6) {
                 let selectMove = document.querySelector("input[name='request5']:checked");
@@ -161,7 +161,7 @@
             <textarea id="etcInput" placeholder="직접 입력" name="request6"></textarea>
 
         </div>
-    <button onclick="loadStep(7)">다음</button> </div>`
+    <button onclick="loadStep(7)">次へ</button> </div>`
 
 
                 console.log(document.getElementById("etcCheck"));
@@ -209,7 +209,7 @@
             <textarea id="etcInput" placeholder="직접 입력" name="request7"></textarea>
 
         </div>
-    <button type="button" onclick="loadStep(8)">다음</button> </div>`
+    <button type="button" onclick="loadStep(8)">次へ</button> </div>`
 
 
                 console.log(document.getElementById("etcCheck"));
@@ -264,7 +264,7 @@
             <textarea id="etcInput" placeholder="직접 입력" name="request8"></textarea>
 
         </div>
-    <button type="button" onclick="loadStep(9)">다음</button> </div>`
+    <button type="button" onclick="loadStep(9)">次へ</button> </div>`
                 console.log(document.getElementById("etcCheck"));
                 document.getElementById("etcCheck").addEventListener("change", function () {
                     let etcInputContainer = document.getElementById("etcInputContainer");
@@ -312,7 +312,7 @@
             <textarea id="etcInput" placeholder="세부항목 입력"></textarea>
 
         </div>
-    <button type="button" onclick="loadStep(10)">다음</button> </div>`
+    <button type="button" onclick="loadStep(10)">次へ</button> </div>`
                 console.log(document.getElementById("etcCheck"));
                 document.getElementById("etcCheck").addEventListener("change", function () {
                     let etcInputContainer = document.getElementById("etcInputContainer");
@@ -361,7 +361,7 @@
 
 
         </div>
-    <button type="button" onclick="validateStep9(event)">다음</button> </div>`
+    <button type="button" onclick="validateStep9(event)">次へ</button> </div>`
 
 
             }
@@ -389,7 +389,7 @@
 
 
         </div>
-    <button type="button" onclick="loadStep(12)">다음</button> </div>`
+    <button type="button" onclick="loadStep(12)">次へ</button> </div>`
 
                 console.log(document.getElementById("etcCheck"));
                 document.getElementById("etcCheck").addEventListener("change", function () {
@@ -440,7 +440,7 @@
 
 
         </div>
-    <button type="button" onclick="validateStep11(event)">다음</button> </div>`
+    <button type="button" onclick="validateStep11(event)">次へ</button> </div>`
 
 
             }
@@ -467,7 +467,7 @@
 
 
         </div>
-    <button type="button" onclick="loadStep(14)">다음</button> </div>`
+    <button type="button" onclick="loadStep(14)">次へ</button> </div>`
 
                 console.log(document.getElementById("etcCheck"));
                 document.getElementById("etcCheck").addEventListener("change", function () {
@@ -520,7 +520,7 @@
                         <div id="etcInputContainer" style="display: none; margin-top: 10px;">
                             <textarea id="etcInput" placeholder="세부항목 입력"  name="request14"></textarea>
  </div>
-    <button type="button" onclick="loadStep(15)">다음</button> </div>
+    <button type="button" onclick="loadStep(15)">次へ</button> </div>
 `
 
                 console.log(document.getElementById("etcCheck"));
@@ -558,9 +558,9 @@
                     `<h2>선택사항</h2>` + bb;
                 document.querySelector("#content-15").innerHTML =
 
-                    `<h1>지금 무료 견적 받아보세요.</h1>
+                    `<h1>今すぐ無料見積もりを受けてみてください。</h1>
                          <div>
-                              <button>견적 요청하기</button>
+                              <button>見積もりを依頼する</button>
                          </div>
                     `
             }
