@@ -61,7 +61,7 @@
 <input type="checkbox" name="request1" value="床置き"/>床置き<br></div>
 </div>
 
-               <button onClick = "validateStep1(event)">다음</button>
+               <button onClick = "validateStep1(event)">次へ</button>
             </div>`
             }
 
@@ -80,7 +80,7 @@
          <input type="radio" name="request2" value="3台"> 3台<br>
          <input type="radio" name="request2" value="4台"> 4台<br>
          <input type="radio" name="request2" value="5台以上"> 5台以上<br>
-         <button onclick="validateStep2(event)">다음</button>
+         <button onclick="validateStep2(event)">次へ</button>
 </div>`
 
             }
@@ -102,7 +102,7 @@
     <input type="radio" name="request3" value="分からない"> 分からない<br>
 
 
-    <button onclick="loadStep(4)">다음</button>
+    <button onclick="loadStep(4)">次へ</button>
 </div>`
 
 
@@ -136,7 +136,7 @@
 </div>
 
     </div>
-    <button onclick="loadStep(5)">다음</button>
+    <button onclick="loadStep(5)">次へ</button>
 </div>`
 
             }
@@ -151,7 +151,7 @@
                 document.querySelector("#content-5").innerHTML = `ご希望の日付を入力してください</h2>
      <input type="date" name="date-input">
 
-    <button onclick="loadStep(6)">다음</button></div>`;
+    <button onclick="loadStep(6)">次へ</button></div>`;
                 document.querySelector('input[name="date-input"]').addEventListener("change", (e) => {
 
                     dateval = e.target.value;
@@ -165,9 +165,9 @@
 
                 document.querySelector("#content-5").innerHTML =
                     `<h2>選択した日付</h2>` + dateval;
-                document.querySelector("#content-6").innerHTML =` <h1>지금 무료 견적 받아보세요.</h1>
+                document.querySelector("#content-6").innerHTML =` <h1>今すぐ無料見積もりを受けてみてください。</h1>
                 <div>
-                    <button>견적 요청하기</button>
+                    <button>見積もりを依頼する</button>
                 </div>
 `
             }
