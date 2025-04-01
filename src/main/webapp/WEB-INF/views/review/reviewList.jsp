@@ -9,24 +9,24 @@ pageEncoding="utf-8" %>
 </head>
 <body>
 <div class="review-wrapper">
-    <h1>작성 중인 리뷰</h1>
+    <h1>作成中のレビュー</h1>
     <hr>
     <c:if test="${empty incompleteReview}">
-        <div>작성 중인 리뷰가 없습니다</div>
+        <div>作成中のレビューがありません</div>
     </c:if>
     <c:forEach items="${incompleteReview}" var="i">
 <div class="incomplete-review" style="cursor: pointer" onclick="location.href='/mypage/reviewUpdate/${i.review_pk}'">
-${i.review_pro}님을 위한 리뷰
+${i.review_pro}プロへのレビュー
 </div>
     </c:forEach>
-    <h1>작성 완료된 리뷰</h1>
+    <h1>作成完了レビュー</h1>
     <hr>
     <c:if test="${empty completeReview}">
-        <div>작성 된 리뷰가 없습니다</div>
+        <div>作成中のレビューがありません</div>
     </c:if>
     <c:forEach items="${completeReview}" var="i">
         <div class="complete-review" style="cursor: pointer" onclick="location.href='/review/${i.review_pk}'">
-                ${i.review_pro}님을 위한 리뷰
+                ${i.review_pro}プロへのレビュー
         </div>
     </c:forEach>
 </div>

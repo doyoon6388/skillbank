@@ -253,3 +253,13 @@ delete community_comment;
 delete community_post;
 delete REQUEST;
 delete RESPONSE;
+
+delete community_post_like;
+select * from community_post;
+
+select * from review;
+
+select * from pro_account;
+
+delete user_account where user_name = 'aaa';
+
