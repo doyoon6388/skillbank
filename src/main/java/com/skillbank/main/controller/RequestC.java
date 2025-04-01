@@ -44,10 +44,16 @@ public class RequestC {
         return "index";
     }
 
+    @GetMapping("/waste")
+public String waste(Model model, HttpSession session) {
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
+        model.addAttribute("page", "request/waste.jsp");
+        return "index";
+    }
     @GetMapping("/my-request")
     public String myRequest2(Model model, HttpSession session, int id, ReqeustVO reqeustVO) {
         model.addAttribute("loginCheck", mainService.loginCheck(session));
-        System.out.println(id);
+
         model.addAttribute("request", requestService.requestList(id));
         model.addAttribute("page", "request/myRequest.jsp");
 

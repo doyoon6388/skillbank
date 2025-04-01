@@ -53,7 +53,7 @@ pageEncoding="utf-8" %>
             />
             <spna>エアコンクリーニング</spna>
           </div>
-          <div>
+          <div onclick="location.href='/waste'">
             <img
               src="https://static.cdn.soomgo.com/upload/service/9248d94a-60a6-4935-9322-750841c988df.png?h=302&w=452&webp=1"
             />
