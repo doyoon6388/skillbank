@@ -44,6 +44,12 @@ public class RequestC {
         return "index";
     }
 
+    @GetMapping("/waste")
+public String waste(Model model, HttpSession session) {
+        model.addAttribute("loginCheck", mainService.loginCheck(session));
+        model.addAttribute("page", "request/waste.jsp");
+        return "index";
+    }
     @GetMapping("/my-request")
     public String myRequestRedirect(HttpSession session) {
         UserAccountVO user = (UserAccountVO) session.getAttribute("user");
@@ -53,8 +59,10 @@ public class RequestC {
     @GetMapping("/my-request/{r_user_id}")
     public String myRequest2(Model model, HttpSession session, @PathVariable int r_user_id) {
         model.addAttribute("loginCheck", mainService.loginCheck(session));
+
         System.out.println(r_user_id);
         model.addAttribute("request", requestService.requestList(r_user_id));
+
         model.addAttribute("page", "request/myRequest.jsp");
 
         return "index";

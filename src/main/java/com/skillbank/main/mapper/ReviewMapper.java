@@ -35,7 +35,7 @@ public interface ReviewMapper {
     @Update("update review set review_title = #{review_title}, review_complete = #{review_complete}, review_txt = #{review_txt}, review_star = #{review_star}, review_category = #{review_category}, review_file = #{review_file}, review_date = sysdate WHERE review_pk = #{review_pk}")
     int updateReview(ReviewVO reviewVO);
 
-    @Update("update pro_account set pro_review = pro_review + 1 where review_pro = #{review_pro}")
+    @Update("update pro_account set pro_review = pro_review + 1 where pro_pk = #{review_pro}")
     void updateProReview(ReviewVO reviewVO);
 
     @Select("select * from review where review_pro = #{pro_pk} and review_complete = 1")
