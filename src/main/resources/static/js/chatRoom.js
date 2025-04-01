@@ -168,8 +168,8 @@ function generateResponseHtmlClient(data) {
                     <input type="hidden" name="review_pro" value="${review_pro}">
                     <input type="hidden" name="chatReqNo" value="${chatReqNo}">
                     <div class="flex-box">
-                        <button id="deal-complete-btn" type="button">거래 성사</button>
-                        <button id="deal-cancel-btn" type="button">거래 취소</button>
+                        <button id="deal-complete-btn" type="button">取引完了</button>
+                        <button id="deal-cancel-btn" type="button">キャンセル</button>
                     </div>
                 </form>
             </div>
@@ -200,8 +200,8 @@ function bindDealButtonListeners() {
     if (!dealBtn) return;
 
     dealBtn.addEventListener("click", () => {
-        if (confirm("거래를 성사하시겠습니까?")) {
-            if (confirm("고수님을 위해 리뷰를 작성해주세요!")) {
+        if (confirm("取引を完了しますか？")) {
+            if (confirm("レビューを作成しますか？")) {
                 document.getElementById("review-form").submit();
             } else {
                 const review_client = document.querySelector('input[name="review_client"]').value;
