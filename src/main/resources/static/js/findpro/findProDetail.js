@@ -163,13 +163,8 @@ function renderContent(step, html) {
 }
 
 // ------------------------- 초기 실행 -------------------------
-document.addEventListener("DOMContentLoaded", function () {
+window.onload = () => {
     initMap();
-    attachFavoriteButtonHandler();
-});
-
-// ------------------------- 찜하기 -------------------------
-function attachFavoriteButtonHandler() {
     document.querySelector(".findpro-favorite-btn").addEventListener('click', () => {
         const pro_pk = document.getElementById('proDetail-pro-pk').value;
         const user_pk = document.getElementById('current-user-pk').value;
@@ -193,7 +188,7 @@ function attachFavoriteButtonHandler() {
             })
             .catch(err => console.error("찜하기 처리 에러:", err));
     });
-}
+};
 
 // ------------------------- 지도 -------------------------
 function initMap() {

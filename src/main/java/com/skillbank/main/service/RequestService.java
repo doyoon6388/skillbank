@@ -13,8 +13,8 @@ public class RequestService {
     @Autowired
     private RequestMapper requestMapper;
 
-    public List<ReqeustVO> requestList(int id) {
-        return requestMapper.requestList(id);
+    public List<ReqeustVO> requestList(int r_user_id) {
+        return requestMapper.requestList(r_user_id);
     }
 
     public ProRequestVO requestList2(int no) {

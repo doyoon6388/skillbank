@@ -30,7 +30,7 @@
                 <label for="service-filtering" class="visually-hidden">並び替え</label>
                 <select id="service-filtering" name="service-filtering">
                     <option value="review" selected>口コミ順</option>
-                    <option value="favorite">ファロワー順</option>
+                    <option value="favorite">フォロアー順</option>
                 </select>
             </div>
         </div>
