@@ -34,44 +34,42 @@ pageEncoding="utf-8" %>
         <div class="mypage-info-wrapper">
           <div class="mypage-info-item editable" data-field="user_name">
             <span class="mypage-info-tag">名前</span>
-            <span class="mypage-info-value"
-              >${sessionScope.user.user_name}</span
-            >
-            <span class="mypage-info-arrow">></span>
+            <span class="mypage-info-value">
+              ${sessionScope.user.user_name}
+            </span>
+<%--            <span class="mypage-info-arrow">></span>--%>
           </div>
           <div class="mypage-info-item editable" data-field="user_phone">
             <span class="mypage-info-tag">電話番号</span>
-            <span class="mypage-info-value"
-              >${sessionScope.user.user_phone}</span
-            >
-            <span class="mypage-info-arrow">></span>
+            <span class="mypage-info-value">
+              ${sessionScope.user.user_phone}
+            </span>
+<%--            <span class="mypage-info-arrow">></span>--%>
           </div>
           <div class="mypage-info-item editable" data-field="user_birth">
             <span class="mypage-info-tag">生年月日</span>
             <span class="mypage-info-value">${formattedBirth}</span>
-            <span class="mypage-info-arrow">></span>
+<%--            <span class="mypage-info-arrow">></span>--%>
           </div>
           <div class="mypage-info-item editable" data-field="user_gender">
             <span class="mypage-info-tag">性別</span>
             <span class="mypage-info-value"
               >${sessionScope.user.user_gender}</span
             >
-            <span class="mypage-info-arrow">></span>
+<%--            <span class="mypage-info-arrow">></span>--%>
           </div>
           <div class="mypage-info-item editable" data-field="user_address">
             <span class="mypage-info-tag">住所</span>
-            <span class="mypage-info-value"
-              >${sessionScope.user.user_address}</span
-            >
-            <span class="mypage-info-arrow">></span>
+            <span class="mypage-info-value">
+              ${sessionScope.user.user_address}
+            </span>
+<%--            <span class="mypage-info-arrow">></span>--%>
           </div>
         </div>
       </div>
 
       <div class="mypage-profile-side-wrapper">
-        <div
-          onclick="location.href='my-request?id=${sessionScope.user.user_pk}'"
-        >
+        <div onclick="location.href='my-request?id=${sessionScope.user.user_pk}'">
           MY リクエスト
         </div>
         <div onclick="location.href='/mypage/fav'">お気に入り</div>
