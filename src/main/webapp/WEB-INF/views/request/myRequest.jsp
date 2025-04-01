@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="receiveBtn">
-                        <button onclick="location.href='my-request2?no=${r.request_no}'">
+                        <button onclick="location.href='/my-request2?no=${r.request_no}'">
                             もっと見る
                         </button>
                     </div>
