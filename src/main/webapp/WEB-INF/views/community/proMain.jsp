@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> <!-- JSTL関数を使うなら -->
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!-- JSTL関数を使うなら -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,18 +18,10 @@
         <c:if test="${not empty topPosts}">
             <div class="post-list">
                 <c:forEach var="post" items="${topPosts}">
-                    <div class="post-card">
+                    <div class="post-card" onclick="location.href='/community/detail?postId=${post.commu_post_id}'">
+
                         <!-- タイトル -->
                         <div class="post-title">${post.commu_title}</div>
-
-                        <!-- いいね数 -->
-                        <div class="post-like">いいね数: ${post.commu_like}</div>
-
-                        <!-- 投稿日時 -->
-                        <div class="post-date">
-                            投稿日:
-                            <fmt:formatDate value="${post.commu_date}" pattern="yyyy/MM/dd" />
-                        </div>
 
                         <!-- 投稿画像(ある場合) -->
                         <c:if test="${not empty post.commu_image && post.commu_image != 'defaultCommuImg.png'}">
@@ -38,14 +31,29 @@
                         <!-- 本文のサマリ表示（長い場合は一部だけ） -->
                         <c:if test="${not empty post.commu_content}">
                             <div>
-                                <c:out value="${fn:substring(post.commu_content, 0, 60)}" />...
+                                <c:out value="${fn:substring(post.commu_content, 0, 60)}"/>...
                             </div>
                         </c:if>
+
+                        <!-- いいね数 -->
+                        <div class="post-like">
+                            <img src="/icons/profile/community/filled_heart.png" alt="찜됨"
+                                 id="like-icon"
+                                 style="width: 50px; height: 50px;"/>
+                            <span id="like-count">${post.commu_like}</span>
+                        </div>
+
+                        <!-- 投稿日時 -->
+                        <div class="post-date">
+                            投稿日:
+                            <fmt:formatDate value="${post.commu_date}" pattern="yyyy/MM/dd"/>
+                        </div>
 
                         <!-- 詳細ページへのリンク -->
                         <a class="read-more" href="/community/detail?postId=${post.commu_post_id}">
                             続きを読む
                         </a>
+
                     </div>
                 </c:forEach>
             </div>
@@ -59,21 +67,21 @@
                     <!-- タイトル -->
                     <div class="post-title">${review.review_title}</div>
 
+                    <!-- 投稿画像(ある場合) -->
+                    <img src="/file/${review.review_file}" alt="投稿画像" style="max-width:100%;">
+
+                    <!-- 本文のサマリ表示（長い場合は一部だけ） -->
+                    <div>
+                        <c:out value="${fn:substring(review.review_txt, 0, 60)}"/>...
+                    </div>
+
                     <!-- いいね数 -->
                     <div class="post-like"> スコア : ${review.review_star}</div>
 
                     <!-- 投稿日時 -->
                     <div class="post-date">
                         投稿日:
-                        <fmt:formatDate value="${review.review_date}" pattern="yyyy/MM/dd" />
-                    </div>
-
-                    <!-- 投稿画像(ある場合) -->
-                    <img src="/file/${review.review_file}" alt="投稿画像" style="max-width:100%;">
-
-                    <!-- 本文のサマリ表示（長い場合は一部だけ） -->
-                    <div>
-                        <c:out value="${fn:substring(review.review_txt, 0, 60)}" />...
+                        <fmt:formatDate value="${review.review_date}" pattern="yyyy/MM/dd"/>
                     </div>
 
                     <!-- 詳細ページへのリンク -->
