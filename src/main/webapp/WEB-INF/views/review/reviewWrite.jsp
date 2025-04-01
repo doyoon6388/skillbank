@@ -12,7 +12,7 @@
     <form action="/mypage/updateReview" method="post" enctype="multipart/form-data">
         <div class="review-info">
             <input type="text" name="review_pro" class="review-hidden-input" value="${reviewVO.review_pro}"
-                   hidden> ${reviewVO.review_pro}<br> プロ
+                   hidden>
             <h1 class="review-title">カテゴリ-</h1>
             <label class="review-radio">
                 <input name="review_category" type="radio" value="원룸/소형 이사" checked> ワンルーム／小型引っ越し
@@ -24,6 +24,7 @@
                 <input name="review_category" type="radio" value="폐기물"> 粗大ごみ回収
             </label>
             <input name="review_pk" value="${reviewVO.review_pk}" hidden>
+            <br>
             <br>
             タイトル　： <input type="text" name="review_title" class="review-input" value="${reviewVO.review_title}"
                               placeholder="${reviewVO.review_title}"> <br>
