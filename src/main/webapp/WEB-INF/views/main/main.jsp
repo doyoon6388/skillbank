@@ -42,6 +42,8 @@
                 <span>SKILL·BANK</span>
                 <span>SKILL·BANK</span>
                 <span>SKILL·BANK</span>
+                <span>SKILL·BANK</span>
+                <span>SKILL·BANK</span>
             </div>
         </section>
 
