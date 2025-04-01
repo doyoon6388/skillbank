@@ -17,8 +17,9 @@
             <div class="toggle-container">
                 <c:choose>
                     <c:when test="${sessionScope.user.user_hasPro == 0}">
-                        <div>
-                            <img src="/resources/icons/profile/makeProAccount.png" alt="" onclick="location.href='/account/pro'">
+                        <div class="pro-signin">
+                            <button class="pro-signin" onclick="location.href='/account/pro'">Pro</button>
+<%--                            <img src="/resources/icons/profile/makeProAccount.png" alt="" onclick="location.href='/account/pro'">--%>
                         </div>
                     </c:when>
                     <c:otherwise>

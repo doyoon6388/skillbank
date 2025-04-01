@@ -46,7 +46,12 @@ body {
 /* ✅ 헤더 영역 */
 .header-wrapper {
     width: 100%;
-    border-bottom: 0.0625rem solid #eff1f5;
+    /*border-bottom: 0.0625rem solid #eff1f5;*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10000000;
+    background-color: white;
 }
 
 .header {
@@ -69,6 +74,7 @@ body {
 }
 
 .header-items div:not(:has(.logo)) {
+    font-weight: bold;
     color: black;
     cursor: pointer;
     position: relative;
@@ -81,7 +87,7 @@ body {
     left: 0;
     bottom: -25px;
     width: 0;
-    height: 2px;
+    height: 3px;
     background-color: #4db2e1;
     transition: width 0.2s ease-in-out;
 }
