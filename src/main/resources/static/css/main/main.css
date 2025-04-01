@@ -38,7 +38,7 @@
 .main-ppt {
     display: flex;
     justify-content: space-around;
-    margin: 220px auto 140px;
+    margin: 250px auto 140px;
 }
 
 .main-title-img {
@@ -97,7 +97,7 @@
     min-width: 1280px;
     overflow: hidden;
     position: absolute;
-    top: 410px;
+    top: 430px;
     transform: translate(-50%);
     transform-origin: 50% 50%;
     white-space: nowrap;
