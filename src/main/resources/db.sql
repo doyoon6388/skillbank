@@ -204,6 +204,8 @@ from favorite_pro;
 
 delete chat_room;
 
+select * from request;
+select * from RESPONSE;
 select *
 from chat_room;
 
@@ -259,7 +261,11 @@ select * from community_post;
 
 select * from review;
 
+select * from user_account;
 select * from pro_account;
 
-delete user_account where user_name = 'aaa';
+delete pro_account where pro_pk = 33;
+delete user_account where user_pw = 'zzz';
+
+
 
