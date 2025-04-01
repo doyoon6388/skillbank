@@ -40,18 +40,15 @@
                 <h1>${r.request_type}</h1>
                 <div class="btn1">
                     <span class="requestDelete" data-request-no="${r.request_no}">依頼のキャンセル</span>
-
                 </div>
                 <div class="btn2">
                     <button class="myRequestOpenModalBtn" value="${r.request_no}">
                         自分の依頼を見る
                     </button>
-
                 </div>
                 <c:if test="${r.r_pro_pk != 0}">
                     <span class="badge">指定依頼</span>
                 </c:if>
-
             </div>
         </c:forEach>
     </div>
@@ -65,7 +62,6 @@
                         <span class="receiveDate">
                 <fmt:formatDate value="${r.r_date}" pattern="yy.MM.dd"/>
               </span>
-
                     </div>
                     <div class="progress-bar">
                         <div class="progress"

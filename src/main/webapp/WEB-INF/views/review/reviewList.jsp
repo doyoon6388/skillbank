@@ -1,34 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-pageEncoding="utf-8" %>
+         pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/resources/review/review.css">
 </head>
 <body>
 <div class="review-wrapper">
-    <h1>作成中のレビュー</h1>
-    <hr>
-    <c:if test="${empty incompleteReview}">
-        <div>作成中のレビューがありません</div>
-    </c:if>
-    <c:forEach items="${incompleteReview}" var="i">
-<div class="incomplete-review" style="cursor: pointer" onclick="location.href='/mypage/reviewUpdate/${i.review_pk}'">
-${i.review_pro}プロへのレビュー
-</div>
-    </c:forEach>
-    <h1>作成完了レビュー</h1>
-    <hr>
-    <c:if test="${empty completeReview}">
-        <div>作成中のレビューがありません</div>
-    </c:if>
-    <c:forEach items="${completeReview}" var="i">
-        <div class="complete-review" style="cursor: pointer" onclick="location.href='/review/${i.review_pk}'">
-                ${i.review_pro}プロへのレビュー
-        </div>
-    </c:forEach>
+    <div class="review-main-1">
+        <h1>作成中のレビュー</h1>
+        <hr>
+        <c:if test="${empty incompleteReview}">
+            <div>作成中のレビューがありません</div>
+        </c:if>
+        <c:forEach items="${incompleteReview}" var="i">
+            <div class="incomplete-review" style="cursor: pointer"
+                 onclick="location.href='/mypage/reviewUpdate/${i.review_pk}'">
+                    ${i.review_pro}プロへのレビュー
+            </div>
+        </c:forEach>
+    </div>
+    <div class="review-main-1">
+        <h1>作成完了レビュー</h1>
+        <hr>
+        <c:if test="${empty completeReview}">
+            <div>作成中のレビューがありません</div>
+        </c:if>
+        <c:forEach items="${completeReview}" var="i">
+            <div class="complete-review" style="cursor: pointer" onclick="location.href='/review/${i.review_pk}'">
+                    ${i.review_pro}プロへのレビュー
+            </div>
+        </c:forEach>
+    </div>
 </div>
 </body>
 </html>
