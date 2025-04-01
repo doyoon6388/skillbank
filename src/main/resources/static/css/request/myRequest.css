@@ -1,15 +1,8 @@
-/* 제목 스타일 */
-h1 {
-    font-size: 22px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
 /* 버튼 컨테이너 */
 .btn-container {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .btn-container button {
@@ -31,16 +24,6 @@ h1 {
     font-weight: bold;
 }
 
-/* 기본 버튼 스타일 */
-button {
-    background-color: transparent;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 10px 15px;
-}
-
 /* 활성 버튼 */
 #for-btn {
     color: black;
@@ -53,7 +36,6 @@ button {
 /* 탭 스타일 */
 #for-div, #for-div2 {
     display: none;
-    padding: 20px;
     border-radius: 8px;
     background: #fff;
 }
@@ -64,6 +46,19 @@ button {
 
 .request-container {
     margin: 40px auto 0;
+}
+
+.myRequestOpenModalBtn {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+.myRequestOpenModalBtn {
+    opacity: 0.8;
 }
 
 /* 요청 목록 스타일 */
@@ -149,6 +144,11 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
+    height: 400px;
+}
+
+.modalContainer {
+    margin: 0 auto 40px;
 }
 
 .close-btn {
@@ -255,6 +255,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-top: 40px;
     justify-content: center;
 }
 
