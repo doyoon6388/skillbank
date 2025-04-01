@@ -1,0 +1,88 @@
+/* ✅ Pro 회원가입 페이지 전용 스타일 */
+
+.prosign-wrapper {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.prosign-logo {
+    display: block;
+    margin: 0 auto 40px;
+    width: 220px;
+}
+
+.prosign-form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.prosign-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 400px;
+    padding: 40px 30px;
+    border: 1px solid #f3c2a5;
+    border-radius: 20px;
+    background-color: #fffaf7;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.prosign-section {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.prosign-label {
+    margin-bottom: 5px;
+}
+
+.prosign-input {
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.prosign-radio-group {
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    gap: 10px; /* 항목 간 여백 */
+    margin: 20px 0;
+}
+
+.prosign-radio-group label {
+    font-weight: bold; /* 글씨 굵게 */
+    font-size: 16px;
+}
+
+.prosign-radio-group input[type="radio"] {
+    margin-right: 6px;
+}
+
+.prosign-button-container {
+    margin-top: 20px;
+}
+
+.prosign-submit-btn {
+    background-color: #F8B285;
+    width: 402px;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.prosign-submit-btn:hover {
+    background-color: #e79b6a;
+}
