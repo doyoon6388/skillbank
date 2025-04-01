@@ -22,7 +22,7 @@
         <div class="header">
             <div class="header-items">
                 <div onclick="location.href='/main'"><img src="/resources/icons/index/sbLogo.png" class="logo"></div>
-                <div onclick="location.href='my-request?id=${sessionScope.user.user_pk}'">リクエスト</div>
+                <div onclick="location.href='/my-request'">リクエスト</div>
                 <div onclick="location.href='/findpro'">プロサーチ</div>
                 <div onclick="location.href='/community/main'">コミュニティ</div>
             </div>

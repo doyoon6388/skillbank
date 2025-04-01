@@ -18,9 +18,7 @@
                 <c:choose>
                     <c:when test="${sessionScope.user.user_hasPro == 0}">
                         <div>
-                            <button onclick="location.href='/account/pro'">
-                                프로 계정 생성
-                            </button>
+                            <img src="/resources/icons/profile/makeProAccount.png" alt="" onclick="location.href='/account/pro'">
                         </div>
                     </c:when>
                     <c:otherwise>

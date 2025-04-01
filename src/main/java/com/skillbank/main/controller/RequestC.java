@@ -45,10 +45,16 @@ public class RequestC {
     }
 
     @GetMapping("/my-request")
-    public String myRequest2(Model model, HttpSession session, int id, ReqeustVO reqeustVO) {
+    public String myRequestRedirect(HttpSession session) {
+        UserAccountVO user = (UserAccountVO) session.getAttribute("user");
+        return "redirect:/my-request/" + user.getUser_pk();
+    }
+
+    @GetMapping("/my-request/{r_user_id}")
+    public String myRequest2(Model model, HttpSession session, @PathVariable int r_user_id) {
         model.addAttribute("loginCheck", mainService.loginCheck(session));
-        System.out.println(id);
-        model.addAttribute("request", requestService.requestList(id));
+        System.out.println(r_user_id);
+        model.addAttribute("request", requestService.requestList(r_user_id));
         model.addAttribute("page", "request/myRequest.jsp");
 
         return "index";

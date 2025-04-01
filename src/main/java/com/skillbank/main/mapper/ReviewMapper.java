@@ -37,4 +37,7 @@ public interface ReviewMapper {
 
     @Update("update pro_account set pro_review = pro_review + 1 where review_pro = #{review_pro}")
     void updateProReview(ReviewVO reviewVO);
+
+    @Select("select * from review where review_pro = #{pro_pk} and review_complete = 1")
+    List<ReviewVO> getProReviews(int proPk);
 }
