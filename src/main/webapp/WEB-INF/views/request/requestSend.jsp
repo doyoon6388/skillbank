@@ -43,8 +43,8 @@
             <div class="price-type">
                 <h3>金額入力</h3>
                 <div>
-                    <input type="radio" name="r_price_type" value="총비용"/>総費用
-                    <input type="radio" name="r_price_type" value="시간당"/>時間当たり
+                    <input type="radio" name="r_price_type" value="総費用"/>総費用
+                    <input type="radio" name="r_price_type" value="時間当たり"/>時間当たり
                 </div>
             </div>
             <div class="price">

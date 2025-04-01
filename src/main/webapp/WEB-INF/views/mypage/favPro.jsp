@@ -12,11 +12,11 @@
 <body>
 
 <div class="favPro-wrapper">
-    <h1>찜한 고수 목록</h1>
+    <h1>お気に入り　一覧</h1>
 
     <c:choose>
         <c:when test="${empty favPros}">
-            <p>찜한 고수가 없습니다.</p>
+            <p>気にいったプロがいません。</p>
         </c:when>
         <c:otherwise>
             <div class="favPro-list">
@@ -24,9 +24,9 @@
                     <div class="favPro-item">
                         <img src="/file/${pro.pro_profile_img}" alt="고수 프로필 이미지">
                         <div class="favPro-info">
-                            <h2>${pro.pro_name} 고수</h2>
-                            <p>전문 분야: ${pro.pro_category}</p>
-                            <button onclick="location.href='/findpro/detail/${pro.pro_pk}'">프로필 보기</button>
+                            <h2>${pro.pro_name} プロ</h2>
+                            <p>カテゴリ　: ${pro.pro_category}</p>
+                            <button onclick="location.href='/findpro/detail/${pro.pro_pk}'">詳細情報を見る</button>
                         </div>
                     </div>
                 </c:forEach>

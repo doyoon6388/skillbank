@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let deduction = 50;
     const proCash = document.querySelector("#proCash").value;
     if (proCash < 50) {
-      if (confirm("잔액이 부족합니다. 충전 페이지로 이동합니다.")) {
+      if (confirm("残高が足りません。チャージページに移動します。")) {
         window.location.href = "/pro/cash";
       }
       return; // 잔액이 부족하므로 아래 로직 실행 중지
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         } else {
           // 예: 잔액 부족 등 오류 처리
-          alert("잔액이 부족합니다. 충전 페이지로 이동합니다.");
+          alert("残高が足りません。チャージページに移動します。");
           window.location.href = "/pro/cash";
         }
       })
@@ -86,9 +86,9 @@ function makeChatroom(requestNo, user, userName, pro, proName, cloneReqHTML) {
       console.log(data.roomNo);
       console.log(data.success);
       if (data.success === 1) {
-        alert("채팅방이 개설되었습니다.");
+        alert("チャットルームが開設されました。");
       } else {
-        alert("존재하는 채팅을 불러옵니다.");
+        alert("存在するチャットをロードします。");
       }
       sessionStorage.setItem("cloneReqHTML", cloneReqHTML);
       window.location.href = `/test/chat/room/${data.roomNo}`;
