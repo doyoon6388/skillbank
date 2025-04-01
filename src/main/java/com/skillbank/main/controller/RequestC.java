@@ -59,13 +59,10 @@ public String waste(Model model, HttpSession session) {
     @GetMapping("/my-request/{r_user_id}")
     public String myRequest2(Model model, HttpSession session, @PathVariable int r_user_id) {
         model.addAttribute("loginCheck", mainService.loginCheck(session));
-<<<<<<< HEAD
 
-        model.addAttribute("request", requestService.requestList(id));
-=======
         System.out.println(r_user_id);
         model.addAttribute("request", requestService.requestList(r_user_id));
->>>>>>> 7f0be5c9b0e20fa9ae2153febed85ca5f7b35a0c
+
         model.addAttribute("page", "request/myRequest.jsp");
 
         return "index";
