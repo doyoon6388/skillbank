@@ -12,7 +12,7 @@
 <body>
 
 <div class="favPro-wrapper">
-    <h1>お気に入り　一覧</h1>
+    <h1>お気に入り</h1>
 
     <c:choose>
         <c:when test="${empty favPros}">

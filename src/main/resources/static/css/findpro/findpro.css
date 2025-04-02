@@ -51,7 +51,7 @@
     gap: 10px;
     align-items: center;
     padding: 16px 16px;
-    border: 2px solid #ecc5b3; /* 파스텔 블루 보더 */
+    border: 2.5px solid #ffbd9f; /* 파스텔 블루 보더 */
     border-radius: 100px;
     box-sizing: border-box;
     cursor: pointer;
