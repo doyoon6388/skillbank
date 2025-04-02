@@ -55,7 +55,7 @@ window.onload = () => {
                         `<strong>見積書内容:</strong> ${data.r_comment || '정보 없음'}`,
                         `<strong>予想金額:</strong> ${data.r_price ? '総額' + data.r_price + '円' : '정보 없음'}`,
                         `<br>`,
-                        data.pro_profile_img ? `<img src="${data.pro_profile_img}" alt="프로필 이미지" style="width:100px;height:100px;border-radius:50%;">` : '',
+                        data.pro_profile_img ? `<img src="/file/${data.pro_profile_img}" alt="프로필 이미지" style="width:100px;height:100px;border-radius:50%;">` : '',
                         `<strong>プロ名:</strong> ${data.pro_name || '정보 없음'}`,
                         `<strong>カテゴリー:</strong> ${data.pro_category || '정보 없음'}`,
                         `<strong>アドレス:</strong> ${data.pro_address || '정보 없음'}`,
@@ -71,7 +71,7 @@ window.onload = () => {
                     <br>
                     ${responseDetails}
                     <br>
-                    <button class="close-btn" onclick="closeModal('modalContainer2')">닫기</button>
+                    <button class="close-btn" onclick="closeModal('modalContainer2')">閉じる</button>
                 </div>
             `;
                 })
