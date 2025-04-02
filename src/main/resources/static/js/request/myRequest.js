@@ -84,24 +84,21 @@ window.onload = () => {
     });
 };
 
-document.addEventListener("DOMContentLoaded", function (){
+document.addEventListener("DOMContentLoaded", function () {
 
-      let deleteBtns = document.querySelectorAll(".requestDelete");
-     deleteBtns.forEach(function (deleteBtn){
+    let deleteBtns = document.querySelectorAll(".requestDelete");
+    deleteBtns.forEach(function (deleteBtn) {
 
-            deleteBtn.addEventListener("click", function (){
-             let requestNo = deleteBtn.getAttribute("data-request-no");
+        deleteBtn.addEventListener("click", function () {
+            let requestNo = deleteBtn.getAttribute("data-request-no");
 
-                let ok = confirm('本当に削除しますか？');
-            if (ok){
-                location.href=`/request-delete?pk=${requestNo}`;
+            let ok = confirm('本当に削除しますか？');
+            if (ok) {
+                location.href = `/request-delete?pk=${requestNo}`;
             }
 
-            });
+        });
 
 
+    });
 });
-});
-
-
-
