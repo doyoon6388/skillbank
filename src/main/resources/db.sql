@@ -200,9 +200,8 @@ CREATE TABLE favorite_pro
     CONSTRAINT fk_favorite_pro FOREIGN KEY (pro_pk) REFERENCES pro_account (pro_pk) ON DELETE CASCADE
 );
 
-select *
-from favorite_pro;
-
+delete favorite_pro;
+select * from favorite_pro;
 delete chat_room;
 
 select * from request;
