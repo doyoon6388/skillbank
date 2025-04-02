@@ -44,7 +44,7 @@
 
             <!-- 가격 정보 -->
             <div class="proPrice">
-                <span>총 ${p.r_price}원</span>
+                <span>総額 ${p.r_price}円</span>
             </div>
 
             <!-- 버튼 -->
