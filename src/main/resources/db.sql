@@ -249,6 +249,7 @@ alter table review
         review_file varchar2 (200 char) default 'defaultCommuImg.png'
         );
 
+select * from CHAT_ROOM;
 delete chat_room;
 delete review;
 delete community_comment;
