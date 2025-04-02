@@ -17,22 +17,22 @@
         <div>
             <div class="requestSendImg"><img src="/file/${proRequest.user_profile_img}" alt=""/></div>
             <div class="requestSendInfo">
-            <div><span>${proRequest.user_nickname}</span></div>
-            <div><span>${proRequest.request_type}</span></div>
-            <div><span>${proRequest.request10}</span></div>
-            <div><span>${proRequest.request4}</span></div>
-            <div><span>${proRequest.request1}</span></div>
-            <div><span>${proRequest.request2}</span></div>
-            <div><span>${proRequest.request3}</span></div>
-            <div><span>${proRequest.request5}</span></div>
-            <div><span>${proRequest.request6}</span></div>
-            <div><span>${proRequest.request7}</span></div>
-            <div><span>${proRequest.request8}</span></div>
-            <div><span>${proRequest.request9}</span></div>
-            <div><span>${proRequest.request11}</span></div>
-            <div><span>${proRequest.request12}</span></div>
-            <div><span>${proRequest.request13}</span></div>
-            <div><span>${proRequest.request14}</span></div>
+                <div><span>${proRequest.user_nickname}</span></div>
+                <div><span>${proRequest.request_type}</span></div>
+                <div><span>${proRequest.request10}</span></div>
+                <div><span>${proRequest.request4}</span></div>
+                <div><span>${proRequest.request1}</span></div>
+                <div><span>${proRequest.request2}</span></div>
+                <div><span>${proRequest.request3}</span></div>
+                <div><span>${proRequest.request5}</span></div>
+                <div><span>${proRequest.request6}</span></div>
+                <div><span>${proRequest.request7}</span></div>
+                <div><span>${proRequest.request8}</span></div>
+                <div><span>${proRequest.request9}</span></div>
+                <div><span>${proRequest.request11}</span></div>
+                <div><span>${proRequest.request12}</span></div>
+                <div><span>${proRequest.request13}</span></div>
+                <div><span>${proRequest.request14}</span></div>
             </div>
         </div>
     </div>

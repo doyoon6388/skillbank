@@ -32,9 +32,6 @@
         }
         window.onload = function () {
             loadStep(1); // 첫 번째 단계 자동 로드
-
-
-
         };
         let dateval;
 
@@ -116,10 +113,10 @@
                 document.querySelector("#content-3").innerHTML =
                     `<h2>エアコン製造年度</h2>` + bb;
                 document.querySelector("#content-4").innerHTML = `<h2>エアコンのオプション業務も依頼しますか？</h2>
-抗菌加工・抗菌コート：防カビ対策するならマスト！✨<br>
-室外機の洗浄：エアコンの効きがよくなって、電気代の節約にも💰<br>
-ドレンホースの洗浄：水漏れ・悪臭の原因になる詰まりを解消！🌤️<br>
-防虫キャップの取付：ゴキブリなどの害虫の侵入を遮断🚧<br>
+<!--抗菌加工・抗菌コート：防カビ対策するならマスト！✨<br>-->
+<!--室外機の洗浄：エアコンの効きがよくなって、電気代の節約にも💰<br>-->
+<!--ドレンホースの洗浄：水漏れ・悪臭の原因になる詰まりを解消！🌤️<br>-->
+<!--防虫キャップの取付：ゴキブリなどの害虫の侵入を遮断🚧<br>-->
           <div class="items">
            <div class="air">
            <div> <input type="checkbox" name="request5" value="抗菌加工・抗菌コート"> 抗菌加工・抗菌コート<br>
