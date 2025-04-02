@@ -74,7 +74,7 @@ window.onload = () => {
                     <br>
                     <h1> 依頼詳細 </h1>
                     ${requestDetails.map(detail => `<div>${detail}</div>`).join('')}
-                    <button class="close-btn" onclick="closeModal()">닫기</button>
+                    <button class="close-btn" onclick="closeModal()">閉じる</button>
                 `;
             })
                 .catch(error => {
