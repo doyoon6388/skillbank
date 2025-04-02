@@ -28,7 +28,7 @@ h3 {
     width: 200px;
     z-index: 2;
     cursor: pointer;
-    border-left: 1px solid #ddd;
+    border-left: 1.5px solid #ddd;
 }
 
 .community-client-tab div {
@@ -99,7 +99,7 @@ h3 {
 
 .community-client-write {
     padding: 10px;
-    margin: 10px 0 0 15px;
+    margin: 15px 0 0 15px;
     border: none;
     background-color: #f7ab85;
     border-radius: 50px;

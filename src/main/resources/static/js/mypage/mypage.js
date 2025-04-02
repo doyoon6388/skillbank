@@ -105,7 +105,7 @@ window.onload = () => {
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
-                                alert("修正に成功しました");
+                                alert("アップデート完了しました");
                                 item.querySelector('.mypage-info-value').innerText = newValue;
                             } else {
                                 alert("수정 실패: " + data.message);
@@ -113,7 +113,7 @@ window.onload = () => {
                         })
                         .catch(error => {
                             console.error("Error:", error);
-                            alert("서버 오류 발생!");
+                            alert("エラー発生");
                         });
 
                     closeModal(infoModal);
@@ -146,7 +146,7 @@ window.onload = () => {
 
         saveGenderBtn.addEventListener('click', function () {
             if (selectedGender === "") {
-                alert("성별을 선택해주세요.");
+                alert("性別を入力して下さい");
                 return;
             }
 
@@ -158,7 +158,7 @@ window.onload = () => {
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        alert("성별이 업데이트되었습니다.");
+                        alert("アップデート完了しました");
                         document.querySelector('.mypage-info-item[data-field="user_gender"] .mypage-info-value').innerText = selectedGender;
                         closeModal(genderModal);
                     } else {
@@ -167,7 +167,7 @@ window.onload = () => {
                 })
                 .catch(error => {
                     console.error("Error:", error);
-                    alert("서버 오류 발생!");
+                    alert("エラー発生");
                 });
         });
 
