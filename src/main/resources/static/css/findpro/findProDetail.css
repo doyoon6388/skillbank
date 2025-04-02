@@ -94,7 +94,7 @@
     font-size: 16px;
     font-weight: 600;
     padding: 14px 20px;
-    border: 1.5px solid #F8B285;
+    border: 2px solid #F8B285;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -187,15 +187,15 @@
 /* ✅ 프로그래스 바 */
 #progress-container {
     flex-grow: 1;
-    height: 10px;
+    height: 20px;
     background-color: #e0e0e0;
-    border-radius: 5px;
+    border-radius: 25px;
 }
 #progress-bar {
     height: 100%;
     width: 0%;
-    background-color: #4DB2E1;
-    border-radius: 5px;
+    background-color: #F8B285;
+    border-radius: 25px;
     transition: width 0.4s ease-in-out;
 }
 
@@ -245,7 +245,7 @@
 
 /* ✅ 모달 내 버튼 */
 .modal-body button {
-    background-color: #4DB2E1;
+    background-color: #F8B285;
     border: none;
     color: white;
     padding: 10px 18px;
@@ -255,7 +255,7 @@
     margin-top: 20px;
 }
 .modal-body button:hover {
-    background-color: #3aa7d4;
+    background-color: #f48d4b;
 }
 
 /* ✅ 이미지 선택 항목 감싸는 박스 */
