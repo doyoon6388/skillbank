@@ -105,7 +105,7 @@ window.onload = () => {
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
-                                alert("정보가 성공적으로 수정되었습니다.");
+                                alert("修正に成功しました");
                                 item.querySelector('.mypage-info-value').innerText = newValue;
                             } else {
                                 alert("수정 실패: " + data.message);

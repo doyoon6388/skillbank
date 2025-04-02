@@ -15,7 +15,7 @@
     <div class="prosign-form-container">
         <form action="/account/pro" method="post" class="prosign-form">
             <div class="prosign-section">
-                <label class="prosign-label">어떤 일을 전문으로 하시나요 ?_?</label>
+                <label class="prosign-label">専門分野を選択して下さい</label>
                 <div class="prosign-radio-group">
                     <label><input type="radio" name="pro_category" value="引っ越し">引っ越し</label>
                     <label><input type="radio" name="pro_category" value="クリーニング">クリーニング</label>
@@ -24,22 +24,22 @@
             </div>
 
             <div class="prosign-section">
-                <label class="prosign-label">작업장 이름</label>
+                <label class="prosign-label">プロのお名前</label>
                 <input type="text" name="pro_name" class="prosign-input">
             </div>
 
             <div class="prosign-section">
-                <label class="prosign-label">작업장 주소</label>
+                <label class="prosign-label">職場住所</label>
                 <input type="text" name="pro_address" class="prosign-input">
             </div>
 
             <div class="prosign-section">
-                <label class="prosign-label">회사 전화번호</label>
+                <label class="prosign-label">電話番号</label>
                 <input type="text" name="pro_phone" class="prosign-input">
             </div>
 
             <div class="prosign-button-container">
-                <button class="prosign-submit-btn" name="pro_pk" value="${sessionScope.user.user_pk}">제출</button>
+                <button class="prosign-submit-btn" name="pro_pk" value="${sessionScope.user.user_pk}">提出</button>
             </div>
         </form>
     </div>

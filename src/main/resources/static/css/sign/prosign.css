@@ -42,8 +42,9 @@
 }
 
 .prosign-input {
+    box-sizing: border-box;
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 10px;
     border-radius: 8px;
     border: 1px solid #ddd;
     font-size: 14px;

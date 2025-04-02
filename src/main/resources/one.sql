@@ -341,7 +341,7 @@ alter table response
 create sequence request_no_seq;
 insert into request values (request_no_seq.nextval, 66, '청소', sysdate,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4);
 select * from request;
-
+delete request where request_no = 530;
 
 alter table request drop column response_no;
 SELECT CONSTRAINT_NAME, TABLE_NAME, R_CONSTRAINT_NAME, STATUS
@@ -382,5 +382,5 @@ WHERE r.r_user_id = '92';
 select * from request;
 
 
-delete request where request_no = 181;
+delete request where request_no = 544;
 

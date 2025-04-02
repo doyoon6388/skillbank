@@ -13,7 +13,7 @@
         <div class="review-info">
             <input type="text" name="review_pro" class="review-hidden-input" value="${reviewVO.review_pro}"
                    hidden>
-            <h1 class="review-title">カテゴリ</h1>
+            <h1 class="review-title">カテゴリ-</h1>
             <label class="review-radio">
                 <input name="review_category" type="radio" value="원룸/소형 이사" checked> ワンルーム／小型引っ越し
             </label>
@@ -28,7 +28,8 @@
             <br>
             タイトル　： <input type="text" name="review_title" class="review-input" value="${reviewVO.review_title}"
                               placeholder="${reviewVO.review_title}"> <br>
-            内容　：　<textarea name="review_txt" class="review-textarea" cols="30" rows="10">${reviewVO.review_txt}</textarea>
+            内容　：　<textarea name="review_txt" class="review-textarea" cols="30"
+                             rows="10">${reviewVO.review_txt}</textarea>
             <br>
 
             <!-- 파일 업로드 영역 -->
@@ -58,6 +59,7 @@
             <input type="hidden" name="review_star" id="ratingValue" value="0">
 
             <button type="submit" name="review_complete" value="1" class="review-submit-button">登録</button>
+        </div>
     </form>
 </div>
 <script src="/resources/js/review/review.js"></script>

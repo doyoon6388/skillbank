@@ -1,7 +1,7 @@
 /* 리뷰 폼 전체 컨테이너 */
 .review-form-container {
     max-width: 600px;
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 20px;
     border: 1px solid #ddd;
     background-color: #fff;

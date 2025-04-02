@@ -55,7 +55,7 @@ function loadCleaningStep(step) {
                     ${renderCheckboxImage("天井吊り型", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYdBTDKvjbTLf7xUPbugA0Xh1s3sZLvLHjQA&s")}
                     ${renderCheckboxImage("床置き", "https://m.leesoo.co.kr/web/product/big/202211/43b6d9609baf1f702eb7f86c281059d7.jpg")}
                 </div>
-                <button onClick="loadCleaningStep(2)">다음</button>
+                <button onClick="loadCleaningStep(2)">次へ</button>
             `);
             break;
         case 2:
@@ -71,7 +71,7 @@ function loadCleaningStep(step) {
                     ${renderRadio("request2", "3台")}
                     ${renderRadio("request2", "4台")}
                     ${renderRadio("request2", "5台以上")}
-                    <button onclick="loadCleaningStep(3)">다음</button>
+                    <button onclick="loadCleaningStep(3)">次へ</button>
                 </div>
             `);
             break;
@@ -88,7 +88,7 @@ function loadCleaningStep(step) {
                         ${renderRadio("request3", "11-15年")}
                         ${renderRadio("request3", "16年以上")}
                         ${renderRadio("request3", "分からない")}
-                        <button onclick="loadCleaningStep(4)">다음</button>
+                        <button onclick="loadCleaningStep(4)">次へ</button>
                     </div>
                 `);
             }
@@ -106,7 +106,7 @@ function loadCleaningStep(step) {
                         ${renderCheckboxImage("ドレンホースの洗浄", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5k3I2Q5N9oLTby_ytIdYSEM-GlTg9wCCBlA&s")}
                         ${renderCheckboxImage("防虫キャップの取り付け", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8zUjOab8ePMmEhgWeA5CIngT_S5qQ9ZKjVA&s")}
                     </div>
-                    <button onclick="loadCleaningStep(5)">다음</button>
+                    <button onclick="loadCleaningStep(5)">次へ</button>
                 `);
             }
             break;
@@ -118,7 +118,7 @@ function loadCleaningStep(step) {
             renderContent(5, `
                 <h2>ご希望の日付を入力してください</h2>
                 <input type="date" id="date-input">
-                <button onclick="loadCleaningStep(6)">다음</button>
+                <button onclick="loadCleaningStep(6)">次へ</button>
             `);
             document.getElementById("date-input").addEventListener("change", (e) => {
                 dateval = e.target.value;
@@ -130,8 +130,8 @@ function loadCleaningStep(step) {
             }
             renderContent(5, `<h2>選択した日付</h2><p>${dateval}</p>`);
             renderContent(6, `
-                <h1>지금 무료 견적 받아보세요.</h1>
-                <div><button>견적 요청하기</button></div>
+                <h1>無料で見積もりチェック！</h1>
+                <div><button>見積もり要請</button></div>
             `);
             break;
         default:
@@ -228,7 +228,7 @@ function loadMovingStep(step) {
                     ${renderRadio("request1", "일반이사")}
                     ${renderRadio("request1", "반포장이사")}
                     ${renderRadio("request1", "포장이사")}
-                    <button onclick="loadMovingStep(2)">다음</button>
+                    <button onclick="loadMovingStep(2)">次へ</button>
                 </div>
             `);
             break;
@@ -243,7 +243,7 @@ function loadMovingStep(step) {
                 <div class="items">
                     ${renderRadio("request2", "가능")}
                     ${renderRadio("request2", "불가능")}
-                    <button onclick="loadMovingStep(3)">다음</button>
+                    <button onclick="loadMovingStep(3)">次へ</button>
                 </div>
             `);
             break;
@@ -262,7 +262,7 @@ function loadMovingStep(step) {
                         <input type="radio" name="request3" value="기타" id="etcCheck"> 기타
                     </label>
                     <textarea id="etcInput" placeholder="직접 입력" style="display:none;"></textarea>
-                    <button onclick="loadMovingStep(4)">다음</button>
+                    <button onclick="loadMovingStep(4)">次へ</button>
                 </div>
             `);
 
@@ -292,7 +292,7 @@ function loadMovingStep(step) {
             renderContent(4, `
                 <h2>이사 예정일을 선택해주세요.</h2>
                 <input type="date" id="date-input">
-                <button onclick="loadMovingStep(5)">다음</button>
+                <button onclick="loadMovingStep(5)">次へ</button>
             `);
 
             document.getElementById("date-input").addEventListener("change", (e) => {
@@ -310,7 +310,7 @@ function loadMovingStep(step) {
                 <div class="items">
                     ${["오전 9시이전", "오전 9시~12시", "오후 12시~3시", "오후 3시~6시", "오후 9시 이후"]
                 .map(time => renderRadio("request5", time)).join('')}
-                    <button onclick="loadMovingStep(6)">다음</button>
+                    <button onclick="loadMovingStep(6)">次へ</button>
                 </div>
             `);
             break;
@@ -329,7 +329,7 @@ function loadMovingStep(step) {
                 ${renderCheckbox("request6", "세탁기")}
                 ${renderCheckbox("request6", "TV")}
                 ${renderCheckbox("request6", "에어컨")}
-                <button onclick="loadMovingStep(7)">다음</button>
+                <button onclick="loadMovingStep(7)">次へ</button>
             </div>
             `);
             break;
@@ -348,7 +348,7 @@ function loadMovingStep(step) {
                     ${renderCheckbox("request7", "가스레인지")}
                     ${renderCheckbox("request7", "청소기")}
                     ${renderCheckbox("request7", "없음")}
-                    <button onclick="loadMovingStep(8)">다음</button>
+                    <button onclick="loadMovingStep(8)">次へ</button>
                 </div>
             `);
             break;
@@ -368,7 +368,7 @@ function loadMovingStep(step) {
                     ${renderCheckbox("request8", "의자")}
                     ${renderCheckbox("request8", "옷장")}
                     ${renderCheckbox("request8", "없음")}
-                    <button onclick="loadMovingStep(9)">다음</button>
+                    <button onclick="loadMovingStep(9)">次へ</button>
                 </div>
             `);
             break;
@@ -387,7 +387,7 @@ function loadMovingStep(step) {
                     ${renderRadio("request9", "박스 6~10개")}
                     ${renderRadio("request9", "박스 11~15개")}
                     ${renderRadio("request9", "박스 16개 이상")}
-                    <button onclick="loadMovingStep(10)">다음</button>
+                    <button onclick="loadMovingStep(10)">次へ</button>
                 </div>
             `);
             break;
@@ -405,7 +405,7 @@ function loadMovingStep(step) {
                     ${renderRadio("request10", "경기")}
                     ${renderRadio("request10", "인천")}
                     ${renderRadio("request10", "지방")}
-                    <button onclick="loadMovingStep(11)">다음</button>
+                    <button onclick="loadMovingStep(11)">次へ</button>
                 </div>
             `);
             break;
@@ -424,7 +424,7 @@ function loadMovingStep(step) {
                     ${renderRadio("request11", "3층")}
                     ${renderRadio("request11", "4층")}
                     ${renderRadio("request11", "5층 이상")}
-                    <button onclick="loadMovingStep(12)">다음</button>
+                    <button onclick="loadMovingStep(12)">次へ</button>
                 </div>
             `);
             break;
@@ -442,7 +442,7 @@ function loadMovingStep(step) {
                     ${renderRadio("request12", "경기")}
                     ${renderRadio("request12", "인천")}
                     ${renderRadio("request12", "지방")}
-                    <button onclick="loadMovingStep(13)">다음</button>
+                    <button onclick="loadMovingStep(13)">次へ</button>
                 </div>
             `);
             break;
@@ -461,7 +461,7 @@ function loadMovingStep(step) {
                     ${renderRadio("request13", "3층")}
                     ${renderRadio("request13", "4층")}
                     ${renderRadio("request13", "5층 이상")}
-                    <button onclick="loadMovingStep(14)">다음</button>
+                    <button onclick="loadMovingStep(14)">次へ</button>
                 </div>
             `);
             break;
@@ -479,7 +479,7 @@ function loadMovingStep(step) {
                     ${renderCheckbox("request14", "엘리베이터 없음")}
                     ${renderCheckbox("request14", "주차 불편")}
                     ${renderCheckbox("request14", "계단만 있음")}
-                    <button onclick="loadMovingStep(15)">다음</button>
+                    <button onclick="loadMovingStep(15)">次へ</button>
                 </div>
             `);
             break;
