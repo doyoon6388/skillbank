@@ -26,7 +26,8 @@
                 <div class="findpro-info">
                     <p>${proDetail.pro_category}</p>
                     <p>${proDetail.pro_name}</p>
-                    <p style="cursor: pointer;" onclick="location.href='/review/pro/${proDetail.pro_pk}'">📝 ${proDetail.pro_review}</p>
+                    <p style="cursor: pointer;" onclick="location.href='/review/pro/${proDetail.pro_pk}'">
+                        📝 ${proDetail.pro_review}</p>
                 </div>
                 <div class="favorite-div">
                     <div class="findpro-favorite-btn">

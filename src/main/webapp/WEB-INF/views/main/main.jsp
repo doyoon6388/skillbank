@@ -20,13 +20,13 @@
                 <img class="main-request-img"
                      src="/resources/images/main/deli.png"
                      alt=""/>
-                <span>ワンルーム/ 小型引っ越し</span>
+                <span>小型引っ越し</span>
             </div>
             <div class="main-request" onclick="location.href='/clean'">
                 <img class="main-request-img"
                      src="/resources/images/main/aircon.png"
                      alt=""/>
-                <span>エアコンクリーニング</span>
+                <span>エアコン掃除</span>
             </div>
             <div class="main-request" onclick="location.href='/waste'">
                 <img class="main-request-img"

@@ -59,6 +59,7 @@
             <input type="hidden" name="review_star" id="ratingValue" value="0">
 
             <button type="submit" name="review_complete" value="1" class="review-submit-button">登録</button>
+        </div>
     </form>
 </div>
 <script src="/resources/js/review/review.js"></script>

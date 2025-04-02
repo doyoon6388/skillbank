@@ -25,7 +25,7 @@
                         <img src="/file/${pro.pro_profile_img}" alt="고수 프로필 이미지">
                         <div class="favPro-info">
                             <h2>${pro.pro_name} プロ</h2>
-                            <p>カテゴリ　: ${pro.pro_category}</p>
+                            <p>カテゴリ- : ${pro.pro_category}</p>
                             <button onclick="location.href='/findpro/detail/${pro.pro_pk}'">詳細情報を見る</button>
                         </div>
                     </div>
