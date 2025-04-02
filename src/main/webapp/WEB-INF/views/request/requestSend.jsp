@@ -16,6 +16,7 @@
     <div class="responseContainer">
         <div>
             <div class="requestSendImg"><img src="/file/${proRequest.user_profile_img}" alt=""/></div>
+            <div class="requestSendInfo">
             <div><span>${proRequest.user_nickname}</span></div>
             <div><span>${proRequest.request_type}</span></div>
             <div><span>${proRequest.request10}</span></div>
@@ -32,6 +33,7 @@
             <div><span>${proRequest.request12}</span></div>
             <div><span>${proRequest.request13}</span></div>
             <div><span>${proRequest.request14}</span></div>
+            </div>
         </div>
     </div>
     <div class="requestContainer">
