@@ -8,9 +8,9 @@
 
 /* ✅ 왼쪽 요청 정보 섹션 */
 .responseContainer {
-    background: white;
+    background-color: white;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 2.5px solid #6abcec;
     border-radius: 10px;
     width: 200px;
     display: flex;
@@ -30,9 +30,15 @@
 
 .responseContainer span {
     font-size: 16px;
+    font-weight: bold;
     color: #555;
     display: block;
     margin-bottom: 8px;
+}
+
+.requestSendInfo div:first-child span {
+    font-size: 20px;
+    margin: 15px auto;
 }
 
 /* ✅ 오른쪽 견적 입력 섹션 */
@@ -41,7 +47,7 @@
     top: 0;
     background-color: white;
     width: 600px;
-    border: 1px solid #ddd;
+    border: 2.5px solid #6abcec;
     border-radius: 10px;
     padding: 20px 40px;
 }
@@ -62,7 +68,7 @@
     box-sizing: border-box;
     width: 100%;
     padding: 10px;
-    border: 1px solid #d1d5db;
+    border: 1.5px solid #acacac;
     border-radius: 5px;
     font-size: 14px;
 }
@@ -72,7 +78,7 @@
     box-sizing: border-box;
     width: 100%;
     padding: 10px;
-    border: 1px solid #d1d5db;
+    border: 1.5px solid #acacac;
     border-radius: 5px;
     font-size: 14px;
     height: 120px;
