@@ -71,7 +71,7 @@ window.onload = () => {
                     <br>
                     ${responseDetails}
                     <br>
-                    <button class="close-btn" onclick="closeModal('modalContainer2')">닫기</button>
+                    <button class="close-btn" onclick="closeModal('modalContainer2')">閉じる</button>
                 </div>
             `;
                 })
