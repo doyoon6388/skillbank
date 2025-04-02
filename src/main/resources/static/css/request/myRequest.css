@@ -335,13 +335,22 @@
 
 .receiveBtn button:hover {
     background-color: #0056b3;
-
 }
 
 .myRquestDate {
     display: flex; /* 가로 배치 */
     align-items: center; /* 세로 정렬 */
     gap: 10px; /* 요소 간 간격 */
+}
+
+.myRequestOpenModalBtn2 {
+    background-color: #2D9CDB;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .badge {
