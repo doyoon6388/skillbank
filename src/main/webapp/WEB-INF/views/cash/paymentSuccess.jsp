@@ -9,7 +9,8 @@
 <body>
 <div class="cash-success-wrapper">
     <!-- ✅ 결제 완료 아이콘 -->
-    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt="" style="width: 220px; margin: 60px 0 40px;">
+    <img class="login-Logo" src="/resources/images/login/loginlogo.png" alt=""
+         style="width: 220px; margin: 60px 0 40px;">
 
     <!-- ✅ 보유 금액 -->
     <div class="cash-balance">
@@ -22,7 +23,7 @@
     </div>
 
     <!-- ✅ 홈으로 이동 버튼 -->
-    <button class="cash-home-button" onclick="location.href='/main'">홈으로 이동</button>
+    <button class="cash-home-button" onclick="location.href='/main'">ホームへ</button>
 </div>
 </body>
 </html>

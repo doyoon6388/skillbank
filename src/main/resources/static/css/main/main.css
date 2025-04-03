@@ -14,8 +14,8 @@
 }
 
 .mainRequestWrapper img {
-    width: 50px; /* 정사각형 크기 */
-    height: 50px;
+    width: 70px; /* 정사각형 크기 */
+    height: 70px;
     object-fit: cover; /* 품질 유지 및 크롭 */
     border-radius: 10px; /* 모서리를 둥글게 */
 }
@@ -23,7 +23,7 @@
 .mainRequestWrapper span {
     display: block; /* 아래로 정렬 */
     margin-top: 10px; /* 이미지와 텍스트 간격 */
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
 }
 

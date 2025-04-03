@@ -6,7 +6,6 @@
 <head>
     <meta charset="UTF-8">
     <title>견적 요청</title>
-
     <link rel="stylesheet" href="resources/css/request/myRequest.css">
     <script src="/resources/js/request/myRequest2.js"></script>
 </head>
