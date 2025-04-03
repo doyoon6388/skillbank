@@ -57,7 +57,7 @@
 
 /* ✅ 프로필 보기 버튼 */
 .favPro-info button {
-    background-color: #2D9CDB;
+    background-color: #f8b285;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -68,5 +68,5 @@
 
 /* 🔥 버튼 호버 효과 */
 .favPro-info button:hover {
-    background-color: #217AB7;
+    background-color: #f89659;
 }

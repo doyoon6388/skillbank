@@ -13,7 +13,6 @@
 <%--
 <input name="r_user_id" value="${sessionScope.user.user_pk}" hidden="hidden">
 --%>
-
 <div class="receiveWrapper">
     <c:forEach items="${proRequest}" var="p">
         <div onclick="location.href='/request-send?no=${p.request_no}&userId=${p.r_user_id}'" class="receiveContainer"

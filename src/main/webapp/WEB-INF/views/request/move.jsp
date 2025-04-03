@@ -18,15 +18,13 @@
     </style>
     <script>
         function updateProgressBar(step) {
-    let totalSteps = 12; // 전체 스텝 개수
-    let progressPercentage = (step / totalSteps) * 100;
-    document.getElementById("progress-bar").style.width = progressPercentage + "%";
-    }
+            let totalSteps = 12; // 전체 스텝 개수
+            let progressPercentage = (step / totalSteps) * 100;
+            document.getElementById("progress-bar").style.width = progressPercentage + "%";
+        }
 
         window.onload = function () {
             loadStep(1); // 첫 번째 단계 자동 로드
-
-
         };
         let dateval;
 
@@ -35,7 +33,7 @@
             if (a == 1) {
                 document.querySelector("#content-1").innerHTML = `<h2>이사 종류를 선택해주세요.</h2>
             <div class="items">
-            <input type="radio" name="request1" value="일반이사"/>일반이사<br>
+            <input type="radio" name="request1" value="일반이사"/> 일반이사 <br>
             <input type ="radio" name = "request1" value = "반포장이사"/> 반포장이사 <br/>
                 <input type = "radio" name="request1" value="포장이사"/> 포장이사 <br/>
                <button onClick = "validateStep1(event)">次へ</button>
@@ -97,19 +95,19 @@
                 // 기타 선택 시 textarea 값 저장
                 event.preventDefault();
                 if (etcCheck.checked) {
-                if (etcInput.value.trim() === "") {
-                    alert("기타 항목을 입력해주세요.");
+                    if (etcInput.value.trim() === "") {
+                        alert("기타 항목을 입력해주세요.");
+                        return;
+                    }
+                    bb = etcInput.value.trim();
+                } else if (selectMove) {
+                    // 원룸 or 투룸 선택 시 해당 값 저장
+                    bb = selectMove.value;
+                } else {
+                    alert("이사 규모를 선택해주세요.");
                     return;
                 }
-                bb = etcInput.value.trim();
-            } else if (selectMove) {
-                // 원룸 or 투룸 선택 시 해당 값 저장
-                bb = selectMove.value;
-            } else {
-                alert("이사 규모를 선택해주세요.");
-                return;
-            }
-                    document.getElementById("request3").value = bb;
+                document.getElementById("request3").value = bb;
 
                 document.querySelector("#content-3").innerHTML =
                     `<h2>이사 규모</h2>` + bb;

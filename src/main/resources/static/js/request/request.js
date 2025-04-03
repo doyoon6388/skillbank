@@ -72,8 +72,8 @@ function validateStep5(event) {
         return;
     }*/
 
-  /*  document.getElementById("request7").value = selectedOption.value; // 값 저장
-    loadStep(8);
+/*  document.getElementById("request7").value = selectedOption.value; // 값 저장
+  loadStep(8);
 }*/
 
 function validateStep7(event) {
