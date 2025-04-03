@@ -268,5 +268,6 @@ select * from pro_account;
 delete pro_account where pro_pk = 33;
 delete user_account where user_pw = 'zzz';
 
+update pro_account set pro_favorite = 0;
 
 
