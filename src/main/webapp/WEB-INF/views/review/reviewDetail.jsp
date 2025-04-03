@@ -17,21 +17,21 @@ pageEncoding="utf-8" %>
 
     <!-- 리뷰 작성자 및 프로 정보 -->
     <div class="review-detail-meta">
-        <span class="review-detail-pro">프로님: ${reviewVO.review_pro}</span>
-        <span class="review-detail-client">작성자: ${reviewVO.review_client}</span>
-        <span class="review-detail-date">작성일:
+        <span class="review-detail-pro">プロ: ${reviewVO.review_pro}</span>
+        <span class="review-detail-client">クライアント: ${reviewVO.review_client}</span>
+        <span class="review-detail-date">投稿日:
         <fmt:formatDate value="${reviewVO.review_date}" pattern="yyyy-MM-dd"/>
       </span>
     </div>
 
     <!-- 카테고리 -->
     <div class="review-detail-category">
-        카테고리: ${reviewVO.review_category}
+        カテゴリー　: ${reviewVO.review_category}
     </div>
 
     <!-- 별점 표시 -->
     <div class="review-detail-star">
-        <span>별점: </span>
+        <span>スコア　： </span>
         <c:forEach var="i" begin="1" end="5">
             <c:choose>
                 <c:when test="${i <= reviewVO.review_star}">
@@ -52,7 +52,6 @@ pageEncoding="utf-8" %>
     <!-- 첨부 파일 영역 (파일명이 '!' 구분자로 연결되어 있다고 가정) -->
     <c:if test="${not empty reviewVO.review_file}">
         <div class="review-detail-files">
-            <h3>첨부 파일</h3>
             <c:forEach var="fileName" items="${fn:split(reviewVO.review_file, '!')}">
                 <c:if test="${not empty fileName}">
                     <div class="review-file-item">

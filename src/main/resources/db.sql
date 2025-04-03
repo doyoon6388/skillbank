@@ -200,9 +200,8 @@ CREATE TABLE favorite_pro
     CONSTRAINT fk_favorite_pro FOREIGN KEY (pro_pk) REFERENCES pro_account (pro_pk) ON DELETE CASCADE
 );
 
-select *
-from favorite_pro;
-
+delete favorite_pro;
+select * from favorite_pro;
 delete chat_room;
 
 select * from request;
@@ -250,6 +249,7 @@ alter table review
         review_file varchar2 (200 char) default 'defaultCommuImg.png'
         );
 
+select * from CHAT_ROOM;
 delete chat_room;
 delete review;
 delete community_comment;
@@ -268,5 +268,6 @@ select * from pro_account;
 delete pro_account where pro_pk = 33;
 delete user_account where user_pw = 'zzz';
 
+update pro_account set pro_favorite = 0;
 
 

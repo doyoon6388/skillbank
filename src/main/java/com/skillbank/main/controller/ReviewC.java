@@ -82,7 +82,7 @@ public class ReviewC {
             UUID uuid = UUID.randomUUID();
             String fileName = uuid.toString().split("-")[0] + fileExtension;
             File saveFile = new File(uploadFolder + File.separator + fileName);
-            fileNames += fileName + "!";
+            fileNames += fileName;
             try {
                 file.transferTo(saveFile);
             } catch (Exception e) {
