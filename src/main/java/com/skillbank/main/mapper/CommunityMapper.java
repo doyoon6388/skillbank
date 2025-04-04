@@ -71,7 +71,7 @@ public interface CommunityMapper {
     @Select("SELECT * FROM (SELECT * FROM community_post ORDER BY commu_like DESC) WHERE ROWNUM <= 3")
     List<CommunityPostVO> getTop3LikedPosts();
 
-    @Select("SELECT * FROM (SELECT * FROM review where review_complete = 1 ORDER BY review_star DESC) WHERE ROWNUM <= 3")
+    @Select("SELECT * FROM (SELECT * FROM review where review_complete = 1 ORDER BY review_star DESC, review_date DESC) WHERE ROWNUM <= 3")
     List<ReviewVO> getTop3RatedPosts();
 
     @Select("select * from review where review_complete = 1")
